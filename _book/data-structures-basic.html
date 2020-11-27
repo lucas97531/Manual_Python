@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 DATA STRUCTURES - basic | Introduction to Python</title>
+  <meta name="description" content="Chapter 6 DATA STRUCTURES - basic | Introduction to Python" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 DATA STRUCTURES - basic | Introduction to Python" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 DATA STRUCTURES - basic | Introduction to Python" />
+  
+  
+  
+
+<meta name="author" content="Łukasz Muszyński" />
+
+
+<meta name="date" content="2019-08-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="inkrementacja-daty.html">
+<link rel="next" href="data-structures-pandas.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introdution to Python</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> INTRO</a></li>
+<li class="part"><span><b>I <lfg>PROGRAMMING</lfg></b></span></li>
+<li class="chapter" data-level="2" data-path="syntax.html"><a href="syntax.html"><i class="fa fa-check"></i><b>2</b> Syntax</a><ul>
+<li class="chapter" data-level="2.1" data-path="syntax.html"><a href="syntax.html#operatory-logiczne"><i class="fa fa-check"></i><b>2.1</b> operatory logiczne</a></li>
+<li class="chapter" data-level="2.2" data-path="syntax.html"><a href="syntax.html#podstawowe-komendy-i-funkcje"><i class="fa fa-check"></i><b>2.2</b> podstawowe komendy i funkcje</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="syntax.html"><a href="syntax.html#sprawdzenie-typu-obiektu"><i class="fa fa-check"></i><b>2.2.1</b> sprawdzenie typu obiektu</a></li>
+<li class="chapter" data-level="2.2.2" data-path="syntax.html"><a href="syntax.html#inne-komendy-i-funkcje"><i class="fa fa-check"></i><b>2.2.2</b> inne komendy i funkcje</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="syntax.html"><a href="syntax.html#control-flow"><i class="fa fa-check"></i><b>2.3</b> control flow</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="syntax.html"><a href="syntax.html#if-else"><i class="fa fa-check"></i><b>2.3.1</b> if else</a></li>
+<li class="chapter" data-level="2.3.2" data-path="syntax.html"><a href="syntax.html#petla-for"><i class="fa fa-check"></i><b>2.3.2</b> petla ‘for’</a></li>
+<li class="chapter" data-level="2.3.3" data-path="syntax.html"><a href="syntax.html#petla-while"><i class="fa fa-check"></i><b>2.3.3</b> petla ‘while’</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="syntax.html"><a href="syntax.html#indicies"><i class="fa fa-check"></i><b>2.4</b> Indicies</a></li>
+<li class="chapter" data-level="2.5" data-path="syntax.html"><a href="syntax.html#shallow-and-deep-copies"><i class="fa fa-check"></i><b>2.5</b> shallow and deep copies</a></li>
+<li class="chapter" data-level="2.6" data-path="syntax.html"><a href="syntax.html#generators"><i class="fa fa-check"></i><b>2.6</b> generators</a></li>
+<li class="chapter" data-level="2.7" data-path="syntax.html"><a href="syntax.html#dynamic-code"><i class="fa fa-check"></i><b>2.7</b> dynamic code</a></li>
+<li class="chapter" data-level="2.8" data-path="syntax.html"><a href="syntax.html#errors-and-warning"><i class="fa fa-check"></i><b>2.8</b> errors and warning</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="syntax.html"><a href="syntax.html#try"><i class="fa fa-check"></i><b>2.8.1</b> try</a></li>
+<li class="chapter" data-level="2.8.2" data-path="syntax.html"><a href="syntax.html#assertion"><i class="fa fa-check"></i><b>2.8.2</b> assertion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html"><i class="fa fa-check"></i><b>3</b> FUNCTIONS AND ENVIROMENTS</a><ul>
+<li class="chapter" data-level="3.1" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#podstawowa-skadnia"><i class="fa fa-check"></i><b>3.1</b> podstawowa składnia</a></li>
+<li class="chapter" data-level="3.2" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#przekazywanie-argumentow-przez-wartosc-a-przekazywanie-przez-referencje"><i class="fa fa-check"></i><b>3.2</b> przekazywanie argumentow przez wartosc a przekazywanie przez referencje</a></li>
+<li class="chapter" data-level="3.3" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#funkcje-anonimowe"><i class="fa fa-check"></i><b>3.3</b> funkcje anonimowe</a></li>
+<li class="chapter" data-level="3.4" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#programowanie-funkcyjne"><i class="fa fa-check"></i><b>3.4</b> programowanie funkcyjne</a></li>
+<li class="chapter" data-level="3.5" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#wektoryzacja-funkcji"><i class="fa fa-check"></i><b>3.5</b> wektoryzacja funkcji</a></li>
+<li class="chapter" data-level="3.6" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#rekurencja"><i class="fa fa-check"></i><b>3.6</b> rekurencja</a></li>
+<li class="chapter" data-level="3.7" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#zakres-istnienia-zmiennych-scoping-rules"><i class="fa fa-check"></i><b>3.7</b> zakres istnienia zmiennych (scoping rules)</a></li>
+<li class="chapter" data-level="3.8" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#dekoratory"><i class="fa fa-check"></i><b>3.8</b> dekoratory</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>4</b> DATA TYPES</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-types.html"><a href="data-types.html#liczby"><i class="fa fa-check"></i><b>4.1</b> liczby</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="data-types.html"><a href="data-types.html#tworzenie"><i class="fa fa-check"></i><b>4.1.1</b> tworzenie</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-types.html"><a href="data-types.html#ciagi"><i class="fa fa-check"></i><b>4.1.2</b> Ciagi</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-types.html"><a href="data-types.html#rozne-funkcje"><i class="fa fa-check"></i><b>4.1.3</b> rozne funkcje</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-types.html"><a href="data-types.html#text"><i class="fa fa-check"></i><b>4.2</b> text</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="data-types.html"><a href="data-types.html#tworzenie-statyczne"><i class="fa fa-check"></i><b>4.2.1</b> tworzenie statyczne</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-types.html"><a href="data-types.html#tworzenie-dynamiczne---nowa-skladnia-z-funkcja-format"><i class="fa fa-check"></i><b>4.2.2</b> Tworzenie dynamiczne - nowa skladnia z funkcja ‘format’</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-types.html"><a href="data-types.html#tworzenie-dynamiczne---stara-skladnia"><i class="fa fa-check"></i><b>4.2.3</b> Tworzenie dynamiczne - stara skladnia</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-types.html"><a href="data-types.html#multiline-string"><i class="fa fa-check"></i><b>4.2.4</b> multiline string</a></li>
+<li class="chapter" data-level="4.2.5" data-path="data-types.html"><a href="data-types.html#odwolywanie-sie-do-podstringow"><i class="fa fa-check"></i><b>4.2.5</b> odwolywanie sie do podstringow</a></li>
+<li class="chapter" data-level="4.2.6" data-path="data-types.html"><a href="data-types.html#szukanie-pozycji-podstringow"><i class="fa fa-check"></i><b>4.2.6</b> szukanie pozycji podstringow</a></li>
+<li class="chapter" data-level="4.2.7" data-path="data-types.html"><a href="data-types.html#modyfikacja"><i class="fa fa-check"></i><b>4.2.7</b> modyfikacja</a></li>
+<li class="chapter" data-level="4.2.8" data-path="data-types.html"><a href="data-types.html#rozne-podstawowe-operacje-i-funkcje-zwiazane-ze-stringami"><i class="fa fa-check"></i><b>4.2.8</b> rozne podstawowe operacje i funkcje zwiazane ze stringami</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-types.html"><a href="data-types.html#wyrazenie-regularne"><i class="fa fa-check"></i><b>4.3</b> wyrazenie regularne</a></li>
+<li class="chapter" data-level="4.4" data-path="data-types.html"><a href="data-types.html#daty"><i class="fa fa-check"></i><b>4.4</b> daty</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="data-types.html"><a href="data-types.html#tworzenie-dat"><i class="fa fa-check"></i><b>4.4.1</b> tworzenie dat</a></li>
+<li class="chapter" data-level="4.4.2" data-path="data-types.html"><a href="data-types.html#atrybuty-daty"><i class="fa fa-check"></i><b>4.4.2</b> atrybuty daty</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="inkrementacja-daty.html"><a href="inkrementacja-daty.html"><i class="fa fa-check"></i><b>5</b> inkrementacja daty</a><ul>
+<li class="chapter" data-level="5.1" data-path="inkrementacja-daty.html"><a href="inkrementacja-daty.html#roznice-dat"><i class="fa fa-check"></i><b>5.1</b> roznice dat</a></li>
+<li class="chapter" data-level="5.2" data-path="inkrementacja-daty.html"><a href="inkrementacja-daty.html#zmiana-wartosci"><i class="fa fa-check"></i><b>5.2</b> zmiana wartosci</a></li>
+<li class="chapter" data-level="5.3" data-path="inkrementacja-daty.html"><a href="inkrementacja-daty.html#zaokraglanie-dat"><i class="fa fa-check"></i><b>5.3</b> zaokraglanie dat</a></li>
+<li class="chapter" data-level="5.4" data-path="inkrementacja-daty.html"><a href="inkrementacja-daty.html#generowanie-ciagu-dat"><i class="fa fa-check"></i><b>5.4</b> generowanie ciagu dat</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-structures-basic.html"><a href="data-structures-basic.html"><i class="fa fa-check"></i><b>6</b> DATA STRUCTURES - basic</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#listy"><i class="fa fa-check"></i><b>6.1</b> listy</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#atrybuty-listy"><i class="fa fa-check"></i><b>6.1.1</b> atrybuty listy</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-listy"><i class="fa fa-check"></i><b>6.1.2</b> tworzenie listy</a></li>
+<li class="chapter" data-level="6.1.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#dodawanie-wartosci"><i class="fa fa-check"></i><b>6.1.3</b> dodawanie wartosci</a></li>
+<li class="chapter" data-level="6.1.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#aktualizacja-wartosci"><i class="fa fa-check"></i><b>6.1.4</b> aktualizacja wartosci</a></li>
+<li class="chapter" data-level="6.1.5" data-path="data-structures-basic.html"><a href="data-structures-basic.html#usuwanie"><i class="fa fa-check"></i><b>6.1.5</b> usuwanie</a></li>
+<li class="chapter" data-level="6.1.6" data-path="data-structures-basic.html"><a href="data-structures-basic.html#filtrowanie"><i class="fa fa-check"></i><b>6.1.6</b> filtrowanie</a></li>
+<li class="chapter" data-level="6.1.7" data-path="data-structures-basic.html"><a href="data-structures-basic.html#wyszukiwanie-indeksu"><i class="fa fa-check"></i><b>6.1.7</b> wyszukiwanie indeksu</a></li>
+<li class="chapter" data-level="6.1.8" data-path="data-structures-basic.html"><a href="data-structures-basic.html#sortowanie"><i class="fa fa-check"></i><b>6.1.8</b> sortowanie</a></li>
+<li class="chapter" data-level="6.1.9" data-path="data-structures-basic.html"><a href="data-structures-basic.html#operowanie-funkcjami-na-elementach"><i class="fa fa-check"></i><b>6.1.9</b> operowanie funkcjami na elementach</a></li>
+<li class="chapter" data-level="6.1.10" data-path="data-structures-basic.html"><a href="data-structures-basic.html#ciekawe-operacje-i-triki-na-listach"><i class="fa fa-check"></i><b>6.1.10</b> ciekawe operacje i triki na listach</a></li>
+<li class="chapter" data-level="6.1.11" data-path="data-structures-basic.html"><a href="data-structures-basic.html#losowe-elementy"><i class="fa fa-check"></i><b>6.1.11</b> losowe elementy</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#slowniki"><i class="fa fa-check"></i><b>6.2</b> slowniki</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-1"><i class="fa fa-check"></i><b>6.2.1</b> tworzenie</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#odwolywanie-sie-do-elementow"><i class="fa fa-check"></i><b>6.2.2</b> odwolywanie sie do elementow</a></li>
+<li class="chapter" data-level="6.2.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#updating-and-adding"><i class="fa fa-check"></i><b>6.2.3</b> updating and adding</a></li>
+<li class="chapter" data-level="6.2.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#removing"><i class="fa fa-check"></i><b>6.2.4</b> removing</a></li>
+<li class="chapter" data-level="6.2.5" data-path="data-structures-basic.html"><a href="data-structures-basic.html#filtering"><i class="fa fa-check"></i><b>6.2.5</b> filtering</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data-structures-basic.html"><a href="data-structures-basic.html#nazwy-dla-ktorych-wartosci-spelniaja-warunek"><i class="fa fa-check"></i><b>6.2.6</b> nazwy dla ktorych wartosci spelniaja warunek</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tuples"><i class="fa fa-check"></i><b>6.3</b> tuples</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#atrybuty"><i class="fa fa-check"></i><b>6.3.1</b> atrybuty</a></li>
+<li class="chapter" data-level="6.3.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-2"><i class="fa fa-check"></i><b>6.3.2</b> tworzenie</a></li>
+<li class="chapter" data-level="6.3.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#odwolywanie-sie-do-elementow-1"><i class="fa fa-check"></i><b>6.3.3</b> odwolywanie sie do elementow</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#set-zbiory"><i class="fa fa-check"></i><b>6.4</b> set (zbiory)</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-3"><i class="fa fa-check"></i><b>6.4.1</b> tworzenie</a></li>
+<li class="chapter" data-level="6.4.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#atrubyty"><i class="fa fa-check"></i><b>6.4.2</b> atrubyty</a></li>
+<li class="chapter" data-level="6.4.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#aktualizacjadodawanieusuwanie-wartosci"><i class="fa fa-check"></i><b>6.4.3</b> aktualizacja/dodawanie/usuwanie wartosci</a></li>
+<li class="chapter" data-level="6.4.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#funkcje-na-elementach"><i class="fa fa-check"></i><b>6.4.4</b> funkcje na elementach</a></li>
+<li class="chapter" data-level="6.4.5" data-path="data-structures-basic.html"><a href="data-structures-basic.html#operacje-na-zbiorach"><i class="fa fa-check"></i><b>6.4.5</b> operacje na zbiorach</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html"><i class="fa fa-check"></i><b>7</b> DATA STRUCTURES-Pandas</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#series"><i class="fa fa-check"></i><b>7.1</b> Series</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#tworzenie-4"><i class="fa fa-check"></i><b>7.1.1</b> tworzenie</a></li>
+<li class="chapter" data-level="7.1.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#atrybuty-1"><i class="fa fa-check"></i><b>7.1.2</b> atrybuty</a></li>
+<li class="chapter" data-level="7.1.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#odwolywanie-sie-do-elementow-2"><i class="fa fa-check"></i><b>7.1.3</b> Odwolywanie sie do elementow</a></li>
+<li class="chapter" data-level="7.1.4" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#sortowanie-1"><i class="fa fa-check"></i><b>7.1.4</b> sortowanie</a></li>
+<li class="chapter" data-level="7.1.5" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dodawanie-wartosci-i-problem-z-indeksami"><i class="fa fa-check"></i><b>7.1.5</b> dodawanie wartosci i problem z indeksami</a></li>
+<li class="chapter" data-level="7.1.6" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#aktualizacja-wartosci-1"><i class="fa fa-check"></i><b>7.1.6</b> aktualizacja wartosci</a></li>
+<li class="chapter" data-level="7.1.7" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#rozne-funkcje-1"><i class="fa fa-check"></i><b>7.1.7</b> rozne funkcje</a></li>
+<li class="chapter" data-level="7.1.8" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-brakami-danych-i-wartowsciami-nieskonczonymi"><i class="fa fa-check"></i><b>7.1.8</b> praca z brakami danych i wartowsciami nieskonczonymi</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#categorical"><i class="fa fa-check"></i><b>7.2</b> Categorical</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#tworzenie-5"><i class="fa fa-check"></i><b>7.2.1</b> Tworzenie</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#usuwaniedodawaniemodyfikacje-kategorii"><i class="fa fa-check"></i><b>7.2.2</b> usuwanie/dodawanie/modyfikacje kategorii</a></li>
+<li class="chapter" data-level="7.2.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dodawanie-nowych-elemntow"><i class="fa fa-check"></i><b>7.2.3</b> dodawanie nowych elemntow</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#data-frames"><i class="fa fa-check"></i><b>7.3</b> DATA FRAMES</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#najwazniejsze-atrybuty-dataframe"><i class="fa fa-check"></i><b>7.3.1</b> Najważniejsze atrybuty DataFrame</a></li>
+<li class="chapter" data-level="7.3.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#tworzenie-ramki-danych"><i class="fa fa-check"></i><b>7.3.2</b> Tworzenie ramki danych</a></li>
+<li class="chapter" data-level="7.3.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#uwagi-o-indeksach"><i class="fa fa-check"></i><b>7.3.3</b> Uwagi o indeksach</a></li>
+<li class="chapter" data-level="7.3.4" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#wymuszanie-typow-kolumn-w-dataframe"><i class="fa fa-check"></i><b>7.3.4</b> Wymuszanie typów kolumn w DataFrame</a></li>
+<li class="chapter" data-level="7.3.5" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#transpozycja-dataframe"><i class="fa fa-check"></i><b>7.3.5</b> Transpozycja DataFrame</a></li>
+<li class="chapter" data-level="7.3.6" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#zmiana-nazw-kolumn"><i class="fa fa-check"></i><b>7.3.6</b> Zmiana nazw kolumn</a></li>
+<li class="chapter" data-level="7.3.7" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#usuwanie-kolumn"><i class="fa fa-check"></i><b>7.3.7</b> Usuwanie kolumn</a></li>
+<li class="chapter" data-level="7.3.8" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#filtrowanie-data-frame---wybieranie-kolumn"><i class="fa fa-check"></i><b>7.3.8</b> Filtrowanie Data Frame - wybieranie kolumn</a></li>
+<li class="chapter" data-level="7.3.9" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#filtrowanie-data-frame---wybieranie-wierszy"><i class="fa fa-check"></i><b>7.3.9</b> Filtrowanie Data Frame - wybieranie wierszy</a></li>
+<li class="chapter" data-level="7.3.10" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dodawanie-nowych-kolumn"><i class="fa fa-check"></i><b>7.3.10</b> Dodawanie nowych kolumn</a></li>
+<li class="chapter" data-level="7.3.11" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#aktualizacja-wartosci-w-kolumnach"><i class="fa fa-check"></i><b>7.3.11</b> Aktualizacja wartosci w kolumnach</a></li>
+<li class="chapter" data-level="7.3.12" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#sortowanie-2"><i class="fa fa-check"></i><b>7.3.12</b> Sortowanie</a></li>
+<li class="chapter" data-level="7.3.13" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#bindowanie---w-wierszach"><i class="fa fa-check"></i><b>7.3.13</b> Bindowanie - w wierszach</a></li>
+<li class="chapter" data-level="7.3.14" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#bindowanie---w-kolumnach"><i class="fa fa-check"></i><b>7.3.14</b> Bindowanie - w kolumnach</a></li>
+<li class="chapter" data-level="7.3.15" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#aczenie---merge"><i class="fa fa-check"></i><b>7.3.15</b> Łączenie - merge</a></li>
+<li class="chapter" data-level="7.3.16" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-duplikatami"><i class="fa fa-check"></i><b>7.3.16</b> Praca z duplikatami</a></li>
+<li class="chapter" data-level="7.3.17" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-brakami-danych"><i class="fa fa-check"></i><b>7.3.17</b> Praca z brakami danych</a></li>
+<li class="chapter" data-level="7.3.18" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-wartosciami-nieskonczonymi"><i class="fa fa-check"></i><b>7.3.18</b> Praca z wartosciami nieskonczonymi</a></li>
+<li class="chapter" data-level="7.3.19" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#funkcje-oknowe"><i class="fa fa-check"></i><b>7.3.19</b> Funkcje oknowe</a></li>
+<li class="chapter" data-level="7.3.20" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-groupby"><i class="fa fa-check"></i><b>7.3.20</b> Praca z GroupBy</a></li>
+<li class="chapter" data-level="7.3.21" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#funkcje-po-kolumnach-i-wierszach"><i class="fa fa-check"></i><b>7.3.21</b> Funkcje po kolumnach i wierszach</a></li>
+<li class="chapter" data-level="7.3.22" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-tekstem"><i class="fa fa-check"></i><b>7.3.22</b> Praca z tekstem</a></li>
+<li class="chapter" data-level="7.3.23" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-datami"><i class="fa fa-check"></i><b>7.3.23</b> Praca z datami</a></li>
+<li class="chapter" data-level="7.3.24" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dummy---rekodowanie-na-zmienne-zero-jedynkowe"><i class="fa fa-check"></i><b>7.3.24</b> Dummy - rekodowanie na zmienne zero-jedynkowe</a></li>
+<li class="chapter" data-level="7.3.25" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#crosstab---analiza-liczebnosci"><i class="fa fa-check"></i><b>7.3.25</b> crosstab - analiza liczebnosci</a></li>
+<li class="chapter" data-level="7.3.26" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#zmiana-struktury-dataframe"><i class="fa fa-check"></i><b>7.3.26</b> zmiana struktury DataFrame</a></li>
+<li class="chapter" data-level="7.3.27" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#rozne-problemy"><i class="fa fa-check"></i><b>7.3.27</b> Rozne problemy</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html"><i class="fa fa-check"></i><b>8</b> DATA STRUCTURES - Numpy, Scipy</a><ul>
+<li class="chapter" data-level="8.1" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#numpy"><i class="fa fa-check"></i><b>8.1</b> Numpy</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#tworzenie-6"><i class="fa fa-check"></i><b>8.1.1</b> Tworzenie</a></li>
+<li class="chapter" data-level="8.1.2" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#atrybuty-2"><i class="fa fa-check"></i><b>8.1.2</b> atrybuty</a></li>
+<li class="chapter" data-level="8.1.3" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#odwolywanie-sie-przez-indeksy"><i class="fa fa-check"></i><b>8.1.3</b> odwolywanie sie przez indeksy</a></li>
+<li class="chapter" data-level="8.1.4" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#filtrowanie-1"><i class="fa fa-check"></i><b>8.1.4</b> filtrowanie</a></li>
+<li class="chapter" data-level="8.1.5" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#aktualizacja-wartosci-2"><i class="fa fa-check"></i><b>8.1.5</b> aktualizacja wartosci</a></li>
+<li class="chapter" data-level="8.1.6" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#usuwanie-1"><i class="fa fa-check"></i><b>8.1.6</b> usuwanie</a></li>
+<li class="chapter" data-level="8.1.7" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#zmiana-kszattu-i-transpozycja"><i class="fa fa-check"></i><b>8.1.7</b> zmiana kszatłtu i transpozycja</a></li>
+<li class="chapter" data-level="8.1.8" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#bindowanie"><i class="fa fa-check"></i><b>8.1.8</b> bindowanie</a></li>
+<li class="chapter" data-level="8.1.9" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#operacje-na-kilku-macierzach-zwracajece-jedna-macierz"><i class="fa fa-check"></i><b>8.1.9</b> operacje na kilku macierzach zwracajece jedna macierz</a></li>
+<li class="chapter" data-level="8.1.10" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#sortowanie-3"><i class="fa fa-check"></i><b>8.1.10</b> sortowanie</a></li>
+<li class="chapter" data-level="8.1.11" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#funkcje-na-macierzach"><i class="fa fa-check"></i><b>8.1.11</b> funkcje na macierzach</a></li>
+<li class="chapter" data-level="8.1.12" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#braki-danych-i-wartosci-nieskonczone"><i class="fa fa-check"></i><b>8.1.12</b> braki danych i wartosci nieskonczone</a></li>
+<li class="chapter" data-level="8.1.13" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#rozne-funkcje-i-triki"><i class="fa fa-check"></i><b>8.1.13</b> rozne funkcje i triki</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#scipy"><i class="fa fa-check"></i><b>8.2</b> Scipy</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="data-structures-other.html"><a href="data-structures-other.html"><i class="fa fa-check"></i><b>9</b> DATA STRUCTURES - other</a></li>
+<li class="chapter" data-level="10" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html"><i class="fa fa-check"></i><b>10</b> DATA STRUCTURES - objective programing</a><ul>
+<li class="chapter" data-level="10.1" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#tworzenie-klasy-i-obiektow"><i class="fa fa-check"></i><b>10.1</b> tworzenie klasy i obiektow</a></li>
+<li class="chapter" data-level="10.2" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#metody-i-klasy-prywatne"><i class="fa fa-check"></i><b>10.2</b> metody i klasy prywatne</a></li>
+<li class="chapter" data-level="10.3" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#mechanizm-dziedziczenia"><i class="fa fa-check"></i><b>10.3</b> mechanizm dziedziczenia</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#tworzenie-podklas"><i class="fa fa-check"></i><b>10.3.1</b> tworzenie podklas</a></li>
+<li class="chapter" data-level="10.3.2" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#przeciazanie-metod"><i class="fa fa-check"></i><b>10.3.2</b> przeciazanie metod</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="work-organisation.html"><a href="work-organisation.html"><i class="fa fa-check"></i><b>11</b> WORK ORGANISATION</a><ul>
+<li class="chapter" data-level="11.1" data-path="work-organisation.html"><a href="work-organisation.html#importowanie-pakietowmodulow"><i class="fa fa-check"></i><b>11.1</b> importowanie pakietow/modulow</a></li>
+<li class="chapter" data-level="11.2" data-path="work-organisation.html"><a href="work-organisation.html#wlasne-moduly-i-pakiety"><i class="fa fa-check"></i><b>11.2</b> Wlasne moduly i pakiety</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="work-organisation.html"><a href="work-organisation.html#wlasny-modul"><i class="fa fa-check"></i><b>11.2.1</b> Wlasny modul</a></li>
+<li class="chapter" data-level="11.2.2" data-path="work-organisation.html"><a href="work-organisation.html#wlasny-pakiet---wersja-uproszczona"><i class="fa fa-check"></i><b>11.2.2</b> Wlasny pakiet - wersja uproszczona</a></li>
+<li class="chapter" data-level="11.2.3" data-path="work-organisation.html"><a href="work-organisation.html#wlasny-pakiet-wg.-standardu-pip"><i class="fa fa-check"></i><b>11.2.3</b> Wlasny pakiet wg. standardu pip</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="work-organisation.html"><a href="work-organisation.html#tworzenie-wirtualnych-srodowisk"><i class="fa fa-check"></i><b>11.3</b> tworzenie wirtualnych srodowisk</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="data-import-and-export.html"><a href="data-import-and-export.html"><i class="fa fa-check"></i><b>12</b> DATA IMPORT AND EXPORT</a><ul>
+<li class="chapter" data-level="12.1" data-path="data-import-and-export.html"><a href="data-import-and-export.html#pickles"><i class="fa fa-check"></i><b>12.1</b> pickles</a></li>
+<li class="chapter" data-level="12.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#csv-txt"><i class="fa fa-check"></i><b>12.2</b> csv / txt</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="data-import-and-export.html"><a href="data-import-and-export.html#import"><i class="fa fa-check"></i><b>12.2.1</b> Import</a></li>
+<li class="chapter" data-level="12.2.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#eksport"><i class="fa fa-check"></i><b>12.2.2</b> Eksport</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="data-import-and-export.html"><a href="data-import-and-export.html#excel"><i class="fa fa-check"></i><b>12.3</b> excel</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="data-import-and-export.html"><a href="data-import-and-export.html#import-1"><i class="fa fa-check"></i><b>12.3.1</b> Import</a></li>
+<li class="chapter" data-level="12.3.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#eksport-1"><i class="fa fa-check"></i><b>12.3.2</b> Eksport</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="data-import-and-export.html"><a href="data-import-and-export.html#schowek"><i class="fa fa-check"></i><b>12.4</b> schowek</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html"><i class="fa fa-check"></i><b>13</b> TOOLS AND TRICKS</a><ul>
+<li class="chapter" data-level="13.1" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#praca-z-katalogami-i-plikami"><i class="fa fa-check"></i><b>13.1</b> praca z katalogami i plikami</a></li>
+<li class="chapter" data-level="13.2" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#podstawowe-polecenia-w-konsoli"><i class="fa fa-check"></i><b>13.2</b> Podstawowe polecenia w konsoli</a></li>
+<li class="chapter" data-level="13.3" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#python"><i class="fa fa-check"></i><b>13.3</b> python</a></li>
+<li class="chapter" data-level="13.4" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#pommiar-czasu-wykonania-kodu"><i class="fa fa-check"></i><b>13.4</b> pommiar czasu wykonania kodu</a></li>
+</ul></li>
+<li class="part"><span><b>II <lfg>VISUALISATION</lfg></b></span></li>
+<li class="chapter" data-level="14" data-path="big-packages.html"><a href="big-packages.html"><i class="fa fa-check"></i><b>14</b> big packages</a><ul>
+<li class="chapter" data-level="14.1" data-path="big-packages.html"><a href="big-packages.html#matplotlib"><i class="fa fa-check"></i><b>14.1</b> matplotlib</a></li>
+<li class="chapter" data-level="14.2" data-path="big-packages.html"><a href="big-packages.html#seaborn"><i class="fa fa-check"></i><b>14.2</b> seaborn</a></li>
+<li class="chapter" data-level="14.3" data-path="big-packages.html"><a href="big-packages.html#plotly"><i class="fa fa-check"></i><b>14.3</b> plotly</a></li>
+<li class="chapter" data-level="14.4" data-path="big-packages.html"><a href="big-packages.html#bokeh"><i class="fa fa-check"></i><b>14.4</b> bokeh</a></li>
+<li class="chapter" data-level="14.5" data-path="big-packages.html"><a href="big-packages.html#plotnine"><i class="fa fa-check"></i><b>14.5</b> plotnine</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="other-packages.html"><a href="other-packages.html"><i class="fa fa-check"></i><b>15</b> other packages</a></li>
+<li class="chapter" data-level="16" data-path="graphs.html"><a href="graphs.html"><i class="fa fa-check"></i><b>16</b> graphs</a></li>
+<li class="chapter" data-level="17" data-path="maps.html"><a href="maps.html"><i class="fa fa-check"></i><b>17</b> maps</a></li>
+<li class="chapter" data-level="18" data-path="other-issues.html"><a href="other-issues.html"><i class="fa fa-check"></i><b>18</b> other issues</a></li>
+<li class="part"><span><b>III <lfg>PROGRAMMING</lfg></b></span></li>
+<li class="chapter" data-level="19" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html"><i class="fa fa-check"></i><b>19</b> Cooperation with other tools</a><ul>
+<li class="chapter" data-level="19.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#relational-databases"><i class="fa fa-check"></i><b>19.1</b> Relational databases</a><ul>
+<li class="chapter" data-level="19.1.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#sql-server"><i class="fa fa-check"></i><b>19.1.1</b> SQL Server</a></li>
+<li class="chapter" data-level="19.1.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#postgres"><i class="fa fa-check"></i><b>19.1.2</b> Postgres</a></li>
+<li class="chapter" data-level="19.1.3" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#oracle"><i class="fa fa-check"></i><b>19.1.3</b> Oracle</a></li>
+<li class="chapter" data-level="19.1.4" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#mysql"><i class="fa fa-check"></i><b>19.1.4</b> MySql</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#norelational-databases"><i class="fa fa-check"></i><b>19.2</b> Norelational databases</a><ul>
+<li class="chapter" data-level="19.2.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#neo4j"><i class="fa fa-check"></i><b>19.2.1</b> Neo4j</a></li>
+<li class="chapter" data-level="19.2.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#redis"><i class="fa fa-check"></i><b>19.2.2</b> Redis</a></li>
+<li class="chapter" data-level="19.2.3" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#mongodb"><i class="fa fa-check"></i><b>19.2.3</b> MongoDB</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#r"><i class="fa fa-check"></i><b>19.3</b> R</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="www.html"><a href="www.html"><i class="fa fa-check"></i><b>20</b> www</a><ul>
+<li class="chapter" data-level="20.1" data-path="www.html"><a href="www.html#flask"><i class="fa fa-check"></i><b>20.1</b> Flask</a></li>
+<li class="chapter" data-level="20.2" data-path="www.html"><a href="www.html#django"><i class="fa fa-check"></i><b>20.2</b> Django</a></li>
+</ul></li>
+<li class="part"><span><b>IV <lfg>APPENDICIES</lfg></b></span></li>
+<li class="chapter" data-level="21" data-path="good-habits.html"><a href="good-habits.html"><i class="fa fa-check"></i><b>21</b> good habits</a></li>
+<li class="chapter" data-level="22" data-path="ide.html"><a href="ide.html"><i class="fa fa-check"></i><b>22</b> IDE</a><ul>
+<li class="chapter" data-level="22.1" data-path="ide.html"><a href="ide.html#jupiter"><i class="fa fa-check"></i><b>22.1</b> Jupiter</a></li>
+<li class="chapter" data-level="22.2" data-path="ide.html"><a href="ide.html#pycharm"><i class="fa fa-check"></i><b>22.2</b> PyCharm</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="intro-1.html"><a href="intro-1.html"><i class="fa fa-check"></i><b>23</b> INTRO</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-structures---basic" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> DATA STRUCTURES - basic</h1>
+<div id="listy" class="section level2">
+<h2><span class="header-section-number">6.1</span> listy</h2>
+<p><a href="http://effbot.org/zone/python-list.htm" class="uri">http://effbot.org/zone/python-list.htm</a></p>
+<div id="atrybuty-listy" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> atrybuty listy</h3>
+<pre class="sourceCode python"><code class="sourceCode python">lista <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]
+<span class="bu">len</span>(lista) <span class="co"># ilosc elementow listy</span>
+
+
+<span class="co"># listy mozna zagniezdzac</span>
+lista_deep <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,[<span class="dv">4</span>,<span class="dv">5</span>]] <span class="co"># [4,5] to lista zagniezdzona</span>
+
+<span class="co">#UWAGA:</span>
+<span class="bu">len</span>(lista_deep) <span class="co"># ilosc elementow to 4. Ostatni element (lista w liscie) jest traktowna przez funkcje &#39;len&#39; jako jeden caly element.</span></code></pre>
+</div>
+<div id="tworzenie-listy" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> tworzenie listy</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># z definicji</span>
+lista_1 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]
+
+
+<span class="co"># trick z iloczynem</span>
+lista_1 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>] <span class="op">*</span><span class="dv">5</span> 
+
+<span class="co"># konwersja z innych typow</span>
+<span class="im">import</span> numpy <span class="im">as</span> np
+macierz <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])
+lista_2 <span class="op">=</span> <span class="bu">list</span>(macierz) <span class="co"># konwertujemy array</span></code></pre>
+</div>
+<div id="dodawanie-wartosci" class="section level3">
+<h3><span class="header-section-number">6.1.3</span> dodawanie wartosci</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#(1) laczenie list</span>
+
+lista_1 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]
+lista_2 <span class="op">=</span> [<span class="dv">10</span>,<span class="dv">11</span>]
+
+lista_3 <span class="op">=</span> lista_1 <span class="op">+</span> lista_2 <span class="co">#sklejenie dwoch list</span>
+
+lista_1 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]
+lista_1.extend(lista_2) <span class="co"># sklejenie dwoch list</span>
+
+lista_1 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]
+lista_1.append(lista_2) <span class="co"># doklejenie do listy_2 listy_1 jako zagniezdzonego elementu (to nie to samo co lista_1+lista_2!!!)</span>
+
+
+
+
+
+<span class="co"># (2) insert wstawienie elementu po zadanym indeksie</span>
+lista <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]
+lista.insert(<span class="dv">2</span>, [<span class="dv">20</span>,<span class="dv">30</span>]) <span class="co"># dodanie listy [20,30] na trzeciej pozycji. Uwaga: ta lista bedzie zagniezdzona, czyli dziala to analogicznie do &#39;append&#39;</span>
+lista
+
+
+
+<span class="co"># (3) wstawienie elementu po zadanym indeksie (inna skladnia)</span>
+lista<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]
+lista[<span class="dv">0</span>:<span class="dv">2</span>] <span class="op">+</span> [<span class="dv">3</span>,<span class="dv">4</span>] <span class="op">+</span> lista[<span class="dv">2</span>:] <span class="co"># wstawiem elementy od drugieg indektu. Tym razem nie beda one zadniezdzane jak to bylo przy funkcji &#39;insert&#39;</span></code></pre>
+</div>
+<div id="aktualizacja-wartosci" class="section level3">
+<h3><span class="header-section-number">6.1.4</span> aktualizacja wartosci</h3>
+<pre class="sourceCode python"><code class="sourceCode python">z<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]
+z[<span class="dv">1</span>:<span class="dv">2</span>] <span class="op">=</span> [<span class="dv">100</span>, <span class="dv">300</span>] <span class="co"># modyfikacja wartosci elementu o indeksach 1 i 2 (element drugi i trzeci)</span>
+
+z[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]
+z[<span class="dv">1</span>:<span class="dv">2</span>] <span class="op">=</span> [<span class="dv">100</span>, <span class="dv">200</span> , <span class="dv">300</span>] <span class="co"># mimo ze powalismy tylko 2 indeksy do modyfikacji a, wartosci po wstawienia są 3 wartosci nie dostaniemy błędy. Trzecia wartosc (300), zostanie &#39;wepchana miedzy 200 i 3</span>
+
+
+<span class="co"># modyfikacja elementow spelniajacych warunek</span>
+z <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]
+[<span class="dv">0</span> <span class="cf">if</span> i <span class="op">&gt;=</span><span class="dv">3</span> <span class="cf">else</span> i <span class="cf">for</span> i <span class="kw">in</span> z] <span class="co"># zamiana na zero elementow wiekszych lub rownych 3</span></code></pre>
+</div>
+<div id="usuwanie" class="section level3">
+<h3><span class="header-section-number">6.1.5</span> usuwanie</h3>
+<pre class="sourceCode python"><code class="sourceCode python">lista <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]
+
+
+<span class="kw">del</span> lista[<span class="dv">3</span>] <span class="co"># usuniecie elementu o indeksie 3</span>
+
+lista.remove(<span class="dv">2</span>) <span class="co"># usuniecie PIERWSZEJ napotkanej wartosci</span>
+
+<span class="co"># jezeli chcemy usunac wszyskie, a nie tylko pierwsza wartosc stosujemy:</span>
+a <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">20</span>, <span class="dv">70</span>, <span class="dv">20</span>]
+a <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> a <span class="cf">if</span> x <span class="op">!=</span> <span class="dv">20</span>]
+
+<span class="co">#lub</span>
+a <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">20</span>, <span class="dv">70</span>, <span class="dv">20</span>]
+a <span class="op">=</span> <span class="bu">list</span>(<span class="bu">filter</span>(<span class="kw">lambda</span> x: x<span class="op">!=</span> <span class="dv">20</span>, a))
+
+lista.clear() <span class="co"># usuniecie wszystkich elementow - dostajemy pusta liste</span>
+
+us <span class="op">=</span> lista.pop() <span class="co"># usuniecie ostatniego elementu listy i przypisanie go do zmiennej &#39;us&#39;</span>
+
+us_1 <span class="op">=</span> lista.pop(<span class="dv">0</span>) <span class="co"># usuniecie z listy elementu o indeksie 0 i przypsanie do zmiennej &#39;us_1&#39;</span></code></pre>
+</div>
+<div id="filtrowanie" class="section level3">
+<h3><span class="header-section-number">6.1.6</span> filtrowanie</h3>
+<p>Pierwszy sposob to filtorwanie po indeksach (np. z[1:3:1]). Jest on omowiony w ‘Indicies’ w pliku ‘PROGRAMMING_syntax_base’
+Ponizej omowimy inne sposoby.</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># filtrowanie funkcja filter z zastosowanie funkcji anonimowej</span>
+number_list <span class="op">=</span> <span class="bu">range</span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>)
+less_than_zero <span class="op">=</span> <span class="bu">list</span>(<span class="bu">filter</span>(<span class="kw">lambda</span> x: x <span class="op">&lt;</span> <span class="dv">0</span>, number_list)) <span class="co"># zostawiamy elementy mniejsze od zera.</span>
+<span class="bu">print</span>(less_than_zero)
+
+
+
+<span class="co">#filtrowanie wektorem logicznym (zastosowanie funkcji compress)</span>
+<span class="im">from</span> itertools <span class="im">import</span> compress
+list_a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>]
+logical_filter <span class="op">=</span> [<span class="va">True</span>, <span class="va">False</span>, <span class="va">True</span>, <span class="va">False</span>] 
+<span class="bu">print</span>(<span class="bu">list</span>(compress(list_a, logical_filter))) <span class="co"># Elementy &#39;lista_a&#39; pokrywajace sie pozycja z wartoscia TRUE w &#39;logical_filter &#39;beda zostawione.</span>
+
+
+<span class="co"># funkcja dropwhile</span>
+<span class="im">from</span> itertools <span class="im">import</span> dropwhile
+<span class="bu">list</span>(dropwhile(<span class="kw">lambda</span> x: x<span class="op">&lt;</span><span class="dv">5</span>, [<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">4</span>,<span class="dv">1</span>])) <span class="co"># USUNAC elementy az do napotkania pierwszego elementu nie spelniajacego warunku x&lt;5.</span>
+
+
+<span class="co"># funkcja &#39;takewhile&#39;</span>
+<span class="im">from</span> itertools <span class="im">import</span> takewhile <span class="co"># odwrotnosc funkcji &#39;dropwhile&#39;</span>
+<span class="bu">list</span>(takewhile(<span class="kw">lambda</span> x: x<span class="op">&lt;</span><span class="dv">5</span>, [<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">4</span>,<span class="dv">1</span>])) <span class="co"># ZOSTAWIC elementy az do napotkania pierwszego elementu nie spelniajacego warunku x&lt;5.</span></code></pre>
+</div>
+<div id="wyszukiwanie-indeksu" class="section level3">
+<h3><span class="header-section-number">6.1.7</span> wyszukiwanie indeksu</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># wyszuka indeks PIERWSZEGO elementu spelniajacego warunek</span>
+l<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>]
+l.index(<span class="dv">3</span>) <span class="co"># jaki indeks ma pierwszy element o wartosci 3. Przy braku wyszukania elementu zwracany jest błąd. </span>
+
+<span class="co"># wyszukaj wszystkie elementy spelniajace zadany warunek</span>
+l<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>]
+[i <span class="cf">for</span> i,val <span class="kw">in</span> <span class="bu">enumerate</span>(l) <span class="cf">if</span> val<span class="op">==</span><span class="dv">3</span>] <span class="co"># Przy braku wyszukania zwracana jest lista o dlugosci 0.</span></code></pre>
+</div>
+<div id="sortowanie" class="section level3">
+<h3><span class="header-section-number">6.1.8</span> sortowanie</h3>
+<pre class="sourceCode python"><code class="sourceCode python">lista <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">6</span>]
+lista.sort() <span class="co"># sortuj rosnaco</span>
+lista.sort(reverse<span class="op">=</span>TRUE) <span class="co"># sortuj malejoco</span>
+lista.reverse() <span class="co"># odwroc kolejnosc</span></code></pre>
+<p>Sortowanie po kluczu</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># sortowanie po kluczu</span>
+
+<span class="kw">def</span> takeSecond(elem): <span class="co"># definiuje funkcje okreslajaca jak klucz ma byc bocierany z listy</span>
+    <span class="cf">return</span> elem[<span class="dv">1</span>] <span class="co"># bede pobierał drug element (bede mial liste dwuelementowych list,  gdzie drugi element to klucz)</span>
+
+lista <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]
+klucz <span class="op">=</span> [<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]
+lista_z_kluczem <span class="op">=</span> <span class="bu">list</span>(<span class="bu">zip</span>(lista, klucz))
+
+
+lista_z_kluczem.sort(key<span class="op">=</span>takeSecond) <span class="co"># posortowanie po kluczu</span>
+lista_z_kluczem</code></pre>
+</div>
+<div id="operowanie-funkcjami-na-elementach" class="section level3">
+<h3><span class="header-section-number">6.1.9</span> operowanie funkcjami na elementach</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># funckja &#39;map&#39; z uzyciem funkcji anonimowej</span>
+squares <span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span>, [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]))  <span class="co"># kazdy element zostanie podniesiony do kwadratu</span>
+
+
+
+<span class="co"># for zagniezszony w petli </span>
+squares <span class="op">=</span> [x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)] <span class="co"># # kazdy element zostanie podniesiony do kwadratu</span></code></pre>
+</div>
+<div id="ciekawe-operacje-i-triki-na-listach" class="section level3">
+<h3><span class="header-section-number">6.1.10</span> ciekawe operacje i triki na listach</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># funkcja reduce</span>
+<span class="im">from</span> functools <span class="im">import</span> <span class="bu">reduce</span>
+product <span class="op">=</span> <span class="bu">reduce</span>((<span class="kw">lambda</span> x, y: x <span class="op">*</span> y), [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]) <span class="co"># obliczenie skumulowanego iloczynu elementow (produktu)</span>
+<span class="bu">sum</span> <span class="op">=</span> <span class="bu">reduce</span>((<span class="kw">lambda</span> x, y: x <span class="op">+</span> y), [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]) <span class="co"># zsumowanie elementow (oczywiscie w praktyce lepiej uzywac &#39;sum&#39;)</span>
+
+
+
+<span class="co"># polaczenie elementow kilku list tak, ze elementy o tej samej pozycji z kazdej listy trafiaja do jednej listy</span>
+z1 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>]
+z2 <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">4</span>]
+z3 <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">6</span>]
+<span class="bu">list</span>(<span class="bu">zip</span>(z1, z2, z3)) 
+
+
+
+<span class="im">import</span> itertools
+<span class="bu">list</span>(itertools.repeat([<span class="dv">1</span>,<span class="dv">2</span>],<span class="dv">10</span>)) <span class="co"># dwuplikuj liste 10 razy</span>
+
+
+<span class="co"># splaszczenie list o jednym stopniu zagniezdzenia (jest wiele rozwiązan - to jest przykadowe)</span>
+<span class="im">import</span> operator
+l <span class="op">=</span> [[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], [<span class="dv">7</span>], [<span class="dv">8</span>,<span class="dv">9</span>]] <span class="co"># lista ktora ma w sobie listy (ale tylko jeden stopien zagniezdzenia)</span>
+<span class="bu">reduce</span>(operator.concat, l) <span class="co"># splaszczenie</span>
+
+
+<span class="co"># zliczenia wartosci</span>
+<span class="bu">list</span><span class="op">=</span>[<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>]
+<span class="bu">list</span>.count(<span class="dv">2</span>) <span class="co"># zliczenie wartosci 2</span></code></pre>
+</div>
+<div id="losowe-elementy" class="section level3">
+<h3><span class="header-section-number">6.1.11</span> losowe elementy</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> numpy <span class="im">as</span> np
+
+np.random.choice([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>], size<span class="op">=</span><span class="dv">10</span>, replace<span class="op">=</span><span class="va">True</span>) <span class="co"># listy wybieram losowo 10 elementow i robie to ze zwracaniem</span>
+
+np.random.choice([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>], size<span class="op">=</span><span class="dv">10</span>, replace<span class="op">=</span><span class="va">True</span>, p<span class="op">=</span>[<span class="fl">0.2</span>,<span class="fl">0.2</span>,<span class="fl">0.2</span>,<span class="fl">0.4</span>]) <span class="co"># tutaj dodatkowo zadaje prawdopodobienstwo wylosowania kazdego elementu</span></code></pre>
+</div>
+</div>
+<div id="slowniki" class="section level2">
+<h2><span class="header-section-number">6.2</span> slowniki</h2>
+<div id="tworzenie-1" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> tworzenie</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># z definicji</span>
+{<span class="st">&#39;a&#39;</span>:<span class="dv">1</span>, <span class="st">&#39;b&#39;</span>:[<span class="dv">2</span>,<span class="dv">3</span>]} <span class="co"># 1 i 2 to wartosci slownika (values) natomiast &#39;a&#39; i &#39;b&#39; to klucze (keys). Kucze i wartosci tworza pary klucz-wartosc</span>
+
+
+<span class="co"># z dwoch list</span>
+nazwy <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>]
+wartosci <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]
+<span class="bu">dict</span>(<span class="bu">zip</span>(nazwy, wartosci))</code></pre>
+</div>
+<div id="odwolywanie-sie-do-elementow" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> odwolywanie sie do elementow</h3>
+<p>UWAGA:</p>
+<ul>
+<li>slowniki nie maja indeksow!!! . Nie mozna sie do elementow slownika odwolywac przez indeksy.</li>
+<li>W slownikach nie moze byc duplikatow po nazwach.</li>
+</ul>
+<pre class="sourceCode python"><code class="sourceCode python">d<span class="op">=</span>{<span class="st">&#39;a&#39;</span>:<span class="dv">1</span>, <span class="st">&#39;b&#39;</span>:<span class="dv">2</span>}
+
+d[<span class="dv">1</span>] <span class="co"># slownik nie ma indeksu. Odwolanie bedzie bezskuteczne</span>
+
+d[<span class="st">&#39;b&#39;</span>] <span class="co"># ale mozemy sie odwloac po nazwach</span>
+
+d[[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>]] <span class="co"># niestety mozna sie  tylko po jednej nazwie odwolywac. Nie mozna podac listy nazw . Dostaniemy blad</span>
+
+d[<span class="st">&#39;g&#39;</span>] <span class="co"># jezeli odwolamy sie do NIEistniejacego elementu dostaniemy blad</span>
+
+d.get(<span class="st">&#39;g&#39;</span>) <span class="co"># odwolywanie sie do elementu w bezpieczny sposob, tzn jezeli nie ma danej nazwy w slowniku to miamiast bledu dostaniemy wartos None.</span>
+
+d.setdefault(<span class="st">&#39;g&#39;</span>, <span class="st">&#39;aaa&#39;</span>) <span class="co"># w bezpieczny sposob mozna tez sie odwolac przez &#39;setdefault&#39;. Wtedy jezeli nie ma nazwy o zadanej wartosci, mozemy zadac jaka alternatywna wartosc ma zostac zwrocona (w przykladzie bedzie to &#39;aaa&#39;).</span>
+
+d.values() <span class="co"># wyciagniecie wszystkich wartosci (bez kluczy)</span>
+
+d.keys() <span class="co"># wyciagniecie wszystkich kluczy (bez wartosci)</span>
+
+<span class="bu">list</span>(d.items()) <span class="co"># przeksztalcenie slownika w liste</span>
+
+<span class="co"># proba utworzenia slownika z duplikatem</span>
+dd <span class="op">=</span> {<span class="st">&#39;a&#39;</span>:<span class="dv">1</span>, <span class="st">&#39;a&#39;</span>:<span class="dv">1</span>}
+dd <span class="co"># duplikat zostal usuniety</span>
+
+<span class="co"># proba utworzenia duplikacu po samych nazwach</span>
+dd <span class="op">=</span> {<span class="st">&#39;a&#39;</span>:<span class="dv">1</span>, <span class="st">&#39;a&#39;</span>:<span class="dv">2</span>}
+dd <span class="co"># pozostawiony bedzie tylko element &#39;a&#39;:2</span></code></pre>
+</div>
+<div id="updating-and-adding" class="section level3">
+<h3><span class="header-section-number">6.2.3</span> updating and adding</h3>
+<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> {<span class="st">&#39;a&#39;</span>:<span class="dv">1</span>, <span class="st">&#39;b&#39;</span>:<span class="dv">2</span>}
+
+a[<span class="st">&#39;b&#39;</span>]<span class="op">=</span><span class="dv">20</span>
+
+a[<span class="st">&#39;c&#39;</span>] <span class="op">=</span> <span class="dv">40</span></code></pre>
+</div>
+<div id="removing" class="section level3">
+<h3><span class="header-section-number">6.2.4</span> removing</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="bu">dict</span> <span class="op">=</span> {<span class="st">&#39;Name&#39;</span>: <span class="st">&#39;Zara&#39;</span>, <span class="st">&#39;Age&#39;</span>: <span class="dv">7</span>, <span class="st">&#39;Class&#39;</span>: <span class="st">&#39;First&#39;</span>}
+<span class="kw">del</span> <span class="bu">dict</span>[<span class="st">&#39;Name&#39;</span>]<span class="op">;</span> <span class="co"># remove entry with key &#39;Name&#39;</span>
+<span class="bu">dict</span>.clear()<span class="op">;</span>     <span class="co"># remove all entries in dict</span>
+<span class="kw">del</span> <span class="bu">dict</span> <span class="op">;</span>        <span class="co"># delete entire dictionary</span></code></pre>
+</div>
+<div id="filtering" class="section level3">
+<h3><span class="header-section-number">6.2.5</span> filtering</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/bin/python3</span>
+ 
+names<span class="op">=</span>{<span class="dv">1</span>:<span class="st">&quot;ismail&quot;</span>,<span class="dv">2</span>:<span class="st">&quot;ali&quot;</span>,<span class="dv">3</span>:<span class="st">&quot;ahmet&quot;</span>,<span class="dv">4</span>:<span class="st">&quot;elif&quot;</span>,<span class="dv">5</span>:<span class="st">&quot;ecrin&quot;</span>}
+ 
+filtered_dict <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">filter</span>(<span class="kw">lambda</span> item: item[<span class="dv">0</span>]<span class="op">%</span><span class="dv">2</span><span class="op">==</span><span class="dv">0</span> , names.items()))
+ 
+<span class="bu">print</span>(filtered_dict)
+ 
+<span class="cf">for</span> item <span class="kw">in</span> filtered_dict.items():
+   <span class="bu">print</span>(item)</code></pre>
+</div>
+<div id="nazwy-dla-ktorych-wartosci-spelniaja-warunek" class="section level3">
+<h3><span class="header-section-number">6.2.6</span> nazwy dla ktorych wartosci spelniaja warunek</h3>
+<p><a href="https://thispointer.com/python-how-to-find-keys-by-value-in-dictionary/" class="uri">https://thispointer.com/python-how-to-find-keys-by-value-in-dictionary/</a></p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Get a list of keys from dictionary which has value that matches with any value in given list of values</span>
+<span class="kw">def</span> getKeysByValues(dictOfElements, listOfValues):
+    listOfKeys <span class="op">=</span> <span class="bu">list</span>()
+    listOfItems <span class="op">=</span> dictOfElements.items()
+    <span class="cf">for</span> item  <span class="kw">in</span> listOfItems:
+        <span class="cf">if</span> item[<span class="dv">1</span>] <span class="kw">in</span> listOfValues:
+            listOfKeys.append(item[<span class="dv">0</span>])
+    <span class="cf">return</span>  listOfKeys 
+
+
+
+<span class="co"># Dictionary of strings and int</span>
+dictOfWords <span class="op">=</span> {
+    <span class="st">&quot;hello&quot;</span>: <span class="dv">56</span>,
+    <span class="st">&quot;at&quot;</span> : <span class="dv">23</span> ,
+    <span class="st">&quot;test&quot;</span> : <span class="dv">43</span>,
+    <span class="st">&quot;this&quot;</span> : <span class="dv">97</span>,
+    <span class="st">&quot;here&quot;</span> : <span class="dv">43</span>,
+    <span class="st">&quot;now&quot;</span> : <span class="dv">97</span>
+    }
+
+listOfKeys <span class="op">=</span> getKeysByValues(dictOfWords, [<span class="dv">43</span>, <span class="dv">97</span>] )</code></pre>
+</div>
+</div>
+<div id="tuples" class="section level2">
+<h2><span class="header-section-number">6.3</span> tuples</h2>
+<div id="atrybuty" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> atrybuty</h3>
+<p>Tuple to struktura ktorej po utworzeniu nie mozna modyfikowac. Tak więc atrybuty są ustawione na sztywno. Dlatego nie bedzie tutaj przykladow o usuwaniu, filtorwania, zmienianiu wartosci.</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># utworzenie tuple</span>
+z <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)
+
+<span class="co"># proba modyfikacji (dostajemy blad)</span>
+z[<span class="dv">1</span>]<span class="op">=</span><span class="dv">100</span>
+
+<span class="co"># proba dodania elementu (dostajemy blad)</span>
+z<span class="op">+</span>[<span class="dv">1</span>,<span class="dv">2</span>]</code></pre>
+</div>
+<div id="tworzenie-2" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> tworzenie</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># z definicji</span>
+z1 <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, (<span class="dv">4</span>, <span class="dv">5</span>), [<span class="dv">6</span>, <span class="dv">7</span>])
+z1
+
+<span class="co"># z listy</span>
+lista <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]
+z2 <span class="op">=</span> <span class="bu">tuple</span>(lista)
+z2</code></pre>
+</div>
+<div id="odwolywanie-sie-do-elementow-1" class="section level3">
+<h3><span class="header-section-number">6.3.3</span> odwolywanie sie do elementow</h3>
+<p>Analogocznie jak przy lista</p>
+</div>
+</div>
+<div id="set-zbiory" class="section level2">
+<h2><span class="header-section-number">6.4</span> set (zbiory)</h2>
+<div id="tworzenie-3" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> tworzenie</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># z definicji</span>
+s <span class="op">=</span> {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>}
+
+
+<span class="co"># z listy</span>
+lista <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]
+s <span class="op">=</span> <span class="bu">set</span>(lista)
+
+
+<span class="co"># z tuple</span>
+<span class="bu">tuple</span> <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)
+s <span class="op">=</span> <span class="bu">set</span>(<span class="bu">tuple</span>)</code></pre>
+</div>
+<div id="atrubyty" class="section level3">
+<h3><span class="header-section-number">6.4.2</span> atrubyty</h3>
+<ul>
+<li>Zbiory podobnie jak slowniki nie maja indeksow.</li>
+<li>W zbiorach tak jak w slownikach nie moga istniec duplikaty</li>
+<li>Z zbiorach nie mozna zagniezdzac elementow</li>
+</ul>
+<pre class="sourceCode python"><code class="sourceCode python">s <span class="op">=</span> {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>}
+
+
+s[<span class="dv">1</span>] <span class="co"># proba odwolania sie przez indeks - dostaniemy blad</span>
+
+
+<span class="co"># proba utworzenia zbioru z duplikatami</span>
+s <span class="op">=</span> {<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>}
+s <span class="co"># duplikaty zostaly usuniete</span>
+
+
+s <span class="op">=</span> {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,{<span class="dv">4</span>,<span class="dv">5</span>}} <span class="co"># nie mozna zagniezdzac elementow. Dostaniemy blad</span></code></pre>
+</div>
+<div id="aktualizacjadodawanieusuwanie-wartosci" class="section level3">
+<h3><span class="header-section-number">6.4.3</span> aktualizacja/dodawanie/usuwanie wartosci</h3>
+<pre class="sourceCode python"><code class="sourceCode python">s <span class="op">=</span> {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>}
+
+s.update({<span class="dv">10</span>,<span class="dv">11</span>}) <span class="co"># dodanie elementow</span>
+
+s.remove(<span class="dv">1</span>) <span class="co"># usuwanie pojedynczego elementu ze wzgledu na wartosc</span>
+s.discard(<span class="dv">2</span>) <span class="co"># usuwanie pojedynczego elementu ze wzgledu na wartosc (inna skladnia)</span>
+
+s <span class="op">-=</span> {<span class="dv">4</span>,<span class="dv">5</span>} <span class="co"># usuwanie wielu elementow</span>
+
+s.difference_update({<span class="dv">1</span>,<span class="dv">2</span>}) <span class="co"># usuwanie wielu elementow (inna skladnia)</span>
+
+
+s3 <span class="op">=</span> s.pop() <span class="co"># usuniecie ostatniego elementu i przypisanie do zmiennej  &#39;s3&#39;</span></code></pre>
+</div>
+<div id="funkcje-na-elementach" class="section level3">
+<h3><span class="header-section-number">6.4.4</span> funkcje na elementach</h3>
+<p>Analogicznie jak w listach:</p>
+<pre class="sourceCode python"><code class="sourceCode python">np:
+
+z <span class="op">=</span> {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>}
+
+<span class="bu">set</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: x<span class="op">^</span><span class="dv">2</span>, z)) <span class="co"># podniesienie do kwadratu kazdego elementu</span></code></pre>
+</div>
+<div id="operacje-na-zbiorach" class="section level3">
+<h3><span class="header-section-number">6.4.5</span> operacje na zbiorach</h3>
+<pre class="sourceCode python"><code class="sourceCode python">s1 <span class="op">=</span> {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>}
+s2 <span class="op">=</span> {<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>}
+
+<span class="co"># suma zbiorow (elementy wystepujace w jednym lub drigm zbiore)</span>
+s1 <span class="op">|</span> s2  
+s1.union(s2) <span class="co"># alternatywna skladnia</span>
+
+
+<span class="co"># elementy wspolne ziorow</span>
+s1 <span class="op">&amp;</span> s2
+s1.intersection(s2) <span class="co"># alternatywna skladnia</span>
+
+
+
+<span class="co"># roznica zbiorow</span>
+s1 <span class="op">-</span> s2
+s1.difference(s2) <span class="co"># alternatywna skladnia</span>
+
+
+<span class="co"># roznica symstryczne</span>
+s1 <span class="op">^</span> s2
+s1.symmetric_difference(s2) <span class="co"># alternatywna skladnia</span>
+
+
+<span class="co"># wartosc logiczna okreslajaca czy elementy nie maja elementow wspolnczy</span>
+s1.isdisjoint(s2) <span class="co"># dostajemy Fale bo elementem wsplnym jest 3.</span>
+
+
+
+<span class="co"># czy zbior jest podzbiorem dugiego zbioru</span>
+s1 <span class="op">&lt;=</span> s2
+s1.issubset(s2) <span class="co"># alternatywna skladnia</span>
+
+
+<span class="co"># czy zbior jest podzbiorem wlasciwym (proper subset) drugiego zbioru </span>
+s1 <span class="op">&lt;</span> s2
+
+
+<span class="co"># czy zbior jest nadzbiorem dla drugiego zbioru</span>
+s1 <span class="op">&gt;=</span> s2
+s1.issuperset(s2) <span class="co"># alternatywna skladnia</span>
+
+<span class="co"># czy zior jest wlasciwym nadzbiorem dla dugiego zbioru</span>
+s1 <span class="op">&gt;</span> s2</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="inkrementacja-daty.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-structures-pandas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": true,
+"linkedin": true,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"],
+"instapper": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/1_04_PROGRAMING_data_structures-basic.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-Manual_R.pdf", "bookdown-Manual_R.epub"],
+"toc": {
+"collapse": "section",
+"depth": 4
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,328 @@
+# TOOLS AND TRICKS
+
+
+
+## praca z katalogami i plikami
+
+[Working With Files in Python](https://realpython.com/working-with-files-in-python/)
+
+Wyswietlanie zawartosci katalogu 
+```{python}
+import os
+
+
+# istnienie sciezek
+os.path.exists('...') # Returns True if path or directory does exists.
+os.path.isfile('...') # Returns True if path is File.
+os.path.isdir('...') # Returns True if path is Directory.
+
+
+
+# wszystkie pliki i katalogi w podanej sciezce
+os.listdir(path = 'C:/Users/memy/OneDrive/Pulpit/1_Programs_and_programing/R/1.MANUAL_R/')
+
+
+# wszystkie pliki i katalogi w podanej sciezce z podana pelna sciezka
+import glob
+z=glob.glob('C:/Users/memy/OneDrive/Pulpit/1_Programs_and_programing/R/1.MANUAL_R/*.*')
+z
+
+# wszystkie pliki i katalogi w podanej sciezce (inna skladnia)
+for entry in os.scandir('C:/Users/memy/OneDrive/Pulpit/1_Programs_and_programing/R/1.MANUAL_R/'):
+    print(entry.name)
+
+
+
+
+# same katalogi
+ for entry in os.scandir(path):
+    if entry.is_dir():
+      print(entry.name)
+
+
+# same pliki 
+ for entry in os.scandir(path):
+    if entry.is_file():
+      print(entry.name)
+
+
+# same pliki o rozszerzeniu .rmd
+import os
+import glob
+paths = glob.glob('C:/Users/memy/OneDrive/Pulpit/1_Programs_and_programing/R/1.MANUAL_R//*.rmd')
+
+# z powyzszego wyciagam same nazwy plikow (usuwam sciezke) w wersji z rozszerzeniami i bez rozszerzen
+files_names = []
+files_names_no_extensions = []
+for p in paths:
+  full_path = os.path.basename(p)
+  files_names= files_names + [full_path]
+  files_names_no_extensions = files_names_no_extensions + [os.path.splitext(full_path)[0]]
+
+files_names
+files_names_no_extensions
+
+```
+
+
+
+
+Tworzenie katalogu
+```{python}
+
+# tworzenie katalogu
+os.mkdir(path)
+
+```
+
+
+Usuwanie pliku lub katalogu
+```{python}
+
+# kasowanie katalogu
+os.rmdir(path)
+
+```
+
+
+
+Przenoszenie pliku lub katalogu
+```{python}
+
+# przenoszenie pliku/katalogu (https://www.techbeamers.com/python-copy-file/)
+import shutil
+shutil.copy(file, descination)
+
+```
+
+
+
+
+
+
+## Podstawowe polecenia w konsoli
+
+Przydatne funkcje wywolywane w konsoli (nie jest to kod Pythonowy!!!). Konsola to wiersz polecen w Windowsie. Uwaga, żeby nie było żadnych nieprzewidzianych konfliktow, to przed rozpoczeciem pracy z konsoli najlepiej wywolac srowowisko pythonowe w ktorym chcemy pracowac. 
+
+
+```{python}
+
+# jeszcze RAZ PRZYPOMINAM: ponizszy kod to nie jest kod pythona. Wykonujemy go w wierszu poleceń a nie w narzędziu do programowania w pythonie.
+
+# Lista zainstalowanych pakietow w srodowisku w ktorym aktualnie pracujemy
+pip list
+
+# ograniczam liste do pakietow ktore maja w nazwie string "pandas'
+pip list | findstr pandas
+
+
+# lista pakietow ktore nie sa najnowszymi wersjami (warto sprawdzic czy nie warto dla nich zrobic aktualizacji)
+pip list --outdated 
+
+
+# lista pakietow ktore sa najmowyszymi wersjami
+pip list --uptodated 
+
+# instalacja pakietu pillow w najnowszej dostepnej wersji
+pip install pillow
+
+# upgrade zainstalowanego pakietu  pillow do najnowszej wersji
+pip install --upgrade pillow
+
+# instalacja pakietu 'pillow', ale o konkretnym numerze wersji
+pip install pillow==5.2.0
+pip install pillow>=5.1.0,<5.3.0 # mozemy tez uzywac znakow nieroznowci przy podawaniu wersji
+
+
+# wymuszenie reinstalacji pakietu 'pillow'
+pip install --upgrade --force-reinstall pillow
+
+
+# wymuszenie reinstalacji pakietu 'pillow' ale bez wymuszania reinstalacja pakietow ktore sa zalezne
+pip install --upgrade --no-deps --force-reinstall <packagename>
+
+# instalacja pakietow ktore sa naliscie w pliku teksowym 
+pip install -r requirements.txt
+
+
+# wyszukanie okreslownych pakietow w srodowisku w ktorym pracujemy
+pip search pandas
+
+# odinstalowanie pakietu 'pandas'
+pip uninstall pandas
+
+
+# uruchomienie skryptu pythonowego 'main_program' w konsoli (wiecej o uruchamianu kod w innych czesciach manuala)
+python main_program.py
+
+
+# uruchomienie polecania pythonowego bez uruchamiania konsoli
+python -c "import sys; print('rob')"
+
+
+# zrzucenie do pliku 'requirements.txt' zainstalowanych pakietow
+pip freeze > requirements.txt
+
+```
+
+## python
+
+Ponizsze kody sa juz Pythonowe
+
+```{python}
+
+import os
+
+# working directory - bieżący roboczy katalog
+print(os.getcwd())
+
+
+# pelna sciezka do katalogu
+os.path.abspath("") # teraz dostane pelna sciezke katalogu w ktorym pracuje (working directory)
+os.path.abspath("../") # co co wyzej ale jeden katalog w gore
+os.path.abspath("../../") # co co wyzej ale dwa katalogi w gore
+os.path.abspath("output.xlsx") # pelna sciezka do pliku 'output' w katalogu roboczym
+
+
+# environmental variables (lisa zmiennych srodowiskowych w Windowsie)
+os.get_exec_path()
+
+
+# check if Python environment exists
+import os
+
+if os.getenv('VIRTUAL_ENV'): # provide environment name you are looking for
+    print('Using Virtualenv')
+else:
+    print('Not using Virtualenv')
+
+
+
+# run commans in the shell
+os.system(r"\\spplfapcen02\userdata\UN99LT\Desktop\smietnik\klienci.xlsx") # remember about letter "r"  at the beginning
+
+
+```
+
+
+## pomiar czasu wykonania kodu
+
+```{python}
+
+import time
+start = time.time() # rozpoczecie pomiaru czasu
+
+# przetestujemy czas wykonania petli
+a = range(100000)
+b = []
+for i in a:
+    b.append(i*2)
+    
+end = time.time() # zakonczenie pomiaru czasu
+print(end - start) # czasy wykonania jako roznica uzyskanych czasow
+
+```
+
+
+
+
+## main i parametryzacja z konsoli
+
+### Prosty przyklad
+
+Uruchamianie pliku w konsoli z parametrami
+```{pyhon}
+python test.py arg1 arg2
+```
+
+Plik obsugujacy pobieranie parametrow
+```{python}
+
+import sys
+
+def hello(a,b):
+    print "hello and that's your sum:", a + b
+
+if __name__ == "__main__": # ten warunke oznacza ze kod w tym warunku jest wykonywany tylko wtedy kiedy skrypt jest uruchamiany z konsoli
+    # pobieranie parametrow z konsoli
+    a = int(sys.argv[1]) # od 1 bo 0 to nazwa pliku
+    b = int(sys.argv[2])
+    hello(a, b)
+
+```
+
+### Uzycie parsowania
+
+Uruchamiam plik podajac dwa argumenty i ich wartosci 
+```{python}
+python add_numbers.py -a 3 -b 8
+
+```
+
+Skrypt:
+```{python}
+
+import getopt
+import sys
+
+# pobranie wszystkich parametrow z wjatkiem nazwy pliku
+argv = sys.argv[1:]
+sum = 0
+
+try:
+    # parsowanie parametrow
+    opts, args = getopt.getopt(argv, 'a:b:', ['foperand', 'soperand'])
+    # Check if the options' length is 2 (can be enhanced)
+    if len(opts) == 0 and len(opts) > 2:
+      print ('usage: add.py -a <first_operand> -b <second_operand>') # komunikat w konsoli jezeli zle podany parametry
+    else:
+      # Iterate the options and get the corresponding values
+      for opt, arg in opts:
+         sum += int(arg)
+      print('Sum is {}'.format(sum))
+
+except getopt.GetoptError:
+    # Print something useful
+    print ('usage: add.py -a <first_operand> -b <second_operand>')
+    sys.exit(2)
+
+
+```
+
+
+## Rozne
+
+### Podglad kodu funkcji
+```{python}
+
+import inspect
+lines = inspect.getsource(res.plot)
+print(lines)
+
+```
+
+
+
+### Realtive paths
+
+Mam problem chce uruchomic z konsoli cmd plik Pythonowo v_envem tak zeby nie bylo problemu z ladowaniem wlasnych modulow w katalogach
+Zalozny ze mamy struktura katalogow:
+
+Projekt
+  \main.py
+  \modules
+    \__init__.py
+    \function_1.py
+    \function_1.py
+  \venv
+  
+Uruchamiany plik musi byc w glownym katalogu tak jak tutaj 'main.py'. Po uruchomieniu venv-a odpadam go (dla uproszczenia w venv ustawiam sie w katalogu gdzie jest plik 'main.py')
+
+
+
+
+
+
+
+
+

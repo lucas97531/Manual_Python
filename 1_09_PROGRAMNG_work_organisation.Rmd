@@ -1,0 +1,120 @@
+# WORK ORGANISATION
+
+
+## importowanie pakietow/modulow
+
+```{python}
+
+#(1) importpakietu 'pandas'
+import pandas
+pandas.DataFrame() # odwolanie do funkcji w module
+
+
+#(2) przy imporicie mozna stosowac wlasne aliasy dla wygody
+import pandas as pd
+pd.DataFrame() # odwolanie do funkcji w module z uzyciem samodzielnie zdefiniowanego aliasu
+
+
+#(3) import bezposrednio konkretnego obiektu z pakietu 'random'
+from random import randint
+randint(1,20) # teraz mozmy odwolywac sie bezposrednio do funkcji bez aliasu
+
+
+#(4) bezposredio importowanym obiektom tez mozna nawac wlasna nazwe
+from random import randint as rint
+rint(1,20) 
+
+
+#(5) mozna bezposrednio zaimportowac wszystkie obiekty z danego pakietu (ale nie jest to zalecane - odpowiedz pod kodem)
+from random import *
+
+# Dlaczego nie uzywam się struktury: from pakiet import *
+# 
+# You'll end up with a namespace where understanding what is what and from where it came from will be extremely hard, with difficulty increasing as the size of the overall project does. Appart from being completely unintuitive for Python, think of anybody else that might view your code or even worse, think about yourself re-reading it after 1 month and not remembering what's going on. You don't need that in your life.
+# 
+# In addition to that, any functions you expose to the importer that might overlap with other functions in other modules are going to get shaddowed by the most recent one imported. As an example, think of two scripts that contain the same function foo() and watch what happens.
+# >>> from scrpt1 import *
+# >>> foo()
+# Script 1
+# >>> from scrpt2 import *
+# >>> foo()
+# Script 2
+
+
+
+
+
+```
+
+
+
+## Wlasne moduly i pakiety
+
+Modul i pakiet to nie do konca to samo. 
+Modul to czysto technicznie rzecz biorac kazdy plik z rozszerzeniem '.py' czyli kazdy plik ze skryptem pythonowym. Pakiet to sposob na uporzadkowanie i ustrukturyzowanie wiekszej ilosci modulow. 
+
+### Wlasny modul
+
+Tworzymy prosty skrypt z jedna funkcja i zapisujemy go w katalogu pythona w ktorym pracujemy.
+Tresc skryptu ktory zapisze w 'working directory' pod nazwa 'python_modul.py)' (o tym jak sprawdzic 'working directory jest w pliku '1_11_PROGRAMING_tools_and_tricks'):
+```{python}
+
+def moja_funkcja(a,b):
+  print(2*a+b)
+
+```
+
+Plik jest zpisany i teraz z poziomu Pythona importuje moduł
+```{python}
+
+import python_modul
+
+python_modul.moja_funkcja(20,30) # mam teraz dostep do mojej funkcji
+
+
+import pakiet_testowy_1.pakiet_testowy_cz_1
+
+
+```
+
+
+
+### Wlasny pakiet - wersja uproszczona
+
+Pakiet to docelowa i zalecana uporzadkowana forma pracy z modulami.
+
+1. Najpierw w 'working directory' utworzymy katalog ktorego nazwa bedzie nazwa naszego pakietu
+2. Każdy pakiet w Pythonie jest folderem, który MUSI zawierać specjalny plik nazwany __init__.py. Ten plik może być pusty i służy informowaniu, że ten folder zawiera pakiet Pythona. Dzięki temu może być importowany tak samo jak moduły.
+3. Nastepnie dokladamy kolejne moduly ktore zawieraja juz wlasciwy kod i funkcje. 
+
+W katalogu mozemy miec wiele plikow z kodem. Pliki moga np. wzajemnie importowac swoje obiekty. 
+
+Przyklad importu modulu z pakietu
+```{python}
+# Jeżeli w głównym katalogu projektu mamy folder 'modules' w ktorym jest plik 'analiza.py' ktory chcemy zaimportowac robimy to poleceniem
+import modules.analiza
+```
+
+
+
+### Wlasny pakiet wg. standardu pip
+
+Na ta chwile to bardziej zaawansowany temat wiec sobie odpuscimy.
+
+https://packaging.python.org/tutorials/packaging-projects/
+
+
+
+
+
+## Tworzenie wirtualnych srodowisk
+
+Na komuterze mozemy tworzyc nowe wirtualne srodowiska pythonowe. Są one samowystarczalne, tzn. maja swoje bilbioteki i wlasny kompilator pythona. Jest to przydane np. w sytuacji kiedy mamy jakis proces ktory wymaga pythona z zainstalowanym okreslonym zestawem biliotek. Żeby by było konfliktu z pakietami na ktorych pracujemy przy innych zadaniach, powolujemy specjalnie dla tego procesu takie oddzielne samowystarczalne pythonowe wirtualne srodowisko
+
+Wykonujemy to poprzez:
+
+1. Uzywajac wiersza polecen, wchodzimy na dysku do lokalizacji gdzie chcemy zeby bylo nasze wirtualne srodowisko.
+2. Kiedy jestesmy na miejscu wykonujemy komende: python -m venv nazwa_srodowiska (mozemy nie wchodzic do lokalizacji tylko od razu podac sciezke gdzie na byc powolane wirtualne srodowisko:  python -m venv sciezka/nazwa_srodowiska  )
+
+Na nowym srodowisku, mamy niezalenie odpalany oddzielny kompilator Pythona i mozemy niezaleznie instalowac biblioteki. 
+

@@ -1,0 +1,626 @@
+# (PART) <lfg>PROGRAMMING</lfg> {-} 
+
+# Syntax
+
+
+## operatory logiczne
+
+
+```{python}
+
+a == b
+a != b
+a < b
+a <= b
+a > b
+a >= b
+
+```
+
+
+## podstawowe komendy i funkcje
+
+
+
+### sprawdzenie typu obiektu
+```{python}
+
+string = 'abdc'
+liczba = 100
+
+#(1) uzycie funkcji 'type' 
+type(string) == str
+type(string) is str
+type(liczba) == int
+type(liczba) is int
+
+# zeby sprawdzic czy pandas to 'modul'
+import pandas as pd
+type(pd) is type(__builtins__)
+
+#(2) uzycie funkcji 'insinstance'
+isinstance(string, (int, float))       # czy obiekt to typ 'int' lub 'float'
+isinstance(string, (int, float, str))  # czy obiekt to typ 'int' lub 'float' lub 'str' 
+
+
+
+#(3) ROZNICA MIEDZY funkcjami 'type' i 'isinstance':
+# Isinstance caters for inheritance (an instance of a derived class is an instance of a base class, too), while checking for equality of type does not (it demands identity of types and rejects instances of subtypes, AKA subclasses).
+# To co napisano powyzej ma np. znaczenie przy podklasach bedacych elementami nadklas (patrz plik o programowaniu obiektowym '1_08_PROGRAMING_data_structures-objective_programing'). Popatrzmy na przyklad:
+
+# definiujemy klase 'Vehicle'
+class Vehicle:
+    pass
+
+# definiujemy klase 'Truck' bedaca podklasa klasy 'Vehicle'
+class Truck(Vehicle):
+    pass
+
+isinstance(Vehicle(), Vehicle)  # returns True
+type(Vehicle()) == Vehicle      # returns True
+isinstance(Truck(), Vehicle)    # returns True
+type(Truck()) == Vehicle        # returns False
+
+
+
+
+#(4) Sprawdzenie najbardziej podstawowych typow
+
+# array 
+import numpy as np
+a1 = np.array([1,2])
+type(a1) is np.ndarray
+
+
+# DataFrame
+import pandas as pd
+df = pd.DataFrame([1])
+type(df) is pd.core.frame.DataFrame
+
+
+# list 
+li = [1,2]
+type(li) is list
+
+
+# Series
+import pandas as pd
+df = pd.Series([1,2,3])
+type(df) is pd.core.series.Series
+
+
+#tuple
+tup = (1,2,3)
+type(tup) is x
+
+
+# set
+sett = {1,2,3}
+type(sett) is set
+
+```
+
+
+
+### inne komendy i funkcje
+
+```{python}
+
+# usuwanie zmiennych
+z = [1,2,3]
+w = [4,5,6]
+del z, w # mozna kilka zmiennych na raz usunac
+
+
+# lista atrybutow i metod obiektu
+z = [1,2,3,4]
+dir(z)
+
+
+# wielkosci obiektu w pamieci
+sys.getsizeof(z) # ile w bajtach zajmuje lista w pamieci
+sys.getsizeof(z)/1e+6 # ile w megabajtach (decimal) zajmuje lista w pamieci
+sys.getsizeof(z)/1048576 # ile w megabajtach (binary) zajmuje lista w pamieci
+
+
+# unikalne ID obiektu
+id(z)
+
+
+# czy obiekty są tożsame (silny warunek tozsamosci)
+w = [1,2,3]
+z = [1,2,3]
+w is z # obiekty są identyczne co do zawartosći i typu, ale to są 2 różne obiekty (mają różną lokalizację w pamięci) więc dostajemy FALSE
+
+
+
+# czy obiekty sa takie same do do wartosci i typu (slaby warunek tozsamosci)
+w = [1,2,3]
+z = [1,2,3]
+w == z # dostajemy TRUE
+
+
+
+# trik zwiazany z przypisaniem wartosci do kilku zmiennych w jednej linii
+z1, z2 = [1,2] # z1 bedzie rowne 1 a z2 2
+x1, x2 = 1, 2 # x1 bedzie rowne 1 a x2 2
+w1, w2 = [[1,2], [3,4]] # w1 bedzie rowne [1,2] a w2 [3,4]
+
+
+
+```
+
+
+
+
+## control flow
+
+### if else
+
+'else if' w jednej linii. Użyteczne np. w funkcjach anonimowych
+```{python}
+
+
+# (1) Wersja pierwsza składni
+
+# ogolna skladnia
+expr1 if condition1 else expr2 if condition2 else expr
+
+
+# przyklad
+a = "ujemna" if b<0 else "dodatnia" if b>0 else "zero"
+
+
+# przyklad w funkcji anonimowej (tzw. funkcja lambda)
+z = [-1,-2,-1,0,1,2,3] #tworze liste
+list(map(lambda x : "ujemna" if x < 0 else "dodatnia" if x > 0 else "zero", z)) # wartosci liczbowe listy przekodowuje na teksowe opisy
+
+
+
+
+# (2) Wersja druga składni
+
+if a > b: print("a is greater than b")
+
+
+```
+
+
+
+if else w wielu liniach
+```{python}
+
+
+# ogolna skladnia
+if expression1:
+   statement(s)
+elif expression2:
+   statement(s)
+elif expression3:
+   statement(s)
+else:
+   statement(s)
+
+# przyklad 1:
+a = 33
+b = 200
+if b > a:
+  print("b is greater than a")
+
+
+# przyklad 2:
+a = 33
+b = 33
+if b > a:
+  print("b is greater than a")
+elif a == b:
+  print("a and b are equal")
+
+
+# przyklad 3:
+a = 200
+b = 33
+if b > a:
+  print("b is greater than a")
+elif a == b:
+  print("a and b are equal")
+else:
+  print("a is greater than b")
+
+```
+
+
+### petla 'for'
+
+#### Podstawowy for
+```{python}
+
+# for po liscie:
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+  print(x)
+  
+  
+# for po stringu:
+for x in "banana":
+  print(x)
+  
+  
+# po zakresie liczbowym:
+for x in range(6):
+  print(x)
+
+
+# uzycie 'break' - przerwanie petli
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+  print(x) 
+  if x == "banana": # w momencie kiedy petla dojdzie to 'banana' zostaje przerwana
+    break
+
+
+# uzycie 'continue' - przeskoczenie iteracji
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+  if x == "banana": # kiedy petla dojdzie do 'banana' zostanie przerwana biezaca iteracja ('banana' nie bedzie wydrukowane przez 'print') i nastąpi przeskok do kolejnej iteracji.
+    continue
+  print(x)
+
+```
+
+
+#### For w listach
+```{python}
+
+lista = [1,2,3,4,5]
+w = [x^2 for x in lista] # podniesienie do kwadratu kazdej liczby w liscie 'lista'
+
+
+# dodanie warunkow logicznych (filtrowanie liczb z listy)
+x = [1.5, 2.3, 4.4, 5.4, 'n', 1.5, 5.1, 'a'] # Original list
+x_non_str = [el for el in X if not isinstance(el, str)] # Extract non-strings from X to new list
+
+```
+
+
+#### For iterujace po kilku listach rownolegle
+```{python}
+
+a = ['a1', 'a2', 'a3']
+b = ['b1', 'b2']
+
+# pierwsza skladnia
+for (x, y) in zip(a, b): # uwaga: bez nawiasow wokol x i y tez zadziala
+    print(x, y) # nie wydrukuje wartosci 'a3' z pierwszego wektora, bo nie ma ona odpowiednika na tej samej pozycji w wektorze 'b'
+
+
+# druga skladnia
+import itertools
+for (x, y) in itertools.zip_longest(a, b): 
+    print(x, y) # tym razem 'a3' z pierwszego wektora zostanie wydrukowana
+
+
+```
+
+
+
+### petla 'while'
+
+```{python}
+
+i = 1
+while i < 6: # wyswietlaj zmienna 'i' tak długo jak jest mniejsza od 6. 
+  print(i)
+  i += 1 # zwiekszanie wartosci zmiennej 'i' o 1 w interacji
+
+
+# przerwanie petli - 'break'
+i = 1
+while i < 6:
+  print(i)
+  if i == 3:
+    break # jezeli i == 3 przerwij wykonywanie petli. 
+  i += 1
+
+
+# continue - przeskoczenie iteracji
+i = 0
+while i < 6:
+  i += 1 
+  if i == 3:
+    continue # jezeli i==3 zostanie przerwana biezaca iteracja ('3' nie bedzie wydrukowane przez 'print') i nastąpi przeskok do kolejnej iteracji
+  print(i)
+
+
+```
+
+
+
+## Indicies
+
+```{python}
+
+Logika indeksow prezentuje sie nastepujaco:
+
++---+---+---+---+---+---+
+| P | y | t | h | o | n |    # wektor o 6 elementach
++---+---+---+---+---+---+
+  0   1   2   3   4   5      # indeksy dodatnie
+ -6  -5  -4  -3  -2  -1      # indeksy ujemne
+
+#Jak widac indeksowanie liczbami dodatnimi jest od zera. 
+#Do indeksow mozna się tez odwolywac przez ujemne wartosci.
+
+
+# utworzenie listy do przykladow
+z=[0, 1, 2, 3,4 ,5, 6, 7, 8, 9, 10] # celowo lista zawiera liczby pokrywajace sie z ich indeksami zeby było łatwiej zrozumiec rezultaty przykladow
+
+
+z[1:5] # indeksy od 1 do 4 (UWAGA: nie od 1 do 5 !!!!!. 5 jest obcinane ). 
+
+z[:2] # pierwsze dwa indeksy
+
+z[4:] # indeksy od 4 w w gore
+
+z[1:5:2] # co drugi indeks z ineksow z przedzialu od 1 do 4.
+
+z[:6:3] # co trzeci indeks z ineksow z przedzialu od 0 do 5.
+
+z[5:1:-1] # indeksy od 5 do 2 w odwrocnej kolenjosci
+
+z[5:1:-2] # co drugi indeks z zakresu indeksow od 5 do 2 w odwroconej kolejnosci
+
+z[-4:-2] # odwolanie do ujemnych indeksow: od czwartego elementu (liczac od konca) do trzeciego elementu (liczac od konca - NIE drugiego elementu do konca !!!!)
+
+z[-4:] # odwolanie do ujemnych indeksow: od czwartego elementu (liczac od konca) od konca do konca wektora
+
+z[-4::2] # odwolanie do ujemnych indeksow: od czwartego elementu (liczac od konca) do konca wektora, ale co drugi indeks
+
+
+```
+
+
+
+## shallow and deep copies
+
+Przyklad dla list
+```{python}
+
+# tworze wektor
+xs = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+# tworze plytka kopie wektora
+ys = list(xs)  # Make a shallow copy
+
+#plytnosc kopii oznacze ze 'ys' sklada sie tak naprawde ze wskaznikow do elementow 'xs':
+# zmodyfikujmy jakis element w 'xs'
+xs[0][1] = 'X' # w pierwszym elementcie zamienilem drugi podelement na wartosc 'X'
+
+# wyswietlmy teraz 'ys'
+ys # tutaj tez dostalismy 'X' - jest to dowod na to ze 'ys' nie jest niezalezna zmienna, a tylko lista wskanikow do 'xs'
+
+# ale jezeli do 'xs' dolozymy calkowicie nowy element to 'ys' nie bedzie mial dodanego automatycznie wskaznika na niego:
+xs.append(['a','b','c']) 
+xs # tutaj mamy dodany nowy element
+ys # a tutaj nie mamy nowego elementu, bo nie dodano nowego wskaznika
+
+
+# zeby wykonac prawdziwa kopie (czyli kopie gleboka) w przypadku list stosuje nastepujaca skladnie
+import copy
+tx=[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+ws = copy.deepcopy(tx)
+tx[0][2] = 'ZW'
+tx
+ws # w liscie 'ws' nie mamy wartosci 'ZW'
+
+
+```
+
+Przyklad dla obiektow
+```{python}
+
+class pies:
+  def __init__(self, wiek):
+    self.wiek = wiek
+    
+  def modyf_wiek(self, wiek_nowy):
+    self.wiek = wiek_nowy
+
+    
+pies = pies(wiek=10) # nasz pies bedzie mial 10 lat
+pies_shallow = pies
+pies_deep = copy.deepcopy(pies)
+pies.wiek
+
+pies.modyf_wiek(15) # modyfikujemy w pierwszym obiekcie wiek psa na 15 lat
+pies.wiek # mamy 15 lat po modyfikacji
+pies_shallow.wiek # tutaj mamy tez 15 lat bo to tylko plytka kopia
+pies_deep.wiek # tutaj dalej jest 10. Zmiana w 'pies' nie wplynela na wartosci atrybutow 'pies_deep'
+
+
+```
+
+
+
+## generators
+
+Każda funkcja ktora ma w sobie wyrazenie 'yield' jest generatorem. Na przykladzie wyjasnimy jak dziala generator
+
+```{python}
+
+# W poniższe funkcji zamiast polecenia 'return' umiescimy 'yield' 
+def my_gen():
+  n = 1
+  print('This is printed first')
+  # Generator function contains yield statements
+  yield n
+  
+  n += 1
+  print('This is printed second')
+  yield n
+  
+  n += 1
+  print('This is printed at last')
+  yield n
+
+
+
+# taraz odpalimy funckje:
+a = my_gen() # nic sie nie dzieje
+
+# odpalimy funkcja z uzyciem funkcji 'next'
+next(a)
+# to co sie stalo wymaga szerszego komentarza. Gdyby na miejscu fragmentu 'yield n' bylo 'return(n)' funkcja doszlaby by do tego momentu, zwrocila wartosc 'n' i jej dzialanie zostalo zakonczone. Ale tutaj mamy do czynienia z generatorem. Zobaczmy co sie bedzie dzialo dalej.
+
+next(a)
+# otorz funkcja po wywolaniu pierwszego 'yeild', zostala tylko zapauzowana. Jej stan wewnetrzny (np. wartosci zmiennych wewnatrz funkcji) jest dalej przechowywane w pamieci komputera. Wywolanie funkci 'my_gen()' poraz drugie przez funkcje 'next' spowodowalo odpauzowanie funkcji i wykonanie kodu od pierwszego do drugiego 'yielda'. Zatem zapamietano z poprzedniego wykonania ze n=1, po czym dodano do n wartosc 1 i wykonano polecenie 'yield' znowu pauzujac funkcje
+
+next(a) # nie trudno zgadnac ze teraz bedzie wykonany kod od drugiego do trzeciego yielda. 
+
+next(a) # poniewaz nie ma czwartego 'yielda' odpalenie funkcji czwarty raz konczy prace generatora
+
+
+# UWAGA. Iteracje funkcja 'next' po kolejnych 'yieldach' mozna wykonac tylko raz. Jezeli chcemy powtorzyc operacje musimy utworzyc nowy obiekt z funkcja generatora.
+
+b = my_gen()
+next(b)
+next(b)
+next(b)
+
+
+
+# generatory mozna odpalac w petli 
+
+# Using for loop
+for item in my_gen():
+    print(item)   
+
+```
+
+
+Generowanie iteratorow inna skladnia
+
+```{python}
+
+# Intialize the list
+my_list = [1, 3, 6, 10]
+
+# tworzenie generatora
+a = (x**2 for x in my_list)
+# Output: 1
+print(next(a))
+
+# Output: 9
+print(next(a))
+
+# Output: 36
+print(next(a))
+
+# Output: 100
+print(next(a))
+
+# Output: StopIteration
+next(a)
+
+```
+
+
+
+
+## dynamic code
+
+Dynamiczne generowanie kodu.
+Czasem kod ktory ma byc wykonany powinien byc wygenerowany z dynamicznie wygenerowanego stringu ktory potem trzeba wykonac tak jak by byl normalnym kodem
+```{python}
+
+command_1 = "print(100)" # polecenie pythonowe schowane w stringu
+exec(command_1) # wykonuje polecenie
+
+command_2 = "print({x})".format(x=500) # polecenie pythonowe schowane w stringu ktory jest dynamicznie generowany z uzyciem zmiennej 'x'
+exec(command_2) # wykonuje polecenie
+
+
+x=100
+y=200
+command_3="del {a}, {b}".format(a='x',b='y') # chcemy dynamicznie generowac nazwy zmiennych ktore maja byc usuniete poleceniem 'del'
+exec(command_3) # usunelismy zmienne 'x' i 'y' 
+
+
+```
+
+
+
+## errors and warning
+
+### try
+
+Mechanizm umozliwa obsluge bledow. Dzieku temy nawet jezeli jakis fragment kodu zwraca blod, mozemy zrobic zabezpieczenie tak aby program mogl dalej dzialac. 
+
+https://www.w3schools.com/python/python_try_except.asp
+```{python}
+
+#(1) najprostsza skladnia
+try: # po 'try' jest blok kodu ktory chcemy obsluzyc pod katem ewentualnego bledu
+  print(x)
+except: # po 'except' okreslamy co ma sie zadziac po wystapieniu bledu
+  print("An exception occurred")  # jezeli wystapi jakis wlad 
+
+# uwga: powyzszy kod powoduje ze nawet jezeli kod ujety po 'try' zwroci blad beda wykonywane kolejne liniki kodu
+
+
+#(2) mozemy tez robic obsluge pod konkretny blad (bledy maja swoje nazwy do ktorych mozemy sie odnosic)
+try:
+  print(x)
+except NameError: # Tutaj mamy 'except' do obslugi bledu o nazwie 'NameError'. Blad taki wystepuje kiedy dana zmienne nie istnieje
+  print("Variable x is not defined")
+except: # mozemy sobie zostawic dalej obsluge dla pozostalych rodzajow bledow (moze byc wiele wyrazen 'exception' pod 'try')
+  print("Something else went wrong")
+
+
+
+#(3) jezeli chcemy zeby w razie niewystapienie bledu zostal zrealizowany jakis inny kod, to uzywamy 'else'
+try:
+  print("Hello")
+except:
+  print("Something went wrong")
+else: # jezeli blok kodu po 'try' nie zwrocil bledu wykonaj kod po 'else'
+  print("Nothing went wrong")
+
+
+
+#(4) mozemy tez chciec zeby zostal wykonany jakis kod, niezaleznie od tego czy blad wystapil czy nie. Do tego sluzy wyrazenie 'finally'.
+try:
+  print(x)
+except:
+  print("Something went wrong")
+finally: # kod wykonywany niezaleznie od tego czy blok kodu pod 'try' zawrocil blad.
+  print("The 'try except' is finished") # printed always
+
+
+
+#(5) czasem mozemy chciec zeby w razie wystapienia bledu zostala wyswietlona jego tresc:
+try:
+  1/0
+except Exception as e:
+  print(e);  # dostaniemy tresc bledu wygenerowana przez wyrazenie po 'try' (bedzie to 'division by zero')  
+
+
+```
+
+
+
+### assertion
+
+O wyrazeniu 'assertion':
+Assertions are simply boolean expressions that checks if the conditions return true or not. If it is true, the program does nothing and move to the next line of code. However, if it's false, the program stops and THROWS an ERROR.
+
+https://www.programiz.com/python-programming/assert-statement
+```{python}
+
+assert 1==2, 'mamy blad' # warunek nie jest spelniony wiec 'assertion' zwroci nam blad i komunikat o tresci 'mamy blad'
+assert 1!=2, 'mamy blad' # warunke jest spelnioiny wiec nie dzieje sie nic. 
+
+``````
+
+
+

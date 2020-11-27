@@ -1,0 +1,322 @@
+# DATA STRUCTURES - objective programing
+
+Programownie obiektowe technicznie jest proste. Sztuką jest dobrze wymyślić i zaprojektować obiekty tak żeby rzeczy rzeczywiście ułatwiały zarządzanie kodem programu.
+
+## Tworzenie klasy i obiektow
+
+Utworzenie najprostszego obiektu
+```{python}
+
+#najpier tworze klase ktora jest szablonej do tworznia konkretnych obiektow tej klasy
+class pies:
+  imie = 'Burek'
+
+
+# tworze dwa obiekty (instancje klasy) 'pies'
+pies_1 = pies()
+pies_2 = pies()
+
+
+
+```
+
+
+Atrubuty (zmienna zwiazane z klasami i obiektami) dzieli na 
+- zwiazane z klasa. Beda je mialy wszystkie obiekty danej klasy
+- zwiazana z obiektami. Moga sie roznic pomiedzy obiektami
+
+Metody (czyli funkcje zwiazane z klasami i obiektami) rowniz dzielimy na 
+- zwiazane z klasa. Operacje wykonywane przez te metody beda mialy wplyw na wszystkie instancje klasy
+- zwiazana z obiektami. Operacje wykonywane przez te metody beda mialy wplyw tylko na instancja na ktorych jest wykonywana funkcja
+
+
+
+## Atrybuty
+```{python}
+
+#(1) znowu tworzymy klase 
+class pies:
+  # atrybut 'rodzaj' bedzie dotyczyl wszystkich instancji tej klasy. Jest to atrybut dla calej klasy
+  rodzaj = 'ssak'
+  
+  # zeby stworzyc atrybuty ktorych wartosci moga sie roznic pomiedzy instancjami tworze funkcje inicjalizujaca (konstruktor), ktora bedzie automatycznie wywolywana przy tworzeniu obiektu
+  def __init__(self, wiek, imie): # funkcja dotyczy instancji klasy i musi miec jako pierwszy argument 'self', ktory umozliwia jej operowanie na elementach tej instancji
+    self.wiek_psa = wiek
+    self.imie_psa = imie
+    
+
+#(2) wywolanie funkcji __init__ nastepuje automatycznie przy tworzeniu obiektu:
+pies_1 = pies(wiek_psa = 10, imie_psa = 'burek') # teraz przy tworzeniu obiektu nadamy od razu cesze 'wiek_psa' i 'imie_psa' wartosc ktora nas interesje. Zauwazmy ze funkcja __init__ nie jest tutaj wywolywana przez nas z nazwy. Jest ona wywolywana automatycznie przy tworzeniu obiektu i domyslnie pobiera argumenty podane w nawiasach okraglych po nazwie funkcji tworzacej klase.
+
+pies_2 = pies(wiek_psa = 7, imie_psa = 'mirek')
+pies_3 = pies(wiek_psa = 11, imie_psa = 'puszek')
+
+```
+
+
+## Metody
+```{python}
+
+class pies:
+  
+  # atrybuty calej klasy
+  rodzaj = 'ssak'
+  
+  
+  # funkcja dla instancji bedaca funkcja inicjalizujaca
+  def __init__(self, wiek, imie): # przypominam ze funkcje instancji maja 'self' jako pierwszy argument
+    self.wiek_psa = wiek
+    self.imie_psa = imie
+  
+  # funkcja dla instancji ( tym razem to nie jest funkcja inicjalizujaca)
+  def wiek_ludzki(self):
+    return(self.wiek_psa * 7)
+    
+  
+  # funkcja dla klasu
+  @classmethod  # musze uzyc specjalnego dekoratora zeby poinformowac ze to funkcja dla calej klasy (o dekoratorze jest przyklad w pliku "1_02_PROGRAMING_functions_and_environments")
+  def zmiana_wielkosci_litery(cls, czy_na_male): # funkcje klasy maja 'cls' jako pierwszy argument zeby funkcja mogla sie odnosic do klasy
+    if czy_na_male:
+      cls.radzaj = cls.rodzaj.lower # zamiana na male litery nazwy w atrybucie klasy
+    else:
+      cls.rodzaj = cls.rodzaj.upper # zamiana na male litery nazwy w atrybucie klasy
+    
+
+
+pies_1 = pies(wiek = 5, imie = 'burek')
+pies_2 = pies(wiek = 15, imie = 'zbirek')
+
+# wywolanie atrybutu klasy
+pies_1.rodzaj
+pies_2.rodzaj
+
+
+
+# wywolanie atrybutow instancji
+pies_1.wiek_psa
+pies_1.imie_psa
+
+pies_2.wiek_psa
+pies_2.imie_psa
+
+
+# wywolanie funkcji instancji
+pies_1.wiek_ludzki()
+pies_2.wiek_ludzki()
+
+
+# wywolanie funkcji klasy
+pies_1.zmiana_wielkosci_litery(czy_na_male=False)
+
+pies_1.rodzaj()
+pies_2.rodzaj() #UWAGA!!!. Mimo ze wiekosc liter dla globalnego atrybutu zmienilismy tylko dla pies_1 to zmiana zaszla tak jak chcielismy dla calej klasy czyli dla wszystkich instancji. Dlatego dla pies_2 tez jest pisany wielka litera
+
+
+
+
+```
+
+
+## Prywatne atrybuty i metody
+
+W programowaniu obiektowym elementy prywatne (atrybuty, funkcje) robi sie dla wewnetrznego uzytku obiektu. Sa to np. jakies pomocnicze funkcje ktorych uzytkownik nie powinien widziec, a ktorych rola jest np. wspieranie funkcji ktore sa z kolei wywolywane przez przez uzytownika (czyli funkcji publicznych. Dla scislosci wspomne ze funkcje w obiektach klas nazywa sie metodami. 
+
+W Pythonie nazwy elementow prywatnych zaczynaja sie od podwojnego podkreslenia '__'.
+
+```{python}
+
+class employee:
+    def __init__(self, name, sal):
+        self.__name=name  # prywatny atrybut
+        self.__salary=sal # prywatny atrybut
+        
+    def __pensja_netto(self): # funkcja prywatna
+      print(self.__salary*0.8)
+
+
+emp = employee(name = 'lukasz', sal = 5000)
+emp.__salary # atrybutu salary nie sa sie wywolac bo jest prywatny i przez to niedostepny dla uzytkownika. Dostaniemy blad
+emp._employee__salary # ale mozna go wywalc posrednio taka nazwa: podkreslnik+nazwa_klasy_podkreslnik+nazwa_prywanego_atrybutu
+
+emp.__pensja_netto()  # funkcji salary nie sa sie wywolac bo jest prywatna i przez to niedostepna dla uzytkownika. Dostaniemy blad
+emp._employee__pensja_netto()# ale mozna ja wywalc posrednio taka nazwa: podkreslnik+nazwa_klasy_podkreslnik+nazwa_prywanej_funkcji
+
+
+```
+
+
+
+
+
+## Metody statyczne
+
+Sluza jak elementy wykonywane 'na boku' bez wsolywania na atrybuty klasy i jej instancji
+```{python}
+
+
+# Python program to demonstrate  
+# use of class method and static method. 
+from datetime import date 
+  
+class Person: 
+    def __init__(self, name, age): 
+        self.name = name 
+        self.age = age 
+      
+    # a class method to create a Person object by birth year. 
+    @classmethod
+    def fromBirthYear(cls, name, year): 
+        return cls(name, date.today().year - year) 
+      
+    # a static method to check if a Person is adult or not. 
+    @staticmethod
+    def isAdult(age): 
+        return age > 18
+  
+person1 = Person('mayank', 21) 
+person2 = Person.fromBirthYear('mayank', 1996) 
+  
+print(person1.age)
+print(person2.age)
+  
+# print the result 
+print Person.isAdult(22) 
+
+
+
+```
+
+
+
+
+
+## mechanizm dziedziczenia
+
+
+### tworzenie podklas
+
+Klasy mozemy ukladac w hierachi. Jedna klasa moze miec wiele podklas. Jedna podklasa moze miec wiele nadklas.
+Podklasy dziedzicza cechy nadklasy, ale moga dodawac jakies swoje kolejne elementy. Np. Klasa 'samochod' oznacze posiadanie 4 kol i silnika. Podklasa 'kabriolet' ma wszystko to co ma klasa 'samochod' ale mozna jej dolozyc ceche 'skladany_dach'. Dla podklasy mozemy stworzyc nastepna podklase, np. 'kabriolet_elektryczny', itd.
+
+```{python}
+
+# tworze klase 'robot'
+class Robot:
+    def __init__(self, name):
+        self.name = name
+        
+    def say_hi(self):
+        print("Hi, I am " + self.name)
+        
+        
+# teraz tworze klase PhysicianRobot ktora jest podklasa klasy 'robot'
+class PhysicianRobot(Robot):
+  pass # slowo pass umozliwia utworzenie klasy bez podawania zadnych parametow.
+  
+
+y = PhysicianRobot("James") #tworze obiekt klasy 'Robot'
+y.say_hi()  # mimo że w klasie 'PhysicianRobot' nie zdefiniowalismy tej funkcji to zostala ona odziedziczona po klasie 'Robot'.Dlatego dziala
+    
+
+
+# teraz tworze klase OrganicRobot ktora jest kolejna (druga juz) podklasa klasy 'robot'
+class OrganicRobot(Robot):
+  # teraz dodamy sobie nowa funkcje ktorej nie ma klasa 'robot'
+  def say_goodbye(self):
+    print('goodbye')
+
+
+x = OrganicRobot('Lucas')
+x.say_goodbye()
+
+```
+
+
+### przeciazanie metod
+
+Przeciazanie metod. Polega na tym ze co prawda podklasa dziewczyny nazwe funkcji po nadklasie, ale niekoniecznie cialo tej funkcji. Czyli w podklasie funkcja moze robic cos innego nic w glownej klasie.
+```{python}
+
+# tworze klase 'robot'
+class Robot:
+    def __init__(self, name):
+        self.name = name
+        
+    def say_hi(self):
+        print("Hi, I am " + self.name)
+        
+        
+# traz tworze klase PhysicianRobot ktora jest podklasa klasy 'robot'
+class PhysicianRobot(Robot):
+    def say_hi(self): # definiujemy tutaj jeszcze raz funkcje 'say_hi'
+        print("Everything will be okay! ") 
+        print(self.name + " takes care of you!")
+
+
+
+robot = Robot('blaszak')
+physical_robot = PhysicianRobot('robokop')
+        
+# ponizej funkcje zwroca inne rezultaty
+robot.say_hi()
+physical_robot.say_hi()
+
+```
+
+
+
+### funkcja 'super'
+
+[Python Super Function Example | Super() Method Tutorial](https://appdividend.com/2019/01/22/python-super-function-example-super-method-tutorial/)
+
+
+Sluzy do odwolywania sie do metod nadklasy
+
+```{python}
+
+class Computer():
+    def __init__(self, computer, ram, ssd):
+        self.computer = computer
+        self.ram = ram
+        self.ssd = ssd
+
+class Laptop(Computer):
+    def __init__(self, computer, ram, ssd, model):
+        super().__init__(computer, ram, ssd) # wywolanie f:init z nadklasy ktora wykona utworzenia atrybutow ktore sa tez tworzone w podklasie
+        self.model = model # nowa funkcja w podklasie doklada utworzenie jednego dodatkowego atrybutu wzgledem nadklasy. 
+
+lenovo = Laptop('lenovo', 2, 512, 'l420')
+print('This computer is:', lenovo.computer) # przypisanie atrybuty 'komputer' nastapilo przez f:init z nadklasy
+print('This computer has ram of', lenovo.ram)
+print('This computer has ssd of', lenovo.ssd)
+print('This computer has this model:', lenovo.model)
+
+
+```
+
+
+Wywolywanie przez f:super aktualnej klasy (nie nadklasy)
+
+```{python}
+
+class Rectangle:
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+    def perimeter(self):
+        return 2 * self.length + 2 * self.width
+
+class Square(Rectangle):
+    def __init__(self, length):
+        super(Square, self).__init__(length, length)
+
+```
+
+
+
+
+

@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 DATA STRUCTURES-Pandas | Introduction to Python</title>
+  <meta name="description" content="Chapter 7 DATA STRUCTURES-Pandas | Introduction to Python" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 DATA STRUCTURES-Pandas | Introduction to Python" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 DATA STRUCTURES-Pandas | Introduction to Python" />
+  
+  
+  
+
+<meta name="author" content="Łukasz Muszyński" />
+
+
+<meta name="date" content="2019-08-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-structures-basic.html">
+<link rel="next" href="data-structures-numpy-scipy.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introdution to Python</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> INTRO</a></li>
+<li class="part"><span><b>I <lfg>PROGRAMMING</lfg></b></span></li>
+<li class="chapter" data-level="2" data-path="syntax.html"><a href="syntax.html"><i class="fa fa-check"></i><b>2</b> Syntax</a><ul>
+<li class="chapter" data-level="2.1" data-path="syntax.html"><a href="syntax.html#operatory-logiczne"><i class="fa fa-check"></i><b>2.1</b> operatory logiczne</a></li>
+<li class="chapter" data-level="2.2" data-path="syntax.html"><a href="syntax.html#podstawowe-komendy-i-funkcje"><i class="fa fa-check"></i><b>2.2</b> podstawowe komendy i funkcje</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="syntax.html"><a href="syntax.html#sprawdzenie-typu-obiektu"><i class="fa fa-check"></i><b>2.2.1</b> sprawdzenie typu obiektu</a></li>
+<li class="chapter" data-level="2.2.2" data-path="syntax.html"><a href="syntax.html#inne-komendy-i-funkcje"><i class="fa fa-check"></i><b>2.2.2</b> inne komendy i funkcje</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="syntax.html"><a href="syntax.html#control-flow"><i class="fa fa-check"></i><b>2.3</b> control flow</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="syntax.html"><a href="syntax.html#if-else"><i class="fa fa-check"></i><b>2.3.1</b> if else</a></li>
+<li class="chapter" data-level="2.3.2" data-path="syntax.html"><a href="syntax.html#petla-for"><i class="fa fa-check"></i><b>2.3.2</b> petla ‘for’</a></li>
+<li class="chapter" data-level="2.3.3" data-path="syntax.html"><a href="syntax.html#petla-while"><i class="fa fa-check"></i><b>2.3.3</b> petla ‘while’</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="syntax.html"><a href="syntax.html#indicies"><i class="fa fa-check"></i><b>2.4</b> Indicies</a></li>
+<li class="chapter" data-level="2.5" data-path="syntax.html"><a href="syntax.html#shallow-and-deep-copies"><i class="fa fa-check"></i><b>2.5</b> shallow and deep copies</a></li>
+<li class="chapter" data-level="2.6" data-path="syntax.html"><a href="syntax.html#generators"><i class="fa fa-check"></i><b>2.6</b> generators</a></li>
+<li class="chapter" data-level="2.7" data-path="syntax.html"><a href="syntax.html#dynamic-code"><i class="fa fa-check"></i><b>2.7</b> dynamic code</a></li>
+<li class="chapter" data-level="2.8" data-path="syntax.html"><a href="syntax.html#errors-and-warning"><i class="fa fa-check"></i><b>2.8</b> errors and warning</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="syntax.html"><a href="syntax.html#try"><i class="fa fa-check"></i><b>2.8.1</b> try</a></li>
+<li class="chapter" data-level="2.8.2" data-path="syntax.html"><a href="syntax.html#assertion"><i class="fa fa-check"></i><b>2.8.2</b> assertion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html"><i class="fa fa-check"></i><b>3</b> FUNCTIONS AND ENVIROMENTS</a><ul>
+<li class="chapter" data-level="3.1" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#podstawowa-skadnia"><i class="fa fa-check"></i><b>3.1</b> podstawowa składnia</a></li>
+<li class="chapter" data-level="3.2" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#przekazywanie-argumentow-przez-wartosc-a-przekazywanie-przez-referencje"><i class="fa fa-check"></i><b>3.2</b> przekazywanie argumentow przez wartosc a przekazywanie przez referencje</a></li>
+<li class="chapter" data-level="3.3" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#funkcje-anonimowe"><i class="fa fa-check"></i><b>3.3</b> funkcje anonimowe</a></li>
+<li class="chapter" data-level="3.4" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#programowanie-funkcyjne"><i class="fa fa-check"></i><b>3.4</b> programowanie funkcyjne</a></li>
+<li class="chapter" data-level="3.5" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#wektoryzacja-funkcji"><i class="fa fa-check"></i><b>3.5</b> wektoryzacja funkcji</a></li>
+<li class="chapter" data-level="3.6" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#rekurencja"><i class="fa fa-check"></i><b>3.6</b> rekurencja</a></li>
+<li class="chapter" data-level="3.7" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#zakres-istnienia-zmiennych-scoping-rules"><i class="fa fa-check"></i><b>3.7</b> zakres istnienia zmiennych (scoping rules)</a></li>
+<li class="chapter" data-level="3.8" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#dekoratory"><i class="fa fa-check"></i><b>3.8</b> dekoratory</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>4</b> DATA TYPES</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-types.html"><a href="data-types.html#liczby"><i class="fa fa-check"></i><b>4.1</b> liczby</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="data-types.html"><a href="data-types.html#tworzenie"><i class="fa fa-check"></i><b>4.1.1</b> tworzenie</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-types.html"><a href="data-types.html#ciagi"><i class="fa fa-check"></i><b>4.1.2</b> Ciagi</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-types.html"><a href="data-types.html#rozne-funkcje"><i class="fa fa-check"></i><b>4.1.3</b> rozne funkcje</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-types.html"><a href="data-types.html#text"><i class="fa fa-check"></i><b>4.2</b> text</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="data-types.html"><a href="data-types.html#tworzenie-statyczne"><i class="fa fa-check"></i><b>4.2.1</b> tworzenie statyczne</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-types.html"><a href="data-types.html#tworzenie-dynamiczne---nowa-skladnia-z-funkcja-format"><i class="fa fa-check"></i><b>4.2.2</b> Tworzenie dynamiczne - nowa skladnia z funkcja ‘format’</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-types.html"><a href="data-types.html#tworzenie-dynamiczne---stara-skladnia"><i class="fa fa-check"></i><b>4.2.3</b> Tworzenie dynamiczne - stara skladnia</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-types.html"><a href="data-types.html#multiline-string"><i class="fa fa-check"></i><b>4.2.4</b> multiline string</a></li>
+<li class="chapter" data-level="4.2.5" data-path="data-types.html"><a href="data-types.html#odwolywanie-sie-do-podstringow"><i class="fa fa-check"></i><b>4.2.5</b> odwolywanie sie do podstringow</a></li>
+<li class="chapter" data-level="4.2.6" data-path="data-types.html"><a href="data-types.html#szukanie-pozycji-podstringow"><i class="fa fa-check"></i><b>4.2.6</b> szukanie pozycji podstringow</a></li>
+<li class="chapter" data-level="4.2.7" data-path="data-types.html"><a href="data-types.html#modyfikacja"><i class="fa fa-check"></i><b>4.2.7</b> modyfikacja</a></li>
+<li class="chapter" data-level="4.2.8" data-path="data-types.html"><a href="data-types.html#rozne-podstawowe-operacje-i-funkcje-zwiazane-ze-stringami"><i class="fa fa-check"></i><b>4.2.8</b> rozne podstawowe operacje i funkcje zwiazane ze stringami</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-types.html"><a href="data-types.html#wyrazenie-regularne"><i class="fa fa-check"></i><b>4.3</b> wyrazenie regularne</a></li>
+<li class="chapter" data-level="4.4" data-path="data-types.html"><a href="data-types.html#daty"><i class="fa fa-check"></i><b>4.4</b> daty</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="data-types.html"><a href="data-types.html#tworzenie-dat"><i class="fa fa-check"></i><b>4.4.1</b> tworzenie dat</a></li>
+<li class="chapter" data-level="4.4.2" data-path="data-types.html"><a href="data-types.html#atrybuty-daty"><i class="fa fa-check"></i><b>4.4.2</b> atrybuty daty</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="inkrementacja-daty.html"><a href="inkrementacja-daty.html"><i class="fa fa-check"></i><b>5</b> inkrementacja daty</a><ul>
+<li class="chapter" data-level="5.1" data-path="inkrementacja-daty.html"><a href="inkrementacja-daty.html#roznice-dat"><i class="fa fa-check"></i><b>5.1</b> roznice dat</a></li>
+<li class="chapter" data-level="5.2" data-path="inkrementacja-daty.html"><a href="inkrementacja-daty.html#zmiana-wartosci"><i class="fa fa-check"></i><b>5.2</b> zmiana wartosci</a></li>
+<li class="chapter" data-level="5.3" data-path="inkrementacja-daty.html"><a href="inkrementacja-daty.html#zaokraglanie-dat"><i class="fa fa-check"></i><b>5.3</b> zaokraglanie dat</a></li>
+<li class="chapter" data-level="5.4" data-path="inkrementacja-daty.html"><a href="inkrementacja-daty.html#generowanie-ciagu-dat"><i class="fa fa-check"></i><b>5.4</b> generowanie ciagu dat</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-structures-basic.html"><a href="data-structures-basic.html"><i class="fa fa-check"></i><b>6</b> DATA STRUCTURES - basic</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#listy"><i class="fa fa-check"></i><b>6.1</b> listy</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#atrybuty-listy"><i class="fa fa-check"></i><b>6.1.1</b> atrybuty listy</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-listy"><i class="fa fa-check"></i><b>6.1.2</b> tworzenie listy</a></li>
+<li class="chapter" data-level="6.1.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#dodawanie-wartosci"><i class="fa fa-check"></i><b>6.1.3</b> dodawanie wartosci</a></li>
+<li class="chapter" data-level="6.1.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#aktualizacja-wartosci"><i class="fa fa-check"></i><b>6.1.4</b> aktualizacja wartosci</a></li>
+<li class="chapter" data-level="6.1.5" data-path="data-structures-basic.html"><a href="data-structures-basic.html#usuwanie"><i class="fa fa-check"></i><b>6.1.5</b> usuwanie</a></li>
+<li class="chapter" data-level="6.1.6" data-path="data-structures-basic.html"><a href="data-structures-basic.html#filtrowanie"><i class="fa fa-check"></i><b>6.1.6</b> filtrowanie</a></li>
+<li class="chapter" data-level="6.1.7" data-path="data-structures-basic.html"><a href="data-structures-basic.html#wyszukiwanie-indeksu"><i class="fa fa-check"></i><b>6.1.7</b> wyszukiwanie indeksu</a></li>
+<li class="chapter" data-level="6.1.8" data-path="data-structures-basic.html"><a href="data-structures-basic.html#sortowanie"><i class="fa fa-check"></i><b>6.1.8</b> sortowanie</a></li>
+<li class="chapter" data-level="6.1.9" data-path="data-structures-basic.html"><a href="data-structures-basic.html#operowanie-funkcjami-na-elementach"><i class="fa fa-check"></i><b>6.1.9</b> operowanie funkcjami na elementach</a></li>
+<li class="chapter" data-level="6.1.10" data-path="data-structures-basic.html"><a href="data-structures-basic.html#ciekawe-operacje-i-triki-na-listach"><i class="fa fa-check"></i><b>6.1.10</b> ciekawe operacje i triki na listach</a></li>
+<li class="chapter" data-level="6.1.11" data-path="data-structures-basic.html"><a href="data-structures-basic.html#losowe-elementy"><i class="fa fa-check"></i><b>6.1.11</b> losowe elementy</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#slowniki"><i class="fa fa-check"></i><b>6.2</b> slowniki</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-1"><i class="fa fa-check"></i><b>6.2.1</b> tworzenie</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#odwolywanie-sie-do-elementow"><i class="fa fa-check"></i><b>6.2.2</b> odwolywanie sie do elementow</a></li>
+<li class="chapter" data-level="6.2.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#updating-and-adding"><i class="fa fa-check"></i><b>6.2.3</b> updating and adding</a></li>
+<li class="chapter" data-level="6.2.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#removing"><i class="fa fa-check"></i><b>6.2.4</b> removing</a></li>
+<li class="chapter" data-level="6.2.5" data-path="data-structures-basic.html"><a href="data-structures-basic.html#filtering"><i class="fa fa-check"></i><b>6.2.5</b> filtering</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data-structures-basic.html"><a href="data-structures-basic.html#nazwy-dla-ktorych-wartosci-spelniaja-warunek"><i class="fa fa-check"></i><b>6.2.6</b> nazwy dla ktorych wartosci spelniaja warunek</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tuples"><i class="fa fa-check"></i><b>6.3</b> tuples</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#atrybuty"><i class="fa fa-check"></i><b>6.3.1</b> atrybuty</a></li>
+<li class="chapter" data-level="6.3.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-2"><i class="fa fa-check"></i><b>6.3.2</b> tworzenie</a></li>
+<li class="chapter" data-level="6.3.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#odwolywanie-sie-do-elementow-1"><i class="fa fa-check"></i><b>6.3.3</b> odwolywanie sie do elementow</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#set-zbiory"><i class="fa fa-check"></i><b>6.4</b> set (zbiory)</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-3"><i class="fa fa-check"></i><b>6.4.1</b> tworzenie</a></li>
+<li class="chapter" data-level="6.4.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#atrubyty"><i class="fa fa-check"></i><b>6.4.2</b> atrubyty</a></li>
+<li class="chapter" data-level="6.4.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#aktualizacjadodawanieusuwanie-wartosci"><i class="fa fa-check"></i><b>6.4.3</b> aktualizacja/dodawanie/usuwanie wartosci</a></li>
+<li class="chapter" data-level="6.4.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#funkcje-na-elementach"><i class="fa fa-check"></i><b>6.4.4</b> funkcje na elementach</a></li>
+<li class="chapter" data-level="6.4.5" data-path="data-structures-basic.html"><a href="data-structures-basic.html#operacje-na-zbiorach"><i class="fa fa-check"></i><b>6.4.5</b> operacje na zbiorach</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html"><i class="fa fa-check"></i><b>7</b> DATA STRUCTURES-Pandas</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#series"><i class="fa fa-check"></i><b>7.1</b> Series</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#tworzenie-4"><i class="fa fa-check"></i><b>7.1.1</b> tworzenie</a></li>
+<li class="chapter" data-level="7.1.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#atrybuty-1"><i class="fa fa-check"></i><b>7.1.2</b> atrybuty</a></li>
+<li class="chapter" data-level="7.1.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#odwolywanie-sie-do-elementow-2"><i class="fa fa-check"></i><b>7.1.3</b> Odwolywanie sie do elementow</a></li>
+<li class="chapter" data-level="7.1.4" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#sortowanie-1"><i class="fa fa-check"></i><b>7.1.4</b> sortowanie</a></li>
+<li class="chapter" data-level="7.1.5" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dodawanie-wartosci-i-problem-z-indeksami"><i class="fa fa-check"></i><b>7.1.5</b> dodawanie wartosci i problem z indeksami</a></li>
+<li class="chapter" data-level="7.1.6" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#aktualizacja-wartosci-1"><i class="fa fa-check"></i><b>7.1.6</b> aktualizacja wartosci</a></li>
+<li class="chapter" data-level="7.1.7" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#rozne-funkcje-1"><i class="fa fa-check"></i><b>7.1.7</b> rozne funkcje</a></li>
+<li class="chapter" data-level="7.1.8" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-brakami-danych-i-wartowsciami-nieskonczonymi"><i class="fa fa-check"></i><b>7.1.8</b> praca z brakami danych i wartowsciami nieskonczonymi</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#categorical"><i class="fa fa-check"></i><b>7.2</b> Categorical</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#tworzenie-5"><i class="fa fa-check"></i><b>7.2.1</b> Tworzenie</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#usuwaniedodawaniemodyfikacje-kategorii"><i class="fa fa-check"></i><b>7.2.2</b> usuwanie/dodawanie/modyfikacje kategorii</a></li>
+<li class="chapter" data-level="7.2.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dodawanie-nowych-elemntow"><i class="fa fa-check"></i><b>7.2.3</b> dodawanie nowych elemntow</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#data-frames"><i class="fa fa-check"></i><b>7.3</b> DATA FRAMES</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#najwazniejsze-atrybuty-dataframe"><i class="fa fa-check"></i><b>7.3.1</b> Najważniejsze atrybuty DataFrame</a></li>
+<li class="chapter" data-level="7.3.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#tworzenie-ramki-danych"><i class="fa fa-check"></i><b>7.3.2</b> Tworzenie ramki danych</a></li>
+<li class="chapter" data-level="7.3.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#uwagi-o-indeksach"><i class="fa fa-check"></i><b>7.3.3</b> Uwagi o indeksach</a></li>
+<li class="chapter" data-level="7.3.4" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#wymuszanie-typow-kolumn-w-dataframe"><i class="fa fa-check"></i><b>7.3.4</b> Wymuszanie typów kolumn w DataFrame</a></li>
+<li class="chapter" data-level="7.3.5" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#transpozycja-dataframe"><i class="fa fa-check"></i><b>7.3.5</b> Transpozycja DataFrame</a></li>
+<li class="chapter" data-level="7.3.6" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#zmiana-nazw-kolumn"><i class="fa fa-check"></i><b>7.3.6</b> Zmiana nazw kolumn</a></li>
+<li class="chapter" data-level="7.3.7" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#usuwanie-kolumn"><i class="fa fa-check"></i><b>7.3.7</b> Usuwanie kolumn</a></li>
+<li class="chapter" data-level="7.3.8" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#filtrowanie-data-frame---wybieranie-kolumn"><i class="fa fa-check"></i><b>7.3.8</b> Filtrowanie Data Frame - wybieranie kolumn</a></li>
+<li class="chapter" data-level="7.3.9" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#filtrowanie-data-frame---wybieranie-wierszy"><i class="fa fa-check"></i><b>7.3.9</b> Filtrowanie Data Frame - wybieranie wierszy</a></li>
+<li class="chapter" data-level="7.3.10" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dodawanie-nowych-kolumn"><i class="fa fa-check"></i><b>7.3.10</b> Dodawanie nowych kolumn</a></li>
+<li class="chapter" data-level="7.3.11" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#aktualizacja-wartosci-w-kolumnach"><i class="fa fa-check"></i><b>7.3.11</b> Aktualizacja wartosci w kolumnach</a></li>
+<li class="chapter" data-level="7.3.12" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#sortowanie-2"><i class="fa fa-check"></i><b>7.3.12</b> Sortowanie</a></li>
+<li class="chapter" data-level="7.3.13" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#bindowanie---w-wierszach"><i class="fa fa-check"></i><b>7.3.13</b> Bindowanie - w wierszach</a></li>
+<li class="chapter" data-level="7.3.14" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#bindowanie---w-kolumnach"><i class="fa fa-check"></i><b>7.3.14</b> Bindowanie - w kolumnach</a></li>
+<li class="chapter" data-level="7.3.15" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#aczenie---merge"><i class="fa fa-check"></i><b>7.3.15</b> Łączenie - merge</a></li>
+<li class="chapter" data-level="7.3.16" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-duplikatami"><i class="fa fa-check"></i><b>7.3.16</b> Praca z duplikatami</a></li>
+<li class="chapter" data-level="7.3.17" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-brakami-danych"><i class="fa fa-check"></i><b>7.3.17</b> Praca z brakami danych</a></li>
+<li class="chapter" data-level="7.3.18" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-wartosciami-nieskonczonymi"><i class="fa fa-check"></i><b>7.3.18</b> Praca z wartosciami nieskonczonymi</a></li>
+<li class="chapter" data-level="7.3.19" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#funkcje-oknowe"><i class="fa fa-check"></i><b>7.3.19</b> Funkcje oknowe</a></li>
+<li class="chapter" data-level="7.3.20" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-groupby"><i class="fa fa-check"></i><b>7.3.20</b> Praca z GroupBy</a></li>
+<li class="chapter" data-level="7.3.21" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#funkcje-po-kolumnach-i-wierszach"><i class="fa fa-check"></i><b>7.3.21</b> Funkcje po kolumnach i wierszach</a></li>
+<li class="chapter" data-level="7.3.22" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-tekstem"><i class="fa fa-check"></i><b>7.3.22</b> Praca z tekstem</a></li>
+<li class="chapter" data-level="7.3.23" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-datami"><i class="fa fa-check"></i><b>7.3.23</b> Praca z datami</a></li>
+<li class="chapter" data-level="7.3.24" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dummy---rekodowanie-na-zmienne-zero-jedynkowe"><i class="fa fa-check"></i><b>7.3.24</b> Dummy - rekodowanie na zmienne zero-jedynkowe</a></li>
+<li class="chapter" data-level="7.3.25" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#crosstab---analiza-liczebnosci"><i class="fa fa-check"></i><b>7.3.25</b> crosstab - analiza liczebnosci</a></li>
+<li class="chapter" data-level="7.3.26" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#zmiana-struktury-dataframe"><i class="fa fa-check"></i><b>7.3.26</b> zmiana struktury DataFrame</a></li>
+<li class="chapter" data-level="7.3.27" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#rozne-problemy"><i class="fa fa-check"></i><b>7.3.27</b> Rozne problemy</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html"><i class="fa fa-check"></i><b>8</b> DATA STRUCTURES - Numpy, Scipy</a><ul>
+<li class="chapter" data-level="8.1" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#numpy"><i class="fa fa-check"></i><b>8.1</b> Numpy</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#tworzenie-6"><i class="fa fa-check"></i><b>8.1.1</b> Tworzenie</a></li>
+<li class="chapter" data-level="8.1.2" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#atrybuty-2"><i class="fa fa-check"></i><b>8.1.2</b> atrybuty</a></li>
+<li class="chapter" data-level="8.1.3" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#odwolywanie-sie-przez-indeksy"><i class="fa fa-check"></i><b>8.1.3</b> odwolywanie sie przez indeksy</a></li>
+<li class="chapter" data-level="8.1.4" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#filtrowanie-1"><i class="fa fa-check"></i><b>8.1.4</b> filtrowanie</a></li>
+<li class="chapter" data-level="8.1.5" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#aktualizacja-wartosci-2"><i class="fa fa-check"></i><b>8.1.5</b> aktualizacja wartosci</a></li>
+<li class="chapter" data-level="8.1.6" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#usuwanie-1"><i class="fa fa-check"></i><b>8.1.6</b> usuwanie</a></li>
+<li class="chapter" data-level="8.1.7" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#zmiana-kszattu-i-transpozycja"><i class="fa fa-check"></i><b>8.1.7</b> zmiana kszatłtu i transpozycja</a></li>
+<li class="chapter" data-level="8.1.8" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#bindowanie"><i class="fa fa-check"></i><b>8.1.8</b> bindowanie</a></li>
+<li class="chapter" data-level="8.1.9" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#operacje-na-kilku-macierzach-zwracajece-jedna-macierz"><i class="fa fa-check"></i><b>8.1.9</b> operacje na kilku macierzach zwracajece jedna macierz</a></li>
+<li class="chapter" data-level="8.1.10" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#sortowanie-3"><i class="fa fa-check"></i><b>8.1.10</b> sortowanie</a></li>
+<li class="chapter" data-level="8.1.11" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#funkcje-na-macierzach"><i class="fa fa-check"></i><b>8.1.11</b> funkcje na macierzach</a></li>
+<li class="chapter" data-level="8.1.12" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#braki-danych-i-wartosci-nieskonczone"><i class="fa fa-check"></i><b>8.1.12</b> braki danych i wartosci nieskonczone</a></li>
+<li class="chapter" data-level="8.1.13" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#rozne-funkcje-i-triki"><i class="fa fa-check"></i><b>8.1.13</b> rozne funkcje i triki</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#scipy"><i class="fa fa-check"></i><b>8.2</b> Scipy</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="data-structures-other.html"><a href="data-structures-other.html"><i class="fa fa-check"></i><b>9</b> DATA STRUCTURES - other</a></li>
+<li class="chapter" data-level="10" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html"><i class="fa fa-check"></i><b>10</b> DATA STRUCTURES - objective programing</a><ul>
+<li class="chapter" data-level="10.1" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#tworzenie-klasy-i-obiektow"><i class="fa fa-check"></i><b>10.1</b> tworzenie klasy i obiektow</a></li>
+<li class="chapter" data-level="10.2" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#metody-i-klasy-prywatne"><i class="fa fa-check"></i><b>10.2</b> metody i klasy prywatne</a></li>
+<li class="chapter" data-level="10.3" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#mechanizm-dziedziczenia"><i class="fa fa-check"></i><b>10.3</b> mechanizm dziedziczenia</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#tworzenie-podklas"><i class="fa fa-check"></i><b>10.3.1</b> tworzenie podklas</a></li>
+<li class="chapter" data-level="10.3.2" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#przeciazanie-metod"><i class="fa fa-check"></i><b>10.3.2</b> przeciazanie metod</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="work-organisation.html"><a href="work-organisation.html"><i class="fa fa-check"></i><b>11</b> WORK ORGANISATION</a><ul>
+<li class="chapter" data-level="11.1" data-path="work-organisation.html"><a href="work-organisation.html#importowanie-pakietowmodulow"><i class="fa fa-check"></i><b>11.1</b> importowanie pakietow/modulow</a></li>
+<li class="chapter" data-level="11.2" data-path="work-organisation.html"><a href="work-organisation.html#wlasne-moduly-i-pakiety"><i class="fa fa-check"></i><b>11.2</b> Wlasne moduly i pakiety</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="work-organisation.html"><a href="work-organisation.html#wlasny-modul"><i class="fa fa-check"></i><b>11.2.1</b> Wlasny modul</a></li>
+<li class="chapter" data-level="11.2.2" data-path="work-organisation.html"><a href="work-organisation.html#wlasny-pakiet---wersja-uproszczona"><i class="fa fa-check"></i><b>11.2.2</b> Wlasny pakiet - wersja uproszczona</a></li>
+<li class="chapter" data-level="11.2.3" data-path="work-organisation.html"><a href="work-organisation.html#wlasny-pakiet-wg.-standardu-pip"><i class="fa fa-check"></i><b>11.2.3</b> Wlasny pakiet wg. standardu pip</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="work-organisation.html"><a href="work-organisation.html#tworzenie-wirtualnych-srodowisk"><i class="fa fa-check"></i><b>11.3</b> tworzenie wirtualnych srodowisk</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="data-import-and-export.html"><a href="data-import-and-export.html"><i class="fa fa-check"></i><b>12</b> DATA IMPORT AND EXPORT</a><ul>
+<li class="chapter" data-level="12.1" data-path="data-import-and-export.html"><a href="data-import-and-export.html#pickles"><i class="fa fa-check"></i><b>12.1</b> pickles</a></li>
+<li class="chapter" data-level="12.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#csv-txt"><i class="fa fa-check"></i><b>12.2</b> csv / txt</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="data-import-and-export.html"><a href="data-import-and-export.html#import"><i class="fa fa-check"></i><b>12.2.1</b> Import</a></li>
+<li class="chapter" data-level="12.2.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#eksport"><i class="fa fa-check"></i><b>12.2.2</b> Eksport</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="data-import-and-export.html"><a href="data-import-and-export.html#excel"><i class="fa fa-check"></i><b>12.3</b> excel</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="data-import-and-export.html"><a href="data-import-and-export.html#import-1"><i class="fa fa-check"></i><b>12.3.1</b> Import</a></li>
+<li class="chapter" data-level="12.3.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#eksport-1"><i class="fa fa-check"></i><b>12.3.2</b> Eksport</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="data-import-and-export.html"><a href="data-import-and-export.html#schowek"><i class="fa fa-check"></i><b>12.4</b> schowek</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html"><i class="fa fa-check"></i><b>13</b> TOOLS AND TRICKS</a><ul>
+<li class="chapter" data-level="13.1" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#praca-z-katalogami-i-plikami"><i class="fa fa-check"></i><b>13.1</b> praca z katalogami i plikami</a></li>
+<li class="chapter" data-level="13.2" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#podstawowe-polecenia-w-konsoli"><i class="fa fa-check"></i><b>13.2</b> Podstawowe polecenia w konsoli</a></li>
+<li class="chapter" data-level="13.3" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#python"><i class="fa fa-check"></i><b>13.3</b> python</a></li>
+<li class="chapter" data-level="13.4" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#pommiar-czasu-wykonania-kodu"><i class="fa fa-check"></i><b>13.4</b> pommiar czasu wykonania kodu</a></li>
+</ul></li>
+<li class="part"><span><b>II <lfg>VISUALISATION</lfg></b></span></li>
+<li class="chapter" data-level="14" data-path="big-packages.html"><a href="big-packages.html"><i class="fa fa-check"></i><b>14</b> big packages</a><ul>
+<li class="chapter" data-level="14.1" data-path="big-packages.html"><a href="big-packages.html#matplotlib"><i class="fa fa-check"></i><b>14.1</b> matplotlib</a></li>
+<li class="chapter" data-level="14.2" data-path="big-packages.html"><a href="big-packages.html#seaborn"><i class="fa fa-check"></i><b>14.2</b> seaborn</a></li>
+<li class="chapter" data-level="14.3" data-path="big-packages.html"><a href="big-packages.html#plotly"><i class="fa fa-check"></i><b>14.3</b> plotly</a></li>
+<li class="chapter" data-level="14.4" data-path="big-packages.html"><a href="big-packages.html#bokeh"><i class="fa fa-check"></i><b>14.4</b> bokeh</a></li>
+<li class="chapter" data-level="14.5" data-path="big-packages.html"><a href="big-packages.html#plotnine"><i class="fa fa-check"></i><b>14.5</b> plotnine</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="other-packages.html"><a href="other-packages.html"><i class="fa fa-check"></i><b>15</b> other packages</a></li>
+<li class="chapter" data-level="16" data-path="graphs.html"><a href="graphs.html"><i class="fa fa-check"></i><b>16</b> graphs</a></li>
+<li class="chapter" data-level="17" data-path="maps.html"><a href="maps.html"><i class="fa fa-check"></i><b>17</b> maps</a></li>
+<li class="chapter" data-level="18" data-path="other-issues.html"><a href="other-issues.html"><i class="fa fa-check"></i><b>18</b> other issues</a></li>
+<li class="part"><span><b>III <lfg>PROGRAMMING</lfg></b></span></li>
+<li class="chapter" data-level="19" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html"><i class="fa fa-check"></i><b>19</b> Cooperation with other tools</a><ul>
+<li class="chapter" data-level="19.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#relational-databases"><i class="fa fa-check"></i><b>19.1</b> Relational databases</a><ul>
+<li class="chapter" data-level="19.1.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#sql-server"><i class="fa fa-check"></i><b>19.1.1</b> SQL Server</a></li>
+<li class="chapter" data-level="19.1.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#postgres"><i class="fa fa-check"></i><b>19.1.2</b> Postgres</a></li>
+<li class="chapter" data-level="19.1.3" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#oracle"><i class="fa fa-check"></i><b>19.1.3</b> Oracle</a></li>
+<li class="chapter" data-level="19.1.4" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#mysql"><i class="fa fa-check"></i><b>19.1.4</b> MySql</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#norelational-databases"><i class="fa fa-check"></i><b>19.2</b> Norelational databases</a><ul>
+<li class="chapter" data-level="19.2.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#neo4j"><i class="fa fa-check"></i><b>19.2.1</b> Neo4j</a></li>
+<li class="chapter" data-level="19.2.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#redis"><i class="fa fa-check"></i><b>19.2.2</b> Redis</a></li>
+<li class="chapter" data-level="19.2.3" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#mongodb"><i class="fa fa-check"></i><b>19.2.3</b> MongoDB</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#r"><i class="fa fa-check"></i><b>19.3</b> R</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="www.html"><a href="www.html"><i class="fa fa-check"></i><b>20</b> www</a><ul>
+<li class="chapter" data-level="20.1" data-path="www.html"><a href="www.html#flask"><i class="fa fa-check"></i><b>20.1</b> Flask</a></li>
+<li class="chapter" data-level="20.2" data-path="www.html"><a href="www.html#django"><i class="fa fa-check"></i><b>20.2</b> Django</a></li>
+</ul></li>
+<li class="part"><span><b>IV <lfg>APPENDICIES</lfg></b></span></li>
+<li class="chapter" data-level="21" data-path="good-habits.html"><a href="good-habits.html"><i class="fa fa-check"></i><b>21</b> good habits</a></li>
+<li class="chapter" data-level="22" data-path="ide.html"><a href="ide.html"><i class="fa fa-check"></i><b>22</b> IDE</a><ul>
+<li class="chapter" data-level="22.1" data-path="ide.html"><a href="ide.html#jupiter"><i class="fa fa-check"></i><b>22.1</b> Jupiter</a></li>
+<li class="chapter" data-level="22.2" data-path="ide.html"><a href="ide.html#pycharm"><i class="fa fa-check"></i><b>22.2</b> PyCharm</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="intro-1.html"><a href="intro-1.html"><i class="fa fa-check"></i><b>23</b> INTRO</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-structures-pandas" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> DATA STRUCTURES-Pandas</h1>
+<div id="series" class="section level2">
+<h2><span class="header-section-number">7.1</span> Series</h2>
+<p>Series zostalo stworzone glownie pod potrzeby pracy z DataFrames i glownie w tamtym kontekscie jest uzywane. Dlatego tez w tym rozdziale są tylko podstawowe informacje. Wiecej przyladow pracy z Series (w kontekście DataFrame) jest w rozdziale o DataFrame</p>
+<div id="tworzenie-4" class="section level3">
+<h3><span class="header-section-number">7.1.1</span> tworzenie</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas <span class="im">as</span> pd
+
+<span class="co"># z listy</span>
+s <span class="op">=</span> pd.Series(data<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>],  dtype<span class="op">=</span><span class="st">&#39;int32&#39;</span>) <span class="co"># mozna wymusic typ danych</span>
+
+
+<span class="co"># ze slownika</span>
+s <span class="op">=</span> pd.Series(data<span class="op">=</span>{<span class="st">&#39;a&#39;</span>:<span class="dv">1</span>, <span class="st">&#39;b&#39;</span>:<span class="dv">2</span>}) <span class="co"># nazwy &#39;a&#39; i &#39;b&#39; stana sie indeksami po ktorych mozemy sie odwolywac do elementow (patrz rozdzial &quot;odwolywanie sie do elementow&quot;)</span>
+
+
+<span class="co"># z array</span>
+s <span class="op">=</span> pd.Series(data<span class="op">=</span>np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>])) </code></pre>
+</div>
+<div id="atrybuty-1" class="section level3">
+<h3><span class="header-section-number">7.1.2</span> atrybuty</h3>
+<ul>
+<li>Jest to jednowymiarowa marzeciez (wektor). Tak jak array wszystkie elementy musza byc tego samego typu. Nie moze byc liczby i tekstu w tym samym Series</li>
+<li>W odroznieniu od normalnych macierzy, do elementow moozemy sie odwolywac zaorowno przez indeksy domyslne liczbowe, indeksy recznie zdefiniowane liczbowe, ekstra recznie zdefiniowane indeksy tekstowe (poza domyslnymi liczbowymi)</li>
+<li>Series w Pandasie mają zdefiniowane bardzo wiele przydatnych metod.</li>
+<li>DataFrame to nic innego jak zbiór kilku Series</li>
+<li>W typie series mozna zagniezszac elementy</li>
+</ul>
+<pre class="sourceCode python"><code class="sourceCode python">s1 <span class="op">=</span> pd.Series(data<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)
+s1.dtype <span class="co"># typ danych</span>
+s1.size <span class="co"># ilosc elementow</span>
+
+
+
+<span class="co"># mozliwosc zagniezdzania elementow</span>
+s2 <span class="op">=</span> pd.Series(data<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>, [<span class="dv">6</span>,<span class="dv">7</span>]])
+s2[<span class="dv">5</span>] <span class="co"># wyciagniecie zaniezdzonej listy</span></code></pre>
+</div>
+<div id="odwolywanie-sie-do-elementow-2" class="section level3">
+<h3><span class="header-section-number">7.1.3</span> Odwolywanie sie do elementow</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># odwolywanie sie przez domysle indeksy liczbowe, tak jak w listach</span>
+s1 <span class="op">=</span> pd.Series(data<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>],  index<span class="op">=</span>[<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">50</span>],dtype<span class="op">=</span><span class="st">&#39;int32&#39;</span>) <span class="co"># indeksy mozemy samodzielnie zdefiniowac</span>
+s1[<span class="dv">3</span>:]
+
+
+<span class="co"># odwolywanie sie przez samodzielnie okreslone indeksy LICZBOWE</span>
+s2 <span class="op">=</span> pd.Series(data<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>],  index<span class="op">=</span>[<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">100</span>, <span class="dv">500</span>],dtype<span class="op">=</span><span class="st">&#39;int32&#39;</span>) <span class="co"># indeksy mozemy samodzielnie zdefiniowac rozniez jako</span>
+s2[<span class="dv">10</span>]
+s2[[<span class="dv">10</span>,<span class="dv">20</span>]]
+
+
+
+<span class="co"># odwolywanie sie przez samodzielnie okreslone indeksy TEKSOWE</span>
+s3 <span class="op">=</span> pd.Series(data<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>],  index<span class="op">=</span>[<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>,<span class="st">&#39;C&#39;</span>, <span class="st">&#39;D&#39;</span>, <span class="st">&#39;E&#39;</span>],dtype<span class="op">=</span><span class="st">&#39;int32&#39;</span>) <span class="co"># indeksy mozemy samodzielnie zdefiniowac rozniez jako</span>
+s3[<span class="st">&#39;A&#39;</span>]
+s3[<span class="dv">1</span>] <span class="co"># przy recznie zdefiniowanych indeksach TEKSTOWYCH dalej mozemy odwolywac sie do domyslnych indeksow liczbowych</span>
+
+s3 <span class="op">=</span> s.reset_index() <span class="co"># reset indeks. Recznie zdefiniowany indkes zostanie usuniety</span>
+s3[<span class="st">&#39;A&#39;</span>] <span class="co"># dostaniemy blad </span></code></pre>
+</div>
+<div id="sortowanie-1" class="section level3">
+<h3><span class="header-section-number">7.1.4</span> sortowanie</h3>
+<pre class="sourceCode python"><code class="sourceCode python">s <span class="op">=</span> pd.Series(data<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>],  index<span class="op">=</span>[<span class="st">&#39;E&#39;</span>, <span class="st">&#39;B&#39;</span>,<span class="st">&#39;C&#39;</span>, <span class="st">&#39;D&#39;</span>, <span class="st">&#39;A&#39;</span>],dtype<span class="op">=</span><span class="st">&#39;int32&#39;</span>)
+
+s.sort_index() <span class="co"># sortowanie po indeksach</span>
+s.sort_values() <span class="co"># sortowanie po wartosciach</span>
+s.sort_values(ascending<span class="op">=</span><span class="va">True</span>) <span class="co"># sortowanie po wartosciach (malejaco)</span></code></pre>
+</div>
+<div id="dodawanie-wartosci-i-problem-z-indeksami" class="section level3">
+<h3><span class="header-section-number">7.1.5</span> dodawanie wartosci i problem z indeksami</h3>
+<p>Sklejanie poziome (axis = 0)</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># (1) Uwaga na problem z indeksacja: po sklejeniu dwoch Series nie ma automatcznej reindeksacji</span>
+
+s1 <span class="op">=</span> pd.Series([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>])
+<span class="bu">list</span>(s1.index) <span class="co"># indeksy s1</span>
+s2 <span class="op">=</span> pd.Series([<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>])
+<span class="bu">list</span>(s2.index) <span class="co"># indeksy s2</span>
+
+s3 <span class="op">=</span> pd.concat([s1, s2]) <span class="co"># sklejam s1 i s2</span>
+<span class="bu">list</span>(s3.index) <span class="co"># indeksy s3 sa sklejeniem indeksow s1 i s2 !!!</span>
+
+
+<span class="co"># dlatego dobrze jest albo wynik automatycznie przeindeksowac:</span>
+s3.index <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(s1.size))
+<span class="co"># albo uzyc automatycznej reindeksacji w sklejaniu</span>
+s4 <span class="op">=</span> pd.concat([s1, s2], ignore_index<span class="op">=</span><span class="va">True</span>) <span class="co"># sklejam s1 i s2</span>
+<span class="bu">list</span>(s4.index)
+
+<span class="co"># mozna tez wprowadzic indeks hierarchiczny</span>
+s5 <span class="op">=</span> pd.concat([s1, s2], keys<span class="op">=</span>[<span class="st">&#39;key1&#39;</span>, <span class="st">&#39;key2&#39;</span>]) 
+s5[<span class="st">&#39;key1&#39;</span>] <span class="co"># wyciagam cala czesc stanowiaca elementy wektora s1 (przypisano mu glowny indeks key1)</span>
+s5[<span class="st">&#39;key1&#39;</span>][<span class="dv">2</span>] <span class="co"># wyciagam hiererchicznie 3 element z czesci stanowiacej elementy wektora s1</span>
+
+
+
+
+<span class="co">#(2) wstawienie wektora s2 do wektora s1 po drugim elemencie</span>
+s1 <span class="op">=</span> pd.Series([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>])
+s2 <span class="op">=</span> pd.Series([<span class="dv">10</span>,<span class="dv">20</span>])
+
+s3 <span class="op">=</span> pd.concat([s1[:<span class="dv">2</span>],s2,s1[s1[<span class="dv">2</span>:]]], ignore_index<span class="op">=</span><span class="va">True</span>)
+s3</code></pre>
+<p>Sklejanie w pionie (axis = 1)</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas <span class="im">as</span> pd
+
+<span class="co">#  towrzymy dwa wektory o roznych indeksach </span>
+s1 <span class="op">=</span> pd.Series([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>], index <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>])
+s2 <span class="op">=</span> pd.Series([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>], index <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">10</span>])
+
+
+<span class="co"># sklejami, ale tym razem axis = 1. Dostaniemy dwuwymiarowy DataFrame (s1 i s2 to kolejne wektory</span>
+s1_s2 <span class="op">=</span> pd.concat([s1, s2], axis<span class="op">=</span><span class="dv">1</span>, ignore_index<span class="op">=</span><span class="va">True</span>)
+<span class="bu">type</span>(s1_s2) <span class="co"># DataFrame</span>
+
+s1_s2 <span class="co"># wektory s1 i s2 (s1 i s2 to kolejne kolumny) w trakcie przeksztalcania w DataFrame zostaly dopasowane indeksami. Tam gdzie dla jakiegos indeksu w jednym wektorze nie ma odpowiedniku w drugim, to brak w drugiem jest wypelniamy wartoscia NaN.</span></code></pre>
+</div>
+<div id="aktualizacja-wartosci-1" class="section level3">
+<h3><span class="header-section-number">7.1.6</span> aktualizacja wartosci</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas <span class="im">as</span> pd
+
+s <span class="op">=</span> pd.Series(data<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>])
+s[<span class="dv">2</span>:<span class="dv">4</span>] <span class="op">=</span> pd.Series([<span class="dv">100</span>,<span class="dv">200</span>]) <span class="co"># podmiana elementu drugieg i trzeciego</span></code></pre>
+</div>
+<div id="rozne-funkcje-1" class="section level3">
+<h3><span class="header-section-number">7.1.7</span> rozne funkcje</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas <span class="im">as</span> pd
+
+s <span class="op">=</span> pd.Series([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="op">-</span><span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>])
+
+s.aggregate(func<span class="op">=</span><span class="kw">lambda</span> x:<span class="bu">sum</span>(x<span class="op">**</span><span class="dv">2</span>)) <span class="co"># sumuj kwadraty elementow</span>
+s.nlargest(n<span class="op">=</span><span class="dv">4</span>) <span class="co"># 4 pierwsze najwieksze elementy</span>
+s.nsmallest(<span class="dv">4</span>)  <span class="co"># 4 pierwsze najmniejsze elementy</span>
+s.cummax()  <span class="co"># skumulowany max</span>
+s.cummin()  <span class="co"># skumulowany min</span>
+s.cumsum()  <span class="co"># skumulowana suma</span>
+s.cumprod() <span class="co"># skumulowany iloczyn</span>
+
+
+s.shift(periods<span class="op">=-</span><span class="dv">2</span>) <span class="co"># przesunieci kazdego elementu wektora o 2 pozycje w GORE (2 pierwsze elementy zostana stracone, na dwoch ostatnich pozycjach pojawia sie braki danych)</span>
+s.shift(periods<span class="op">=</span><span class="dv">2</span>)
+
+
+s_l <span class="op">=</span> pd.Series([<span class="va">True</span>, <span class="va">False</span>, <span class="va">True</span>])
+s.<span class="bu">any</span>() <span class="co"># czy gdzie kolwiek True</span>
+s.<span class="bu">all</span>() <span class="co"># czy gdzie wszedzie True</span></code></pre>
+</div>
+<div id="praca-z-brakami-danych-i-wartowsciami-nieskonczonymi" class="section level3">
+<h3><span class="header-section-number">7.1.8</span> praca z brakami danych i wartowsciami nieskonczonymi</h3>
+<p>Patrz przyklady w czesci o DataFrame</p>
+</div>
+</div>
+<div id="categorical" class="section level2">
+<h2><span class="header-section-number">7.2</span> Categorical</h2>
+<p>Danym typu Series mozna nadac typ "categorical’ ktory jest odpowiednikiem typu ‘factor’ w programie R.</p>
+<div id="tworzenie-5" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> Tworzenie</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas <span class="im">as</span> pd
+
+
+<span class="co">#(1) funkcja &#39;Categorical&#39;</span>
+c <span class="op">=</span> pd.Categorical([<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>], ordered <span class="op">=</span> <span class="va">None</span>)
+<span class="bu">list</span>(s.cat.categories)  <span class="co"># lista wystepujacych kategorii</span>
+
+ 
+ 
+<span class="co">#(2) utworzenie Series typu &#39;category&#39;</span>
+s <span class="op">=</span> pd.Series([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;a&quot;</span>], dtype<span class="op">=</span><span class="st">&quot;category&quot;</span>)
+
+<span class="co"># UWAGA: powyzej utworzone zmienne nie sa dokladnie tego samego typu</span>
+<span class="bu">type</span>(c) <span class="co"># zdefiniowane funkcja &#39;Categorical&#39;</span>
+<span class="bu">type</span>(s) <span class="co"># zdefiniowane funkcja &#39;Series&#39;</span>
+
+<span class="co"># przypadku zmiennej &#39;c&#39; metody zwiazne z typem &#39;Categorical&#39; ktore posiada wywolujemy od razu po jej nazwie</span>
+c.check_for_ordered()
+<span class="co"># w przypadku zmiennej &#39;s&#39; metody zwiazne z typem &#39;Categorical&#39; ktore posiada wywolujemy od razu po .cat.</span>
+s.cat.check_for_ordered()
+
+
+
+
+
+<span class="co">#(3) Series z zagniezdzana funkcja &#39;Categorical&#39;</span>
+s <span class="op">=</span> pd.Series(pd.Categorical([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;a&quot;</span>], ordered<span class="op">=</span><span class="va">False</span>)) <span class="co"># mozna wymusic uporzadkowanie</span>
+
+
+
+
+<span class="co">#(4) utworzenie Series typu &#39;category&#39; z manualnym okresleniem zakresu kategorii</span>
+
+<span class="co"># SPOSOB 1</span>
+<span class="im">from</span> pandas.api.types <span class="im">import</span> CategoricalDtype
+s <span class="op">=</span> pd.Series([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;a&quot;</span>])
+cat_type <span class="op">=</span> CategoricalDtype(categories<span class="op">=</span>[<span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>], ordered<span class="op">=</span><span class="va">True</span>) <span class="co"># podajemy kategorie i dodatkowo mozemy wymagac aby byl wprowadzony porzedek (order)</span>
+s_cat <span class="op">=</span> s.astype(cat_type) <span class="co"># &#39;a&#39; zostalo zamianina na NaN to nie bylo wyspecyfikowane w kategoriach</span>
+
+<span class="co"># SPOSOB 2</span>
+s <span class="op">=</span> pd.Series([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;a&quot;</span>], dtype<span class="op">=</span><span class="st">&quot;category&quot;</span>)
+s.cat.set_categories([<span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>])
+
+
+
+<span class="co">#(5) przez zmiane typu w DataFrame</span>
+df <span class="op">=</span> pd.DataFrame({<span class="st">&quot;A&quot;</span>: [<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;a&quot;</span>]})
+df[<span class="st">&quot;B&quot;</span>] <span class="op">=</span> df[<span class="st">&quot;A&quot;</span>].astype(<span class="st">&#39;category&#39;</span>)</code></pre>
+</div>
+<div id="usuwaniedodawaniemodyfikacje-kategorii" class="section level3">
+<h3><span class="header-section-number">7.2.2</span> usuwanie/dodawanie/modyfikacje kategorii</h3>
+<p>usuwanie</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#(1) usuniecie konkretnej kategorii</span>
+s <span class="op">=</span> pd.Series([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;a&quot;</span>], dtype<span class="op">=</span><span class="st">&quot;category&quot;</span>)
+s1 <span class="op">=</span> s.cat.remove_categories([<span class="st">&#39;c&#39;</span>]) <span class="co"># usuniecie konkretnej kategorii</span>
+
+
+
+<span class="co">#(2) usuniecie nadmiarowej kategorii</span>
+s <span class="op">=</span> pd.Series([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>])
+cat_type <span class="op">=</span> CategoricalDtype(categories<span class="op">=</span>[<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>]) <span class="co"># &#39;d&#39; jest kategoria nadmiarowa - nie ma jej realnie w wektorze &#39;s&#39;</span>
+s_cat <span class="op">=</span> s.astype(cat_type) 
+s2 <span class="op">=</span> s_cat.cat.remove_unused_categories() <span class="co"># usuniecie kategorii dla ktorych nie ma elementow w wektorze </span></code></pre>
+<p>dodawanie kategorii</p>
+<pre class="sourceCode python"><code class="sourceCode python">s <span class="op">=</span> pd.Series([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;a&quot;</span>], dtype<span class="op">=</span><span class="st">&quot;category&quot;</span>)
+s.cat.add_categories([<span class="st">&#39;z&#39;</span>, <span class="st">&#39;w&#39;</span>]) <span class="co"># dodanie kategorii &#39;z&#39;  i &#39;w&#39;</span></code></pre>
+<p>zmiana nazw kategorii</p>
+<pre class="sourceCode python"><code class="sourceCode python">s <span class="op">=</span> pd.Series([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>], dtype<span class="op">=</span><span class="st">&quot;category&quot;</span>)
+s.cat.rename_categories({<span class="st">&#39;a&#39;</span>:<span class="st">&#39;A&#39;</span>, <span class="st">&#39;b&#39;</span>:<span class="st">&#39;B&#39;</span>}) <span class="co"># &#39;a&#39; zaminiam na &#39;A&#39; i &#39;b&#39; na &#39;B&#39;</span></code></pre>
+<p>zmiana uporzadkowania kategorii</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># wymuszenie uporzedkowania nieuporzadkowanej kategorii</span>
+s <span class="op">=</span> pd.Series(pd.Categorical([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>], ordered <span class="op">=</span> <span class="va">None</span>))
+s_ord <span class="op">=</span> s.cat.as_ordered()
+
+
+<span class="co"># usuniecie uporzadkowania kategorii</span>
+s_no_odr <span class="op">=</span> s_ord.cat.as_unordered()
+
+
+<span class="co"># zmiana kolejnosci kategorii</span>
+s <span class="op">=</span> pd.Series([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>], dtype<span class="op">=</span><span class="st">&quot;category&quot;</span>)
+s.cat.reorder_categories([<span class="st">&#39;b&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>])</code></pre>
+</div>
+<div id="dodawanie-nowych-elemntow" class="section level3">
+<h3><span class="header-section-number">7.2.3</span> dodawanie nowych elemntow</h3>
+<p>W kontekscie samych wekrotow</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> pandas.api.types <span class="im">import</span> union_categoricals
+
+
+<span class="co">#(1) uzycie funkcji concat</span>
+s1 <span class="op">=</span> pd.Series([<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>], dtype<span class="op">=</span><span class="st">&#39;category&#39;</span>)
+s2 <span class="op">=</span> pd.Series([<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;a&#39;</span>], dtype<span class="op">=</span><span class="st">&#39;category&#39;</span>)
+pd.concat([s1, s2])
+
+<span class="co"># Uwaga jezeli zakres kategorii wektorow sie nie zgadza to nowy sklejowy wektor bedzie typu &#39;object&#39; a nie &#39;category&#39;</span>
+s1 <span class="op">=</span> pd.Series([<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>], dtype<span class="op">=</span><span class="st">&#39;category&#39;</span>)
+s2 <span class="op">=</span> pd.Series([<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>], dtype<span class="op">=</span><span class="st">&#39;category&#39;</span>) <span class="co"># tutaj jest kategoria &#39;c&#39; ktorej nie ma w wektorze &#39;s1&#39;</span>
+pd.concat([s1, s2]) <span class="co"># ten problem rozwiazuje funkcja &#39;union_categoricals&#39; (patrz nastepny przyklad)</span>
+
+
+
+<span class="co">#(2) uzycie funkcji union_categoricals</span>
+
+a <span class="op">=</span> pd.Categorical([<span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>])
+b <span class="op">=</span> pd.Categorical([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>])
+<span class="co"># do wektora &#39;a&#39; dokleimy elementy z wektora &#39;b&#39;</span>
+union_categoricals([a, b]) <span class="co"># mimo ze oba wektory maja rozny zakres kategorii to po zlaczeniu dalej mamy typ &#39;category&#39;</span></code></pre>
+<p>W kontekscie DataFrame</p>
+<p>Jezeli sklejamy 2 ramki danych po wierszach i wystepuja tam kolumny typu ‘Categorical’ to ich kategori musza byc takie same. W przeciwnym razie dostaniemy blad.</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># przyklad</span>
+
+cat <span class="op">=</span> pd.Series([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>], dtype<span class="op">=</span><span class="st">&quot;category&quot;</span>)
+
+vals <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>]
+
+df <span class="op">=</span> pd.DataFrame({<span class="st">&quot;cats&quot;</span>: cat, <span class="st">&quot;vals&quot;</span>: vals})
+
+res <span class="op">=</span> pd.concat([df, df]) <span class="co"># sklejamy &#39;df&#39; z samym soba ( nie dostaniemy bledu bo bedzie zgodnosc kategorii)</span></code></pre>
+</div>
+</div>
+<div id="data-frames" class="section level2">
+<h2><span class="header-section-number">7.3</span> DATA FRAMES</h2>
+<div id="najwazniejsze-atrybuty-dataframe" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Najważniejsze atrybuty DataFrame</h3>
+<ul>
+<li>DataFrame to nic innego jak zbiór kilku Series. Series to struktura danych dostepna w Pandasie. Wiecej o Series w rozdziale nim poswieconych.</li>
+</ul>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas <span class="im">as</span> pd
+
+df <span class="op">=</span> pd.DataFrame({<span class="st">&#39;A&#39;</span>:[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], <span class="st">&#39;B&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>]})
+
+df.shape <span class="co"># ilosc wierszy i kolumn</span>
+
+<span class="bu">len</span>(df) <span class="co"># ilosc samych wierszy</span>
+
+df.shape[<span class="dv">0</span>] <span class="co"># ilosc samych wierszy (inna skladnia)</span>
+
+df.shape[<span class="dv">1</span>] <span class="co"># ilosc samych kolumn </span>
+
+df.size <span class="co"># ile jest elementow (komorek)</span>
+
+df.ndim <span class="co"># ile wymiarowy jest obiekt</span>
+
+df.dtypes <span class="co"># jakiego typu są poszczególne kolumny. UWAGA!!!: kolumny teksowe są w DataFrame domyślnie jako typ &#39;object&#39;. Dlatego kolumna &#39;B&#39; to nie jest typ &#39;text&#39; albo &#39;char&#39; ale &#39;&#39;object&#39;</span>
+
+sys.getsizeof(df) <span class="co"># rozmiar w pamięci</span>
+
+df.columns <span class="co"># nazwy kolumn ramki danych</span>
+
+<span class="bu">list</span>(df.columns) <span class="co"># nazwy kolumn ramki danych jako lista</span></code></pre>
+</div>
+<div id="tworzenie-ramki-danych" class="section level3">
+<h3><span class="header-section-number">7.3.2</span> Tworzenie ramki danych</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas <span class="im">as</span> pd
+
+
+
+<span class="co">#(1) utworzenie dowolnej dwukolumnowej DataFrame z list - SPOSOB WIERSZOWY (kazda lista to wiersz). Nazwy kolumn to &#39;A&#39; i &#39;B&#39;</span>
+nazwy_kolumn <span class="op">=</span> [<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>]
+lista_1_wiersz <span class="op">=</span> [<span class="dv">1</span>, <span class="st">&#39;a&#39;</span>]
+lista_2_wiersz <span class="op">=</span> [<span class="dv">2</span>, <span class="st">&#39;b&#39;</span>]
+df_2 <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>[lista_1_wiersz, lista_2_wiersz], columns<span class="op">=</span>nazwy_kolumn)
+df_2  <span class="co"># Uwaga: kolejne elementy podaje się wierszami  a nie kolumnami. Dlatego wartości 1 i &#39;a&#39; są w pierwszym wierszu a nie kolumnie.</span>
+df_2.dtypes 
+
+
+
+
+
+<span class="co">#(2) utworzenie dowolnej dwukolumnowej DataFrame z list - SPOSOB KOLUMNOWY (kazda lista to kolumna). Nazwy kolumn to &#39;A&#39; i &#39;B&#39;</span>
+nazwy_kolumn <span class="op">=</span> [<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>]
+lista_1_kolumna <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>]
+lista_2_kolumna <span class="op">=</span> [<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>]
+lista_list <span class="op">=</span> [lista_1_kolumna, lista_2_kolumna]
+
+df_2_columns <span class="op">=</span> pd.DataFrame()
+
+<span class="cf">for</span> i <span class="kw">in</span> [<span class="dv">0</span>,<span class="dv">1</span>]:
+  df_2_columns [nazwy_kolumn[i]] <span class="op">=</span> lista_list[i]
+
+df_2_columns
+
+
+
+
+<span class="co">#(3) utworzenie dowolnej dwukolumnowej DataFrame w sposob KOLUMNOWY ze słownika. Nazwy kolumn to &#39;A&#39; i &#39;B&#39;. Po nazwach podajemy listy z elementami ktore beda kolumnami</span>
+slownik <span class="op">=</span> {<span class="st">&#39;A&#39;</span>:[<span class="dv">1</span>,<span class="dv">2</span>], <span class="st">&#39;B&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>]}
+df_1 <span class="op">=</span> pd.DataFrame(slownik)
+
+<span class="co"># Powyzsza skladnia moze byc niewygodne jezeli chcemy podac nazwy kolumn w liscie</span>
+<span class="co"># slownik mozeby wygenerowac poprzed odpowiednie sklenie listy nazw kolumn i  listy samych kolumn</span>
+nazwy_kolumn <span class="op">=</span> [<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>] <span class="co"># nazwy kolumn podajemy w liscie </span>
+kolumna_1 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>]
+kolumna_2 <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">4</span>]
+slownik <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(nazwy_kolumn, [kolumna_1, kolumna_2]))
+df_1 <span class="op">=</span> pd.DataFrame(slownik)
+
+
+
+
+
+
+<span class="co">#(4) utworzenie dowolnej dwukolumnowej DataFrame poprzez uczycie funkcji &#39;concat&#39; na sektora typu &#39;Series&#39;</span>
+<span class="co">#  towrzymy dwa wektory o roznych indeksach </span>
+s1 <span class="op">=</span> pd.Series([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>], index <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>])
+s2 <span class="op">=</span> pd.Series([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>], index <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">10</span>])
+
+
+<span class="co"># sklejami, ale tym razem axis = 1. Dostaniemy dwuwymiarowy DataFrame</span>
+s1_s2 <span class="op">=</span> pd.concat([s1, s2], axis<span class="op">=</span><span class="dv">1</span>, ignore_index<span class="op">=</span><span class="va">True</span>)
+<span class="bu">type</span>(s1_s2) <span class="co"># DataFrame</span>
+
+
+
+
+<span class="co">#(5) utworzenie  DataFrame z obiektu Array</span>
+<span class="im">import</span> numpy <span class="im">as</span> np
+nazwy_kolumn <span class="op">=</span> [<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>]
+macierz <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">2</span>], [<span class="dv">3</span>,<span class="dv">4</span>]]) <span class="co"># macierz o wymiarach 2x2</span>
+df_3 <span class="op">=</span>pd.DataFrame(macierz, columns <span class="op">=</span> nazwy_kolumn)
+df_3 
+<span class="co"># UWAGA: po wyświetleniu DataFrame  widać że wartości 1 i 2 są w pierwszym wierszu a nie w pierwszej kolumnie, czyli tak tak sama sytuacja jak przy tworzeniu z listy!!!!</span>
+
+
+
+<span class="co"># (6) uwtorzenie DataFrame z obiektu tupli</span>
+tuple_1 <span class="op">=</span> (<span class="dv">1</span>,<span class="st">&#39;a&#39;</span>)
+tuple_2 <span class="op">=</span> (<span class="dv">2</span>,<span class="st">&#39;b&#39;</span>)
+tuple_tupli <span class="op">=</span> (tuple_1, tuple_2)
+
+df_t <span class="op">=</span> pd.DataFrame(<span class="bu">list</span>(tuple_tupli), columns <span class="op">=</span> [<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>])
+df_t
+
+
+
+<span class="co">#(7) utworzenie pustego obiektu DataFrame (przydaje się np. przy pracach w petli, kiedy w pierwszej iteracji bindujemy dane do pustej tabeli )</span>
+df_0 <span class="op">=</span> pd.DataFrame()
+
+df_0 <span class="op">=</span> df_0.append({<span class="st">&#39;A&#39;</span>:<span class="dv">1</span>, <span class="st">&#39;B&#39;</span>:<span class="st">&#39;a&#39;</span>}, ignore_index<span class="op">=</span><span class="va">True</span>) <span class="co"># dodanie wiersza</span>
+df_0.dtypes 
+
+
+
+
+<span class="co">#(8) Utworzenie DataFrame o zadanej ilosci kolumn z nazwami i brakiem wierszy</span>
+df_0a <span class="op">=</span> pd.DataFrame(columns <span class="op">=</span> [<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>])
+df_0a.dtypes <span class="co"># domyslnie, kolumny sa typu &#39;object&#39;</span></code></pre>
+</div>
+<div id="uwagi-o-indeksach" class="section level3">
+<h3><span class="header-section-number">7.3.3</span> Uwagi o indeksach</h3>
+<p>Data Frame posiada indeksacje po wierszach. Tak jak w Typie ‘Series’ mozna ja ustawiac recznie</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas <span class="im">as</span> pd
+df <span class="op">=</span> pd.DataFrame([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>], index <span class="op">=</span> [<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>]) <span class="co"># sztucznie nadane indeksy wierszy</span></code></pre>
+<p>Jezeli Dataframe sklejamy ‘pionowo’, z kilku obiektow typu ‘Series’, ktore maja swoje indeksy, to DataFrame w oparciu o te indeksy tworzy nowy indeks. Logika tworznia tego indeksu jest opisana w tym pliku w czesci o typie ‘Series’ w rozdziale ‘dodawanie wartosci i problem z indeksami’ (chunk kodu o sklejaniu pionowym). Dokladnie tak samo wyglada sytucja jezeli dwie DataFrames o roznych indeksach sklejamy po kolumnach (bindowanie po kolumach).</p>
+<p>Sklejanie kilku DataFrames po wierszach (bindowanie po wierszach) z roznymi indeksami:
+Tutaj sytuacja jest analogiczna do tej jak wystepuje w przypadku ‘sklejania poziomego’ wektorow typu Series (jest to opisane w tym pliku w czesci o typie ‘Series’ w rozdziale ‘dodawanie wartosci i problem z indeksami’ w chunku o sklejaniu poziomym)</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas <span class="im">as</span> pd
+
+<span class="co"># strorzmy dwa DataFrames</span>
+df1 <span class="op">=</span> pd.DataFrame({<span class="st">&#39;A&#39;</span>:[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]})
+df2 <span class="op">=</span> pd.DataFrame({<span class="st">&#39;A&#39;</span>:[<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>]})
+
+podejzyjmy indeksy
+<span class="bu">list</span>(df1.index) <span class="co"># mamy : [0, 1, 2, 3, 4]</span>
+<span class="bu">list</span>(df2.index) <span class="co"># mamy : [0, 1, 2, 3, 4]</span>
+
+df3 <span class="op">=</span> pd.concat([df1, df2])
+df3.index <span class="co"># zwrocmy uwage na to ze indeks nowej tabeli df3 to sklejone indeksy df1 i df2 czyli : [0, 1, 2, 3, 4, 0, 1, 2, 3, 4]</span>
+
+
+<span class="co"># W powyzszej sytuacji mamy 2 rozwiazania:</span>
+
+<span class="co"># (1) sami mozemy zrobic reindeksacje wedlug uznanej przez siebie logiki, np.:</span>
+
+df3.index <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="dv">2</span>)
+<span class="bu">list</span>(df3.index)<span class="co"># zrobilismy sobie index: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]</span>
+
+<span class="co"># (2) albo przy sklejeniu DataFrames mozemy uzyc argumentu &#39;ignore index&#39;</span>
+df3 <span class="op">=</span> pd.concat([df1, df2], ignore_index<span class="op">=</span><span class="va">True</span>)
+<span class="bu">list</span>(df3.index) <span class="co"># teraz mamy: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span></code></pre>
+</div>
+<div id="wymuszanie-typow-kolumn-w-dataframe" class="section level3">
+<h3><span class="header-section-number">7.3.4</span> Wymuszanie typów kolumn w DataFrame</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># przykładowa strona z podstawowymi typami liczbowymi i teksowymi danych w pythonie: https://pbpython.com/pandas_dtypes.html</span>
+
+df_t1 <span class="op">=</span> pd.DataFrame( {<span class="st">&#39;A&#39;</span>:[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], <span class="st">&#39;B&#39;</span>:[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>], <span class="st">&#39;C&#39;</span>:[<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>], <span class="st">&#39;D&#39;</span>:[<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>]})
+
+<span class="co"># reczna zmiana typow poszczegolnych kolumn:</span>
+df_t1[<span class="st">&#39;A&#39;</span>] <span class="op">=</span> df_t1[<span class="st">&#39;A&#39;</span>].astype(<span class="st">&#39;int32&#39;</span>) 
+df_t1[<span class="st">&#39;B&#39;</span>] <span class="op">=</span> df_t1[<span class="st">&#39;B&#39;</span>].astype(<span class="st">&#39;float64&#39;</span>) 
+df_t1[<span class="st">&#39;C&#39;</span>] <span class="op">=</span> df_t1[<span class="st">&#39;C&#39;</span>].astype(<span class="st">&#39;bool&#39;</span>) <span class="co"># typ logiczny</span>
+df_t1[<span class="st">&#39;D&#39;</span>] <span class="op">=</span> df_t1[<span class="st">&#39;D&#39;</span>].astype(<span class="st">&#39;object&#39;</span>) <span class="co"># typ teksowy</span>
+
+df_t1
+df_t1.dtypes <span class="co"># sprawdzm czy mam dobre typy</span></code></pre>
+</div>
+<div id="transpozycja-dataframe" class="section level3">
+<h3><span class="header-section-number">7.3.5</span> Transpozycja DataFrame</h3>
+<pre class="sourceCode python"><code class="sourceCode python">df_t_1 <span class="op">=</span> pd.DataFrame([[<span class="dv">1</span>,<span class="st">&#39;a&#39;</span>],[<span class="dv">3</span>,<span class="st">&#39;b&#39;</span>]])
+
+df_t_1_transpose <span class="op">=</span> df_t_1.T <span class="co"># wykonanie transpozycji</span>
+
+df_t_1_transpose
+
+<span class="bu">type</span>(df_t_1_transpose) <span class="co"># po transpozycji dalej to jest DataFrame</span>
+
+df_t_1_transpose.dtypes <span class="co"># w wyniku transpozycji typu danych w obu kolumnach musialy byc zmienniony na &#39;object&#39; czyli tekst.</span></code></pre>
+</div>
+<div id="zmiana-nazw-kolumn" class="section level3">
+<h3><span class="header-section-number">7.3.6</span> Zmiana nazw kolumn</h3>
+<pre class="sourceCode python"><code class="sourceCode python">df_n <span class="op">=</span> pd.DataFrame({<span class="st">&#39;d1&#39;</span>:[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>], <span class="st">&#39;d2&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>], <span class="st">&#39;d3&#39;</span>:[<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">50</span>]})
+
+<span class="co">#(1) zmiana nazw wszystkich kolumn przez podanie listy nowych nazw</span>
+df_n.columns <span class="op">=</span> [<span class="st">&#39;col1&#39;</span>,<span class="st">&#39;col2&#39;</span>, <span class="st">&#39;col3&#39;</span>]
+df_n
+
+
+<span class="co">#(2) zmiana nazw wybranych kolumn przez podanie słownika</span>
+df_n <span class="op">=</span> df_n.rename(columns <span class="op">=</span> {<span class="st">&#39;col1&#39;</span>:<span class="st">&#39;COL1&#39;</span>,<span class="st">&#39;col2&#39;</span>:<span class="st">&#39;COL2&#39;</span>})  <span class="co"># zmiana nazwy kolumn &#39;co1&#39; i &#39;col2&#39; na &#39;COL1&#39; o &#39;COL2&#39;</span>
+df_n
+
+
+<span class="co">#(3) zmiana nazw wybranych kolumn przez podanie pozycji kolumny</span>
+df_n <span class="op">=</span> df_n.rename(columns <span class="op">=</span> {df_n.columns[<span class="dv">1</span>]:<span class="st">&#39;COL10&#39;</span>}) <span class="co"># zmiana nazwy drugiej kolumny</span>
+df_n</code></pre>
+</div>
+<div id="usuwanie-kolumn" class="section level3">
+<h3><span class="header-section-number">7.3.7</span> Usuwanie kolumn</h3>
+<p><a href="https://stackoverflow.com/questions/13411544/delete-column-from-pandas-dataframe-by-column-name" class="uri">https://stackoverflow.com/questions/13411544/delete-column-from-pandas-dataframe-by-column-name</a></p>
+<pre class="sourceCode python"><code class="sourceCode python">df1 <span class="op">=</span> pd.DataFrame({<span class="st">&#39;c1&#39;</span>:[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>], <span class="st">&#39;c2&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>], <span class="st">&#39;c3&#39;</span>:[<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">50</span>], <span class="st">&#39;c4&#39;</span>:[<span class="dv">1000</span>,<span class="dv">2000</span>,<span class="dv">3000</span>,<span class="dv">4000</span>,<span class="dv">5000</span>] } )
+
+<span class="co">#usuniecie jednej kolumny po nazwie</span>
+df1 <span class="op">=</span> df1.drop(<span class="st">&#39;c2&#39;</span>, axis<span class="op">=</span><span class="dv">1</span>)
+df1
+
+<span class="co">#d usuniecie kilku kolumn po nazwie</span>
+df1 <span class="op">=</span> df1.drop([<span class="st">&#39;c1&#39;</span>,<span class="st">&#39;c3&#39;</span>], axis<span class="op">=</span><span class="dv">1</span>)
+df1
+
+
+
+<span class="co"># usuniecie kolumn po ich indeksach</span>
+df1 <span class="op">=</span> pd.DataFrame({<span class="st">&#39;c1&#39;</span>:[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>], <span class="st">&#39;c2&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>], <span class="st">&#39;c3&#39;</span>:[<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">50</span>], <span class="st">&#39;c4&#39;</span>:[<span class="dv">1000</span>,<span class="dv">2000</span>,<span class="dv">3000</span>,<span class="dv">4000</span>,<span class="dv">5000</span>] } )
+df1.drop(df1.columns[[<span class="dv">0</span>,<span class="dv">1</span>], axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># usuwam kolumnę o indeksie 0 i 1.</span></code></pre>
+</div>
+<div id="filtrowanie-data-frame---wybieranie-kolumn" class="section level3">
+<h3><span class="header-section-number">7.3.8</span> Filtrowanie Data Frame - wybieranie kolumn</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas <span class="im">as</span> pd
+
+df_f <span class="op">=</span> pd.DataFrame({<span class="st">&#39;wiek&#39;</span>:[<span class="dv">30</span>,<span class="dv">50</span>,<span class="dv">80</span>, <span class="dv">70</span>,<span class="dv">40</span>,<span class="dv">20</span>,<span class="dv">50</span>], <span class="st">&#39;imie&#39;</span>:[<span class="st">&#39;Lukasz&#39;</span>, <span class="st">&#39;Monika&#39;</span>, <span class="st">&#39;Kasia&#39;</span>, <span class="st">&#39;Asia&#39;</span>, <span class="st">&#39;Basia&#39;</span>, <span class="st">&#39;Zosia&#39;</span>, <span class="st">&#39;Piotrek&#39;</span> ], <span class="st">&#39;zawod&#39;</span>:[<span class="st">&#39;prawnik&#39;</span>, <span class="st">&#39;ekonomista&#39;</span>, <span class="st">&#39;ekonomista&#39;</span>, <span class="st">&#39;prawnik&#39;</span>, <span class="st">&#39;prawnik&#39;</span>, <span class="st">&#39;ekonomista&#39;</span>, <span class="st">&#39;prawnik&#39;</span>], <span class="st">&#39;staz&#39;</span> : [<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">20</span>,<span class="dv">40</span>,<span class="dv">20</span>]} )
+
+
+
+<span class="co"># wybor kolumny po indeksach</span>
+
+df_f.iloc[:,[<span class="dv">0</span>,<span class="dv">1</span>]] <span class="co"># kolumna o indeksie 0 i 1</span>
+
+df_f[df_f.columns[<span class="op">-</span><span class="dv">2</span>:]]  <span class="co"># dwie ostatnie kolumny</span>
+
+df_f[df_f.columns[:<span class="dv">2</span>]]  <span class="co"># dwie pierwsze kolumny</span>
+
+df_f.iloc[:, [<span class="va">True</span>, <span class="va">False</span>, <span class="va">True</span>, <span class="va">False</span>]] <span class="co"># wyciagniecie kolumn w oparciu o wektor logiczny</span>
+
+
+
+
+
+
+<span class="co"># Wybor kolumny po nazwach</span>
+
+df_f[[<span class="st">&#39;wiek&#39;</span>,<span class="st">&#39;zawod&#39;</span>]] <span class="co"># podanie listy nazw</span>
+
+<span class="co"># kolumny ktora maja nazwe zaczynajace sie od litery &#39;w&#39;</span>
+df_f.loc[:, df_f.columns.<span class="bu">str</span>.startswith(<span class="st">&#39;w&#39;</span>)]
+
+<span class="co"># kolumna ktore nazwa spelnia warunek zdefiniowany przez wyrazenie regularne</span>
+df_f.<span class="bu">filter</span>(regex<span class="op">=</span><span class="vs">r&#39;^wi&#39;</span>, axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># kolumny ktorych nazwy zaczynaja sie od liter &#39;wi&#39;</span>
+
+
+
+
+<span class="co"># wybor kolumn ich typach danych</span>
+
+df <span class="op">=</span> pd.DataFrame({<span class="st">&#39;a&#39;</span>: [<span class="dv">1</span>, <span class="dv">2</span>] <span class="op">*</span> <span class="dv">3</span>,
+                   <span class="st">&#39;b&#39;</span>: [<span class="va">True</span>, <span class="va">False</span>] <span class="op">*</span> <span class="dv">3</span>,
+                   <span class="st">&#39;c&#39;</span>: [<span class="fl">1.0</span>, <span class="fl">2.0</span>] <span class="op">*</span> <span class="dv">3</span>})
+ 
+df.select_dtypes(include<span class="op">=</span><span class="st">&#39;bool&#39;</span>) <span class="co"># wybierz wszystkie kolumny typu &#39;bool&#39; (typ logiczny)</span>
+
+df.select_dtypes(include<span class="op">=</span>[<span class="st">&#39;float64&#39;</span>]) <span class="co"># wybierz wszystkie kolumny typu &#39;float64&#39;</span>
+
+df.select_dtypes(exclude<span class="op">=</span>[<span class="st">&#39;int&#39;</span>]) <span class="co"># wybierz wszystkie kolumny z wykatkiem tych o typie &#39;int&#39;</span></code></pre>
+</div>
+<div id="filtrowanie-data-frame---wybieranie-wierszy" class="section level3">
+<h3><span class="header-section-number">7.3.9</span> Filtrowanie Data Frame - wybieranie wierszy</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#(1) PROSTE WYBIERANIE WIERSZY</span>
+
+df_w <span class="op">=</span> pd.DataFrame({<span class="st">&#39;wiek&#39;</span>:[<span class="dv">30</span>,<span class="dv">50</span>,<span class="dv">80</span>, <span class="dv">70</span>,<span class="dv">40</span>,<span class="dv">20</span>,<span class="dv">50</span>], <span class="st">&#39;imie&#39;</span>:[<span class="st">&#39;Lukasz&#39;</span>, <span class="st">&#39;Monika&#39;</span>, <span class="st">&#39;Kasia&#39;</span>, <span class="st">&#39;Asia&#39;</span>, <span class="st">&#39;Basia&#39;</span>, <span class="st">&#39;Zosia&#39;</span>, <span class="st">&#39;Piotrek&#39;</span> ], <span class="st">&#39;zawod&#39;</span>:[<span class="st">&#39;prawnik&#39;</span>, <span class="st">&#39;ekonomista&#39;</span>, <span class="st">&#39;ekonomista&#39;</span>, <span class="st">&#39;prawnik&#39;</span>, <span class="st">&#39;prawnik&#39;</span>, <span class="st">&#39;ekonomista&#39;</span>, <span class="st">&#39;prawnik&#39;</span>], <span class="st">&#39;staz&#39;</span> : [<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">20</span>,<span class="dv">40</span>,<span class="dv">20</span>]} )
+
+df_w[<span class="dv">1</span>:<span class="dv">3</span>] <span class="co"># wiersz o indeksie  1 i 2 (czyli wiersz drugi i trzeci)</span>
+
+
+df_w[:<span class="dv">3</span>] <span class="co"># wiersze o indeksach od 1 do 2</span>
+
+
+df_w[<span class="dv">4</span>:] <span class="co"># wiersze o indeksach od 4 do ostatniego</span>
+
+
+df_w.tail(n<span class="op">=</span><span class="dv">2</span>) <span class="co"># ostatnie 2 wiersze</span>
+
+
+df_w.head(n<span class="op">=</span><span class="dv">2</span>) <span class="co"># pierwsze 2 wiersze</span>
+
+
+df_w[::<span class="dv">2</span>]<span class="co"># wiersze nieparzyste</span>
+
+
+df_w[<span class="dv">1</span>::<span class="dv">2</span>]<span class="co"># wiersze parzyste</span>
+
+
+df_w.sample(<span class="dv">3</span>) <span class="co"># trzy losowe wiersze</span>
+
+
+df_w.sample(frac<span class="op">=</span><span class="fl">0.5</span>) <span class="co"># wylosowanie 50% wierszy</span>
+
+
+df_w[[<span class="va">True</span>, <span class="va">False</span>, <span class="va">True</span>, <span class="va">True</span>, <span class="va">False</span>, <span class="va">True</span>, <span class="va">True</span>]] <span class="co"># kolumny po wektorze logicznym</span>
+
+
+
+
+<span class="co">#(2) FILTROWANIE PO BARDZIEJ SKOMPLIKOWANYCH WARUNKACH</span>
+
+df_w[df_w.wiek <span class="op">&gt;</span> <span class="dv">30</span>]   
+
+df_w[df_w[<span class="st">&#39;wiek&#39;</span>] <span class="op">&gt;</span> <span class="dv">30</span>] <span class="co"># to co wiersz wyzej, ale inna skladnia</span>
+
+df_w[df_w.zawod <span class="op">==</span> <span class="st">&#39;ekonomista&#39;</span>]
+
+df_w[(df_w.wiek <span class="op">&gt;</span> <span class="dv">30</span>) <span class="op">&amp;</span> (df_w.zawod <span class="op">==</span> <span class="st">&#39;ekonomista&#39;</span>)]
+
+df_w.query(<span class="st">&#39;wiek&gt;30 and zawod==&quot;ekonomista&quot;&#39;</span>) <span class="co"># to co wiersz wyzej, ale inna skladnia</span></code></pre>
+</div>
+<div id="dodawanie-nowych-kolumn" class="section level3">
+<h3><span class="header-section-number">7.3.10</span> Dodawanie nowych kolumn</h3>
+<pre class="sourceCode python"><code class="sourceCode python">df_w <span class="op">=</span> pd.DataFrame({<span class="st">&#39;wiek&#39;</span>:[<span class="dv">30</span>,<span class="dv">50</span>,<span class="dv">80</span>, <span class="dv">70</span>,<span class="dv">40</span>,<span class="dv">20</span>,<span class="dv">50</span>], <span class="st">&#39;imie&#39;</span>:[<span class="st">&#39;Lukasz&#39;</span>, <span class="st">&#39;Monika&#39;</span>, <span class="st">&#39;Kasia&#39;</span>, <span class="st">&#39;Asia&#39;</span>, <span class="st">&#39;Basia&#39;</span>, <span class="st">&#39;Zosia&#39;</span>, <span class="st">&#39;Piotrek&#39;</span> ], <span class="st">&#39;zawod&#39;</span>:[<span class="st">&#39;prawnik&#39;</span>, <span class="st">&#39;ekonomista&#39;</span>, <span class="st">&#39;ekonomista&#39;</span>, <span class="st">&#39;prawnik&#39;</span>, <span class="st">&#39;prawnik&#39;</span>, <span class="st">&#39;ekonomista&#39;</span>, <span class="st">&#39;prawnik&#39;</span>], <span class="st">&#39;staz&#39;</span> : [<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">20</span>,<span class="dv">40</span>,<span class="dv">20</span>]} )
+
+
+
+
+<span class="co"># DODANIE KOLUMN CALKOWICIE NOWYCH</span>
+
+df_w[<span class="st">&#39;zarobek&#39;</span>] <span class="op">=</span> [<span class="dv">2000</span>,<span class="dv">1000</span>,<span class="dv">3000</span>,<span class="dv">1500</span>,<span class="dv">6000</span>,<span class="dv">3000</span>,<span class="dv">4000</span>] <span class="co"># dodanie kolumny &#39;zarobek&#39; jako ostatniej kolumny</span>
+df_w
+
+bonusy <span class="op">=</span> [<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">3000</span>,<span class="dv">150</span>,<span class="dv">500</span>,<span class="dv">300</span>,<span class="dv">400</span>]
+df_w.insert(loc<span class="op">=</span><span class="dv">2</span>, column <span class="op">=</span> <span class="st">&#39;bonusy&#39;</span>, value <span class="op">=</span> bonusy)  <span class="co"># dodanie kolumny &#39;bonus&#39; tak aby miala indeks 2 (czyli byla trzecia kolumna)</span>
+df_w
+
+tytul <span class="op">=</span> [<span class="st">&#39;mgr&#39;</span>, <span class="st">&#39;dr&#39;</span>, <span class="st">&#39;dr&#39;</span>, <span class="st">&#39;dr&#39;</span>, <span class="st">&#39;dr&#39;</span>, <span class="st">&#39;mrg&#39;</span>, <span class="st">&#39;dr&#39;</span>]
+df_w.insert(loc<span class="op">=</span><span class="bu">list</span>(df_w).index(<span class="st">&#39;zawod&#39;</span>) <span class="op">+</span> <span class="dv">1</span>, column <span class="op">=</span> <span class="st">&#39;tytul&#39;</span>, value <span class="op">=</span> tytul)  <span class="co"># dodanie kolumny &#39;tytul&#39; tak aby byla po kolumnie &#39;zawod&#39;</span>
+df_w
+
+
+
+
+
+
+
+
+<span class="co"># DODANIE KOLUMN W OPARCIU O WARUNKI LOGICZNE ZDEFINIONWA W OPARCIU O DOTYCHCZASOWE KOLUMNY</span>
+
+
+<span class="co"># kategoria wiekowa - SPOSOB_1</span>
+df_w.loc[ df_w.wiek <span class="op">&lt;</span> <span class="dv">40</span>,    <span class="st">&#39;Age Group&#39;</span> ] <span class="op">=</span> <span class="st">&#39;&lt; 40 yrs&#39;</span>
+df_w.loc[ (df_w.wiek <span class="op">&lt;=</span> <span class="dv">40</span>) <span class="op">&amp;</span> (df_w.wiek <span class="op">&lt;</span> <span class="dv">50</span>), <span class="st">&#39;Age Group&#39;</span> ] <span class="op">=</span> <span class="st">&#39;40-49 yrs&#39;</span>
+df_w.loc[ df_w.wiek <span class="op">&gt;=</span> <span class="dv">50</span>,  <span class="st">&#39;Age Group&#39;</span> ]  <span class="op">=</span> <span class="st">&#39;50-59 yrs&#39;</span>
+df_w
+
+
+<span class="co"># kategoria wiekowa - SPOSOB 2</span>
+<span class="kw">def</span> age_groups(series):
+    <span class="cf">if</span> series <span class="op">&lt;</span> <span class="dv">40</span>:
+        <span class="cf">return</span> <span class="st">&quot;&lt; 40 yrs&quot;</span>
+    <span class="cf">elif</span> <span class="dv">40</span> <span class="op">&lt;=</span> series <span class="op">&lt;</span> <span class="dv">50</span>:
+        <span class="cf">return</span> <span class="st">&quot;40-49 yrs&quot;</span>
+    <span class="cf">elif</span> <span class="dv">50</span> <span class="op">&lt;=</span> series:
+        <span class="cf">return</span> <span class="st">&quot;50-59 yrs&quot;</span>
+
+df_w[<span class="st">&#39;Age Group&#39;</span>] <span class="op">=</span> df_w[<span class="st">&#39;wiek&#39;</span>].<span class="bu">apply</span>(age_groups)
+df_w
+
+
+
+
+<span class="co"># czy osoba jest kobieta (na podstawie imienia) SPSOB 1</span>
+df_w.loc[ df_w.imie.isin([<span class="st">&#39;Monika&#39;</span>, <span class="st">&#39;Kasia&#39;</span>, <span class="st">&#39;Asia&#39;</span>, <span class="st">&#39;Basia&#39;</span>, <span class="st">&#39;Zosia&#39;</span>]), <span class="st">&#39;czy_kobieta&#39;</span> ] <span class="op">=</span> <span class="va">True</span>
+df_w.loc[ <span class="op">~</span>df_w.imie.isin([<span class="st">&#39;Monika&#39;</span>, <span class="st">&#39;Kasia&#39;</span>, <span class="st">&#39;Asia&#39;</span>, <span class="st">&#39;Basia&#39;</span>, <span class="st">&#39;Zosia&#39;</span>]), <span class="st">&#39;czy_kobieta&#39;</span> ] <span class="op">=</span> <span class="va">False</span>
+df_w
+
+
+
+
+<span class="co"># DODANIE NOWYCH KOLUMN WYLICZANYCH NA PODSTAWIE WARTOSCI ISTNIEJACYCH W ISTNIEJACYCH KOLUMNACH</span>
+
+df_w.assign(zarobek_razy_10 <span class="op">=</span> df_w.zarobek <span class="op">*</span> <span class="dv">10</span>)
+
+df_w.assign(temp_f<span class="op">=</span><span class="kw">lambda</span> x: x.zarobek <span class="op">*</span> <span class="dv">10</span>) <span class="co"># to co powyzej, ale inna skladnia</span>
+
+df_w.assign(zarobek_proc_z_calosci <span class="op">=</span> <span class="kw">lambda</span> x: x.zarobek <span class="op">/</span> <span class="bu">sum</span>(df_w[<span class="st">&#39;zarobek&#39;</span>])) <span class="co"># zarobek danej osoby jako procent z sumy wszystkich zarobkow</span>
+
+df_w.assign(zarobek_plus_bonus <span class="op">=</span> df_w[<span class="st">&#39;zarobek&#39;</span>] <span class="op">+</span> df_w[<span class="st">&#39;bonusy&#39;</span>]) <span class="co"># suma bosu i zarobkow</span>
+
+df_w[<span class="st">&#39;tytul_imie&#39;</span>] <span class="op">=</span> df_w[[<span class="st">&#39;tytul&#39;</span>, <span class="st">&#39;imie&#39;</span>]].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="st">&#39;_&#39;</span>.join(x), axis<span class="op">=</span><span class="dv">1</span>) <span class="co">#skelenie kolumny &#39;tytul&#39; i &#39;imie&#39;</span>
+
+
+
+<span class="co"># dodanie kolumny numerujacej wiersze (kolumna ma byc pierwsza kolumna)</span>
+df_w.insert(<span class="dv">0</span>, <span class="st">&#39;ID&#39;</span>, <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(df_w) <span class="op">+</span> <span class="dv">1</span>) )
+
+
+<span class="co"># dodanie kolumny numerujacej wiersze z przesunieciem numeracji</span>
+df_w.insert(<span class="dv">0</span>, <span class="st">&#39;ID_2&#39;</span>, <span class="bu">range</span>(<span class="dv">10</span>, <span class="bu">len</span>(df_w) <span class="op">+</span> <span class="dv">10</span> ))
+
+
+<span class="co"># dodanie kolumny numerujace wiersze, ale numeracja jest grupowana po zmiennej  &#39;zawod&#39;</span>
+df_w[<span class="st">&#39;ID_group&#39;</span>] <span class="op">=</span> df_w.groupby([<span class="st">&#39;zawod&#39;</span>]).cumcount() <span class="op">+</span> <span class="dv">1</span>
+df_w
+
+
+<span class="co"># rozbicie kolumny na dwie kolumny. Rozbijam po myslniku</span>
+df <span class="op">=</span> pd.DataFrame({<span class="st">&#39;a&#39;</span>:[<span class="st">&#39;aaa-aaaa&#39;</span>,<span class="st">&#39;bbb-bbbbb&#39;</span>]})
+df[[<span class="st">&#39;split_1&#39;</span>, <span class="st">&#39;split_2&#39;</span>]] <span class="op">=</span> df[<span class="st">&#39;a&#39;</span>].<span class="bu">str</span>.split(<span class="st">&#39;-&#39;</span>, n<span class="op">=</span> <span class="dv">2</span>, expand <span class="op">=</span> <span class="va">True</span>)
+df</code></pre>
+</div>
+<div id="aktualizacja-wartosci-w-kolumnach" class="section level3">
+<h3><span class="header-section-number">7.3.11</span> Aktualizacja wartosci w kolumnach</h3>
+<pre class="sourceCode python"><code class="sourceCode python">df_w <span class="op">=</span> pd.DataFrame({<span class="st">&#39;wiek&#39;</span>:[<span class="dv">30</span>,<span class="dv">50</span>,<span class="dv">80</span>, <span class="dv">70</span>,<span class="dv">40</span>,<span class="dv">20</span>,<span class="dv">50</span>], <span class="st">&#39;imie&#39;</span>:[<span class="st">&#39;Lukasz&#39;</span>, <span class="st">&#39;Monika&#39;</span>, <span class="st">&#39;Kasia&#39;</span>, <span class="st">&#39;Asia&#39;</span>, <span class="st">&#39;Basia&#39;</span>, <span class="st">&#39;Zosia&#39;</span>, <span class="st">&#39;Piotrek&#39;</span> ], <span class="st">&#39;zawod&#39;</span>:[<span class="st">&#39;prawnik&#39;</span>, <span class="st">&#39;ekonomista&#39;</span>, <span class="st">&#39;ekonomista&#39;</span>, <span class="st">&#39;prawnik&#39;</span>, <span class="st">&#39;prawnik&#39;</span>, <span class="st">&#39;ekonomista&#39;</span>, <span class="st">&#39;prawnik&#39;</span>], <span class="st">&#39;staz&#39;</span> : [<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">20</span>,<span class="dv">40</span>,<span class="dv">20</span>]} )
+
+df_w.loc[<span class="dv">0</span>:<span class="dv">2</span>, <span class="st">&#39;wiek&#39;</span>] <span class="op">=</span> <span class="dv">20</span> <span class="co"># zmiana wartosci wieku na 20 dla 3 pierwszych wierszy</span>
+
+df_w.loc[df_w.staz <span class="op">&gt;</span> <span class="dv">20</span>, <span class="st">&#39;wiek&#39;</span>] <span class="op">=</span> <span class="dv">30</span>
+
+df_w.loc[(df_w.staz <span class="op">&lt;</span> <span class="dv">40</span>) <span class="op">&amp;</span> (df_w.zawod <span class="op">==</span> <span class="st">&#39;ekonomista&#39;</span>), <span class="st">&#39;wiek&#39;</span>] <span class="op">=</span> <span class="dv">50</span></code></pre>
+</div>
+<div id="sortowanie-2" class="section level3">
+<h3><span class="header-section-number">7.3.12</span> Sortowanie</h3>
+<pre class="sourceCode python"><code class="sourceCode python">df1 <span class="op">=</span> pd.DataFrame({<span class="st">&#39;c1&#39;</span>:np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]), <span class="st">&#39;c2&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>]})
+
+df1.sort_values(by <span class="op">=</span> [<span class="st">&#39;c1&#39;</span>, <span class="st">&#39;c2&#39;</span>], ascending<span class="op">=</span>[<span class="va">False</span>, <span class="va">True</span>]) <span class="co"># posortowanie po kolumnach &#39;c1&#39; (malejaca) i c2 (rosnaco)</span></code></pre>
+</div>
+<div id="bindowanie---w-wierszach" class="section level3">
+<h3><span class="header-section-number">7.3.13</span> Bindowanie - w wierszach</h3>
+<p>Uwaga. Przy bindowaniu po wiersza wystepuje niuanse zwiazane z indeksowanie. Patrz ‘Uwagi o indeksach’ w tym pliku w rozdziale o DataFrames</p>
+<p>Funkcja append</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas <span class="im">as</span> pd
+<span class="im">import</span> numpy <span class="im">as</span> np
+
+df1 <span class="op">=</span> pd.DataFrame({<span class="st">&#39;c1&#39;</span>:np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]), <span class="st">&#39;c2&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>]})
+df2 <span class="op">=</span> pd.DataFrame({<span class="st">&#39;c1&#39;</span>:np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]), <span class="st">&#39;c2&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>]})
+df3 <span class="op">=</span> pd.DataFrame({<span class="st">&#39;d1&#39;</span>:np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]), <span class="st">&#39;d2&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>]})
+
+<span class="co"># zbondowanie DataFrame o tych samych kolumnach</span>
+df12 <span class="op">=</span> df1.append(df2)
+
+<span class="co"># dobindowanie do df1, DataFrame df3 o innych kolumnach</span>
+df13 <span class="op">=</span> df1.append(df3) <span class="co"># bdziemy miec kolumny z obu tabel. Braki beda uzupelnione wartosciami NaN</span>
+
+
+<span class="co"># bindowanie do pustej DataFrame</span>
+df0 <span class="op">=</span> pd.DataFrame()
+df0.append(df1)
+
+<span class="co"># Uwaga. Funkcja append tak jak &#39;concat&#39; obsluguje argument &#39;ignore_indeks&#39; (Patrzy &#39;Uwagi o indeksach&#39; w tym pliku w rozdziale o DataFrames )</span></code></pre>
+<p>Funcja concat</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Funkcja concat juz wczesniej wystepowala w naszych przykladach.</span>
+<span class="co"># W porownaniu do funkcji &#39;append&#39; jest bardziej elastyczne bo mozemy ze jednym zamachem zbindowac cala liste DataFrames</span>
+
+df1 <span class="op">=</span> pd.DataFrame({<span class="st">&#39;c1&#39;</span>:np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]), <span class="st">&#39;c2&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>]})
+df2 <span class="op">=</span> pd.DataFrame({<span class="st">&#39;c1&#39;</span>:np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]), <span class="st">&#39;c2&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>]})
+df3 <span class="op">=</span> pd.DataFrame({<span class="st">&#39;d1&#39;</span>:np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]), <span class="st">&#39;d2&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>]})
+
+df123<span class="op">=</span>pd.concat([df1, df2, df3])</code></pre>
+</div>
+<div id="bindowanie---w-kolumnach" class="section level3">
+<h3><span class="header-section-number">7.3.14</span> Bindowanie - w kolumnach</h3>
+<p>Uwaga. Tutaj tez sa niuanse z indeksowaniem, jezeli tabele maja inne indeksy (Patrzy ‘Uwagi o indeksach’ w tym pliku w rozdziale o DataFrames )</p>
+<pre class="sourceCode python"><code class="sourceCode python">df1 <span class="op">=</span> pd.DataFrame({<span class="st">&#39;c1&#39;</span>:np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]), <span class="st">&#39;c2&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>]})
+df2 <span class="op">=</span> pd.DataFrame({<span class="st">&#39;c1&#39;</span>:np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]), <span class="st">&#39;c2&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>]})
+
+df_c <span class="op">=</span> pd.concat([df1, df2], axis<span class="op">=</span><span class="dv">1</span>)</code></pre>
+</div>
+<div id="aczenie---merge" class="section level3">
+<h3><span class="header-section-number">7.3.15</span> Łączenie - merge</h3>
+<p>Przyklady ze strony dokumentacji: <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.merge.html" class="uri">https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.merge.html</a></p>
+<pre class="sourceCode python"><code class="sourceCode python">df1 <span class="op">=</span> pd.DataFrame({<span class="st">&#39;lkey&#39;</span>: [<span class="st">&#39;foo&#39;</span>, <span class="st">&#39;bar&#39;</span>, <span class="st">&#39;baz&#39;</span>, <span class="st">&#39;foo&#39;</span>],
+                    <span class="st">&#39;value&#39;</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>]})
+df2 <span class="op">=</span> pd.DataFrame({<span class="st">&#39;rkey&#39;</span>: [<span class="st">&#39;foo&#39;</span>, <span class="st">&#39;bar&#39;</span>, <span class="st">&#39;baz&#39;</span>, <span class="st">&#39;foo&#39;</span>],
+                    <span class="st">&#39;value&#39;</span>: [<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>]})
+
+
+df1.merge(df2, left_on<span class="op">=</span><span class="st">&#39;lkey&#39;</span>, right_on<span class="op">=</span><span class="st">&#39;rkey&#39;</span>) <span class="co"># join po kluczu lkey (lewa tabela) i rkey(prawa tabela)</span></code></pre>
+</div>
+<div id="praca-z-duplikatami" class="section level3">
+<h3><span class="header-section-number">7.3.16</span> Praca z duplikatami</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># usuniecie duplikatow po wszystkich kolumnach</span>
+df_d <span class="op">=</span> pd.DataFrame({<span class="st">&#39;A&#39;</span>:[<span class="dv">1</span>,<span class="dv">1</span>, <span class="dv">2</span>,<span class="dv">2</span>] , <span class="st">&#39;B&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>,<span class="st">&#39;b&#39;</span>]})
+df_d.drop_duplicates()
+
+
+<span class="co"># usuniecie duplikatow po wybranych kolumnach</span>
+df_d <span class="op">=</span> pd.DataFrame({<span class="st">&#39;A&#39;</span>:[<span class="dv">1</span>,<span class="dv">1</span>, <span class="dv">2</span>,<span class="dv">2</span>, <span class="dv">3</span>,<span class="dv">3</span>] , <span class="st">&#39;B&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>,<span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>]})
+df_d.drop_duplicates(subset<span class="op">=</span>[<span class="st">&#39;A&#39;</span>]) <span class="co"># uwudam duplikaty tylko po kolumnie &#39;A&#39;</span></code></pre>
+</div>
+<div id="praca-z-brakami-danych" class="section level3">
+<h3><span class="header-section-number">7.3.17</span> Praca z brakami danych</h3>
+<pre class="sourceCode python"><code class="sourceCode python">df_nan <span class="op">=</span> pd.DataFrame({ <span class="st">&#39;wiek&#39;</span>:[<span class="dv">30</span>,np.nan,<span class="dv">80</span>, np.nan,<span class="dv">40</span>,<span class="dv">20</span>,<span class="dv">50</span>]
+                      , <span class="st">&#39;imie&#39;</span>:[<span class="st">&#39;Lukasz&#39;</span>, <span class="st">&#39;Monika&#39;</span>, <span class="st">&#39;Kasia&#39;</span>, <span class="st">&#39;Asia&#39;</span>, <span class="st">&#39;Basia&#39;</span>, <span class="st">&#39;Zosia&#39;</span>, <span class="st">&#39;Piotrek&#39;</span> ]
+                      , <span class="st">&#39;zawod&#39;</span>:[<span class="st">&#39;prawnik&#39;</span>, <span class="st">&#39;ekonomista&#39;</span>, <span class="st">&#39;ekonomista&#39;</span>, <span class="st">&#39;prawnik&#39;</span>, np.nan, <span class="st">&#39;ekonomista&#39;</span>, <span class="st">&#39;prawnik&#39;</span>]
+                      , <span class="st">&#39;staz&#39;</span> : [<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">20</span>,<span class="dv">40</span>,np.nan]} )
+                      
+             
+                      
+                      
+<span class="co"># zliczenie brakow danych w kazdej KOLUMNIE oddzielnie</span>
+df_nan.isna().<span class="bu">sum</span>()
+
+
+<span class="co"># zliczenie brakow danych w kazdym WIERSZU oddzielnie</span>
+df_nan.isna().<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)
+
+
+<span class="co"># zliczenie wszystkich brakow danych po wszysktich kelementach</span>
+df_nan.isna().<span class="bu">sum</span>().<span class="bu">sum</span>()
+
+                      
+<span class="co"># usuniecie kazdego wiersza w ktorym jest JAKIKOLWIEK brak danych    </span>
+df_nan_1 <span class="op">=</span> df_nan.dropna()
+df_nan_1
+
+
+
+<span class="co"># usuniecie kazdego wiersza w ktorym jest brak danych ze względu na wybraną kolumnę</span>
+df_nan_2 <span class="op">=</span> df_nan.dropna(subset<span class="op">=</span>[<span class="st">&#39;wiek&#39;</span>])
+df_nan_2
+
+
+
+<span class="co"># zaimputowanie braku danych zadana wartoscia dla calego DataFrame</span>
+df_nan_3 <span class="op">=</span> df_nan
+df_nan_3.fillna(value <span class="op">=</span> <span class="dv">0</span>)
+
+
+<span class="co"># zaimputowanie braku danych zadana wartoscia dla wybranych kolumn</span>
+df_nan_4 <span class="op">=</span> df_nan
+df_nan_4[[<span class="st">&#39;wiek&#39;</span>,<span class="st">&#39;staz&#39;</span>]] <span class="op">=</span> df_nan_4[[<span class="st">&#39;wiek&#39;</span>,<span class="st">&#39;staz&#39;</span>]].fillna(value <span class="op">=</span> <span class="dv">0</span>)
+<span class="co">#lub</span>
+df_nan_4 <span class="op">=</span> df_nan
+df_nan_4.fillna({<span class="st">&#39;staz&#39;</span>:<span class="dv">0</span>, <span class="st">&#39;wiek&#39;</span>:<span class="dv">0</span>})
+
+
+
+<span class="co"># zaimputowanie braku danych wartoscia z POPRZEDNIEJ komorki</span>
+df_nan_5 <span class="op">=</span> df_nan
+df_nan_5.fillna(method <span class="op">=</span> <span class="st">&#39;ffill&#39;</span>)
+
+
+<span class="co"># zaimputowanie braku danych wartoscia z NASTEPNEJ komorki</span>
+df_nan_6 <span class="op">=</span> df_nan
+df_nan_6.fillna(method <span class="op">=</span> <span class="st">&#39;bfill&#39;</span>)
+
+
+<span class="co"># zaimputowanie brakow danych w calej DataFrame wartoscia srednia z kolumny &#39;staz&#39;</span>
+df_nan_7 <span class="op">=</span> df_nan
+df_nan_7.fillna(value <span class="op">=</span> np.mean(df_nan_7.staz))</code></pre>
+</div>
+<div id="praca-z-wartosciami-nieskonczonymi" class="section level3">
+<h3><span class="header-section-number">7.3.18</span> Praca z wartosciami nieskonczonymi</h3>
+<pre class="sourceCode python"><code class="sourceCode python">df_inf <span class="op">=</span> pd.DataFrame({ <span class="st">&#39;wiek&#39;</span>:[<span class="dv">30</span>,np.inf,<span class="dv">80</span>, np.inf,<span class="dv">40</span>,<span class="dv">20</span>,<span class="dv">50</span>]
+                      , <span class="st">&#39;staz&#39;</span> : [<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">20</span>,<span class="dv">40</span>,<span class="op">-</span>np.inf]
+                      , <span class="st">&#39;zarobek&#39;</span>:[<span class="dv">2000</span>, np.inf, <span class="op">-</span>np.inf, <span class="dv">3000</span>, <span class="dv">5000</span>, <span class="dv">2000</span>, np.inf]} )
+                      
+
+<span class="co"># zamiana wartosci plus_nieskoczone na 0 i minus_nieskoczone na -1 w kolumnach &#39;wiek i &#39;zarobek&#39;                    </span>
+df_inf[[<span class="st">&#39;wiek&#39;</span>,<span class="st">&#39;zarobek&#39;</span>]] <span class="op">=</span> df_inf[[<span class="st">&#39;wiek&#39;</span>,<span class="st">&#39;zarobek&#39;</span>]].replace([np.inf, <span class="op">-</span>np.inf],[<span class="dv">0</span>, <span class="dv">-1</span>])
+df_inf</code></pre>
+</div>
+<div id="funkcje-oknowe" class="section level3">
+<h3><span class="header-section-number">7.3.19</span> Funkcje oknowe</h3>
+<p><a href="https://mode.com/blog/bridge-the-gap-window-functions" class="uri">https://mode.com/blog/bridge-the-gap-window-functions</a></p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#(1) wartosc kroczaca - przyklad dla sredniej</span>
+df_rol_mean <span class="op">=</span> pd.DataFrame({<span class="st">&#39;cena&#39;</span>:[<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">2</span>,np.nan,np.nan,<span class="dv">12</span>,<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">11</span>]})
+
+<span class="co"># szerokosc okna = 3; </span>
+<span class="co"># minimalna ilosc dostepnych obserwacji w oknie zeby policzyc srednia = 2;  </span>
+df_rol_mean[<span class="st">&#39;cena_rolling_mean&#39;</span>] <span class="op">=</span> df_rol_mean[<span class="st">&#39;cena&#39;</span>].rolling(window <span class="op">=</span> <span class="dv">3</span>, min_periods <span class="op">=</span> <span class="dv">2</span> ).mean()
+df_rol_mean
+
+
+
+
+<span class="co">#(2) wartosc kroczaca - przyklad dla sredniej, ale tym razem GRUPOWANIE po zmiennej &quot;grupa&#39;</span>
+df_rol_mean_group <span class="op">=</span> pd.DataFrame({<span class="st">&#39;cena&#39;</span>:[<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">12</span>,<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">11</span>], <span class="st">&#39;grupa&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>,]})
+df_rol_mean_group[<span class="st">&#39;cena_rol_mean_group&#39;</span>] <span class="op">=</span> df_rol_mean_group.groupby(<span class="st">&#39;grupa&#39;</span>)[<span class="st">&#39;cena&#39;</span>].rolling(window <span class="op">=</span> <span class="dv">2</span>).mean().reset_index(<span class="dv">0</span>, drop <span class="op">=</span> <span class="va">True</span>)
+df_rol_mean_group
+
+
+
+
+
+
+
+
+<span class="co">#(3) wartosci skumulowane - przyklad dla sredniej</span>
+df_ex_mean <span class="op">=</span> pd.DataFrame({<span class="st">&#39;cena&#39;</span>:[<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">2</span>,np.nan,np.nan,<span class="dv">12</span>,<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">11</span>]})
+df_ex_mean[<span class="st">&#39;cena_cummulative_mean&#39;</span>] <span class="op">=</span> df_rol_mean[<span class="st">&#39;cena&#39;</span>].expanding().mean()
+
+
+
+<span class="co">#(3) wartosci skumulowane - przyklad dla sredniej, ale tym razem GRUPOWANIE po zmiennej &quot;grupa&#39;</span>
+df_ex_mean_group <span class="op">=</span> pd.DataFrame({<span class="st">&#39;cena&#39;</span>:[<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">12</span>,<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">11</span>], <span class="st">&#39;grupa&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>,]})
+df_ex_mean_group[<span class="st">&#39;cena_rol_mean_group&#39;</span>] <span class="op">=</span> df_rol_mean_group.groupby(<span class="st">&#39;grupa&#39;</span>)[<span class="st">&#39;cena&#39;</span>].expanding().mean().reset_index(<span class="dv">0</span>, drop <span class="op">=</span> <span class="va">True</span>)
+df_ex_mean_group
+
+
+
+<span class="co">#(3) dodawanie numeracji wierszy - </span>
+<span class="co"># przyklad jest w czesci &quot;Dodawanie nowych kolumn&quot;</span>
+
+
+
+
+
+<span class="co">#(4) dodawanie rankingu wartosci - od razu przyklad z grupowaniem po zmiennej &#39;grupa&#39;</span>
+df_dense_group <span class="op">=</span> pd.DataFrame({<span class="st">&#39;cena&#39;</span>:[<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">12</span>,<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">11</span>], <span class="st">&#39;grupa&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>,]})
+df_dense_group[<span class="st">&quot;cena_rank&quot;</span>] <span class="op">=</span> df_dense_group.groupby(<span class="st">&quot;grupa&quot;</span>)[<span class="st">&quot;cena&quot;</span>].rank(<span class="st">&quot;dense&quot;</span>, ascending<span class="op">=</span><span class="va">False</span>) <span class="co"># ranking typu &#39;dense&#39; </span>
+
+
+
+<span class="co">#(4) shift/lag - czyli przesuniecia wartosci w kolumnach </span>
+df_shift <span class="op">=</span> pd.DataFrame({<span class="st">&#39;cena&#39;</span>:[<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">12</span>,<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">11</span>], <span class="st">&#39;grupa&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>,]})
+df_shift[<span class="st">&#39;cena_shift_2&#39;</span>] <span class="op">=</span> df_shift[<span class="st">&#39;cena&#39;</span>].shift(periods <span class="op">=</span> <span class="dv">2</span>, fill_value <span class="op">=</span> <span class="dv">0</span>) <span class="co"># zmienna &#39;cena&#39; przesunietaW DOL o 2 pozycje. Powstale puste miejsca sa wypelnione zerami.</span>
+df_shift
+df_shift[<span class="st">&#39;cena_shift_minus_2&#39;</span>] <span class="op">=</span> df_shift[<span class="st">&#39;cena&#39;</span>].shift(periods <span class="op">=</span> <span class="dv">-2</span>, fill_value <span class="op">=</span> <span class="dv">0</span>) <span class="co"># zmienna &#39;cena&#39; przesunieta W GORE o 2 pozycje. Powstale puste miejsca sa wypelnione zerami.</span>
+df_shift
+
+
+
+<span class="co">#(5) shift/lag - czyli przesuniecia wartosci w kolumnach (tym razem z grupowaniem po zmiennej &#39;grupa&#39;)</span>
+df_shift_grupa <span class="op">=</span> pd.DataFrame({<span class="st">&#39;cena&#39;</span>:[<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">12</span>,<span class="dv">9</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">11</span>], <span class="st">&#39;grupa&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>,]})
+df_shift_grupa[<span class="st">&#39;cena_shift_grupa&#39;</span>] <span class="op">=</span> df_shift_grupa.groupby([<span class="st">&#39;grupa&#39;</span>])[<span class="st">&#39;cena&#39;</span>].shift(periods <span class="op">=</span> <span class="dv">1</span>)
+df_shift_grupa
+
+
+
+<span class="co"># identyfikator grupowy - grupe identyfikuje po tej samej plci i tytule. Chce aby grupy dostaly kolejne numerki (czyli np. kobieta magister to grupa 2)</span>
+df_group_id <span class="op">=</span> pd.DataFrame({<span class="st">&#39;cena&#39;</span>:[<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>]
+                          ,<span class="st">&#39;plec&#39;</span>:[<span class="st">&#39;k&#39;</span>,<span class="st">&#39;k&#39;</span>,<span class="st">&#39;m&#39;</span>,<span class="st">&#39;m&#39;</span>,<span class="st">&#39;k&#39;</span>,<span class="st">&#39;m&#39;</span>,<span class="st">&#39;k&#39;</span>,<span class="st">&#39;k&#39;</span>,<span class="st">&#39;m&#39;</span>]
+                          ,<span class="st">&#39;tytul&#39;</span>:[<span class="st">&#39;mgr&#39;</span>,<span class="st">&#39;dr&#39;</span>,<span class="st">&#39;mgr&#39;</span>,<span class="st">&#39;mgr&#39;</span>,<span class="st">&#39;dr&#39;</span>,<span class="st">&#39;mgr&#39;</span>,<span class="st">&#39;mgr&#39;</span>,<span class="st">&#39;dr&#39;</span>,<span class="st">&#39;mgr&#39;</span>]})
+                          
+df_group_id[<span class="st">&#39;GrpIdx&#39;</span>] <span class="op">=</span> df_group_id.groupby([<span class="st">&#39;plec&#39;</span>,<span class="st">&#39;tytul&#39;</span>]).grouper.group_info[<span class="dv">0</span>]
+df_group_id</code></pre>
+</div>
+<div id="praca-z-groupby" class="section level3">
+<h3><span class="header-section-number">7.3.20</span> Praca z GroupBy</h3>
+<pre class="sourceCode python"><code class="sourceCode python">df <span class="op">=</span> pd.DataFrame({<span class="st">&#39;a&#39;</span>:[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>], <span class="st">&#39;b&#39;</span>:[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>], <span class="st">&#39;c&#39;</span>:[<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">10</span>] })
+
+df.groupby(<span class="st">&#39;a&#39;</span>)[<span class="st">&#39;b&#39;</span>].<span class="bu">sum</span>() <span class="co"># suma po kolumnie &#39;b&#39; grupowana po kolumnie &#39;a&#39;</span>
+
+df.groupby(<span class="st">&#39;a&#39;</span>)[<span class="st">&#39;b&#39;</span>].agg(<span class="st">&#39;sum&#39;</span>) <span class="co"># suma po kolumnie &#39;b&#39; grupowana po kolumnie &#39;a&#39; (inna skladnia)</span>
+
+df.groupby(<span class="st">&#39;a&#39;</span>)[[<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>]].agg(<span class="st">&#39;sum&#39;</span>) <span class="co"># suma po kolumnie &#39;b&#39; i &#39;c&#39; grupowana po kolumnie &#39;a&#39;</span>
+
+df.groupby(<span class="st">&#39;a&#39;</span>)[<span class="st">&#39;b&#39;</span>].agg([<span class="st">&#39;sum&#39;</span>, <span class="st">&#39;min&#39;</span>]) <span class="co"># suma i minimum po kolumnie &#39;b&#39; </span>
+
+<span class="co"># different aggreagation per column</span>
+df.groupby(<span class="st">&#39;a&#39;</span>).agg({<span class="st">&#39;b&#39;</span>:[<span class="st">&#39;sum&#39;</span>,<span class="st">&#39;min&#39;</span>], <span class="st">&#39;c&#39;</span>:[<span class="st">&#39;sum&#39;</span>]}) <span class="co"># suma i minimum po kolumnie &#39;b&#39; oraz tylko suma po kolumnie &#39;c&#39; (grupowanie po kolumnie &#39;c&#39;)</span>
+
+<span class="co"># uzycie funkcji anonimowej</span>
+df.groupby(<span class="st">&#39;a&#39;</span>).agg({<span class="st">&#39;b&#39;</span>:<span class="kw">lambda</span> x:x.std(ddof<span class="op">=</span><span class="dv">1</span>)}) <span class="co"># obliczam odchylenie standardowe dla kolumny b</span></code></pre>
+</div>
+<div id="funkcje-po-kolumnach-i-wierszach" class="section level3">
+<h3><span class="header-section-number">7.3.21</span> Funkcje po kolumnach i wierszach</h3>
+<div id="apply" class="section level4">
+<h4><span class="header-section-number">7.3.21.1</span> apply</h4>
+<p>Apply a function along an axis of the DataFrame.</p>
+</div>
+<div id="operacje-na-wszystkich-elementach" class="section level4">
+<h4><span class="header-section-number">7.3.21.2</span> operacje na wszystkich elementach</h4>
+<pre class="sourceCode python"><code class="sourceCode python">df1 <span class="op">=</span> pd.DataFrame([[<span class="dv">4</span>, <span class="dv">2</span>], [<span class="dv">4</span>, <span class="dv">2</span>]], columns<span class="op">=</span>[<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>])
+
+<span class="im">import</span> numpy <span class="im">as</span> np
+df1.<span class="bu">apply</span>(np.sqrt) <span class="co"># spierwiastkowanie wszystkich elementow ramki danych</span>
+
+
+
+df2 <span class="op">=</span> pd.DataFrame([[<span class="dv">4</span>, <span class="dv">2</span>, <span class="st">&#39;a&#39;</span>], [<span class="dv">4</span>, <span class="dv">2</span>, <span class="st">&#39;b&#39;</span>]], columns<span class="op">=</span>[<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>, <span class="st">&#39;C&#39;</span>])
+df2.<span class="bu">apply</span>(np.sqrt) <span class="co"># spierwiastkowanie wszystkich elementow ramki danych - dostaniemy blad bo jedna z kolumn to string i jest niepierwiastkowalna</span>
+
+
+<span class="co"># skladnia z funkcja anonimowa</span>
+df2.<span class="bu">apply</span>()</code></pre>
+</div>
+<div id="operacje-wzdloz-osi" class="section level4">
+<h4><span class="header-section-number">7.3.21.3</span> operacje wzdloz osi</h4>
+<pre class="sourceCode python"><code class="sourceCode python">df3 <span class="op">=</span> pd.DataFrame([[<span class="dv">4</span>, <span class="dv">2</span>], [<span class="dv">4</span>, <span class="dv">2</span>]], columns<span class="op">=</span>[<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>])
+
+df3.<span class="bu">apply</span>(np.<span class="bu">sum</span>, axis <span class="op">=</span> <span class="dv">0</span>)<span class="co"># zsumowanie po kolumnach (w dol)</span>
+df3.<span class="bu">apply</span>(np.<span class="bu">sum</span>, axis <span class="op">=</span> <span class="dv">1</span>)<span class="co"># zsumowanie po wierszach ( prawo)</span></code></pre>
+</div>
+<div id="lambda-przyklady" class="section level4">
+<h4><span class="header-section-number">7.3.21.4</span> lambda-przyklady</h4>
+<pre class="sourceCode python"><code class="sourceCode python">df1 <span class="op">=</span> pd.DataFrame([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">6</span>], [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">6</span>], [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">6</span>]], columns<span class="op">=</span>[<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>, <span class="st">&#39;C&#39;</span>])
+
+
+df1.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span>) <span class="co"># pdniesienie do kwadratu wszysktich elemenotow</span>
+
+df1.<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">sum</span>([x[<span class="dv">0</span>], x[<span class="dv">1</span>]])  , axis <span class="op">=</span> <span class="dv">1</span>) <span class="co"># sumu wiersza, ale wuzgledniajac tylko kolumny i indeksach 0 i 1.</span></code></pre>
+</div>
+<div id="problem-zwracania-wektorow-przez-operacja" class="section level4">
+<h4><span class="header-section-number">7.3.21.5</span> problem zwracania wektorow przez operacja</h4>
+<pre class="sourceCode python"><code class="sourceCode python">df1 <span class="op">=</span> pd.DataFrame([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">5</span>, <span class="dv">6</span>]], columns<span class="op">=</span>[<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>])
+
+<span class="co"># w tej opracji dla kazdej komorki dostajemy wektor</span>
+df1.<span class="bu">apply</span>(<span class="kw">lambda</span> x: [x[<span class="dv">0</span>], x[<span class="dv">0</span>]<span class="op">+</span><span class="dv">1</span>], axis<span class="op">=</span><span class="dv">1</span>)
+
+
+<span class="co"># co zrobic zeby wektor byl rozbity na oddzielne kolumny?</span>
+df1.<span class="bu">apply</span>(<span class="kw">lambda</span> x: [x[<span class="dv">0</span>], x[<span class="dv">0</span>]<span class="op">+</span><span class="dv">1</span>], axis<span class="op">=</span><span class="dv">1</span>, result_type <span class="op">=</span> <span class="st">&#39;expand&#39;</span>)</code></pre>
+</div>
+</div>
+<div id="praca-z-tekstem" class="section level3">
+<h3><span class="header-section-number">7.3.22</span> Praca z tekstem</h3>
+<pre class="sourceCode python"><code class="sourceCode python">df <span class="op">=</span> pd.DataFrame({<span class="st">&#39;a&#39;</span>:[<span class="st">&#39;aaa-aa-aa&#39;</span>,<span class="st">&#39;bbb-bbbb-b&#39;</span>]})
+
+<span class="co"># split - rozbicie</span>
+df[<span class="st">&#39;split_2&#39;</span>] <span class="op">=</span> df[<span class="st">&#39;a&#39;</span>].<span class="bu">str</span>.split(<span class="st">&#39;1-&#39;</span>)  <span class="co"># rozbicie ale alementy rozbite sa zagniezdzona w komorce lista.</span>
+
+pd.concat([df, df[<span class="st">&#39;a&#39;</span>].<span class="bu">str</span>.split(<span class="st">&#39;-&#39;</span>, n<span class="op">=</span><span class="dv">3</span>, expand <span class="op">=</span> <span class="va">True</span>)]) <span class="co"># sztywnie ograniczam ze maja byc 3 nowe kolumny po slicie. </span>
+
+pd.concat([df, df[<span class="st">&#39;a&#39;</span>].<span class="bu">str</span>.split(<span class="vs">r&#39;[0-9]&#39;</span>, expand <span class="op">=</span> <span class="va">True</span>)]) <span class="co"># </span>
+
+
+
+<span class="co"># sklejenie po wierszach</span>
+df <span class="op">=</span> pd.DataFrame({<span class="st">&#39;a&#39;</span>:[<span class="st">&#39;A&#39;</span>,<span class="st">&#39;B&#39;</span>], <span class="st">&#39;b&#39;</span>:[<span class="st">&#39;C&#39;</span>,<span class="st">&#39;D&#39;</span>]})
+df[<span class="st">&#39;paste&#39;</span>] <span class="op">=</span> df[[<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>]].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="st">&#39;&#39;</span>.join(x), axis<span class="op">=</span><span class="dv">1</span>)
+
+
+
+<span class="co"># sklejanie po kolumnie z grupowaniem</span>
+df <span class="op">=</span> pd.DataFrame({<span class="st">&#39;a&#39;</span>:[<span class="st">&#39;A&#39;</span>,<span class="st">&#39;A&#39;</span>,<span class="st">&#39;B&#39;</span>,<span class="st">&#39;B&#39;</span>], <span class="st">&#39;b&#39;</span>:[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>]})
+
+df.groupby(<span class="st">&#39;a&#39;</span>)[<span class="st">&#39;b&#39;</span>].agg(<span class="kw">lambda</span> col: <span class="st">&#39;&#39;</span>.join(col))
+
+
+
+
+df1 <span class="op">=</span> df1.assign(d <span class="op">=</span> df1[<span class="st">&#39;c2&#39;</span>].<span class="bu">str</span>.upper())
+
+df.assign(temp_f<span class="op">=</span><span class="kw">lambda</span> x: x.temp_c <span class="op">*</span> <span class="dv">9</span> <span class="op">/</span> <span class="dv">5</span> <span class="op">+</span> <span class="dv">32</span>)
+
+df1.assign(e <span class="op">=</span> df1[<span class="st">&#39;c2&#39;</span>] <span class="op">+</span> df1[<span class="st">&#39;d&#39;</span>])</code></pre>
+</div>
+<div id="praca-z-datami" class="section level3">
+<h3><span class="header-section-number">7.3.23</span> Praca z datami</h3>
+<p>Uwaga: tutaj jest tylko o datach w kontekscie skladni DataFrame. Wiecej informacji o datach jest w dedykowanym rozdziale.</p>
+<p>Ekstrakcja czesci daty</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> dateutil <span class="co"># glowny pakiet do bardziej zaawansowanych operacji na datach</span>
+<span class="im">import</span> datetime
+<span class="im">import</span> pandas <span class="im">as</span> pd
+
+
+<span class="co"># tworze DataFrame z dwoma datami</span>
+data <span class="op">=</span> pd.DataFrame( {<span class="st">&#39;data&#39;</span>:pd.Series([datetime.date(<span class="dv">2010</span>, <span class="dv">1</span>, <span class="dv">2</span>), datetime.date(<span class="dv">2010</span>, <span class="dv">1</span>, <span class="dv">20</span>)], dtype<span class="op">=</span><span class="st">&#39;datetime64[ns]&#39;</span>)} )
+data
+data.dtypes
+
+ 
+
+<span class="co"># dodaje kolumny w ktorych sa pobrane kolejne czesci dat w kolumnie &#39;daty&#39;</span>
+data[<span class="st">&#39;year&#39;</span>] <span class="op">=</span> pd.DatetimeIndex(data[<span class="st">&#39;data&#39;</span>]).year 
+data[<span class="st">&#39;month&#39;</span>] <span class="op">=</span> pd.DatetimeIndex(data[<span class="st">&#39;data&#39;</span>]).month
+data[<span class="st">&#39;hour&#39;</span>] <span class="op">=</span> pd.DatetimeIndex(data[<span class="st">&#39;data&#39;</span>]).hour
+data
+
+<span class="co"># lista innych (poza pokazanym year, month, hour) dostepnych interwalow czasowych do zobaczenia w tabelce &quot;Attributes&quot; na stronie dokumentacji DatatimeIndex: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DatetimeIndex.html</span></code></pre>
+<p>Inkrementacja daty</p>
+<pre class="sourceCode python"><code class="sourceCode python">data <span class="op">=</span> pd.DataFrame( {<span class="st">&#39;data&#39;</span>:pd.Series([datetime.date(<span class="dv">2010</span>, <span class="dv">1</span>, <span class="dv">2</span>), datetime.date(<span class="dv">2010</span>, <span class="dv">1</span>, <span class="dv">20</span>)], dtype<span class="op">=</span><span class="st">&#39;datetime64[ns]&#39;</span>)} )
+
+<span class="co"># UWAGA: ponizsze przyklady z funkcja &#39;to_timedelta&#39; na razie zakomentowana bo nie do konca podoba mi sie ich dzialanie. Rekomenduje uzycue funkcji relativedelta co niestety wymaga zastosowania nieco mniej przyjaznej skladni</span>
+
+<span class="co"># data[&#39;data_plus_5_M&#39;] = (pd.to_datetime(data[&#39;data&#39;])) + pd.to_timedelta(5.0,unit=&#39;M&#39;) # zwiekszam date o 5 miesiecy</span>
+<span class="co"># </span>
+<span class="co"># data[&#39;data_minus_3_M&#39;] = (pd.to_datetime(data[&#39;data&#39;])) + pd.to_timedelta(-3,unit=&#39;M&#39;) # zmniejszam date o 3 miesiece</span>
+<span class="co"># </span>
+<span class="co"># data[&#39;data_minus_3_M&#39;] = (pd.to_datetime(data[&#39;data&#39;])) + pd.to_timedelta(-3,unit=&#39;W&#39;) # zmiejszam date o 3 tygodnie</span>
+
+<span class="co"># Mozliwe wartosci dla parametru &#39;unit&#39; to:</span>
+<span class="co"># (‘Y’, ‘M’, ‘W’, ‘D’, ‘days’, ‘day’, ‘hours’, hour’, ‘hr’, ‘h’, ‘m’, ‘minute’, ‘min’, ‘minutes’, ‘T’, ‘S’, ‘seconds’, ‘sec’, ‘second’, ‘ms’, ‘milliseconds’, ‘millisecond’, ‘milli’, ‘millis’, ‘L’, ‘us’, ‘microseconds’, ‘microsecond’, ‘micro’, ‘micros’, ‘U’, ‘ns’, ‘nanoseconds’, ‘nano’, ‘nanos’, ‘nanosecond’, ‘N’)</span>
+
+
+
+<span class="co"># skladania z uzyciem funkcji z pakietu &#39;dateutil&#39; ( na razie bardziej rekomendowana)</span>
+
+data[<span class="st">&#39;data_minus_3_M_dateutil&#39;</span>] <span class="op">=</span> <span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x: x <span class="op">+</span> dateutil.relativedelta.relativedelta(months<span class="op">=-</span><span class="dv">3</span>) ,pd.to_datetime(data.data)))
+
+<span class="co">#lub</span>
+data[<span class="st">&#39;data_minus_3_M_dateutil&#39;</span>] <span class="op">=</span> data.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x[<span class="st">&#39;data&#39;</span>] <span class="op">+</span> dateutil.relativedelta.relativedelta(months<span class="op">=-</span><span class="dv">3</span>), axis<span class="op">=</span><span class="dv">1</span>)</code></pre>
+<p>Roznice miedzy datami</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> datetime
+
+
+data <span class="op">=</span> pd.DataFrame(   {<span class="st">&#39;data_1&#39;</span>:pd.Series([datetime.date(<span class="dv">2010</span>, <span class="dv">1</span>, <span class="dv">2</span>), datetime.date(<span class="dv">2010</span>, <span class="dv">1</span>, <span class="dv">20</span>)], dtype<span class="op">=</span><span class="st">&#39;datetime64[ns]&#39;</span>)
+                    ,   <span class="st">&#39;data_2&#39;</span>:pd.Series([datetime.date(<span class="dv">2011</span>, <span class="dv">1</span>, <span class="dv">2</span>), datetime.date(<span class="dv">2009</span>, <span class="dv">1</span>, <span class="dv">20</span>)], dtype<span class="op">=</span><span class="st">&#39;datetime64[ns]&#39;</span>)} )
+
+
+data[<span class="st">&#39;data_diff_m&#39;</span>] <span class="op">=</span> (pd.to_datetime(data[<span class="st">&#39;data_1&#39;</span>]) <span class="op">-</span> pd.to_datetime(data[<span class="st">&#39;data_2&#39;</span>]) )<span class="op">/</span>np.timedelta64(<span class="dv">1</span>,<span class="st">&#39;M&#39;</span>) <span class="co"># roznica w miesiacach</span>
+
+data[<span class="st">&#39;data_diff_y&#39;</span>] <span class="op">=</span> (pd.to_datetime(data[<span class="st">&#39;data_1&#39;</span>]) <span class="op">-</span> pd.to_datetime(data[<span class="st">&#39;data_2&#39;</span>]) )<span class="op">/</span>np.timedelta64(<span class="dv">1</span>,<span class="st">&#39;Y&#39;</span>) <span class="co"># roznica w latach</span>
+
+data[<span class="st">&#39;data_diff_w&#39;</span>] <span class="op">=</span> (pd.to_datetime(data[<span class="st">&#39;data_1&#39;</span>]) <span class="op">-</span> pd.to_datetime(data[<span class="st">&#39;data_2&#39;</span>]) )<span class="op">/</span>np.timedelta64(<span class="dv">1</span>,<span class="st">&#39;W&#39;</span>) <span class="co"># roznica z weekendach</span>
+
+data[<span class="st">&#39;data_diff_w&#39;</span>] <span class="op">=</span> (pd.to_datetime(data[<span class="st">&#39;data_1&#39;</span>]) <span class="op">-</span> pd.to_datetime(data[<span class="st">&#39;data_2&#39;</span>]) )<span class="op">/</span>np.timedelta64(<span class="dv">1</span>,<span class="st">&#39;D&#39;</span>) <span class="co"># roznica w dniach</span></code></pre>
+<p>Zaokraglanie dat</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#(1) zaokrlaglanie do pierwszego/ostatniego dnia miesiaca</span>
+
+<span class="co">#data frame</span>
+<span class="im">import</span> datetime
+
+data <span class="op">=</span> pd.DataFrame( {<span class="st">&#39;data&#39;</span>:pd.Series([datetime.date(<span class="dv">2010</span>, <span class="dv">1</span>, <span class="dv">2</span>), datetime.date(<span class="dv">2010</span>, <span class="dv">1</span>, <span class="dv">20</span>)], dtype<span class="op">=</span><span class="st">&#39;datetime64[ns]&#39;</span>)} )
+
+data[<span class="st">&#39;data_round&#39;</span>] <span class="op">=</span>  pd.to_datetime(data[<span class="st">&#39;data&#39;</span>]) <span class="op">+</span> pd.offsets.MonthBegin(<span class="dv">0</span>) <span class="co"># zaokrlaglad do pierwszego dnia miesiaca</span>
+
+data[<span class="st">&#39;data_round2&#39;</span>] <span class="op">=</span> pd.to_datetime(data[<span class="st">&#39;data&#39;</span>]) <span class="op">+</span> pd.offsets.MonthBegin(<span class="dv">4</span>) <span class="co"># dodaje 4 miesiace i zaokrlaglam do pierwszego dnia miesiaca</span>
+
+data[<span class="st">&#39;data_round3&#39;</span>] <span class="op">=</span> pd.to_datetime(data[<span class="st">&#39;data&#39;</span>]) <span class="op">+</span> pd.offsets.MonthEnd(<span class="dv">4</span>) <span class="co"># dodaje 4 miesiacae i zakraglam do ostatniego dnia miesiaca</span>
+
+data[<span class="st">&#39;data_round4&#39;</span>] <span class="op">=</span> pd.to_datetime(data[<span class="st">&#39;data&#39;</span>]) <span class="op">+</span> pd.offsets.MonthEnd(<span class="dv">4</span>) <span class="co"># dodaje 4 miesiacae i zakraglam do ostatniego dnia miesiaca</span>
+
+data[<span class="st">&#39;data_round5&#39;</span>] <span class="op">=</span> pd.to_datetime(data[<span class="st">&#39;data&#39;</span>]) <span class="op">+</span> pd.offsets.YearBegin(<span class="dv">0</span>) <span class="co"># zakraglam do pierwszego dnia roku</span>
+
+<span class="co"># Lista dostepnych zaokraglen na stronie dokumentacji: https://pandas.pydata.org/pandas-docs/stable/reference/offset_frequency.html</span></code></pre>
+</div>
+<div id="dummy---rekodowanie-na-zmienne-zero-jedynkowe" class="section level3">
+<h3><span class="header-section-number">7.3.24</span> Dummy - rekodowanie na zmienne zero-jedynkowe</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># tworze DataFrame ze zmienna jakosciowa</span>
+df_dummy <span class="op">=</span> pd.DataFrame({<span class="st">&#39;wyksztalcenie&#39;</span>:[<span class="st">&#39;podstawowe&#39;</span>,<span class="st">&#39;srednie&#39;</span>,<span class="st">&#39;wyzsze&#39;</span>,<span class="st">&#39;doktorat&#39;</span>]})
+
+
+df_dummy <span class="op">=</span> pd.get_dummies(df_dummy[<span class="st">&#39;wyksztalcenie&#39;</span>]) <span class="co"># zmienna jakosciowa &#39;wyksztalcenie&#39; zostanie przeksztalcona na 4 zmiennej zero-jedynkowe (jedna kolumna dla kazdej kategorii zmiennej)</span></code></pre>
+</div>
+<div id="crosstab---analiza-liczebnosci" class="section level3">
+<h3><span class="header-section-number">7.3.25</span> crosstab - analiza liczebnosci</h3>
+<p><a href="https://pbpython.com/pandas-crosstab.html" class="uri">https://pbpython.com/pandas-crosstab.html</a></p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas <span class="im">as</span> pd
+
+
+df <span class="op">=</span> pd.DataFrame({ <span class="st">&#39;A&#39;</span>:pd.Categorical([<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>])
+                  , <span class="st">&#39;B&#39;</span>:pd.Categorical([<span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>])})
+
+pd.crosstab(df.A, df.B) 
+
+pd.crosstab(df.A, df.B, normalize <span class="op">=</span> <span class="st">&#39;columns&#39;</span>) <span class="co"># procentowy udzial liczebnosci w kolumnie ( w kolumnie sumuje się do 100%)</span>
+pd.crosstab(df.A, df.B, normalize <span class="op">=</span> <span class="st">&#39;index&#39;</span>)  <span class="co"># procentowy udzial liczebnosci w wirszu ( w wierszu sumuje się do 100%)</span>
+pd.crosstab(df.A, df.B, normalize <span class="op">=</span> <span class="st">&#39;all&#39;</span>)  <span class="co"># procentowy udzial liczebnosci w calosci (po wszystkim sumuje się do 100%) </span>
+
+
+<span class="co"># kiedy mamy wiecej niz dwie kategorie trzeba dokonac grupowania, czyli wprowadzic hierarchie</span>
+df2 <span class="op">=</span> pd.DataFrame({ <span class="st">&#39;A&#39;</span>:pd.Categorical([<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;a&#39;</span>])
+                  , <span class="st">&#39;B&#39;</span>:pd.Categorical([<span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>])
+                  , <span class="st">&#39;C&#39;</span>:pd.Categorical([<span class="st">&#39;w&#39;</span>, <span class="st">&#39;w&#39;</span>,<span class="st">&#39;w&#39;</span>,<span class="st">&#39;z&#39;</span>,<span class="st">&#39;z&#39;</span>,<span class="st">&#39;z&#39;</span>])})
+
+<span class="co"># zrobimy jedna zmienna w wierszy i 2 w kolumnach. Te kolumnowe trzeba zagnieździc</span>
+pd.crosstab(df2.A, [df2.B, df2.C] )<span class="co"># w kolumnach mamy tabele po zmiennej B i C z tymże kategorie dla C są zagnieżdżone w kategoriach dla B</span>
+
+
+<span class="co"># teraz zrobimy to samo, ale dodamy recznie nazwy dla wynikowej tabeli </span>
+pd.crosstab(df2.A, [df2.B, df2.C] , rownames<span class="op">=</span>[<span class="st">&#39;zmienna_A&#39;</span>], colnames<span class="op">=</span>[<span class="st">&#39;zmienna_B&#39;</span>,<span class="st">&#39;zmienna_C&#39;</span>])</code></pre>
+</div>
+<div id="zmiana-struktury-dataframe" class="section level3">
+<h3><span class="header-section-number">7.3.26</span> zmiana struktury DataFrame</h3>
+<p>melt - Zmiana z formatu szerokiego (wide) na dlugi (long)</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas <span class="im">as</span> pd
+<span class="co"># mamy dane w formacie krotkim gdzie przyjmujemy ze mamy 2 grupujace zmienne jakosciowe (plec i zawod;):</span>
+df_wide <span class="op">=</span> pd.DataFrame({<span class="st">&#39;plec&#39;</span>:[<span class="st">&#39;k&#39;</span>, <span class="st">&#39;m&#39;</span>, <span class="st">&#39;m&#39;</span>, <span class="st">&#39;m&#39;</span>, <span class="st">&#39;k&#39;</span>, <span class="st">&#39;k&#39;</span>, <span class="st">&#39;m&#39;</span> ]
+, <span class="st">&#39;zawod&#39;</span>:[<span class="st">&#39;prawnik&#39;</span>, <span class="st">&#39;ekonomista&#39;</span>, <span class="st">&#39;ekonomista&#39;</span>, <span class="st">&#39;prawnik&#39;</span>, <span class="st">&#39;prawnik&#39;</span>, <span class="st">&#39;ekonomista&#39;</span>, <span class="st">&#39;prawnik&#39;</span>]
+, <span class="st">&#39;wiek&#39;</span>:[<span class="dv">30</span>,<span class="dv">50</span>,<span class="dv">80</span>, <span class="dv">70</span>,<span class="dv">40</span>,<span class="dv">20</span>,<span class="dv">50</span>]
+, <span class="st">&#39;staz&#39;</span> : [<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">10</span>,<span class="dv">30</span>,<span class="dv">20</span>,<span class="dv">40</span>,<span class="dv">20</span>]} )
+
+df_wide
+
+<span class="co"># wydluzamy dane wrzucajac zmienne niegrupujace, czyli &#39;wiek&#39; i &#39;staz&#39; do jednej kolumny (przetapiajac dane)</span>
+df_long <span class="op">=</span> df_wide.melt(id_vars<span class="op">=</span>[<span class="st">&#39;zawod&#39;</span>,<span class="st">&#39;plec&#39;</span>], value_vars<span class="op">=</span>[<span class="st">&#39;wiek&#39;</span>,<span class="st">&#39;staz&#39;</span>])
+df_long</code></pre>
+<p>pivot</p>
+<pre class="sourceCode python"><code class="sourceCode python">Tu jest miejsce Asiu, dla Ciebie :) </code></pre>
+<p>pivot_table
+Jest dobry manual na stronie: <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html" class="uri">https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html</a></p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas <span class="im">as</span> pd
+
+<span class="co"># utworzenie zbioru danych z trzeba kolumnami</span>
+df <span class="op">=</span> pd.DataFrame({<span class="st">&#39;Imie&#39;</span>: [<span class="st">&#39;John&#39;</span>, <span class="st">&#39;John&#39;</span>, <span class="st">&#39;Mina&#39;</span>, <span class="st">&#39;Peter&#39;</span>, <span class="st">&#39;Nicky&#39;</span>,<span class="st">&#39;John&#39;</span>, <span class="st">&#39;Boby&#39;</span>, <span class="st">&#39;Mina&#39;</span>, <span class="st">&#39;Peter&#39;</span>, <span class="st">&#39;Nicky&#39;</span>, <span class="st">&#39;Peter&#39;</span>, <span class="st">&#39;Nicky&#39;</span>, <span class="st">&#39;Mina&#39;</span>, <span class="st">&#39;Mina&#39;</span> ], 
+                   <span class="st">&#39;Tytul&#39;</span>: [<span class="st">&#39;Masters&#39;</span>, <span class="st">&#39;Graduate&#39;</span>, <span class="st">&#39;Graduate&#39;</span>, <span class="st">&#39;Masters&#39;</span>, <span class="st">&#39;Graduate&#39;</span>,<span class="st">&#39;Masters&#39;</span>, <span class="st">&#39;Graduate&#39;</span>, <span class="st">&#39;Graduate&#39;</span>, <span class="st">&#39;Masters&#39;</span>, <span class="st">&#39;Graduate&#39;</span>, <span class="st">&#39;Masters&#39;</span>, <span class="st">&#39;Graduate&#39;</span>, <span class="st">&#39;Masters&#39;</span>, <span class="st">&#39;Graduate&#39;</span>], 
+                   <span class="st">&#39;Stanowisko&#39;</span>:[<span class="st">&#39;Specialist&#39;</span>, <span class="st">&#39;Analyst&#39;</span>,<span class="st">&#39;Specialist&#39;</span>, <span class="st">&#39;Analyst&#39;</span>,<span class="st">&#39;Specialist&#39;</span>, <span class="st">&#39;Analyst&#39;</span>,<span class="st">&#39;Specialist&#39;</span>, <span class="st">&#39;Analyst&#39;</span>,<span class="st">&#39;Specialist&#39;</span>, <span class="st">&#39;Analyst&#39;</span>, <span class="st">&#39;Analyst&#39;</span>, <span class="st">&#39;Analyst&#39;</span>, <span class="st">&#39;Analyst&#39;</span>, <span class="st">&#39;Analyst&#39;</span>],
+                   <span class="st">&#39;Punkty&#39;</span>:[<span class="dv">27</span>, <span class="dv">23</span>, <span class="dv">50</span>, <span class="dv">23</span>, <span class="dv">24</span>,<span class="dv">27</span>, <span class="dv">23</span>, <span class="dv">30</span>, <span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">30</span>, <span class="dv">22</span>, <span class="dv">19</span>, <span class="dv">28</span>],
+                   <span class="st">&#39;KPI&#39;</span>:[<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">15</span>,<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">15</span>,<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">15</span>,<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">15</span>,<span class="dv">10</span>,<span class="dv">20</span>]})
+
+
+<span class="im">import</span> numpy <span class="im">as</span> np
+<span class="co"># wartosci z kolumny &#39;Punkty&#39; i &#39;KPI&#39; zsumuje i usrednimy wierszowo po zmiennych &#39;Imieniu&#39; i &#39;Tytule&#39; i kolumnowo po zmiennej &#39;Stanowisko&#39;. Dodatkowo dla konfiguracji dla ktorych nie ma wartosci robie wypelnienie wartosciami &#39;-1&#39;</span>
+table <span class="op">=</span> pd.pivot_table(df
+                      , values     <span class="op">=</span> [<span class="st">&#39;Punkty&#39;</span>,<span class="st">&#39;KPI&#39;</span>]
+                      , index      <span class="op">=</span> [<span class="st">&#39;Imie&#39;</span>, <span class="st">&#39;Tytul&#39;</span>]
+                      , columns    <span class="op">=</span>[<span class="st">&#39;Stanowisko&#39;</span>]
+                      , aggfunc    <span class="op">=</span> [np.<span class="bu">sum</span>, <span class="kw">lambda</span> x:x.mean.<span class="bu">round</span>] <span class="co"># stosujemy 2 operacje: suma i srednia. Wyniki ze sredniej sa dodatkowo zaokraglone</span>
+                      , fill_value <span class="op">=</span> <span class="dv">-1</span>) 
+table
+
+<span class="co"># UWAGA: niestety obecnie funkcja &#39;pivot_table&#39; nie daje mozliwosci robienia &#39;subtotals&#39; czyli zagniezdzonych sum po kategoriach.</span></code></pre>
+</div>
+<div id="rozne-problemy" class="section level3">
+<h3><span class="header-section-number">7.3.27</span> Rozne problemy</h3>
+<div id="uzupelnianych-kategorii" class="section level4">
+<h4><span class="header-section-number">7.3.27.1</span> Uzupelnianych kategorii</h4>
+<p>Problem. W kolumnach ‘marka’ i ‘typ’ są marki samochodow i typu nadwozia (sedan, kabriolet itp.)</p>
+<p>W finalnej tabeli okazuje się że nie występują wszystkie możliwe kombinacje w danych (np. np. Mercedesa ktory jest kabrioletem)
+Chcemy takie brakujące kombinacje dodać i wypełnić pozostałe kolumny np. braki danych.
+To się często przydaje przy raportach, kiedy chcemy aby wszystkie kombinacje kategorii były wyświetlone w raporcie dla managera.
+Problem może też dotyczyć dziur w datach dla poszczegolnych kategorii. Taki przyklad przerobimy ponizej (skopiowane ze stackoverflow)</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> itertools
+
+<span class="co"># zmienne ktorych kominacje chcemy miec z komplecie</span>
+person_id <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>]
+status <span class="op">=</span> [<span class="st">&#39;pass&#39;</span>, <span class="st">&#39;fail&#39;</span>,<span class="st">&#39;pass&#39;</span>]
+year <span class="op">=</span> [<span class="dv">1980</span>, <span class="dv">1981</span>, <span class="dv">1982</span>]
+
+<span class="co"># inna zmienna ktora bedzie wypelnona zerami po dodaniu brakujacych kombinacji</span>
+count <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">8</span>]
+
+<span class="co">#tabela wyjsciowa gdzie sa tylko 3 kombinacje zmiennych</span>
+df_1 <span class="op">=</span> pd.DataFrame({<span class="st">&#39;person_id&#39;</span>:person_id, <span class="st">&#39;status&#39;</span>:status, <span class="st">&#39;year&#39;</span>:year, <span class="st">&#39;count&#39;</span>:count})
+
+
+
+
+combined <span class="op">=</span> [person_id, status, year]
+
+
+df_full_kombinacje <span class="op">=</span> pd.DataFrame(columns <span class="op">=</span> [<span class="st">&#39;person_id&#39;</span>, <span class="st">&#39;status&#39;</span>, <span class="st">&#39;year&#39;</span>], data<span class="op">=</span><span class="bu">list</span>(itertools.product(<span class="op">*</span>combined)))
+
+<span class="co"># dodanie zmienej count i uzupelnienie brakow zerami</span>
+df_new_full_table <span class="op">=</span> df_full_kombinacje.merge(df_1, how<span class="op">=</span><span class="st">&#39;left&#39;</span>).fillna(<span class="dv">0</span>)
+df_new_full_table</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-structures-basic.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-structures-numpy-scipy.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": true,
+"linkedin": true,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"],
+"instapper": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/1_05_PROGRAMING_data_structures-Pandas.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-Manual_R.pdf", "bookdown-Manual_R.epub"],
+"toc": {
+"collapse": "section",
+"depth": 4
+}
+});
+});
+</script>
+
+</body>
+
+</html>

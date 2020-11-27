@@ -1,0 +1,641 @@
+# DATA STRUCTURES - basic
+
+
+## listy
+
+http://effbot.org/zone/python-list.htm
+
+
+
+### atrybuty listy
+
+```{python}
+
+lista = [1,2,3,4,5,6]
+len(lista) # ilosc elementow listy
+
+
+# listy mozna zagniezdzac
+lista_deep = [1,2,3,[4,5]] # [4,5] to lista zagniezdzona
+
+#UWAGA:
+len(lista_deep) # ilosc elementow to 4. Ostatni element (lista w liscie) jest traktowna przez funkcje 'len' jako jeden caly element.
+
+
+```
+
+
+
+### tworzenie listy
+
+```{python}
+
+# z definicji
+lista_1 = [1,2,3,4]
+
+
+# trick z iloczynem
+lista_1 = [1,2,3,4] *5 
+
+# konwersja z innych typow
+import numpy as np
+macierz = np.array([1,2,3,4])
+lista_2 = list(macierz) # konwertujemy array
+
+```
+
+
+
+### dodawanie wartosci
+
+```{python}
+
+#(1) laczenie list
+
+lista_1 = [1,2,3,4,5,6]
+lista_2 = [10,11]
+
+lista_3 = lista_1 + lista_2 #sklejenie dwoch list
+
+lista_1 = [1,2,3,4,5,6]
+lista_1.extend(lista_2) # sklejenie dwoch list
+
+lista_1 = [1,2,3,4,5,6]
+lista_1.append(lista_2) # doklejenie do listy_2 listy_1 jako zagniezdzonego elementu (to nie to samo co lista_1+lista_2!!!)
+
+
+
+
+
+# (2) insert wstawienie elementu po zadanym indeksie
+lista = [1,2,3,4]
+lista.insert(2, [20,30]) # dodanie listy [20,30] na trzeciej pozycji. Uwaga: ta lista bedzie zagniezdzona, czyli dziala to analogicznie do 'append'
+lista
+
+
+
+# (3) wstawienie elementu po zadanym indeksie (inna skladnia)
+lista=[1,2,3,4]
+lista[0:2] + [3,4] + lista[2:] # wstawiem elementy od drugieg indektu. Tym razem nie beda one zadniezdzane jak to bylo przy funkcji 'insert'
+
+
+```
+
+
+### aktualizacja wartosci
+
+```{python}
+
+z=[1,2,3,4]
+z[1:2] = [100, 300] # modyfikacja wartosci elementu o indeksach 1 i 2 (element drugi i trzeci)
+
+z[1,2,3,4,5]
+z[1:2] = [100, 200 , 300] # mimo ze powalismy tylko 2 indeksy do modyfikacji a, wartosci po wstawienia są 3 wartosci nie dostaniemy błędy. Trzecia wartosc (300), zostanie 'wepchana miedzy 200 i 3
+
+
+# modyfikacja elementow spelniajacych warunek
+z = [1,2,3,4,5]
+[0 if i >=3 else i for i in z] # zamiana na zero elementow wiekszych lub rownych 3
+
+
+```
+
+
+
+
+### usuwanie 
+
+```{python}
+
+lista = [1,2,3,4,5,6]
+
+
+del lista[3] # usuniecie elementu o indeksie 3
+
+lista.remove(2) # usuniecie PIERWSZEJ napotkanej wartosci
+
+# jezeli chcemy usunac wszyskie, a nie tylko pierwsza wartosc stosujemy:
+a = [10, 20, 30, 40, 20, 30, 40, 20, 70, 20]
+a = [x for x in a if x != 20]
+
+#lub
+a = [10, 20, 30, 40, 20, 30, 40, 20, 70, 20]
+a = list(filter(lambda x: x!= 20, a))
+
+lista.clear() # usuniecie wszystkich elementow - dostajemy pusta liste
+
+us = lista.pop() # usuniecie ostatniego elementu listy i przypisanie go do zmiennej 'us'
+
+us_1 = lista.pop(0) # usuniecie z listy elementu o indeksie 0 i przypsanie do zmiennej 'us_1'
+
+
+
+
+```
+
+
+
+### filtrowanie
+
+Pierwszy sposob to filtorwanie po indeksach (np. z[1:3:1]). Jest on omowiony w 'Indicies' w pliku 'PROGRAMMING_syntax_base'
+Ponizej omowimy inne sposoby.
+```{python}
+
+# filtrowanie funkcja filter z zastosowanie funkcji anonimowej
+number_list = range(-5, 5)
+less_than_zero = list(filter(lambda x: x < 0, number_list)) # zostawiamy elementy mniejsze od zera.
+print(less_than_zero)
+
+
+
+#filtrowanie wektorem logicznym (zastosowanie funkcji compress)
+from itertools import compress
+list_a = [1, 2, 4, 6]
+logical_filter = [True, False, True, False] 
+print(list(compress(list_a, logical_filter))) # Elementy 'lista_a' pokrywajace sie pozycja z wartoscia TRUE w 'logical_filter 'beda zostawione.
+
+
+# funkcja dropwhile
+from itertools import dropwhile
+list(dropwhile(lambda x: x<5, [1,4,6,4,1])) # USUNAC elementy az do napotkania pierwszego elementu nie spelniajacego warunku x<5.
+
+
+# funkcja 'takewhile'
+from itertools import takewhile # odwrotnosc funkcji 'dropwhile'
+list(takewhile(lambda x: x<5, [1,4,6,4,1])) # ZOSTAWIC elementy az do napotkania pierwszego elementu nie spelniajacego warunku x<5.
+
+
+# for z if  (filtorwanie liczb z listy)
+x = [1.5, 2.3, 4.4, 5.4, 'n', 1.5, 5.1, 'a'] # Original list
+x_non_str = [el for el in X if not isinstance(el, str)] # Extract non-strings from X to new list
+
+
+```
+
+### wyszukiwanie indeksu
+
+```{python}
+
+
+# wyszuka indeks PIERWSZEGO elementu spelniajacego warunek
+l=[1,2,3,4,3,2,5,6,7]
+l.index(3) # jaki indeks ma pierwszy element o wartosci 3. Przy braku wyszukania elementu zwracany jest błąd. 
+
+# wyszukaj wszystkie elementy spelniajace zadany warunek
+l=[1,2,3,4,3,2,5,6,7]
+[i for i,val in enumerate(l) if val==3] # Przy braku wyszukania zwracana jest lista o dlugosci 0.
+
+
+```
+
+
+### sortowanie
+
+```{python}
+
+lista = [3,1,5,3,6]
+lista.sort() # sortuj rosnaco
+lista.sort(reverse=TRUE) # sortuj malejoco
+lista.reverse() # odwroc kolejnosc
+
+```
+
+
+Sortowanie po kluczu
+```{python}
+
+# wariant 1 (dziala na dowolnym sortowalny kluczu)
+
+def takeSecond(elem): # definiuje funkcje okreslajaca jak klucz ma byc pobierany z listy
+    return elem[1] # bede pobierał drug element (bede mial liste dwuelementowych list,  gdzie drugi element to klucz)
+
+
+lista = [1,2,3,4]
+klucz = [30,0,10,20]
+lista_z_kluczem = list(zip(lista, klucz))
+
+
+lista_z_kluczem.sort(key=takeSecond) # posortowanie po kluczu
+lista_z_kluczem
+
+
+
+
+# wariant 2 (dzialajacy na indeksach - zatem - zakres wartosci klucza musi sie zawierac z zakresie indeksow listy)
+
+lista = [1,2,3,4]
+klucz = [3,0,1,2]
+[lista[i] for i in klucz]
+
+```
+
+
+
+
+### operowanie funkcjami na elementach
+
+```{python}
+
+
+# funckja 'map' z uzyciem funkcji anonimowej
+squares = list(map(lambda x: x**2, [1,2,3,4]))  # kazdy element zostanie podniesiony do kwadratu
+
+
+
+# for zagniezszony w petli 
+squares = [x**2 for x in range(10)] # # kazdy element zostanie podniesiony do kwadratu
+```
+
+
+
+### ciekawe operacje i triki na listach
+
+```{python}
+
+# funkcja reduce
+from functools import reduce
+product = reduce((lambda x, y: x * y), [1, 2, 3, 4]) # obliczenie skumulowanego iloczynu elementow (produktu)
+sum = reduce((lambda x, y: x + y), [1, 2, 3, 4]) # zsumowanie elementow (oczywiscie w praktyce lepiej uzywac 'sum')
+
+
+
+# polaczenie elementow kilku list tak, ze elementy o tej samej pozycji z kazdej listy trafiaja do jednej listy
+z1 = [1,2]
+z2 = [3,4]
+z3 = [5,6]
+list(zip(z1, z2, z3)) 
+
+
+
+import itertools
+list(itertools.repeat([1,2],10)) # dwuplikuj liste 10 razy
+
+
+# splaszczenie list o jednym stopniu zagniezdzenia (jest wiele rozwiązan - to jest przykadowe)
+import operator
+l = [[1,2,3],[4,5,6], [7], [8,9]] # lista ktora ma w sobie listy (ale tylko jeden stopien zagniezdzenia)
+reduce(operator.concat, l) # splaszczenie
+
+
+# zliczenia wartosci
+list=[10,10,2,3,4,4]
+list.count(2) # zliczenie wartosci 2
+
+
+```
+
+
+### losowe elementy
+
+```{python}
+
+import numpy as np
+
+np.random.choice([1,2,3,4], size=10, replace=True) # listy wybieram losowo 10 elementow i robie to ze zwracaniem
+
+np.random.choice([1,2,3,4], size=10, replace=True, p=[0.2,0.2,0.2,0.4]) # tutaj dodatkowo zadaje prawdopodobienstwo wylosowania kazdego elementu
+
+```
+
+
+
+
+
+
+
+
+## slowniki
+http://queirozf.com/entries/python-dict-examples
+
+### tworzenie
+```{python}
+
+# z definicji
+{'a':1, 'b':[2,3]} # 1 i 2 to wartosci slownika (values) natomiast 'a' i 'b' to klucze (keys). Kucze i wartosci tworza pary klucz-wartosc
+
+
+# z dwoch list
+nazwy = ['a','b','c','d','e']
+wartosci = [1,2,3,4,5]
+dict(zip(nazwy, wartosci))
+
+```
+
+
+### odwolywanie sie do elementow
+
+UWAGA:
+
+- slowniki nie maja indeksow!!! . Nie mozna sie do elementow slownika odwolywac przez indeksy. 
+- W slownikach nie moze byc duplikatow po nazwach.
+```{python}
+
+d={'a':1, 'b':2}
+
+d[1] # slownik nie ma indeksu. Odwolanie bedzie bezskuteczne
+
+d['b'] # ale mozemy sie odwloac po nazwach
+
+d[['a','b']] # niestety mozna sie  tylko po jednej nazwie odwolywac. Nie mozna podac listy nazw . Dostaniemy blad
+
+d['g'] # jezeli odwolamy sie do NIEistniejacego elementu dostaniemy blad
+
+d.get('g') # odwolywanie sie do elementu w bezpieczny sposob, tzn jezeli nie ma danej nazwy w slowniku to miamiast bledu dostaniemy wartos None.
+
+d.setdefault('g', 'aaa') # w bezpieczny sposob mozna tez sie odwolac przez 'setdefault'. Wtedy jezeli nie ma nazwy o zadanej wartosci, mozemy zadac jaka alternatywna wartosc ma zostac zwrocona (w przykladzie bedzie to 'aaa').
+
+d.values() # wyciagniecie wszystkich wartosci (bez kluczy)
+
+d.keys() # wyciagniecie wszystkich kluczy (bez wartosci)
+
+list(d.items()) # przeksztalcenie slownika w liste
+
+# proba utworzenia slownika z duplikatem
+dd = {'a':1, 'a':1}
+dd # duplikat zostal usuniety
+
+# proba utworzenia duplikacu po samych nazwach
+dd = {'a':1, 'a':2}
+dd # pozostawiony bedzie tylko element 'a':2
+
+
+```
+
+
+
+### updating and adding
+
+```{python}
+
+a = {'a':1, 'b':2}
+
+a['b']=20
+
+a['c'] = 40
+
+
+# polaczenie dwoch slownikow
+
+d1={'a':[1,2,3], 'b':[1,2,10]}
+d2={'c':[1,2,3], 'd':[1,2,10]}
+
+d1.update(d2)
+d1
+
+```
+
+
+
+### removing
+
+```{python}
+
+dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
+del dict['Name']; # remove entry with key 'Name'
+dict.clear();     # remove all entries in dict
+del dict ;        # delete entire dictionary
+
+```
+
+
+
+### filtering
+
+```{python}
+
+#!/bin/python3
+ 
+names={1:"ismail",2:"ali",3:"ahmet",4:"elif",5:"ecrin"}
+ 
+filtered_dict = dict(filter(lambda item: item[0]%2==0 , names.items()))
+ 
+print(filtered_dict)
+ 
+for item in filtered_dict.items():
+   print(item)
+
+```
+
+
+### filtrowanie kluczy po liscie
+https://thispointer.com/python-how-to-find-keys-by-value-in-dictionary/
+```{python}
+
+allowed_keys = ['bar','baz']
+
+d = {'foo':1,'bar':2}
+
+filtered_items = [(k,v) for (k,v) in d.items() if k in allowed_keys]
+
+dict(filtered_items)
+
+
+```
+
+### filtrowanie vartosci po liscie
+```{python}
+
+allowed_values = [1, 2]
+
+d = {'foo':1, 'bar':2, 'baz':3, 'quux':4 }
+
+filtered_items = [(k,v) for (k,v) in d.items() if v in allowed_values]
+
+dict(filtered_items)
+
+```
+
+
+## tuples
+
+
+### atrybuty
+
+Tuple to struktura ktorej po utworzeniu nie mozna modyfikowac. Tak więc atrybuty są ustawione na sztywno. Dlatego nie bedzie tutaj przykladow o usuwaniu, filtorwania, zmienianiu wartosci. 
+```{python}
+# utworzenie tuple
+z = (1,2,3,4,5)
+
+# proba modyfikacji (dostajemy blad)
+z[1]=100
+
+# proba dodania elementu (dostajemy blad)
+z+[1,2]
+
+```
+
+### tworzenie
+
+```{python}
+
+# z definicji
+z1 = (1, 2, 3, (4, 5), [6, 7])
+z1
+
+# z listy
+lista = [1,2,3,4]
+z2 = tuple(lista)
+z2
+
+```
+
+
+### odwolywanie sie do elementow
+
+Analogocznie jak przy lista
+
+
+
+
+
+
+
+## set (zbiory)
+
+
+
+
+### tworzenie
+
+```{python}
+
+# z definicji
+s = {1,2,3}
+
+
+# z listy
+lista = [1,2,3,4]
+s = set(lista)
+
+
+# z tuple
+tuple = (1,2,3,4)
+s = set(tuple)
+
+```
+
+
+
+### atrubyty
+
+- Zbiory podobnie jak slowniki nie maja indeksow. 
+- W zbiorach tak jak w slownikach nie moga istniec duplikaty
+- Z zbiorach nie mozna zagniezdzac elementow
+
+```{python}
+
+s = {1,2,3,4,5}
+
+
+s[1] # proba odwolania sie przez indeks - dostaniemy blad
+
+
+# proba utworzenia zbioru z duplikatami
+s = {1,1,2,2}
+s # duplikaty zostaly usuniete
+
+
+s = {1,2,3,{4,5}} # nie mozna zagniezdzac elementow. Dostaniemy blad
+
+```
+
+
+
+### aktualizacja/dodawanie/usuwanie/filtrowanie wartosci
+
+```{python}
+
+s = {1,2,3,4,5}
+
+s.update({10,11}) # dodanie elementow
+
+s.remove(1) # usuwanie pojedynczego elementu ze wzgledu na wartosc
+s.discard(2) # usuwanie pojedynczego elementu ze wzgledu na wartosc (inna skladnia)
+
+s -= {4,5} # usuwanie wielu elementow
+
+s.difference_update({1,2}) # usuwanie wielu elementow (inna skladnia)
+
+
+s3 = s.pop() # usuniecie ostatniego elementu i przypisanie do zmiennej  's3'
+
+```
+
+filtrowanie
+```{python}
+
+s = {1,2,3,4,5}
+set(filter(lambda x : x> 2, s))
+
+```
+
+
+
+### funkcje na elementach
+
+Analogicznie jak w listach:
+
+```{python}
+np:
+
+z = {1,2,3}
+
+set(map(lambda x: x^2, z)) # podniesienie do kwadratu kazdego elementu
+
+```
+
+
+
+
+### operacje na zbiorach
+```{python}
+
+s1 = {1,2,3}
+s2 = {3,4,5}
+
+# suma zbiorow (elementy wystepujace w jednym lub drigm zbiore)
+s1 | s2  
+s1.union(s2) # alternatywna skladnia
+
+
+# elementy wspolne ziorow
+s1 & s2
+s1.intersection(s2) # alternatywna skladnia
+
+
+
+# roznica zbiorow
+s1 - s2
+s1.difference(s2) # alternatywna skladnia
+
+
+# roznica symstryczne
+s1 ^ s2
+s1.symmetric_difference(s2) # alternatywna skladnia
+
+
+# wartosc logiczna okreslajaca czy elementy nie maja elementow wspolnczy
+s1.isdisjoint(s2) # dostajemy Fale bo elementem wsplnym jest 3.
+
+
+
+# czy zbior jest podzbiorem dugiego zbioru
+s1 <= s2
+s1.issubset(s2) # alternatywna skladnia
+
+
+# czy zbior jest podzbiorem wlasciwym (proper subset) drugiego zbioru 
+s1 < s2
+
+
+# czy zbior jest nadzbiorem dla drugiego zbioru
+s1 >= s2
+s1.issuperset(s2) # alternatywna skladnia
+
+# czy zior jest wlasciwym nadzbiorem dla dugiego zbioru
+s1 > s2
+
+
+
+
+```

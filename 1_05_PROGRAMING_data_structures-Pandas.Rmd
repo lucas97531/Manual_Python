@@ -1,0 +1,1980 @@
+# DATA STRUCTURES-Pandas
+
+
+
+
+## Series
+
+Series zostalo stworzone glownie pod potrzeby pracy z DataFrames i glownie w tamtym kontekscie jest uzywane. Dlatego tez w tym rozdziale są tylko podstawowe informacje. Wiecej przyladow pracy z Series (w kontekście DataFrame) jest w rozdziale o DataFrame
+
+
+### tworzenie
+
+```{python}
+
+import pandas as pd
+
+# z listy
+s = pd.Series(data=[1,2,3,4,5],  dtype='int32') # mozna wymusic typ danych. Tutaj wymuszenie na 'int32'
+
+
+# ze slownika
+s = pd.Series(data={'a':1, 'b':2}) # nazwy 'a' i 'b' stana sie indeksami po ktorych mozemy sie odwolywac do elementow (patrz rozdzial "odwolywanie sie do elementow")
+
+
+# z array
+s = pd.Series(data=np.array([1,2,3,3,4])) 
+
+
+```
+
+
+
+### atrybuty
+
+- Jest to jednowymiarowa marzeciez (wektor). Tak jak w array, wszystkie elementy musza byc tego samego typu. Nie moze byc liczby i tekstu w tym samym Series (technicznie da się trzymać w 'series' rozne typy danych, ale nie jest to zalecone z punktu widzenia intencji tego jak ta strkutura ma dzialac. Będę duże problemy w pracą z takim mieszanym 'series' z uzywaniem skladni pandas-owej.).
+- W odroznieniu od normalnych macierzy, do elementow mozemy sie odwolywac przez (1) domyslne indeksy liczbowe, (2) recznie dodatkowo zdefiniowane indeksy (liczbowe lub teksowe)
+- Series w Pandasie mają zdefiniowane bardzo wiele przydatnych metod.
+- DataFrame to nic innego jak zbiór kilku Series
+- W typie series mozna zagniezdzac elementy
+
+
+```{python}
+
+s1 = pd.Series(data=[1,2,3,4,5])
+s1.dtype # typ danych
+s1.size # ilosc elementow
+
+
+
+# mozliwosc zagniezdzania elementow
+s2 = pd.Series(data=[1,2,3,4,5, [6,7]])
+s2.dtype # UWAGA: dostaniemy typ 'O'
+s2[5] # wyciagniecie zaniezdzonej listy
+
+```
+
+
+
+
+### indeksy
+
+UWAGA: zaawansowane inforamcje o pracy z multiindeksami i indeksami na kolumnach zostaly umieszczone w rozdziale o DATA FRAMES.
+
+#### tworzenie indeksow i odwolywanie sie do elementow przez nie
+
+```{python}
+import pandas as pd
+
+# utworzenie series z dodatkowymi recznie zdefiniowanymi indeksami
+s1 = pd.Series(data=[1,2,3,4,5],  index=[10,20,30,40,50], dtype='int32')
+
+# teraz odwolam sie przez samodzielnie zdefiniowane indeksy LICZBOWE
+s1[10]
+s1[[10,20]]
+s1[list(range(20,40,10))]
+
+s1[1] # to nie zadziala (KeyError: 1)
+# tak odwolujemy sie pozycyjnie do pierwszego elementu (nie przez index)
+s1.iloc[0]
+
+
+# odwolywanie sie przez samodzielnie zdefiniowane indeksy TEKSOWE
+s2 = pd.Series(data=[1,2,3,4,5],  index=['A', 'B','C', 'D', 'E'],dtype='int32') # indeksy mozemy samodzielnie zdefiniowac rozniez jako
+s2['A']
+s2[1] # przy recznie zdefiniowanych indeksach TEKSTOWYCH dalej mozemy odwolywac sie do domyslnych indeksow liczbowych
+
+s2 = s2.reset_index() # reset indeks. Recznie zdefiniowany indeks zostanie usuniety
+s2['A'] # dostaniemy blad 
+
+```
+
+
+
+#### Indeksy przy sklejaniu elementow
+
+Sklejanie poziome (axis = 0)
+```{python}
+
+# (1) Uwaga na problem z indeksacja: po sklejeniu dwoch Series nie ma automatcznej reindeksacji
+
+s1 = pd.Series([1,2,3,4,5])
+list(s1.index) # indeksy s1
+s2 = pd.Series([6,7,8,9])
+list(s2.index) # indeksy s2
+
+s3 = pd.concat([s1, s2]) # sklejam s1 i s2
+list(s3.index) # indeksy s3 sa sklejeniem indeksow s1 i s2 !!!
+
+
+# dlatego dobrze jest albo wynik recznie przeindeksowac:
+s3.index = list(range(s3.size))
+# albo uzyc automatycznej reindeksacji w sklejaniu
+s4 = pd.concat([s1, s2], ignore_index=True) # sklejam s1 i s2
+list(s4.index)
+
+
+# mozna tez wprowadzic indeks hierarchiczny w trakcie sklejania
+s5 = pd.concat([s1, s2], keys=['key1', 'key2'])  # kiedy dodam parametr 'keys' nie dadaje ignore_index=True
+s5['key1'] # wyciagam cala czesc stanowiaca elementy wektora s1 (przypisano mu glowny indeks key1)
+s5['key1'][2] # wyciagam hiererchicznie 3 element z czesci stanowiacej elementy wektora s1
+
+
+
+
+#(2) wstawienie wektora s2 do wektora s1 po drugim elemencie
+s1 = pd.Series([1,2,3,4,5])
+s2 = pd.Series([10,20])
+
+s3 = pd.concat([s1[:2],s2,s1[2:] ], ignore_index=True)
+s3
+
+
+```
+
+
+Sklejanie w pionie (axis = 1)
+```{python}
+
+import pandas as pd
+
+#  tworzymy dwa wektory o roznych indeksach 
+s1 = pd.Series([1,2,3,4], index = [3,1,2,4])
+s2 = pd.Series([1,2,3,4], index = [1,2,3,10])
+
+
+# sklejami, ale tym razem axis = 1. Dostaniemy dwuwymiarowy DataFrame (s1 i s2 to kolejne wektory)
+s1_s2 = pd.concat([s1, s2], axis=1, ignore_index=True)
+type(s1_s2) # DataFrame
+
+s1_s2 # wektory s1 i s2 (s1 i s2 to kolejne kolumny) w trakcie przeksztalcania w DataFrame zostaly dopasowane indeksami. Tam gdzie dla jakiegos indeksu w jednym wektorze nie ma odpowiedniku w drugim, to brak w drugiem jest wypelniamy wartoscia NaN.
+
+```
+
+
+
+
+
+
+
+### Aktualizacja wartosci 
+
+```{python}
+
+import pandas as pd
+
+s = pd.Series(data=[1,2,3,4,5])
+s[2:4] = pd.Series([100,200]) # podmiana elementu drugieg i trzeciego
+
+```
+
+
+### sortowanie
+
+```{python}
+
+s = pd.Series(data=[1,2,3,4,5],  index = ['E', 'B','C', 'D', 'A'], dtype='int32')
+
+s.sort_index() # sortowanie po indeksach
+s.sort_values() # sortowanie po wartosciach
+s.sort_values(ascending=True) # sortowanie po wartosciach (malejaco)
+
+
+```
+
+
+
+### rozne funkcje
+
+```{python}
+
+import pandas as pd
+
+s = pd.Series([1,2,5,-4,2,3,4,6])
+
+s.aggregate(func=lambda x:sum(x**2)) # sumuj kwadraty elementow
+s.nlargest(n=4) # 4 pierwsze najwieksze elementy
+s.nsmallest(4)  # 4 pierwsze najmniejsze elementy
+s.cummax()  # skumulowany max
+s.cummin()  # skumulowany min
+s.cumsum()  # skumulowana suma
+s.cumprod() # skumulowany iloczyn
+
+
+s.shift(periods=-2) # przesunieci kazdego elementu wektora o 2 pozycje w GORE (2 pierwsze elementy zostana stracone, na dwoch ostatnich pozycjach pojawia sie braki danych)
+s.shift(periods=2)
+
+
+s_l = pd.Series([True, False, True])
+s.any() # czy gdzie kolwiek True
+s.all() # czy gdzie wszedzie True
+
+```
+
+
+
+### praca z brakami danych i wartosciami nieskonczonymi
+
+Patrz przyklady w czesci o DataFrame
+
+
+
+## Categorical
+
+Danym typu Series mozna nadac typ "categorical' ktory jest odpowiednikiem typu 'factor' w programie R. 
+
+
+
+### Tworzenie
+
+```{python}
+
+import pandas as pd
+
+
+#(1) funkcja 'Categorical'
+
+c = pd.Categorical(['a', 'b', 'c'], ordered = None)
+list(c.categories)  # lista wystepujacych kategorii
+
+ 
+ 
+#(2) utworzenie Series typu 'category'
+s = pd.Series(["a", "b", "c", "a"], dtype="category")
+
+# UWAGA: powyzej utworzone zmienne nie sa dokladnie tego samego typu
+type(c) # zdefiniowane funkcja 'Categorical'
+type(s) # zdefiniowane funkcja 'Series'
+
+# przypadku zmiennej 'c' metody zwiazne z typem 'Categorical' ktore posiada wywolujemy od razu po jej nazwie
+c.ordered
+# w przypadku zmiennej 's' metody zwiazne z typem 'Categorical' ktore posiada wywolujemy od razu po .cat.
+s.cat.ordered
+
+
+
+
+
+#(3) Series z zagniezdzana funkcja 'Categorical'
+s = pd.Series(pd.Categorical(["a", "b", "c", "a"], ordered=False)) # mozna wymusic uporzadkowanie
+
+
+
+
+#(4) utworzenie Series typu 'category' z manualnym okresleniem zakresu kategorii
+
+# opcja 1
+from pandas.api.types import CategoricalDtype
+s = pd.Series(["a", "b", "c", "a"])
+cat_type = CategoricalDtype(categories=["b", "c", "d"], ordered=True) # podajemy kategorie i dodatkowo mozemy wymagac aby byl wprowadzony porzedek (order)
+s_cat = s.astype(cat_type) # 'a' zostalo zamianina na NaN to nie jest zawarte w kategoriach
+
+
+# opcja 2
+s = pd.Series(["a", "b", "c", "a"], dtype="category")
+s.cat.set_categories(["b", "c", "d"]) # 'a' zostalo zamianina na NaN to nie jest zawarte w kategoriach
+
+
+
+#(5) przez zmiane typu w DataFrame
+df = pd.DataFrame({"A": ["a", "b", "c", "a"]})
+df["B"] = df["A"].astype('category')
+
+
+
+```
+
+
+
+### usuwanie/dodawanie/modyfikacje kategorii
+
+
+usuwanie
+```{python}
+
+
+#(1) usuniecie konkretnej kategorii
+s = pd.Series(["a", "b", "c", "a"], dtype="category")
+s1 = s.cat.remove_categories(['c']) # usuniecie konkretnej kategorii
+
+
+
+#(2) usuniecie nadmiarowej kategorii
+s = pd.Series(["a", "b", "c"])
+cat_type = CategoricalDtype(categories=["a", "b", "c", "d"]) # 'd' jest kategoria nadmiarowa - nie ma jej realnie w wektorze 's'
+s_cat = s.astype(cat_type) 
+s2 = s_cat.cat.remove_unused_categories() # usuniecie kategorii dla ktorych nie ma elementow w wektorze 
+
+
+```
+
+
+dodawanie kategorii
+```{python}
+
+s = pd.Series(["a", "b", "c", "a"], dtype="category")
+s.cat.add_categories(['z', 'w']) # dodanie kategorii 'z'  i 'w'
+
+
+```
+
+
+zmiana nazw kategorii
+```{python}
+
+s = pd.Series(["a", "b", "c", "d"], dtype="category")
+s.cat.rename_categories({'a':'A', 'b':'B'}) # 'a' zaminiam na 'A' i 'b' na 'B'
+
+```
+
+
+zmiana uporzadkowania kategorii
+```{python}
+
+# wymuszenie uporzedkowania nieuporzadkowanej kategorii
+s = pd.Series(pd.Categorical(["a", "b", "c", "d"], ordered = None))
+s_ord = s.cat.as_ordered()
+
+
+# usuniecie uporzadkowania kategorii
+s_no_odr = s_ord.cat.as_unordered()
+
+
+# zmiana kolejnosci kategorii
+s = pd.Series(["a", "b", "c", "d"], dtype="category")
+s.cat.reorder_categories(['b','a','c','d'])
+
+```
+
+
+
+
+### dodawanie nowych elemntow
+
+W kontekscie samych wektorow
+```{python}
+
+from pandas.api.types import union_categoricals
+
+
+#(1) uzycie funkcji concat
+s1 = pd.Series(['a', 'b'], dtype='category')
+s2 = pd.Series(['a', 'b', 'a'], dtype='category')
+pd.concat([s1, s2])
+
+# Uwaga jezeli zakres kategorii wektorow sie nie zgadza to nowy sklejony wektor bedzie typu 'object' a nie 'category'
+s1 = pd.Series(['a', 'b'], dtype='category')
+s2 = pd.Series(['a', 'b', 'c'], dtype='category') # tutaj jest kategoria 'c' ktorej nie ma w wektorze 's1'
+pd.concat([s1, s2]) # ten problem rozwiazuje funkcja 'union_categoricals' (patrz nastepny przyklad)
+
+
+
+#(2) uzycie funkcji union_categoricals
+
+a = pd.Categorical(["b", "c"])
+b = pd.Categorical(["a", "b"])
+# do wektora 'a' dokleimy elementy z wektora 'b'
+union_categoricals([a, b]) # mimo ze oba wektory maja rozny zakres kategorii to po zlaczeniu dalej mamy typ 'category'
+
+
+
+
+```
+
+W kontekscie DataFrame
+
+
+Jezeli sklejamy 2 ramki danych po wierszach i wystepuja tam kolumny typu 'Categorical' to ich kategori musza byc takie same. W przeciwnym razie dostaniemy blad.
+
+```{python}
+
+
+# przyklad
+
+cat = pd.Series(["a", "b"], dtype="category")
+
+vals = [1, 2]
+
+df = pd.DataFrame({"cats": cat, "vals": vals})
+
+res = pd.concat([df, df]) # sklejamy 'df' z samym soba (nie dostaniemy bledu bo bedzie zgodnosc kategorii)
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## DATA FRAMES
+
+### Najważniejsze atrybuty DataFrame
+
+- DataFrame to nic innego jak zbiór kilku Series. Series to struktura danych dostepna w Pandasie. Wiecej o Series w rozdziale nim poswieconych.
+
+```{python}
+
+import pandas as pd
+
+df = pd.DataFrame({'A':[1,2,3], 'B':['a','b','c']})
+
+df.shape # ilosc wierszy i kolumn
+
+len(df) # ilosc samych wierszy
+
+df.shape[0] # ilosc samych wierszy (inna skladnia)
+
+df.shape[1] # ilosc samych kolumn 
+
+df.size # ile jest elementow (komorek)
+
+df.ndim # ile wymiarowy jest obiekt
+
+df.dtypes # jakiego typu są poszczególne kolumny. UWAGA!!!: kolumny teksowe są w DataFrame domyślnie jako typ 'object'. Dlatego kolumna 'B' to nie jest typ 'text' albo 'char' ale 'object'
+
+sys.getsizeof(df) # rozmiar w pamięci
+
+df.columns # nazwy kolumn ramki danych
+
+list(df.columns) # nazwy kolumn ramki danych jako lista
+
+```
+
+
+
+### Tworzenie ramki danych
+
+```{python}
+
+
+import pandas as pd
+
+
+
+#(1) utworzenie dowolnej dwukolumnowej DataFrame z list uzywaniem skladni pandasowej. SPOSOB WIERSZOWY (kazda lista to wiersz). Nazwy kolumn to 'A' i 'B'
+nazwy_kolumn = ['A', 'B']
+lista_1_wiersz = [1, 'a']
+lista_2_wiersz = [2, 'b']
+df_2 = pd.DataFrame(data=[lista_1_wiersz, lista_2_wiersz], columns=nazwy_kolumn)
+df_2  # Uwaga: kolejne elementy podaje się wierszami  a nie kolumnami. Dlatego wartości 1 i 'a' są w pierwszym wierszu a nie kolumnie.
+df_2.dtypes 
+
+
+
+
+
+#(2) utworzenie dowolnej dwukolumnowej DataFrame z list uzywaniem skladni pandasowej. SPOSOB KOLUMNOWY (kazda lista to kolumna). Nazwy kolumn to 'A' i 'B'
+nazwy_kolumn = ['A', 'B']
+lista_1_kolumna = [1, 2]
+lista_2_kolumna = ['a', 'b']
+lista_list = [lista_1_kolumna, lista_2_kolumna]
+
+df_2_columns = pd.DataFrame()
+
+for i in [0,1]:
+  df_2_columns[nazwy_kolumn[i]] = lista_list[i]
+
+df_2_columns
+
+
+
+
+#(3) utworzenie dowolnej dwukolumnowej DataFrame uzywaniem skladni pandasowej. Sposob KOLUMNOWY ze słownika. Nazwy kolumn to 'A' i 'B'. Po nazwach podajemy listy z elementami ktore beda kolumnami
+slownik = {'A':[1,2], 'B':['a','b']}
+df_1 = pd.DataFrame(slownik)
+
+# Powyzsza skladnia moze byc niewygodne jezeli chcemy podac nazwy kolumn w liscie
+# slownik mozeby wygenerowac poprzed odpowiednie sklenie listy nazw kolumn i  listy samych kolumn
+nazwy_kolumn = ['A', 'B'] # nazwy kolumn podajemy w liscie 
+kolumna_1 = [1,2]
+kolumna_2 = [3,4]
+slownik = dict(zip(nazwy_kolumn, [kolumna_1, kolumna_2]))
+df_1 = pd.DataFrame(slownik)
+
+
+
+
+
+#(4) utworzenie dowolnej dwukolumnowej DataFrame poprzez uczycie funkcji 'concat' na sektora typu 'Series'
+#  towrzymy dwa wektory o roznych indeksach 
+s1 = pd.Series([1,2,3,4], index = [3,1,2,4])
+s2 = pd.Series([1,2,3,4], index = [1,2,3,10])
+
+
+# sklejami, ale tym razem axis = 1. Dostaniemy dwuwymiarowy DataFrame
+s1_s2 = pd.concat([s1, s2], axis=1, ignore_index=True)
+type(s1_s2) # DataFrame
+
+
+
+
+#(5) utworzenie  DataFrame z obiektu Array
+import numpy as np
+nazwy_kolumn = ['A', 'B']
+macierz = np.array([[1,2], [3,4]]) # macierz o wymiarach 2x2
+df_3 =pd.DataFrame(macierz, columns = nazwy_kolumn)
+df_3 
+# UWAGA: po wyświetleniu DataFrame  widać że wartości 1 i 2 są w pierwszym wierszu a nie w pierwszej kolumnie, czyli tak tak sama sytuacja jak przy tworzeniu z listy!!!!
+
+
+
+# (6) uwtorzenie DataFrame z obiektu tupli
+tuple_1 = (1,'a')
+tuple_2 = (2,'b')
+tuple_tupli = (tuple_1, tuple_2)
+
+df_t = pd.DataFrame(list(tuple_tupli), columns = ['A', 'B'])
+df_t
+
+
+
+#(7) utworzenie pustego obiektu DataFrame (przydaje się np. przy pracach w petli, kiedy w pierwszej iteracji bindujemy dane do pustej tabeli )
+df_0 = pd.DataFrame()
+
+df_0 = df_0.append({'A':1, 'B':'a'}, ignore_index=True) # dodanie wiersza
+df_0.dtypes 
+
+
+
+
+#(8) Utworzenie DataFrame o zadanej ilosci kolumn z nazwami i brakiem wierszy
+df_0a = pd.DataFrame(columns = ['A', 'B'])
+df_0a.dtypes # domyslnie, kolumny sa typu 'object'
+
+
+
+```
+
+
+### Konwersja ramki danych na inne typy
+
+```{python}
+
+df = pd.DataFrame({'a':[1,1,1,1,2,2,2,2], 'b':[10,10,20,20,10,10,20,20], 'C':range(8) })
+
+# konwersja na liste sloniow. Kazdy slownik to jedna kolumna
+df.to_dict
+
+```
+
+
+
+
+### Indeksy
+
+Data Frame posiada indeksacje po wierszach. Posiada również indeksowanie po kolumnach (są to po prostu nazwy kolumn). Tak jak w Typie 'Series' indeksy wierszowe mozna ustawiac recznie
+```{python}
+
+import pandas as pd
+df = pd.DataFrame([1,2,3,4], index = [10,20,30,40]) # sztucznie nadane indeksy wierszy
+
+```
+
+Jezeli Dataframe sklejamy 'pionowo', z kilku obiektow typu 'Series', ktore maja swoje indeksy, to DataFrame w oparciu o te indeksy tworzy nowy indeks. Logika tworznia tego indeksu jest opisana w tym pliku w czesci o typie 'Series' w rozdziale 'dodawanie wartosci i problem z indeksami' (chunk kodu o sklejaniu pionowym). Dokladnie tak samo wyglada sytucja jezeli dwie DataFrames o roznych indeksach sklejamy po kolumnach (bindowanie po kolumach). 
+
+
+
+Sklejanie kilku DataFrames po wierszach (bindowanie po wierszach) z roznymi indeksami:
+Tutaj sytuacja jest analogiczna do tej jak wystepuje w przypadku 'sklejania poziomego' wektorow typu Series (jest to opisane w tym pliku w czesci o typie 'Series' w rozdziale 'dodawanie wartosci i problem z indeksami' w chunku o sklejaniu poziomym)
+
+```{python}
+
+import pandas as pd
+
+# stworzymy dwa DataFrames
+df1 = pd.DataFrame({'A':[1,2,3,4,5]})
+df2 = pd.DataFrame({'A':[6,7,8,9,10]})
+
+# podejzyjmy indeksy
+list(df1.index) # mamy : [0, 1, 2, 3, 4]
+list(df2.index) # mamy : [0, 1, 2, 3, 4]
+
+df3 = pd.concat([df1, df2])
+df3.index # zwrocmy uwage na to ze indeks nowej tabeli df3 to sklejone indeksy df1 i df2 czyli : [0, 1, 2, 3, 4, 0, 1, 2, 3, 4]
+
+
+# W powyzszej sytuacji mamy 2 rozwiazania:
+
+# (1) sami mozemy zrobic reindeksacje wedlug uznanej przez siebie logiki, np.:
+
+df3.index = range(0,20,2)
+list(df3.index)# zrobilismy sobie index: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+
+# (2) albo przy sklejeniu DataFrames mozemy uzyc argumentu 'ignore index'
+df3 = pd.concat([df1, df2], ignore_index=True)
+list(df3.index) # teraz mamy: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+```
+
+
+
+#### Tworzenie multiindeksow wierszowych
+```{python}
+
+#(1) mozemy tez utworzyc indeks przeksztalcajac w niego istaniejace kolumny w DataFrame
+df = pd.DataFrame({'a':[1,1,1,1,2,2,2,2], 'b':[10,10,20,20,10,10,20,20], 'C':range(8) })
+df2 = df.set_index(['a','b']) # kolumny'a' i 'b' stana sie indeksami
+
+# operacja odwrotna do powyzszej (indeksy znowu staja sie kolumnami)
+df3 = df2.reset_index(drop = False)
+
+# operacja splaszczania multindeksu w kolumnach (not executable)
+df1.columns = ['_'.join(col).strip() for col in df1.columns.values]
+df1
+
+
+#(2) utworznie struktury multiindeksu w array (tutaj 2 poziomy)
+arrays = [['bar', 'bar', 'baz', 'baz', 'foo', 'foo', 'qux', 'qux'],
+           ['one', 'two', 'one', 'two', 'one', 'two', 'one', 'two']]
+           
+s = pd.Series(np.random.randn(8), index=arrays)
+# dodajemy nazwy indeksom
+s.index =  s.index.set_names(['a','b'])
+# zmiana istniejacych nazw
+s.index = s.index.rename(names={'ONE':'a', 'TWO':'b'})
+
+
+#(3) mozmy tez tworzyc multindeks z tupla
+arrays = [['bar', 'bar', 'baz', 'baz', 'foo', 'foo', 'qux', 'qux'],
+           ['one', 'two', 'one', 'two', 'one', 'two', 'one', 'two']]
+tuples = list(zip(*arrays))
+index = pd.MultiIndex.from_tuples(tuples, names=['first', 'second']) # zauwamy ze od razu mozna zdefiniowac nazwy indeksow
+
+
+
+#(4) mozmy tez tworzyc multindeks z produktu
+iterables = [['bar', 'baz', 'foo', 'qux'], ['one', 'two']]
+index = pd.MultiIndex.from_product(iterables, names=['first', 'second'])
+
+
+#(5) mozmy tez tworzyc multindeks z DataFrame
+df = pd.DataFrame([['bar', 'one'], ['bar', 'two'],
+                   ['foo', 'one'], ['foo', 'two']],
+                   columns=['first', 'second'])
+
+index = pd.MultiIndex.from_frame(df)
+
+
+```
+
+
+Odwolywanie sie do wartosci i poziomow indeksow wierszowych
+```{python}
+
+# tworze indeks
+df = pd.DataFrame([['bar', 'one'], ['bar', 'two'],
+                   ['foo', 'one'], ['foo', 'two']],
+                   columns=['first', 'second'])
+index = pd.MultiIndex.from_frame(df)
+
+# wartosci
+index.get_level_values(0) # po indeksie indeksu
+index.get_level_values('first') #po nazwie indeksu
+
+
+#poziomy
+index.levels
+
+```
+
+
+
+#### Sklejanie multiindeksow
+
+Sklejanie poziome (axis = 0)
+```{python}
+
+id1 = [['a', 'a', 'b', 'b', 'c'], ['A', 'B', 'A', 'B', 'A']]
+s1 = pd.Series(range(5), index = id1)
+
+id2 = [['a', 'a', 'b', 'b', 'd'], ['A', 'W', 'A', 'B', 'A']]
+s2 = pd.Series(range(5), index = id2)
+
+# laczenie normalne
+pd.concat([s1, s2])
+
+# tutaj indeksy zagniezszone zostana usuniete i bedzie utworzony jeden indeks nie zagniezdzony i zresetowany
+pd.concat([s1, s2], ignore_index=True)
+
+```
+
+
+
+Sklejanie pionowe (axis = 1)
+```{python}
+
+id1 = [['a', 'a', 'b', 'b', 'c'], ['A', 'B', 'A', 'B', 'A']]
+s1 = pd.Series(range(5), index = id1)
+
+id2 = [['a', 'a', 'b', 'b', 'd'], ['A', 'W', 'A', 'B', 'A']]
+s2 = pd.Series(range(5), index = id2)
+
+# tak jak bysmy robili merge w DataFrame gdzie kluczami sa indeksy
+pd.concat([s1, s2], axis = 1)
+
+# niestety nie da sie zignorowac indkesow (pandas==0.25.1)
+pd.concat([s1, s2], axis = 1, ignore_index=True)
+
+```
+
+
+
+### Wymuszanie typów kolumn w DataFrame
+
+```{python}
+# przykładowa strona z podstawowymi typami liczbowymi i teksowymi danych w pythonie: https://pbpython.com/pandas_dtypes.html
+
+df_t1 = pd.DataFrame( {'A':[1,2,3], 'B':[4,5,6], 'C':[1,0,1], 'D':[10,20,30]})
+
+# reczna zmiana typow poszczegolnych kolumn:
+df_t1['A'] = df_t1['A'].astype('int32') 
+df_t1['B'] = df_t1['B'].astype('float64') 
+df_t1['C'] = df_t1['C'].astype('bool') # typ logiczny
+df_t1['D'] = df_t1['D'].astype('object') # typ teksowy
+
+df_t1
+df_t1.dtypes
+
+
+# zamiana na numeric wszystkich kolumn gdzie jest taka mozliwosc
+df_t2 = pd.DataFrame({'a':['1'], 'b':['s']})
+df_t2.dtypes
+df_t3 = df_t2.apply(pd.to_numeric, errors='ignore')
+df_t3.dtypes
+
+```
+
+
+
+
+
+### Zmiana nazw kolumn
+
+```{python}
+
+df_n = pd.DataFrame({'d1':[1,2,3,4,5], 'd2':['a','b','c','d','e'], 'd3':[10,20,30,40,50]})
+
+#(1) zmiana nazw wszystkich kolumn przez podanie listy nowych nazw
+df_n.columns = ['col1','col2', 'col3']
+df_n
+
+
+#(2) zmiana nazw wybranych kolumn przez podanie słownika
+df_n = df_n.rename(columns = {'col1':'COL1','col2':'COL2'})  # zmiana nazwy kolumn 'co1' i 'col2' na 'COL1' o 'COL2'
+df_n
+
+
+#(3) zmiana nazw wybranych kolumn przez podanie pozycji kolumny
+df_n = df_n.rename(columns = {df_n.columns[1]:'COL10'}) # zmiana nazwy drugiej kolumny
+df_n
+
+```
+
+
+
+
+
+### Usuwanie kolumn
+https://stackoverflow.com/questions/13411544/delete-column-from-pandas-dataframe-by-column-name
+
+```{python}
+
+df1 = pd.DataFrame({'c1':[1,2,3,4,5], 'c2':['a','b','c','d','e'], 'c3':[10,20,30,40,50], 'c4':[1000,2000,3000,4000,5000] } )
+
+#usuniecie jednej kolumny po nazwie
+df1 = df1.drop('c2', axis=1)
+df1
+
+#d usuniecie kilku kolumn po nazwie
+df1 = df1.drop(['c1','c3'], axis=1)
+df1
+
+
+
+# usuniecie kolumn po ich indeksach
+df1 = pd.DataFrame({'c1':[1,2,3,4,5], 'c2':['a','b','c','d','e'], 'c3':[10,20,30,40,50], 'c4':[1000,2000,3000,4000,5000] } )
+df1.drop(df1.columns[[0,1]], axis=1) # usuwam kolumnę o indeksie 0 i 1.
+
+```
+
+
+
+###  Filtrowanie Data Frame - wybieranie kolumn
+
+```{python}
+
+import pandas as pd
+
+df_f = pd.DataFrame({'wiek':[30,50,80, 70,40,20,50], 'imie':['Lukasz', 'Monika', 'Kasia', 'Asia', 'Basia', 'Zosia', 'Piotrek' ], 'zawod':['prawnik', 'ekonomista', 'ekonomista', 'prawnik', 'prawnik', 'ekonomista', 'prawnik'], 'staz' : [10,20,10,30,20,40,20]} )
+
+
+
+# wybor kolumny po indeksach
+
+df_f.iloc[:,[0,1]] # kolumna o pozycji 0 i 1 (to nie jest wybieranie po indeksie)
+
+df_f[df_f.columns[-2:]]  # dwie ostatnie kolumny
+
+df_f[df_f.columns[:2]]  # dwie pierwsze kolumny
+
+df_f.iloc[:, [True, False, True, False]] # wyciagniecie kolumn w oparciu o wektor logiczny
+
+
+
+
+
+
+# Wybor kolumny po nazwach
+
+df_f[['wiek','zawod']] # podanie listy nazw
+
+# kolumny ktora maja nazwe zaczynajace sie od litery 'w'
+df_f.loc[:, df_f.columns.str.startswith('w')]
+
+# kolumna ktory spelniaja warunek zdefiniowany przez wyrazenie regularne
+df_f.filter(regex=r'^wi', axis=1) # kolumny ktorych nazwy zaczynaja sie od liter 'wi'
+
+
+
+
+# wybor kolumn ich typach danych
+
+df = pd.DataFrame({'a': [1, 2] * 3,
+                   'b': [True, False] * 3,
+                   'c': [1.0, 2.0] * 3})
+ 
+df.select_dtypes(include='bool') # wybierz wszystkie kolumny typu 'bool' (typ logiczny)
+
+df.select_dtypes(include=['float64']) # wybierz wszystkie kolumny typu 'float64'
+
+df.select_dtypes(exclude=['int']) # wybierz wszystkie kolumny z wykatkiem tych o typie 'int'
+
+
+```
+
+
+
+### Filtrowanie Data Frame - wybieranie wierszy
+
+```{python}
+
+
+#(1) PROSTE WYBIERANIE WIERSZY
+
+df_w = pd.DataFrame({'wiek':[30,50,80, 70,40,20,50], 'imie':['Lukasz', 'Monika', 'Kasia', 'Asia', 'Basia', 'Zosia', 'Piotrek' ], 'zawod':['prawnik', 'ekonomista', 'ekonomista', 'prawnik', 'prawnik', 'ekonomista', 'prawnik'], 'staz' : [10,20,10,30,20,40,20]} )
+
+df_w.iloc[1:2,:] # wiersz o pozycjach  1 i 2 (to nie jest wybieranie po indeksach)
+
+
+df_w[1:3] # wiersz o indeksie  1 i 2 (czyli wiersz drugi i trzeci)
+
+
+df_w[:3] # wiersze o indeksach od 1 do 2
+
+
+df_w[4:] # wiersze o indeksach od 4 do ostatniego
+
+
+df_w.tail(n=2) # ostatnie 2 wiersze
+
+
+df_w.head(n=2) # pierwsze 2 wiersze
+
+
+df_w[::2]# wiersze nieparzyste
+
+
+df_w[1::2]# wiersze parzyste
+
+
+df_w.sample(3) # trzy losowe wiersze
+
+
+df_w.sample(frac=0.5) # wylosowanie 50% wierszy
+
+
+df_w[[True, False, True, True, False, True, True]] # kolumny po wektorze logicznym
+
+
+
+
+#(2) FILTROWANIE PO BARDZIEJ SKOMPLIKOWANYCH WARUNKACH
+
+df_w[df_w.wiek > 30]   
+
+df_w[df_w['wiek'] > 30] # to co wiersz wyzej, ale inna skladnia
+
+df_w[df_w.zawod == 'ekonomista']
+
+df_w[(df_w.wiek > 30) & (df_w.zawod == 'ekonomista')]
+
+df_w.query('wiek>30 and zawod=="ekonomista"') # to co wiersz wyzej, ale inna skladnia
+
+```
+
+
+
+
+
+
+
+### Dodawanie nowych kolumn
+
+```{python}
+
+df_w = pd.DataFrame({'wiek':[30,50,80, 70,40,20,50], 'imie':['Lukasz', 'Monika', 'Kasia', 'Asia', 'Basia', 'Zosia', 'Piotrek' ], 'zawod':['prawnik', 'ekonomista', 'ekonomista', 'prawnik', 'prawnik', 'ekonomista', 'prawnik'], 'staz' : [10,20,10,30,20,40,20]} )
+
+
+
+
+# DODANIE KOLUMN CALKOWICIE NOWYCH
+
+df_w['zarobek'] = [2000,1000,3000,1500,6000,3000,4000] # dodanie kolumny 'zarobek' jako ostatniej kolumny
+df_w
+
+bonusy = [100,200,3000,150,500,300,400]
+df_w.insert(loc=2, column = 'bonusy', value = bonusy)  # dodanie kolumny 'bonus' tak aby miala indeks 2 (czyli byla trzecia kolumna)
+df_w
+
+tytul = ['mgr', 'dr', 'dr', 'dr', 'dr', 'mrg', 'dr']
+df_w.insert(loc=list(df_w).index('zawod') + 1, column = 'tytul', value = tytul)  # dodanie kolumny 'tytul' tak aby byla po kolumnie 'zawod'
+df_w
+
+
+
+
+
+
+
+
+# DODANIE KOLUMN W OPARCIU O WARUNKI LOGICZNE ZDEFINIONWA W OPARCIU O DOTYCHCZASOWE KOLUMNY
+
+
+# kategoria wiekowa
+df_w.loc[ df_w.wiek < 40,    'Age Group' ] = '< 40 yrs'
+df_w.loc[ (df_w.wiek <= 40) & (df_w.wiek < 50), 'Age Group' ] = '40-49 yrs'
+df_w.loc[ df_w.wiek >= 50,  'Age Group' ]  = '50-59 yrs'
+df_w
+
+
+# kategoria wiekowa
+def age_groups(series):
+    if series < 40:
+        return "< 40 yrs"
+    elif 40 <= series < 50:
+        return "40-49 yrs"
+    elif 50 <= series:
+        return "50-59 yrs"
+
+df_w['Age Group'] = df_w['wiek'].apply(age_groups)
+df_w
+
+
+
+
+# czy osoba jest kobieta (na podstawie imienia)
+df_w.loc[ df_w.imie.isin(['Monika', 'Kasia', 'Asia', 'Basia', 'Zosia']), 'czy_kobieta' ] = True
+df_w.loc[ ~df_w.imie.isin(['Monika', 'Kasia', 'Asia', 'Basia', 'Zosia']), 'czy_kobieta' ] = False
+df_w
+
+
+
+
+# DODANIE NOWYCH KOLUMN WYLICZANYCH NA PODSTAWIE WARTOSCI ISTNIEJACYCH W ISTNIEJACYCH KOLUMNACH
+
+df_w.assign(zarobek_razy_10 = df_w.zarobek * 10)
+
+df_w.assign(temp_f=lambda x: x.zarobek * 10) # to co powyzej, ale inna skladnia
+
+df_w.assign(zarobek_proc_z_calosci = lambda x: x.zarobek / sum(df_w['zarobek'])) # zarobek danej osoby jako procent z sumy wszystkich zarobkow
+
+df_w.assign(zarobek_plus_bonus = df_w['zarobek'] + df_w['bonusy']) # suma bosu i zarobkow
+
+df_w['tytul_imie'] = df_w[['tytul', 'imie']].apply(lambda x: '_'.join(x), axis=1) # sklejenie kolumny 'tytul' i 'imie'
+
+# sytuacja kiedy dla wybranych wierszy w oparciu o warunek trzeba przeliczyc nowe wartosci w oparciu o istniejace kolumny (przyklad z pracy wiec sie nie przeliczy)
+dane_new.loc[dane_new.przejscie == 0, 'oplaty_nowe'] = dane_new.loc[dane_new.przejscie == 0, 'cb'] *  wartosc_skalarna
+
+# dodanie kolumny numerujacej wiersze (kolumna ma byc pierwsza kolumna)
+df_w.insert(0, 'ID', range(1, len(df_w) + 1) )
+
+
+# dodanie kolumny numerujacej wiersze z przesunieciem numeracji
+df_w.insert(0, 'ID_2', range(10, len(df_w) + 10 ))
+
+
+# dodanie kolumny numerujace wiersze, ale numeracja jest grupowana po zmiennej  'zawod'
+df_w['ID_group'] = df_w.groupby(['zawod']).cumcount() + 1
+df_w
+
+
+
+# przypladk ze splitem tekstu: patrz 'Praca z tekstem'
+
+```
+
+
+### Operatory wyciaganie danych z kolumn
+
+```{python}
+
+import datetime
+
+df = pd.DataFrame( {'digit':[1, 2, 3]
+                  , 'string':['a','b','c']
+                  , 'date':pd.to_datetime([datetime.date(2010, 1, 2), datetime.date(2010, 1, 3), datetime.date(2010, 1, 4)]) } )
+
+# wyciaganie elementow jako array, dzięki czemu mam dostep do funkcji pod array. Glownie do pracy z liczbami
+df['digit'].values.prod()
+
+# uzywajac operatora 'str' wyciagam stringi z kolumny i moge dzialac funkcjami stringowymi
+df['string'].str.capitalize
+
+# uzywajac operatora 'dt' wyciagam daty z kolumny i moge dzialac funkcjami datowymi
+df['date'].dt.month
+
+
+
+```
+
+
+
+### Aktualizacja wartosci w kolumnach
+
+```{python}
+
+df_w = pd.DataFrame({'wiek':[30,50,80, 70,40,20,50], 'imie':['Lukasz', 'Monika', 'Kasia', 'Asia', 'Basia', 'Zosia', 'Piotrek' ], 'zawod':['prawnik', 'ekonomista', 'ekonomista', 'prawnik', 'prawnik', 'ekonomista', 'prawnik'], 'staz' : [10,20,10,30,20,40,20]} )
+
+df_w.loc[0:2, 'wiek'] = 20 # zmiana wartosci wieku na 20 dla 3 pierwszych wierszy
+
+df_w.loc[df_w.staz > 20, 'wiek'] = 30
+
+df_w.loc[(df_w.staz < 40) & (df_w.zawod == 'ekonomista'), 'wiek'] = 50
+
+```
+
+
+
+
+
+
+### Sortowanie
+
+```{python}
+
+df1 = pd.DataFrame({'c1':np.array([1,2,3,4,5]), 'c2':['a','b','c','d','e']})
+
+df1.sort_values(by = ['c1', 'c2'], ascending=[False, True]) # posortowanie po kolumnach 'c1' (malejaca) i c2 (rosnaco)
+
+```
+
+
+
+
+### Bindowanie - w wierszach
+
+Uwaga. Przy bindowaniu po wiersza wystepuje niuanse zwiazane z indeksowanie. Patrz 'Uwagi o indeksach' w tym pliku w rozdziale o DataFrames
+
+Funkcja append
+```{python}
+
+import pandas as pd
+import numpy as np
+
+df1 = pd.DataFrame({'c1':np.array([1,2,3,4,5]), 'c2':['a','b','c','d','e']})
+df2 = pd.DataFrame({'c1':np.array([1,2,3,4,5]), 'c2':['a','b','c','d','e']})
+df3 = pd.DataFrame({'d1':np.array([1,2,3,4,5]), 'd2':['a','b','c','d','e']})
+
+# zbondowanie DataFrame o tych samych kolumnach
+df12 = df1.append(df2)
+
+# dobindowanie do df1, DataFrame df3 o innych kolumnach
+df13 = df1.append(df3) # bdziemy miec kolumny z obu tabel. Braki beda uzupelnione wartosciami NaN
+
+
+# bindowanie do pustej DataFrame
+df0 = pd.DataFrame()
+df0.append(df1)
+
+# Uwaga. Funkcja append tak jak 'concat' obsluguje argument 'ignore_indeks' (Patrzy 'Uwagi o indeksach' w tym pliku w rozdziale o DataFrames )
+
+```
+
+Funkcja concat
+```{python}
+
+# Funkcja concat juz wczesniej wystepowala w naszych przykladach.
+# W porownaniu do funkcji 'append' jest bardziej elastyczne bo mozemy ze jednym zamachem zbindowac cala liste DataFrames
+
+df1 = pd.DataFrame({'c1':np.array([1,2,3,4,5]), 'c2':['a','b','c','d','e']})
+df2 = pd.DataFrame({'c1':np.array([1,2,3,4,5]), 'c2':['a','b','c','d','e']})
+df3 = pd.DataFrame({'d1':np.array([1,2,3,4,5]), 'd2':['a','b','c','d','e']})
+
+df123=pd.concat([df1, df2, df3])
+
+```
+
+
+
+### Bindowanie - w kolumnach
+
+Uwaga. Tutaj tez sa niuanse z indeksowaniem, jezeli tabele maja inne indeksy (Patrzy 'Uwagi o indeksach' w tym pliku w rozdziale o DataFrames )
+```{python}
+
+df1 = pd.DataFrame({'c1':np.array([1,2,3,4,5]), 'c2':['a','b','c','d','e']})
+df2 = pd.DataFrame({'c1':np.array([1,2,3,4,5]), 'c2':['a','b','c','d','e']})
+
+df_c = pd.concat([df1, df2], axis=1)
+
+```
+
+
+
+### Łączenie - merge
+
+Przyklady ze strony dokumentacji: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.merge.html
+```{python}
+
+df1 = pd.DataFrame({'lkey': ['foo', 'bar', 'baz', 'foo'],
+                    'value': [1, 2, 3, 5]})
+df2 = pd.DataFrame({'rkey': ['foo', 'bar', 'baz', 'foo'],
+                    'value': [5, 6, 7, 8]})
+
+
+df1.merge(df2, left_on='lkey', right_on='rkey') # join po kluczu lkey (lewa tabela) i rkey(prawa tabela)
+
+```
+
+
+
+
+
+### Problemy z danymi
+
+#### Duplikaty
+
+```{python}
+
+# usuniecie duplikatow po wszystkich kolumnach
+df_d = pd.DataFrame({'A':[1,1, 2,2] , 'B':['a','a', 'b','b']})
+df_d.drop_duplicates()
+
+
+# usuniecie duplikatow po wybranych kolumnach
+df_d = pd.DataFrame({'A':[1,1, 2,2, 3,3] , 'B':['a','a', 'b','b', 'c','d']})
+df_d.drop_duplicates(subset=['A']) # uwudam duplikaty tylko po kolumnie 'A'
+
+# sprawdzanie czy element jest duplikatem
+df_d = pd.DataFrame({'A':[1,1, 2,2, 3,3] , 'B':['a','a', 'b','b', 'c','d']})
+df_d.duplicated() # czy zduplikowany caly wiersz
+df_d.duplicated(subset=['A']) # czy zduplikowane po kolumnie 'A'
+df_d.duplicated(keep=False) # czy duplikat , ale uwzgledniam tez pierwsze wystapienie elementu
+
+```
+
+
+
+#### Braki danych
+
+```{python}
+
+df_nan = pd.DataFrame({ 'wiek':[30,np.nan,80, np.nan,40,20,50]
+                      , 'imie':['Lukasz', 'Monika', 'Kasia', 'Asia', 'Basia', 'Zosia', 'Piotrek' ]
+                      , 'zawod':['prawnik', 'ekonomista', 'ekonomista', 'prawnik', np.nan, 'ekonomista', 'prawnik']
+                      , 'staz' : [10,20,10,30,20,40,np.nan]} )
+                      
+             
+        df.columns = df.columns.map(' '.join).str.strip()              
+                      
+# zliczenie brakow danych w kazdej KOLUMNIE oddzielnie
+df_nan.isna().sum()
+
+
+# zliczenie brakow danych w kazdym WIERSZU oddzielnie
+df_nan.isna().sum(axis=1)
+
+
+# zliczenie wszystkich brakow danych po wszysktich kelementach
+df_nan.isna().sum().sum()
+
+                      
+# usuniecie kazdego wiersza w ktorym jest JAKIKOLWIEK brak danych    
+df_nan_1 = df_nan.dropna()
+df_nan_1
+
+
+
+# usuniecie kazdego wiersza w ktorym jest brak danych ze względu na wybraną kolumnę
+df_nan_2 = df_nan.dropna(subset=['wiek'])
+df_nan_2
+
+
+
+# zaimputowanie braku danych zadana wartoscia dla calego DataFrame
+df_nan_3 = df_nan
+df_nan_3.fillna(value = 0)
+
+
+# zaimputowanie braku danych zadana wartoscia dla wybranych kolumn
+df_nan_4 = df_nan
+df_nan_4[['wiek','staz']] = df_nan_4[['wiek','staz']].fillna(value = 0)
+#lub
+df_nan_4 = df_nan
+df_nan_4.fillna({'staz':0, 'wiek':0})
+
+
+
+# zaimputowanie braku danych wartoscia z POPRZEDNIEJ komorki
+df_nan_5 = df_nan
+df_nan_5.fillna(method = 'ffill')
+
+
+# zaimputowanie braku danych wartoscia z NASTEPNEJ komorki
+df_nan_6 = df_nan
+df_nan_6.fillna(method = 'bfill')
+
+
+# zaimputowanie brakow danych w calej DataFrame wartoscia srednia z kolumny 'staz'
+df_nan_7 = df_nan
+df_nan_7.fillna(value = np.mean(df_nan_7.staz))
+
+                  
+
+```
+
+
+
+
+
+#### Nieskonczone wartosci
+
+```{python}
+
+
+df_inf = pd.DataFrame({ 'wiek':[30,np.inf,80, np.inf,40,20,50]
+                      , 'staz' : [10,20,10,30,20,40,-np.inf]
+                      , 'zarobek':[2000, np.inf, -np.inf, 3000, 5000, 2000, np.inf]} )
+                      
+
+# zamiana wartosci plus_nieskoczone na 0 i minus_nieskoczone na -1 w kolumnach 'wiek i 'zarobek'                    
+df_inf[['wiek','zarobek']] = df_inf[['wiek','zarobek']].replace([np.inf, -np.inf],[0, -1])
+df_inf
+
+```
+
+
+
+
+
+
+
+
+### Funkcje oknowe
+https://mode.com/blog/bridge-the-gap-window-functions
+
+```{python}
+
+
+#(1) wartosc kroczaca - przyklad dla sredniej
+df_rol_mean = pd.DataFrame({'cena':[3,2,4,2,np.nan,np.nan,12,9,6,8,11]})
+
+# szerokosc okna = 3; 
+# minimalna ilosc dostepnych obserwacji w oknie zeby policzyc srednia = 2;  
+df_rol_mean['cena_rolling_mean'] = df_rol_mean['cena'].rolling(window = 3, min_periods = 2 ).mean()
+df_rol_mean
+
+
+
+
+#(2) wartosc kroczaca - przyklad dla sredniej, ale tym razem GRUPOWANIE po zmiennej "grupa'
+df_rol_mean_group = pd.DataFrame({'cena':[3,2,4,2,5,3,12,9,6,8,11], 'grupa':['a','a','b','a','a','b','a','b','b','a','a',]})
+df_rol_mean_group['cena_rol_mean_group'] = df_rol_mean_group.groupby('grupa')['cena'].rolling(window = 2).mean().reset_index(0, drop = True)
+df_rol_mean_group
+
+
+
+
+
+
+
+
+#(3) wartosci skumulowane - przyklad dla sredniej
+df_ex_mean = pd.DataFrame({'cena':[3,2,4,2,np.nan,np.nan,12,9,6,8,11]})
+df_ex_mean['cena_cummulative_mean'] = df_rol_mean['cena'].expanding().mean()
+
+
+
+#(3) wartosci skumulowane - przyklad dla sredniej, ale tym razem GRUPOWANIE po zmiennej "grupa'
+df_ex_mean_group = pd.DataFrame({'cena':[3,2,4,2,5,3,12,9,6,8,11], 'grupa':['a','a','b','a','a','b','a','b','b','a','a',]})
+df_ex_mean_group['cena_rol_mean_group'] = df_rol_mean_group.groupby('grupa')['cena'].expanding().mean().reset_index(0, drop = True)
+df_ex_mean_group
+
+
+
+#(3) dodawanie numeracji wierszy - 
+# przyklad jest w czesci "Dodawanie nowych kolumn"
+
+
+
+
+
+#(4) dodawanie rankingu wartosci - od razu przyklad z grupowaniem po zmiennej 'grupa'
+df_dense_group = pd.DataFrame({'cena':[3,2,4,2,5,3,12,9,6,8,11], 'grupa':['a','a','b','a','a','b','a','b','b','a','a',]})
+df_dense_group["cena_rank"] = df_dense_group.groupby("grupa")["cena"].rank("dense", ascending=False) # ranking typu 'dense' 
+
+
+
+#(4) shift/lag - czyli przesuniecia wartosci w kolumnach 
+df_shift = pd.DataFrame({'cena':[3,2,4,2,5,3,12,9,6,8,11], 'grupa':['a','a','b','a','a','b','a','b','b','a','a',]})
+df_shift['cena_shift_2'] = df_shift['cena'].shift(periods = 2, fill_value = 0) # zmienna 'cena' przesunietaW DOL o 2 pozycje. Powstale puste miejsca sa wypelnione zerami.
+df_shift
+df_shift['cena_shift_minus_2'] = df_shift['cena'].shift(periods = -2, fill_value = 0) # zmienna 'cena' przesunieta W GORE o 2 pozycje. Powstale puste miejsca sa wypelnione zerami.
+df_shift
+
+
+
+#(5) shift/lag - czyli przesuniecia wartosci w kolumnach (tym razem z grupowaniem po zmiennej 'grupa')
+df_shift_grupa = pd.DataFrame({'cena':[3,2,4,2,5,3,12,9,6,8,11], 'grupa':['a','a','b','a','a','b','a','b','b','a','a',]})
+df_shift_grupa['cena_shift_grupa'] = df_shift_grupa.groupby(['grupa'])['cena'].shift(periods = 1)
+df_shift_grupa
+
+
+
+# identyfikator grupowy - grupe identyfikuje po tej samej plci i tytule. Chce aby grupy dostaly kolejne numerki (czyli np. kobieta magister to grupa 2)
+df_group_id = pd.DataFrame({'cena':[2,1,3,4,3,2,1,3,4]
+                          ,'plec':['k','k','m','m','k','m','k','k','m']
+                          ,'tytul':['mgr','dr','mgr','mgr','dr','mgr','mgr','dr','mgr']})
+                          
+df_group_id['GrpIdx'] = df_group_id.groupby(['plec','tytul']).grouper.group_info[0]
+df_group_id
+
+
+```
+
+
+
+### Praca z GroupBy
+
+
+```{python}
+
+df = pd.DataFrame({'a':[1,1,1,2,2,2], 'b':[1,1,1,1,1,1], 'c':[10,10,10,10,10,10] })
+
+df.groupby('a')['b'].sum() # suma po kolumnie 'b' grupowana po kolumnie 'a'
+
+df.groupby('a')['b'].agg('sum') # suma po kolumnie 'b' grupowana po kolumnie 'a' (inna skladnia)
+
+df.groupby('a')[['b','c']].agg('sum') # suma po kolumnie 'b' i 'c' grupowana po kolumnie 'a'
+
+df.groupby('a')['b'].agg(['sum', 'min']) # suma i minimum po kolumnie 'b' 
+
+# different aggreagation per column
+df.groupby('a').agg({'b':['sum','min'], 'c':['sum']}) # suma i minimum po kolumnie 'b' oraz tylko suma po kolumnie 'c' (grupowanie po kolumnie 'c')
+
+# uzycie funkcji anonimowej
+df.groupby('a').agg({'b':lambda x:x.std(ddof=1)}) # obliczam odchylenie standardowe dla kolumny b
+
+
+# nadawanie nazw nowym kolumnom (stara skladnia)
+df = pd.DataFrame(data={'a':[1,2,3,4,5],'b':[10,20,30,40,50], 'c':['a','a','b','a','b'] })
+# na bazie kolumny 'a' tworze 3 nowe 'suma', 'max', 'mix', a na bazie kolumny 'b' tworze jedna kolumne 'min'
+df1 = df.groupby('c').agg({'a':{'suma':sum, 'max':max, 'min': lambda x:min(x) }, 'b':{'min':min }})
+df1
+
+# nadawanie nazw nowym kolumnom (nowa skladnia)
+df.groupby("c").agg(
+        suma  = pd.NamedAgg(column='a', aggfunc='min'),
+        max   = pd.NamedAgg(column='a', aggfunc='max'),
+        min   = pd.NamedAgg(column='a', aggfunc=lambda x:min(x)),
+        min_b = pd.NamedAgg(column='b', aggfunc='min')
+        )
+
+
+
+
+# problem z mulitindexami z nazwach kolumn
+df1.columns # mam mulitiindex
+# Lacznie multiindexu
+df1.columns = ['_'.join(col).strip() for col in df1.columns.values]
+df1
+
+
+# funkcja apply i odwolywanie sie po nazwach do konkretnych kolumn (not executable)
+pred_results.groupby(['pred_i'])['true','pred'].apply(lambda x:mean_absolute_error(y_true=x['true'], y_pred=x['pred']))
+
+
+```
+
+
+Petla po groupby
+
+```{python}
+
+group_vars = ['a','b'] 
+grouped = df.groupby(group_vars)
+
+results = pd.DataFrame()
+
+for group_name_i, group_i in grouped:
+  print(name)
+  print(group)
+  group_name_i_df = pd.DataFrame(pd.group_vars, column = group_var)
+  # obliczenia
+  ....
+  results_i = pd.concat([group_name_i_df, results_i], axis = 1)
+  results = pd.concat([results,results_i])
+  
+
+```
+
+Mutate z group by
+```{python}
+
+df = pd.DataFrame({'month': np.random.randint(0,11, 100), 'A': np.random.randn(100), 'B': np.random.randn(100)})
+df.join(df.groupby('month')['A'].sum(), on='month', rsuffix='_r')
+
+```
+
+
+
+### Funkcje po kolumnach i wierszach
+
+#### apply
+
+Apply a function along an axis of the DataFrame.
+
+UWAGA: Funkcja 'apply' potrafi być bardzo wolna więc używać tylko w ostatecznosci.
+
+#### operacje na wszystkich elementach
+```{python}
+
+df1 = pd.DataFrame([[4, 2], [4, 2]], columns=['A', 'B'])
+
+import numpy as np
+df1.apply(np.sqrt) #pierwiastkowanie wszystkich elementow ramki danych
+df1.apply(lambda x: np.sqrt(x) ) # wersja z funkcja lambda
+
+
+df2 = pd.DataFrame([[4, 2, 'a'], [4, 2, 'b']], columns=['A', 'B', 'C'])
+df2.apply(np.sqrt) # pierwiastkowanie wszystkich elementow ramki danych - dostaniemy blad bo jedna z kolumn to string i jest niepierwiastkowalna
+
+
+```
+
+
+
+#### operacje wzdloz osi
+```{python}
+
+df3 = pd.DataFrame([[4, 2], [4, 2]], columns=['A', 'B'])
+
+df3.apply(np.sum, axis = 0)# zsumowanie po kolumnach (w dol)
+df3.apply(np.sum, axis = 1)# zsumowanie po wierszach ( prawo)
+
+
+```
+
+
+
+#### lambda-przyklady
+```{python}
+
+df1 = pd.DataFrame([[1, 2, 6], [1, 2, 6], [1, 2, 6]], columns=['A', 'B', 'C'])
+
+
+df1.apply(lambda x: x**2) # pdniesienie do kwadratu wszysktich elemenotow
+
+df1.apply(lambda x: sum([x[0], x[1]])  , axis = 1) # sumu wiersza, ale wuzgledniajac tylko kolumny i indeksach 0 i 1.
+
+
+
+```
+
+
+
+
+#### problem zwracania wektorow przez operacja
+```{python}
+
+df1 = pd.DataFrame([[1, 2], [5, 6]], columns=['A', 'B'])
+
+# w tej opracji dla kazdej komorki dostajemy wektor
+df1.apply(lambda x: [x[0], x[0]+1], axis=1)
+
+
+# co zrobic zeby wektor byl rozbity na oddzielne kolumny?
+df1.apply(lambda x: [x[0], x[0]+1], axis=1, result_type = 'expand')
+
+```
+
+
+
+
+### Praca z tekstem
+
+
+
+```{python}
+
+
+# rozbicie kolumny na dwie kolumny. Rozbijam po myslniku
+df = pd.DataFrame({'a':['aaa-aaaa','bbb-bbbbb']})
+df_split        = df.a.str.split('-', n = -1, expand = True)  # niezagniezdzone wyniki
+df_split_nested = df.a.str.split('-', n = -1, expand = False) # zagniezdzone wyniki
+
+# tutaj ilosc splitow bedzie rozna dla kazdego wiersza (braki sa wypelnione przez 'None')
+df = pd.DataFrame({'a':['aaa-aaaa','bbb-bbbbb-bbb']})
+df_split = df.a.str.split('-', n = -1, expand = True)
+
+# laczenie z wyjsciowo tabela
+pd.concat([df, df['a'].str.split('-', n=3, expand = True)], axis = 1) # sztywnie ograniczam ze maja byc 3 nowe kolumny po slicie. 
+
+# split z uzyciem wyrazen regularnych (split po cyfrach)
+pd.concat([df, df['a'].str.split(r'[0-9]', expand = True)], axis = 1) # 
+
+
+
+# sklejenie po wierszach
+df = pd.DataFrame({'a':['A','B'], 'b':['C','D']})
+df['paste'] = df[['a', 'b']].apply(lambda x: ''.join(x), axis=1)
+
+
+
+# sklejanie po kolumnie z grupowaniem
+df = pd.DataFrame({'a':['A','A','B','B'], 'b':['a','b','c','d']})
+
+df.groupby('a')['b'].agg(lambda col: ''.join(col))
+
+
+
+
+df1 = df.assign(d = df['b'].str.upper())
+
+df.assign(temp_f=lambda x: x.temp_c * 9 / 5 + 32)
+
+df1.assign(e = df1['c2'] + df1['d'])
+
+
+
+# przyklad z konwertowanie typu kolumny (z int na str)
+
+df = pd.DataFrame(data={'a':[1,2,3,4,5],'b':[10,20,30,40,50] })
+df[['a','b']].apply(lambda x: '_'.join(map(str,x)), axis = 1)
+
+
+```
+
+
+### Praca z datami
+
+Uwaga: tutaj jest tylko o datach w kontekscie skladni DataFrame. Wiecej informacji o datach jest w dedykowanym rozdziale.
+
+
+Konwersja stringow na daty
+```{python}
+
+import pandas as pd
+df_1 = pd.DataFrame({'data_1':['20100101','20100102'], 'data_2':['2010-01-01','2010-01-02'], 'data_3':['2010/01/01','2010/01/02']})
+
+pd.to_datetime(df_1['data_1']) # dziala
+pd.to_datetime(df_1['data_2']) # dziala
+pd.to_datetime(df_1['data_3']) # dziala
+
+# data z dniem na poczatku
+df_2 = pd.DataFrame({'data_1':['01/03/2020']})
+pd.to_datetime(df_2['data_1'], dayfirst=True)
+
+
+df3 = pd.DataFrame({'year': [2015, 2016],
+                   'month': [2, 3],
+                   'day': [4, 5]} )
+
+df3['date']=pd.to_datetime(df3[["year", "month", "day"]])
+
+```
+
+
+
+
+Ekstrakcja czesci daty
+```{python}
+
+
+import dateutil # glowny pakiet do bardziej zaawansowanych operacji na datach
+import datetime
+import pandas as pd
+
+
+# tworze DataFrame z dwoma datami
+data = pd.DataFrame( {'data':pd.Series([datetime.date(2010, 1, 2), datetime.date(2010, 1, 20)], dtype='datetime64[ns]')} )
+data
+data.dtypes
+
+ 
+
+# dodaje kolumny w ktorych sa pobrane kolejne czesci dat w kolumnie 'daty'
+data['year'] = pd.DatetimeIndex(data['data']).year 
+data['month'] = pd.DatetimeIndex(data['data']).month
+data['hour'] = pd.DatetimeIndex(data['data']).hour
+data
+
+# lista innych (poza pokazanym year, month, hour) dostepnych interwalow czasowych do zobaczenia w tabelce "Attributes" na stronie dokumentacji DatatimeIndex: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DatetimeIndex.html
+
+
+```
+
+
+Inkrementacja daty
+```{python}
+
+data = pd.DataFrame( {'data':pd.Series([datetime.date(2010, 1, 2), datetime.date(2010, 1, 20)], dtype='datetime64[ns]')} )
+
+# UWAGA: ponizsze przyklady z funkcja 'to_timedelta' na razie zakomentowana bo nie do konca podoba mi sie ich dzialanie. Rekomenduje uzycie funkcji relativedelta co niestety wymaga zastosowania nieco mniej przyjaznej skladni
+
+# data['data_plus_5_M'] = (pd.to_datetime(data['data'])) + pd.to_timedelta(5.0,unit='M') # zwiekszam date o 5 miesiecy
+# 
+# data['data_minus_3_M'] = (pd.to_datetime(data['data'])) + pd.to_timedelta(-3,unit='M') # zmniejszam date o 3 miesiece
+# 
+# data['data_minus_3_M'] = (pd.to_datetime(data['data'])) + pd.to_timedelta(-3,unit='W') # zmiejszam date o 3 tygodnie
+
+# Mozliwe wartosci dla parametru 'unit' to:
+# (‘Y’, ‘M’, ‘W’, ‘D’, ‘days’, ‘day’, ‘hours’, hour’, ‘hr’, ‘h’, ‘m’, ‘minute’, ‘min’, ‘minutes’, ‘T’, ‘S’, ‘seconds’, ‘sec’, ‘second’, ‘ms’, ‘milliseconds’, ‘millisecond’, ‘milli’, ‘millis’, ‘L’, ‘us’, ‘microseconds’, ‘microsecond’, ‘micro’, ‘micros’, ‘U’, ‘ns’, ‘nanoseconds’, ‘nano’, ‘nanos’, ‘nanosecond’, ‘N’)
+
+
+
+
+
+# skladnie z uzuciem f:DataOffset z p:pandas
+data['data_minus_1_Y_Dateoffset'] = data['data'] + pd.DateOffset(years = 1)
+data['data_minus_1_Y_Dateoffset'] = data['data'] + pd.DateOffset(years = 1, months = 2)
+
+
+
+
+
+# skladania z uzyciem funkcji z pakietu 'dateutil'
+
+data['data_minus_3_M_dateutil'] = list(map(lambda x: x + dateutil.relativedelta.relativedelta(months=-3) ,pd.to_datetime(data.data)))
+
+#lub
+data['data_minus_3_M_dateutil'] = data.apply(lambda x: x['data'] + dateutil.relativedelta.relativedelta(months=-3), axis=1)
+
+
+
+
+
+
+
+
+
+```
+
+
+
+Roznice miedzy datami
+```{python}
+
+import datetime
+
+
+data = pd.DataFrame(   {'data_1':pd.Series([datetime.date(2010, 1, 2), datetime.date(2010, 1, 20)], dtype='datetime64[ns]')
+                    ,   'data_2':pd.Series([datetime.date(2011, 1, 2), datetime.date(2009, 1, 20)], dtype='datetime64[ns]')} )
+
+
+data['data_diff_m'] = (pd.to_datetime(data['data_1']) - pd.to_datetime(data['data_2']) )/np.timedelta64(1,'M') # roznica w miesiacach
+
+data['data_diff_y'] = (pd.to_datetime(data['data_1']) - pd.to_datetime(data['data_2']) )/np.timedelta64(1,'Y') # roznica w latach
+
+data['data_diff_w'] = (pd.to_datetime(data['data_1']) - pd.to_datetime(data['data_2']) )/np.timedelta64(1,'W') # roznica z weekendach
+
+data['data_diff_w'] = (pd.to_datetime(data['data_1']) - pd.to_datetime(data['data_2']) )/np.timedelta64(1,'D') # roznica w dniach
+
+
+
+```
+
+
+
+
+Zaokraglanie dat
+```{python}
+
+
+#(1) zaokrlaglanie do pierwszego/ostatniego dnia miesiaca
+
+#data frame
+import datetime
+
+data = pd.DataFrame( {'data':pd.Series([datetime.date(2010, 1, 2), datetime.date(2010, 1, 20)], dtype='datetime64[ns]')} )
+
+data['data_round'] =  pd.to_datetime(data['data']) + pd.offsets.MonthBegin(0) # zaokrlaglad do pierwszego dnia miesiaca
+
+data['data_round2'] = pd.to_datetime(data['data']) + pd.offsets.MonthBegin(4) # dodaje 4 miesiace i zaokrlaglam do pierwszego dnia miesiaca
+
+data['data_round3'] = pd.to_datetime(data['data']) + pd.offsets.MonthEnd(4) # dodaje 4 miesiacae i zakraglam do ostatniego dnia miesiaca
+
+data['data_round4'] = pd.to_datetime(data['data']) + pd.offsets.MonthEnd(4) # dodaje 4 miesiacae i zakraglam do ostatniego dnia miesiaca
+
+data['data_round5'] = pd.to_datetime(data['data']) + pd.offsets.YearBegin(0) # zakraglam do pierwszego dnia roku
+
+# Lista dostepnych zaokraglen na stronie dokumentacji: https://pandas.pydata.org/pandas-docs/stable/reference/offset_frequency.html
+
+```
+
+
+
+
+
+
+### Dummy - rekodowanie na zmienne zero-jedynkowe
+
+```{python}
+
+# tworze DataFrame ze zmienna jakosciowa
+df_dummy = pd.DataFrame({'wyksztalcenie':['podstawowe','srednie','wyzsze','doktorat']})
+
+
+df_dummy = pd.get_dummies(df_dummy['wyksztalcenie']) # zmienna jakosciowa 'wyksztalcenie' zostanie przeksztalcona na 4 zmiennej zero-jedynkowe (jedna kolumna dla kazdej kategorii zmiennej)
+
+
+```
+
+### crosstab - analiza liczebnosci 
+
+https://pbpython.com/pandas-crosstab.html
+```{python}
+
+
+import pandas as pd
+
+
+df = pd.DataFrame({ 'A':pd.Categorical(['a', 'b','a','a','b'])
+                  , 'B':pd.Categorical(['d', 'e','e','e','f'])})
+
+pd.crosstab(df.A, df.B) 
+
+pd.crosstab(df.A, df.B, normalize = 'columns') # procentowy udzial liczebnosci w kolumnie ( w kolumnie sumuje się do 100%)
+pd.crosstab(df.A, df.B, normalize = 'index')  # procentowy udzial liczebnosci w wirszu ( w wierszu sumuje się do 100%)
+pd.crosstab(df.A, df.B, normalize = 'all')  # procentowy udzial liczebnosci w calosci (po wszystkim sumuje się do 100%) 
+
+
+# kiedy mamy wiecej niz dwie kategorie trzeba dokonac grupowania, czyli wprowadzic hierarchie
+df2 = pd.DataFrame({ 'A':pd.Categorical(['a', 'b','a','a','b','a'])
+                  , 'B':pd.Categorical(['d', 'e','e','d','d','e'])
+                  , 'C':pd.Categorical(['w', 'w','w','z','z','z'])})
+
+# zrobimy jedna zmienna w wierszy i 2 w kolumnach. Te kolumnowe trzeba zagnieździc
+pd.crosstab(df2.A, [df2.B, df2.C] )# w kolumnach mamy tabele po zmiennej B i C z tymże kategorie dla C są zagnieżdżone w kategoriach dla B
+
+
+# teraz zrobimy to samo, ale dodamy recznie nazwy dla wynikowej tabeli 
+pd.crosstab(df2.A, [df2.B, df2.C] , rownames=['zmienna_A'], colnames=['zmienna_B','zmienna_C'])
+
+
+```
+
+
+
+
+### zmiana struktury DataFrame
+
+https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html
+
+#### Transpozycja
+
+```{python}
+
+
+df_t_1 = pd.DataFrame([[1,'a'],[3,'b']])  # dalej to jest DataFrame , ale dla zgodnosci typu danych w obu kolumnach, pierwsza kolumna musiala byc zmienniona na 'object' czyli tekst.
+df_t_1
+df_t_1.dtypes
+df_t_2 = df_t_1.T
+df_t_2.dtypes
+
+
+```
+
+
+#### melt/pivot
+
+melt - Zmiana z formatu szerokiego (wide) na dlugi (long)
+```{python}
+import pandas as pd
+# mamy dane w formacie krotkim gdzie przyjmujemy ze mamy 2 grupujace zmienne jakosciowe (plec i zawod;):
+df_wide = pd.DataFrame({'plec':['k', 'm', 'm', 'm', 'k', 'k', 'm' ]
+, 'zawod':['prawnik', 'ekonomista', 'ekonomista', 'prawnik', 'prawnik', 'ekonomista', 'prawnik']
+, 'wiek':[30,50,80, 70,40,20,50]
+, 'staz' : [10,20,10,30,20,40,20]} )
+
+df_wide
+
+# wydluzamy dane wrzucajac zmienne niegrupujace, czyli 'wiek' i 'staz' do jednej kolumny (przetapiajac dane)
+df_long = df_wide.melt(id_vars=['zawod','plec'], value_vars=['wiek','staz'])
+df_long
+```
+
+
+pivot - operacja odwrotna do melt
+Nie dopuszcza duplikatow w kolumnach (jesli sa uzywamy tabiej zaawansowanego pivot_table)
+```{python}
+
+
+```
+
+
+
+
+#### stack - unstack
+Odpowiedniki pivot/melt, ale zrobione po to aby dzialac na multiindeksach
+```{r}
+
+```
+
+
+
+#### pivot_table
+Jest dobry manual na stronie: https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html
+```{python}
+
+import pandas as pd
+
+# utworzenie zbioru danych z trzeba kolumnami
+df = pd.DataFrame({'Imie': ['John', 'John', 'Mina', 'Peter', 'Nicky','John', 'Boby', 'Mina', 'Peter', 'Nicky', 'Peter', 'Nicky', 'Mina', 'Mina' ], 
+                   'Tytul': ['Masters', 'Graduate', 'Graduate', 'Masters', 'Graduate','Masters', 'Graduate', 'Graduate', 'Masters', 'Graduate', 'Masters', 'Graduate', 'Masters', 'Graduate'],
+                   'Stanowisko':['Specialist', 'Specialist', 'Specialist', 'Specialist', 'Specialist', 'Specialist', 'Specialist', 'Analyst', 'Analyst', 'Analyst', 'Analyst', 'Analyst','Analyst','Analyst'],
+                   'Punkty':[27, 23, 50, 23, 24,27, 23, 30, 23, 24, 30, 22, 19, 28],
+                   'KPI':[10,20,15,10,20,15,10,20,15,10,20,15,10,20]})
+
+
+
+import numpy as np
+# wartosci z kolumny 'Punkty' i 'KPI' zsumuje i usrednimy wierszowo po zmiennych 'Imieniu' i 'Tytule' i kolumnowo po zmiennej 'Stanowisko'. Dodatkowo dla konfiguracji dla ktorych nie ma wartosci robie wypelnienie wartosciami '-1'
+
+suma = lambda x: sum(x)
+srednia = lambda x: np.mean(x)
+
+
+table = pd.pivot_table(df
+                      , values     = ['Punkty','KPI']
+                      , index      = ['Imie', 'Tytul']
+                      , columns    =['Stanowisko']
+                      , aggfunc    = [np.sum, lambda x: np.mean(x)] # stosujemy 2 operacje: suma i srednia. Nazwy dla kolumn tych sa ustalone dalej przez 'set_levels'
+
+                      , fill_value = -1) 
+
+# zmiana nazw kolumn powstawych 
+table.columns.set_levels(['suma','srenia'],level=0,inplace=True)
+table
+
+# UWAGA: niestety obecnie funkcja 'pivot_table' nie daje mozliwosci robienia 'subtotals' czyli zagniezdzonych sum po kategoriach.
+
+```
+
+
+
+
+
+### Rozne problemy 
+
+
+#### Losowanie coraz mniejszych zakresow
+
+
+Przyklad z praktyki gdzie musialem dla podzbioru przyporzadkowac kategorie, a potem dla podzbioru losowac nastepny mniejszy.
+
+```{python}
+dane = pd.read_excel('plik.xlsx')
+
+list_data  = dane.data_im.drop_duplicates()
+list_data = list_data.reset_index(drop = True)
+
+proc_przejscie = [0.29, 0.44, 0.18]
+
+oplata_0 = 0.0125
+oplata_1 = 0.0125
+oplata_2 = 0.0125
+oplata_3 = 0.05
+
+
+dane_new = pd.DataFrame()
+
+
+
+for i in range(len(list_data)):
+  dane_i = dane.loc[dane.data_im == list_data[i]] # rekordy na analizowany miesiac
+  dane_i = dane_i.assign(przejscie = 0)
+  rand_nr = list(dane_i.index)
+  for j in range(len(proc_przejscie)):
+    rand_nr = rd.sample(rand_nr,  round(len(rand_nr) * proc_przejscie[j] ) )
+    dane_i.loc[rand_nr, ['przejscie']] = j+1
+  dane_new = pd.concat([dane_new, dane_i])
+
+```
+
+#### Uzupelnianych kategorii
+
+Problem. W kolumnach 'marka' i 'typ' są marki samochodow i typu nadwozia (sedan, kabriolet itp.)
+
+W finalnej tabeli okazuje się że nie występują wszystkie możliwe kombinacje w danych (np. np. Mercedesa ktory jest kabrioletem)
+Chcemy takie brakujące kombinacje dodać i wypełnić pozostałe kolumny np. braki danych.
+To się często przydaje przy raportach, kiedy chcemy aby wszystkie kombinacje kategorii były wyświetlone w raporcie dla managera.
+Problem może też dotyczyć dziur w datach dla poszczegolnych kategorii. Taki przyklad przerobimy ponizej (skopiowane ze stackoverflow)
+
+
+```{python}
+
+import itertools
+
+# zmienne ktorych kominacje chcemy miec z komplecie
+person_id = [0, 1, 2]
+status = ['pass', 'fail','pass']
+year = [1980, 1981, 1982]
+
+# inna zmienna ktora bedzie wypelnona zerami po dodaniu brakujacych kombinacji
+count = [3,4,8]
+
+#tabela wyjsciowa gdzie sa tylko 3 kombinacje zmiennych
+df_1 = pd.DataFrame({'person_id':person_id, 'status':status, 'year':year, 'count':count})
+
+
+
+
+combined = [person_id, status, year]
+
+
+df_full_kombinacje = pd.DataFrame(columns = ['person_id', 'status', 'year'], data=list(itertools.product(*combined)))
+
+# dodanie zmienej count i uzupelnienie brakow zerami
+df_new_full_table = df_full_kombinacje.merge(df_1, how='left').fillna(0)
+df_new_full_table
+
+
+```
+
+
+
+#### Sklejanie stringow
+
+```{python}
+df = pd.DataFrame({'a':[1,1,1,1,2,2,2,2,2,2], 'b':random.choices([chr(x) for x in range(97,123)],k = 10)} )
+wynik = df.groupby('a').agg({'b':{'join':lambda x : '_'.join(x)}})
+wynik
+```
+
+

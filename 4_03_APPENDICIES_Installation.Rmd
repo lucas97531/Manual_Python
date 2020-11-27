@@ -1,0 +1,12 @@
+# Installation
+
+
+## Anaconda
+
+Anaconda domyślnie się zazywczaj instaluje na C:\Users\NazwaUsera\Anaconda\
+
+Po zainstalowaniu należy sprawdzić czy w Widowsie do zmiennych środowiskowych 'paths' są dodane 3 ścieżki w ramach katalogu Anacondy:
+
+* C:\Users\NazwaUsera\Anaconda\
+* C:\Users\NazwaUsera\Anaconda\Scripts
+* C:\Users\NazwaUsera\Anaconda\bin   # bez tego nie bedzie działał poprawnie 'pip'

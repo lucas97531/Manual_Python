@@ -1,0 +1,504 @@
+# FUNCTIONS AND ENVIROMENTS
+
+
+
+
+## podstawowa składnia
+
+
+rozna ilosc argumentow
+```{python}
+
+# prosta funkcja z dwoma argumentami
+def funkcja_1(a, b):
+  return(a*b) 
+
+funkcja_1(10, 10)
+
+
+
+# funkcja bez argumentow
+def funkcja_2():
+  return(random.randint(1,21)*5) # liczba losowa z przedzialu od 5 do 105
+  
+import random
+funkcja_2()
+  
+
+
+# funkcja z nieokreslono ilosci argumentow. Zakladamy ze argumenty NIE MUSZA byc ponazywane
+
+def test_var_args(f_arg, *argv): # Pierwszy argument jest normalny argumentem.  Pod argument z gwiazdka bedzie mozna podstawic dowolna ilosc argumentow bez podawania ich nazwy
+    print("first normal arg:", f_arg) # pierwszy argument normalnie zadeklarowany z definicji funkcji
+    for arg in argv: # wydrukowanie w petli argumentow ktore byly nieokreslone przy definiowaniu funkcji (argumenty te sa przechywowane w postaci listy)
+        print("another arg through *argv:", arg)
+
+test_var_args('yasoob', 'python', 'eggs', 'test')
+  
+  
+
+
+
+
+# funkcja z nieokreslono iloscia argumentow. Zakladamy ze argumenty MUSZA byc ponazywane
+
+def greet_me(**kwargs):
+    for key, value in kwargs.items():
+        print("{0} = {1}".format(key, value))  # wyswietlenie w petli nazw argumentw i ich wartosci (argumenty ktore sa nieokreslone przy definiowaniu funkcji, ale musze byc ponazywane sa przechowywane w postaci slownika)
+
+greet_me(name="LUKASZ", surname = 'kowalski')
+
+  
+
+
+```
+
+
+
+return
+```{python}
+
+
+# uwaga : bez 'return' funkcja niczego nie zwroci:
+def funkcja_1_bez_return(a, b):
+  a*b
+
+z = funkcja_1_bez_return(10,10)
+print(z) # dostajemy none
+
+
+
+
+
+# funkcje bez 'return' stosuje sie najczescie do samego wyswietlanie wyniku
+
+def funckja_print(a, b):
+  print(a*b)
+
+funckja_print(10, 20)
+
+
+
+
+
+# uwaga: return wcale nie musi być na koncu funkcji.
+
+def funkcja_return(a, b):
+  return(a+b)
+  # dalszczy kod po return
+  print('koniec funkcji')
+
+funkcja_return(10,20)
+
+
+# teoretycznie return moze wystapic kilka razy w funkcji, ale w praktyce chyba rzadko się to spotyka
+
+def  funkcja_multi_return(a, b):
+  if a > 0:
+    return(a+b)
+  else:
+    return(a*b)
+
+funkcja_multi_return(10, 20)
+funkcja_multi_return(-10, 20)
+
+```
+
+
+
+## przekazywanie argumentow przez wartosc a przekazywanie przez referencje
+
+Przekazywanie argumentu do funkcji przez wartosc
+```{python}
+
+# przekazywanie argumentu przez WARTOSC do funkcji oznacze ze w funkcji jest tworzona oddzielna kopia obiektu podawanego jako argument. W Pythonie przez wartosc sa przekazywane np. wartosci liczbowe
+
+def fun_1(a):
+  a = 300
+  return(a)
+
+a = 100
+
+fun_1(a)
+
+a # wartosc zmiennej 'a' zdefiniowana poza funkcja dalej ma wartosc 100 a nie 300. Wynika to z tego ze funkcja 'fun_1' stworzyla sobie kopie zmiennej 'a' i pracowala na kopii nie naruszajac zmiennej 'a' zdefiniowanej poza funkcja. 
+
+```
+
+
+
+Przekazywanie argumentu do funkcji przez referencje
+
+```{python}
+
+# przekazywanie argumentu przez REFERENCJE do funkcji oznacze ze w funkcji NIE jest tworzona oddzielna kopia obiektu przekazywanego jako argument. Do funkcji jest przekazywane tylko referencja. W Pythonie  przez referencje sa przekazywane np. listy 
+
+def fun_2(a):
+  a = a.append(1000)
+  return(a)
+
+a = [1,2,3]
+
+fun_2(a)
+
+a # struktura listy 'a' znajdujacej sie poza funkcja zostala zmieniona. Funckja fun_2 dostala tylko referencje do listy 'a' zdefiniowanej poza funkcja i pracowala bezposrednio na niej. 
+
+
+```
+
+Jaka jest regula co do tego ktore obiekty sa przekazywane przez REFERENCJE a ktore przez WARTOSC
+
+Przez kopie przekazuje sie obiekty typu 'immutable', czyli takie obiekty ktorych nie da sie modyfikowac. Dlatego funkcja jest zmuszona do pracy na kopii obiektu.
+Przez referencje przekazuje sie obiektu typu 'mutable', czyli takie obiekty ktora da sie modyfikowac. Wtedy funkcja moze modyfikowac taki obiekt.
+
+Przyklady obiektow 'immutable':
+
+* atomowe wartosci liczbowe (np. 10)
+* atomowe wartosci tekstowe (np. 'ala ma kota')
+* tuple
+
+
+Przyklady obiektow 'mutable':
+
+* listy
+* set (zbiory, np: {'a', 'b'})
+* slowniki
+
+
+
+
+
+
+
+
+
+## funkcje anonimowe 
+
+Funkcja tego typu nazywa sie anonimowymi bo mozna je tworzyc bez przypisywania do zadnej zmiennej i tym samym bez nadawania im nazwy. Dlatego sa przydatne  np. aby zdefiniowac sposob wstepnego przetwarzania argumentu wewnatrz innej funkcji (patrz pierwszy przykad ponizej).
+
+```{python}
+a = [1,2,3,4]
+b = [17,12,11,10]
+c = [-1,-4,5,9]
+
+Celsius = [39.2, 36.5, 37.3, 37.8]
+Fahrenheit = map(lambda x: (float(9)/5)*x + 32, Celsius) # funkcja map wykona na kazdym elemencie wektora 'Celsius'operacje zdefinowana przez anonimowa funkcje lambda. Funkcja lambda nie musi byc przypisana do zadnej zmiennej, dlatego jest 'anonimowa'
+
+
+
+# funkcja lambda z pobieraniem dwoch argumentow:
+a = [1,2,3,4]
+b = [17,12,11,10]
+c = [-1,-4,5,9]
+map(lambda x,y:x+y, a,b) # lambda dostaje argument x i y. x pobieraz dane z listy 'a' nastomiast y z listy 'b'
+
+
+# funkcja lambda jezeli chcemy, mozemy tez przypisac do zmiennej i potem wywolac ta zmienna
+funkcja = lambda x: x**2
+funkcja(10)
+
+```
+
+
+## programowanie funkcyjne
+
+W pythonie funkcja moze byc argumentem funkcji
+
+```{python}
+
+def x(a,b):
+   print "param 1 %s param 2 %s"%(a,b)
+
+def y(z,t):
+   z(*t)
+
+y(x,("hello","manuel")) # funkcja 'x' zostaje podana jako argument dla funkcji 'y'
+
+```
+
+
+
+Funkcja moze zwracac funkcje
+
+```{python}
+
+# tworzeni funkcje ktora produkuje nowe funkcje
+def fun_power(n):
+  def fun(x):
+    return(x**n)
+  return(fun) # bedziemy zwracac funkcje
+
+
+# wyprodukujemy funkcje podnoszca liczbe do kwadratu
+fun_power_kwadrat = fun_power(2)
+fun_power_kwadrat(10)
+
+# wyprodukujemy funkcje podnoszca liczbe do szescianu
+fun_power_kwadrat = fun_power(2)
+
+
+```
+
+
+## wektoryzacja funkcji
+
+```{python}
+
+import numpy as np
+  
+
+def fun(x):
+  if x > 0:
+    return(True)
+  else:
+    return(False)
+    
+
+# do powyzszej funkcji nie mozemy przekazac listy wartosci. 
+fun([1,2,3,4]) # dostaniemy blad : "TypeError: '>' not supported between instances of 'list' and 'int'""
+  
+Aby funkcja dzialala na liscie/wektorze bez uzycie petli mozemy ja zwektoryzowac.   
+
+fun_vect = np.vectorize(fun)
+
+fun_vect([1,2,3,4]) # taraz funkcja dziala 
+
+
+```
+
+
+
+
+## rekurencja
+
+```{python}
+
+
+def factorial_recursive(n):
+    # Base case: 1! = 1
+    if n == 1:
+        return 1  # warunek stop - ostatnie wyliczenie gdzie funkcja nie odwoluje sie do samej siebie.
+    # Recursive case: n! = n * (n-1)!
+    else:
+        return n * factorial_recursive(n-1) # rekurencyjne wywolanie funkcje przez sama siebie.
+
+
+factorial_recursive(5)
+
+
+```
+
+
+Uzycie rekurencji do pracy z zagniezdzonymi listami
+
+```{python}
+
+# splaszczymy zagniezdzona lista
+
+def flatten(S):
+    if S == []:
+        return S
+    if isinstance(S[0], list):
+        return flatten(S[0]) + flatten(S[1:])
+    return S[:1] + flatten(S[1:])
+s=[[1,2],[3,4]]
+print("Flattened list is: ",flatten(s))
+
+
+lista_zagniezdzona = [1, 2, [3, 4, 5], [3, [6, 7]]]
+
+# splaszczenie listy (likwidacja zagniezdzen)
+flatten(lista_zagniezdzona)
+
+```
+Program Explanation
+1. A variable is initialized to contain a nested list.
+2. The list is passed as an argument to a recursive function to flatten the list.
+3. In the function, if the list is empty, the list is returned.
+4. Otherwise the function is recursively called with the sublists as the parameters until the entire list is flattened.
+5. The flattened list is printed.
+
+
+
+## zakres istnienia zmiennych (scoping rules)
+
+Scope resolution via LEGB rule :
+In Python, the LEGB rule is used to decide the order in which the namespaces are to be searched for scope resolution.
+The scopes are listed below in terms of hierarchy(highest to lowest/narrowest to broadest):
+
+Local(L): Defined inside function/class
+Enclosed(E): Defined inside enclosing functions(Nested function concept)
+Global(G): Defined at the uppermost level
+Built-in(B): Reserved names in Python builtin modules
+
+______________________________________
+|Buil-in                              |
+|    ______________________________   |
+|    |    Global                  |   |
+|    |       __________________   |   |
+|    |      |  Enclosed        |  |   |
+|    |      |      ________    |  |   |
+|    |      |     |       |    |  |   |
+|    |      |     | Local |    |  |   |
+|    |      |     |_______|    |  |   |
+|    |      |                  |  |   |
+|    |      |__________________|  |   |
+|    |_____________________________   |
+|                                     |
+______________________________________
+
+
+
+local and global scope
+```{python}
+
+# Global Scope 
+  
+pi = 'global pi variable'
+def inner(): 
+    pi = 'inner pi variable' # zdefiniowanie 'pi' lokalnie w funkcji
+    print(pi) 
+  
+inner()  # zwracam 'pi' z wnetrza funkcji (local scope)
+print(pi)  # zwracam 'pi' z globalnej przestrzni (global scope)
+
+
+
+
+# UWAGA: tutaj 'pi' nie jest zdefinionwane w funkcji. Co wtedy????
+pi = 'global pi variable'
+def inner_bez_pi(): 
+    print(pi) 
+  
+inner_bez_pi()  # funkcja szuka 'pi' poza swoją przestrzenia. Znajduje ja w globalnej przestrzeni
+
+```
+
+
+
+
+
+Local, Enclosed and Global Scopes
+```{python}
+
+pi = 'global pi variable'
+  
+def outer(): 
+    pi = 'outer pi variable'
+    def inner(): 
+        # pi = 'inner pi variable' 
+        nonlocal pi 
+        print(pi) 
+    inner() 
+  
+outer() # 'pi' jest zwracane z kodu w funkcji 'outer' znajdujacego sie  na zewnatrz funkcji 'inner' (enclosed scope)
+print(pi) # zwracam 'pi' z globalnej przestrzni (global scope)
+
+```
+
+
+
+
+
+Local,Enclosed,Global and Built-in Scopes 
+```{python}
+# Built-in Scope 
+from math import pi 
+  
+# pi = 'global pi variable' 
+  
+def outer(): 
+    # pi = 'outer pi variable' 
+    def inner(): 
+        # pi = 'inner pi variable' 
+        print(pi) 
+    inner() 
+  
+outer() # nie jest zdefuniowane wewnatrz funkcji 'inner' ani 'outer'. Funkcja szuka w kolejnych zewnetrznych zakresach wartosci 'pi' i znajduje ja w globalnej przestrzeni, gdzie jest zaimportowana z modulu 'math' 
+
+```
+
+
+
+
+Uzycie operatora global
+```{python}
+
+foo = 'B'
+
+def a():
+  global foo # funkcja bedzie pracowala na globalnie dostepnej zmiennej 
+  foo = 'A'
+
+a()
+
+print(foo) # foo przyjmie wartosc 'A' mimo ze napisanie bylo w wykonanie w funkcji.
+
+```
+
+
+
+
+## dekoratory
+
+https://www.datacamp.com/community/tutorials/decorators-python
+
+```{python}
+
+# definiuje dekorator 
+def uppercase_decorator(function): # dekorator jako argument przyjmuje funkcje ktora bedzie "dekorowal"
+    def wrapper(): # nasze dekorator bedzie do przekazanej funkcji dokladam mechanizm zamiany zwracanych litere na wielkie (capital letters)
+        func = function()
+        make_uppercase = func.upper()
+        return make_uppercase
+    return wrapper
+  
+
+    
+# definiuje funkcje  
+def say_hi():
+    return 'hello there'
+    
+    
+say_hi()  # funkcja zwraca napis pisany malymi literami
+    
+# "dekoruje" funkcje dekoratorem
+@uppercase_decorator 
+def say_hi():
+    return 'hello there'
+
+say_hi() # teraz funkcja po "udekorowaniu" zwraca napis WIELKIMI LITERAMI.
+
+
+```
+
+
+
+## Przydatne 
+
+Wilokrotne wywolanie tej samej funkcji
+
+```{python}
+
+import random as rd
+
+[rd.uniform(a=1, b=2) for _ in range(2)] # zaroc uwagne na '_' w skladni. 
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

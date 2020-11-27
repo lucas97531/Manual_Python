@@ -1,0 +1,47 @@
+# (PART) <lfg>VISUALISATION</lfg> {-} 
+
+# big packages
+
+## matplotlib
+
+## seaborn
+
+## plotly
+
+## bokeh
+
+## plotnine
+
+Ten pakiet jest klon slynnego pakietu ggplot2
+
+```{python}
+
+from plotnine import *
+
+import seaborn as sns # dla importu danych
+iris = sns.load_dataset('iris')
+
+# wykres gestosci
+(ggplot(iris)
+ + geom_density(aes(x='sepal_length'))
+)
+
+# wykres gestosci grupowany
+(ggplot(iris)
+ + geom_density(aes(x='sepal_length', fill = 'species'), alpha = 0.5, adjust = 0.2)
+)
+
+
+# wykres gestoci grupowany po facet
+(ggplot(iris)
++ geom_density(aes(x='sepal_length'))
++ facet_grid('.~species', scales='free')
+)
+
+
+
+
+
+```
+
+

@@ -1,0 +1,64 @@
+2019-06-24
+* w pliku "1_04_PROGRAMING_data_structures-basic"  dodano w rozdziale o tworzeniu liczb przyklady losowego generowania
+* dodano tresc do pliku "1_08_PROGRAMING_data_structures-objective_programing"
+
+
+
+2019-06-23
+* w pliku 1_01_PROGRAMING_syntax_base.Rmd dodano rozdzial o obsludze bledow
+* dodano tresc do pliku 1_06_PROGRAMING_data_structures-Numpy gdzie jest o pracy z macierzami
+* w pliku 1_05_PROGRAMING_data_structures-Pandas dodano ktorki rozdzial o type Series
+* dodano tresc do pliku 1_09_PROGRAMNG_work_organisation
+* dodano tresc do pliku 1_11_PROGRAMING_tools_and_tricks
+* dodano tresc do pliku 1_10_PROGRAMING_data_import_export
+
+
+2019-06-19:
+* W pliku '1_01_PROGRAMING_syntax_base.Rmd' dodano prosty przyklad swietnego pakietu 'plotnine' do robienia wykresow przy uzyciu skladni ggplot2
+* W pliku '1_03_PROGRAMING_data_types' w czesci o liczbach drobne uzupelnienie przez dodanie przykadu funkcji 'cut' do ciencia ciagow liczbowych na kategorie
+* W pliku '1_04_PROGRAMING_data_structures-basic' drobne uzupelnienie przez dodanie rozdzialu "tworzenie" w czesci o listach
+* W pliku '1_05_PROGRAMING_data_structures-Pandas' Data Frames dodano rozdzial o funkcji 'apply'
+* w pliku '1_05_PROGRAMING_data_structures-Pandas' dodano rozdzial z podstawowymi informacjami o typie danych 'Categorial' dostepnych w Pandas
+
+
+
+2019-06-18:
+Duzy upgade wiece nie bede wymianial wszystkiego. Dodano np.:
+* tresci do rozdzialu 1_02_PROGRAMING_functions_and_environments.Rmd
+* tresc rozdzialu 1_03_PROGRAMING_data_types.
+* informacje o uzyciu GroupBy w Data Frames w pliku '1_05_PROGRAMING_data_structures-Pandas'
+* rozszerzono tresc rodzialu 1_01_PROGRAMING_syntax_base (wczesniej bylo tylko o indeksach)
+
+
+
+2019-06-16:
+
+* Została zmieniona nazwa repozytorium i wprowadzona nowa struktura plików. Podział na podrozdziały z czasem może zostać zmodyfikowany i rozszerzony. 
+
+* Są 2 opcje pracy z repozytorium. Można wejść do katalogu głównego i podglądać pliki RMarkdown z treścią manuala. 
+Pliki z treścią wyróżniają się tym że są ponumerowane, np:. 1_01_PROGRAMING_syntax_base.Rmd. Drugi sposób to ściągniecie sobie całego repo i wtedy można używać wyrenderowanych hmtl-ow które zawierają to samo co pliki Rmarkdown. Pliki wyrenderowane są w katalogu "_book". 
+Wystarczy jeden raz otworzyć dowolny z nich. Po lewej stronie będzie menu do nawigowania. 
+
+* Treść dwóch dotychczasowych plików "Indicies" i "DataFrames" jest teraz w plikach "1_01_PROGRAMING_syntax_base.Rmd" i "1_05_PROGRAMING_data_structures-Pandas" 
+
+
+
+
+
+2019-06-14:
+* Dadanie kolejnych rozdzialow do pliku z ramkami danych (zaczyna sie od "Praca z duplikatami"")
+* Dodanie przykladu z funkcja replace w "Dodawanie nowych kolumn"
+
+
+
+
+
+
+
+
+
+
+
+
+
+

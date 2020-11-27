@@ -1,0 +1,146 @@
+# DATA IMPORT AND EXPORT
+
+
+
+
+
+## pickles
+
+Tzw. pickle sa uzywany do przechowywanie na dystku obiektow Pythonowych. 'Picklowanie' polega na serializacji obiektu: What pickle does is that it “serialises” the object first before writing it to file. Pickling is a way to convert a python object (list, dict, etc.) into a character stream. The idea is that this character stream contains all the information necessary to reconstruct the object in another python script.
+
+W picklach bedziemy tez np. przechowywac obiekty ktore przechowuja informacje o wytrenowanych modelach.
+
+```{python}
+
+
+import pickle
+
+example_dict = {1:"6",2:"2",3:"f"} # tworze przykladowy obiekt (slownik) 
+pickle_out = open("dict.pickle","wb") # otwieramy/tworzymy plik w ktorym bedziemy chcieli przechowywac obiekt
+pickle.dump(example_dict, pickle_out) # ladujemy obiekt do pliku
+pickle_out.close() # zamukamy plik
+
+pickle_in = open("dict.pickle","rb") # otwieramy plik z zaladowanym obiektem
+example_dict = pickle.load(pickle_in) # ladujemy obiekt z pliku do pamieci
+
+```
+
+
+
+
+
+## csv / txt
+
+
+### Import 
+
+W pakiecie 'Pandas' jest funkcja ktora umozlwia ladowanie danych z plikow csv i txt bezposrednio do DataFrame.
+
+```{python}
+
+import pandas as pd
+
+pd.read_csv('data.csv')
+
+pd.read_csv('data.csv', sep = '\t', delimiter = ',', thousands = ' ') # ustalamy separator miedzy kolumnami jako tabulacja, separator ulamka w liczbie jako przecinek i separator tysieczny jako spacja
+
+pd.read_csv('data.csv', encoding='udf-8') # ustawienie kodowania
+
+# pelna lista parametrow na stronie:
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
+
+
+```
+
+
+Parsowanie dat
+```{python}
+
+dateparse = lambda x: pd.datetime.strptime(x, '%Y-%m-%d %H:%M:%S')
+
+df = pd.read_csv(infile, parse_dates=['datetime'], date_parser=dateparse)
+
+```
+
+
+### Eksport
+
+W pakiecie 'Pandas' jest funkcja ktora umozlwia zapis danych z DataFrame do plikow csv i txt.
+
+```{python}
+
+df = pd.DataFrame({'name': ['Raphael', 'Donatello'],
+...                    'mask': ['red', 'purple'],
+...                    'weapon': ['sai', 'bo staff']})
+
+df.to_csv(path_or_buf = 'plik.csv', index=False, sep = ',')
+
+# W pozyzszej funkcji jest dostepna wiekszosc parametrow ktore mamy z funkcji 'read_csv'
+
+```
+
+
+
+
+## excel
+
+### Import 
+
+W pakiecie 'Pandas' mozemy tez bezposrednio do DataFrame importowac plik excelowski
+
+```{python}
+
+import pandas as pd
+
+pd.read_excel(io = 'plik.xlsx', sheet_name = 'Arkusz1')
+
+```
+
+
+
+### Eksport
+
+Export DataFrame do excela
+
+```{python}
+
+import pandas as pd
+
+df1 = pd.DataFrame([['a', 'b'], ['c', 'd']],
+                    index=['row 1', 'row 2'],
+                    columns=['col 1', 'col 2'])
+df1.to_excel("output.xlsx", sheet_name = 'Arkusz_10')  # doctest: +SKIP
+
+
+```
+
+
+## schowek
+
+Mozemy np. zrobic Ctrl+C komorek w excelu i 'zlapac' tabele bezposrednio do zmiennej typu DataFrame
+
+```{python}
+import pandas as pd
+
+z = pd.read_clipboard(sep=',') # niestety separator jest jedynym parametrem ktory mozna ustawic
+z
+
+```
+
+
+## dates parser
+
+```{python}
+# funkcja do parsowania daty
+mydateparser = lambda x: pd.datetime.strptime(x, "%Y %m %d %H:%M:%S")
+
+df = pd.read_csv(
+    "file.csv"
+  , sep='\t'
+  , names=['date_column', 'other_column'] # nazwy importowanych kolumn
+  , parse_dates=['date_column'] # kolumny z datami
+  , date_parser=mydateparser) # funkcja z parserem dla dat
+
+```
+
+

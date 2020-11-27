@@ -1,0 +1,851 @@
+# DATA TYPES
+
+
+
+## liczby
+
+### tworzenie
+
+```{python}
+
+#(1) z definicji
+
+z1 = 1
+type(z) # typ 'integer
+
+z2 = 1.
+type(z) # typ 'float'
+
+
+
+#(2) z konwersji liczb (zmiana typu)
+z1 = 10 # mamy integer
+float(z1) # teraz przekonwertowalismy na float
+
+z2 = 10.94234
+int(z2) # teraz przekonwertowalismy na integet (cala koncowka jest obcienta wiec dostalismy 10)
+
+
+
+
+#(3) z konwersji tekstu
+t1 = '15'
+int(t)
+
+t2 = '15.4'
+float(t2)
+
+# czy string sklada sie tylko z cyfr
+'10'.isdigit()   # True
+'10.4'.isdigit() # False
+
+# czy string jest liczba
+'1.43'.replace('.','',1).isdigit()
+
+
+
+#(4) generowanie losowe
+import numpy as np
+np.random.randint(1,100) # losowa liczba calkowita z przedzialu 1-100
+np.random.uniform(0, 1)*100+5 # losowa ułamkowa liczba z przedzialu 105-1005
+
+import random as rd
+rd.randrange(start=1,stop=30,step=2) # liczba losowa z przedzialu 1-29 w uwzglednieniem co drugiej liczby (poniewaz startujemy od jedej brane pod uwage w tym przedziale beda tylko liczny nieparzyste)
+
+
+import numpy as np
+np.random.choice([1,2,3], 20) # 20 losowych liczb z listy [1,2,3]
+np.random.choice([1,2,3], 20, [0.2, 0.4, 0.4]) # 20 losowych liczb z listy [1,2,3] z wagami [0.2, 0.4, 0.4]
+
+
+```
+
+
+
+### Ciagi
+```{python}
+
+import numpy as np 
+
+#wygeneruj ciag liczb calkowitych
+list(range(6)) # od zera do 5 (NIE do 6 !!!)
+list(range(2,6)) # od 2 do 5
+list(range(2,10,2)) # od 2 do 5 do druga liczba
+np.arange(10, 2, -1) # od 10 do 2
+
+# wygeneruj ciag ulamkow
+np.arange(0.5, 5.25, 0.75) # od 0.5 do 5 co 0.5
+
+
+```
+
+
+
+### rozne funkcje
+
+```{python}
+
+# zaokraglanie
+
+z1 = 5.4
+round(z1) # 5
+
+z2 = 5.9
+round(z2) # 6
+
+z3 = 5.323422
+round(z3, ndigits=3 ) # 5.323
+
+import math
+math.ceil(10.1) # zaokraglenie do gory
+math.floor(10.1) # zaokrlaglenie w dol
+
+
+
+
+# logarytm
+math.log(10, 3) # logarytm z 10 o podstawie 3
+math.log(10) # logarytm z 10 o podstawie naturalnej
+math.log10(10) # logarytm z 10 o podstawie 10
+
+
+# pociencie ciagu na kategorie
+import pandas as pd
+import numpy as np
+pd.cut(np.random.randint(0, 100, 20), range(0, 105, 10), right=False)
+
+
+```
+
+
+
+
+
+
+## text
+
+UWAGA: o pracy z tekstem w kontekscie DataFrames jest materiał w pliku 1_05_PROGRAMING_data_structures-Pandas"
+
+https://www.learnpython.org/en/Basic_String_Operations
+
+regex:
+https://www.w3schools.com/python/python_regex.asp
+https://docs.python.org/3/howto/regex.html
+
+
+
+### tworzenie statyczne
+
+Tworzenie bezposrednie i przez konwersje
+```{python}
+
+# bezposrednio
+z = 'ale ma kota'
+
+
+
+# z liczb
+str(10) # pojedyncza wartosci
+[str(x) for x in [1,2]] # lista wartosci
+
+
+
+
+# z dat
+import datetime
+str(datetime.datetime(2010,10,10)) # data i czas
+str(datetime.date(2010,10,10)) # data
+
+
+# sklejanie 
+s1 = 'ala'
+s2 = ' ma kota'
+s1 + s2
+
+
+# sklejanie listy stringow funkcja 'join'
+lista_stringow = ["John", "Peter", "Vicky"]
+x = "_".join(lista_stringow)
+print(x)
+
+
+```
+
+
+
+### Tworzenie dynamiczne - nowa skladnia z funkcja 'format'
+Ponizej sa wybrane przyklady pochodzace ze strony:
+https://www.programiz.com/python-programming/methods/string/format
+Jezeli chcesz bardziej zglebic temat to zajzyj tam.
+
+Odwolywanie do pozycyjnych argumentow
+```{python}
+
+#(1) puste nawiasy {} w stringu.
+print("{} loves {} ".format('Mary', 'Tom')) # argumenty do nawiasow '{}' sa podstawione w kolejnosci w jakiej sa podane w funkcji 'format'
+
+# w nawiasach wasatych sa indeksy odwolujace sie do pozycji argumentow w funkcji 'format'
+print("{1} loves {0} .".format('Mary', 'Tom')) # Tuta mozemy sterowac w jakiej kolejnosci argumenty sa podstawiane do nawiasow.
+
+# w nawiasach wasatych sa nazwy odwolujace sie do nazw argumentow w funckji 'format'
+print("{osoba_2} loves {osoba_1} ".format(osoba_1='Mary', osoba_2='Tom'))
+
+# mozemy mieszac odwolywanie sie do indeksow i nazw argumentow znajdujacych sie w funkcji 'format'
+print("{0} loves {osoba}.".format('Mary', osoba='Tom'))
+
+```
+
+
+Formatowanie typu liczbowego
+```{python}
+
+# podstawienie liczb calkowitych (integer)
+print("The number is:{:d}".format(123))
+
+# podstawianie liczb zmiennoprzecinkowych (float)
+print("The float number is:{:f}".format(123.4567898))
+
+# podstawienie cyfr w innych formatach liczbowych (octal, binary and hexadecimal)
+print("bin: {0:b}, oct: {0:o}, hex: {0:x}".format(12))
+
+
+
+# pelna lista dostepny modyfikatorow zwiaznych z typami liczbowymi:
+
+d - Decimal integer
+c - Corresponding Unicode character
+b - Binary format
+o - Octal format
+x - Hexadecimal format (lower case)
+X - Hexadecimal format (upper case)
+n - Same as 'd'. Except it uses current locale setting for number separator
+e - Exponential notation. (lowercase e)
+E - Exponential notation (uppercase E)
+f - Displays fixed point number (Default: 6)
+F - Same as 'f'. Except displays 'inf' as 'INF' and 'nan' as 'NAN'
+g - General format. Rounds number to p significant digits. (Default precision: 6)
+G - Same as 'g'. Except switches to 'E' if the number is large.
+% - Percentage. Multiples by 100 and puts % at the end.
+
+```
+
+
+Formatowanie typu liczbowego z paddingiem (np. dodawanie zer na początku liczby)
+```{python}
+
+# integer numbers with minimum width
+print("{:5d}".format(12))
+
+# width doesn't work for numbers longer than padding
+print("{:2d}".format(1234))
+
+# padding for float numbers
+print("{:8.3f}".format(12.2346))
+
+# integer numbers with minimum width filled with zeros
+print("{:05d}".format(12))
+
+# padding for float numbers filled with zeros
+print("{:08.3f}".format(12.2346))
+```
+
+
+
+Formatowanie typu liczbowego ze znakiem (liczby dodatnie i ujemne)
+```{python}
+
+# show the + sign
+print("{:+f} {:+f}".format(12.23, -12.23))
+
+# show the - sign only
+print("{:-f} {:-f}".format(12.23, -12.23))
+
+# show space for + sign
+print("{: f} {: f}".format(12.23, -12.23))
+
+```
+
+
+
+Zaawansowane formatownanie typu tekstowego
+```{python}
+
+# string padding with left alignment
+print("{:5}".format("cat"))
+
+# string padding with right alignment
+print("{:>5}".format("cat"))
+
+# string padding with center alignment
+print("{:^5}".format("cat"))
+
+# string padding with center alignment
+# and '*' padding character
+print("{:*^5}".format("cat"))
+
+```
+
+
+
+
+
+
+### Tworzenie dynamiczne - stara skladnia
+Wczesniej zanim byla funkcja 'format' uzywano innej skladni. Ponizszy przyklad jest zywcem przeklejony ze strony. Nie obrabialem go bo ponizsze kody sa tylko dla uswiatomienia ze taka skladnia jest dopuszczalna.
+```{python}
+
+# Python program to demonstrate the use of formatting using % 
+   
+# Initialize variable as a string 
+variable = '15'
+string = "Variable as string = %s" %(variable) 
+print(string)
+   
+# Printing as raw data 
+print("Variable as raw data = %r" %(variable)) 
+   
+# Convert the variable to integer 
+# And perform check other formatting options 
+   
+variable = int(variable) # Without this the below statement 
+                        # will give error. 
+string = "Variable as integer = %d" %(variable) 
+print(string)
+print("Variable as float = %f" %(variable))
+  
+
+# lista znacznikow:
+
+# %d – integer
+# %f – float
+# %s – string
+# %x – hexadecimal
+# %o – octal
+
+```
+
+
+### multiline string
+
+```{python}
+
+name = "Eric"
+profession = "comedian"
+affiliation = "Monty Python"
+
+# ponizej string zapiszemy w kilku oddzielych linijkach
+message = (
+  f"Hi {name}. "
+  f"You are a {profession}. "
+  f"You were in {affiliation}."
+)
+message # wydrukowaniu widzimy, ze mimo iz string byl w kilku linijkach jest traktowany jako calosc
+
+
+```
+
+
+
+### odwolywanie sie do podstringow
+
+```{python}
+
+# po indeksach
+
+astring = "Hello world ll!"
+print(astring[3:7:2])
+print(astring[3:7])
+print(astring[3:7:1])
+
+
+
+
+
+# z uzyciem wyrazen regularnych (o wyrazeniach regularnych jest oddzielny podrozdzial)
+import re
+ma = 'abclllldefllllgh'
+ma1 = re.search('(l){2,}', ma) # szukam pozycji pierwszego co najmniej podwojnego wystapienia litery 'l'
+ma1.group(0) # zwracam szukany podstraing
+
+
+
+
+# powyzsze rozwiazania ma ta wade ze szuka tylko PIERWSZEGO wystapienia. Problem rozwiazemy ponizej:
+ma3 = re.finditer('(l){2,}', ma)
+ma4=list(ma3) #dostaniemy listę obiektow takich jak obiek z f:search o długosci odpowiadajacej ilosc znalezionych stringow
+# odwołując sie do poszczegolnych elementow listy stosujemy taka skladnie jak w f:search
+ma4[0].group(0) # pierwsze wystapienie
+ma4[1].group(0) # drugie wystapienie
+len(ma4) # ile bylo wyszukan
+
+```
+
+
+### szukanie pozycji podstringow
+
+```{python}
+import re
+ma = 'abc llll def llll gh llll'
+ma  = re.search('(l){1,}', astring, re.I)  # szukam pozycji pierwszego co najmniej podwojnego wystapienia litery 'l'
+ma.start() # indeks poczatkowy
+ma.end() # indeks koncowy
+
+
+
+# powyzsze rozwiazania ma ta wade ze szuka tylko PIERWSZEGO wystapienia.
+# teraz wyszukamy wszystkich wystapien
+
+ma3 = re.finditer('(l){2,}', ma)
+ma4=list(ma3)
+
+ma4[0].start() # pozycja poczatku pierwszego wystapienia
+ma4[0].end() # pozycja konca pierwszego wystapienia
+
+ma4[1].start() # pozycja poczatku drugiego wystapienia
+ma4[1].end() # pozycja konca drugiego wystapienia
+
+```
+
+
+
+### modyfikacja 
+
+Zastepowanie stringu stringiem
+```{python}
+
+astring = "Hello world ll!"
+sub = re.sub('^H','aaa', astring) # zastap litere 'H'  ktora jest na poczatku (poczatkowa pozycja wymuszona przez '^') literami 'aaa'
+
+```
+
+Zastepowanie stringu stringiem z listy mapujacej
+
+```{python}
+
+# wariant 1
+# UWAGA: zadziala tylko jezeli nie ma zaleznosci miedzy mapowaniami czyli mapowanie nie ma takiej postaci:
+# [('A', 'B'), ('B','C')]
+
+my_string = 'ABCDEF'
+mapping = [ ('A', 'B'), ('B', '2'), ('C', '3'), ('D', '4'), ('E', '5') ]
+for k, v in mapping:
+    my_string = re.sub(k, v, my_string)
+    # my_string = my_string.replace(k, v)  # altermatywna skladnia nie obslugujaca regular expressions
+my_string # zauwazmy ze 'A' i 'B' zostalo zamienione na '2'
+
+
+
+# wariant 2
+# dziala tylko dla mapowania z pojedynczego stringu (ale pojedynczy string moze by zamieniony na zlozony)
+
+dictio = {"a": "b", "b": "c", "c": "CALA"}
+string = "abc"
+t1 = string.maketrans(dictio)
+string.translate(t1)
+
+
+```
+
+
+
+Zastepowianie elementow o zadanych pozycjach nowym stringiem
+```{python}
+# UWAGA: takie cos nie zadziala:
+x = 'alalala'
+x[2:3] = 'W' # nie zadziala bo string jest immutable
+
+
+# wariant 1
+
+z = 'alalala'
+z = list(z)
+z[2:3] = 'W' # element o indeksie 3 zastepuje litera 'W'
+''.join(z)
+
+
+# wariant 2
+
+text = "The cat sat on the mat"
+text = text[:8] + "slept" + text[11:]
+text
+```
+
+### inne przydatne triki
+
+```{python}
+
+Jezeli pracujemy z funkcjami z p:re to mozemu chciec aby były niewrażliwe na wielkosc liter
+
+t1 = re.search('ala', 'ALA', re.IGNORECASE)
+t1.group(0)
+
+```
+
+
+
+### rozne podstawowe operacje i funkcje zwiazane ze stringami
+
+```{python}
+
+astring = "Hello world ll!"
+astring
+
+print(astring.index("o")) # indeks pierwszego wystepienia listey 'o'
+
+print(astring.count("l")) # ile razy wystepuje litera 'l'
+
+print(astring.upper()) # zamiana na wielkie liter
+
+print(astring.lower()) # zamiana na male litery
+
+print(astring.startswith("Hello")) # czy string zaczna sie od ciagu "Hello'
+
+print(astring.endswith("ble")) # czy string konczy sie na ciagu 'ble'
+
+print(astring.split(" ")) # rozbicie string na lista po elementach ktora sa spacja
+
+print('abc'*10) # wydrukuj string 'abc' 10 razy
+
+
+
+# ciag liter
+[chr(x) for x in range(97, 123)]  #  caly alfabet malymi literami
+[chr(x).upper() for x in range(97, 123)] # caly alfabet wielkimi literami
+
+
+
+```
+
+
+
+
+## wyrazenie regularne
+
+Na razie tylko wybrane przyklady !!!
+
+```{python}
+
+
+import re
+m = 
+m.group(0)
+
+# czy string zawiera a po ktorym stoi dowolny inny znak
+bool(re.search('a.', string='abc')) # True
+bool(re.search('a.', string='a')) # False
+bool(re.search('a.', string='abcd')) # True
+
+# czy string zaczyna sie od ciagu 'ab'
+bool(re.search('^(ab)', 'abc')) # True
+bool(re.search('^(ab)', 'acb')) # False
+
+# czy string zaczyna sie na 'a' i konczy sie na 'z'
+bool(re.search('^(a).(z)$', 'abz')) # True
+bool(re.search('^(a).(z)$', 'acw')) # False
+bool(re.search('^(a).(z)$', 'gcz')) # False
+
+
+# czy string zawiera cyfre od 0 do 5
+bool(re.search('[0-5]', 'abc 4 efg')) # True
+bool(re.search('[0-5]', 'abc 9 efg')) # False
+
+
+
+# czy string koczny sie na ciagu 'ab'
+bool(re.search('(ab)$', 'cab')) # True
+bool(re.search('(ab)$', 'bac')) # False
+
+
+# czy string zawiera ciag 'ab' lub ciag 'wz'
+bool(re.search('(ab)|(wz)', 'abwz')) # True
+bool(re.search('(ab)|(wz)', 'abgg')) # True
+
+
+# czy string zawiera 'ab' ktore jest powtorzone co najmniej 3 raz z rzedu
+bool(re.search('(ab){3,}', 'ababab')) # True
+bool(re.search('(ab){3,}', 'abab')) # False
+bool(re.search('(ab){3,}', 'abababababababababab')) # True
+
+
+# czy string zawiera 'ab' ktore jest powtorzone  3 lub 4 lub 5 razy
+bool(re.search('(ab){3,5}', 'abababab')) # True
+bool(re.search('(ab){3,5}', 'abababababababababababab')) # True
+bool(re.search('(ab){3,5}', 'ab ab ab ab')) # False
+# czy string zawiera 'def' ktory jest poprzedzony przez 'abc' ?
+bool(re.search('(?<=abc)def', 'abcdef')) # True
+bool(re.search('(?<=abc)def', 'defabc')) # False
+
+
+# czy string zawiera 'def' po ktorym jest 'abc' ?
+bool(re.search('def(?=abc)', 'abcdef')) # False
+bool(re.search('def(?=abc)', 'defabc')) # True
+
+
+# czy string zawiera 'def' ktory NIE jest poprzedzony 'abc'
+bool(re.search('(?<!abc)def', 'abcdef')) # False
+bool(re.search('(?<!abc)def', 'defabc')) # True
+
+
+# czy string zawiera 'def' po ktorym NIE jest 'abc' ?
+bool(re.search('def(?!abc)', 'abcdef')) # True
+bool(re.search('def(?!abc)', 'defabc')) # False
+
+```
+
+flagi (bardzo pomocna rzecz)
+
+```{python}
+
+# wyszukuj ugnorujac wielkosc liter (flaga IGNORECASE)
+bool(re.search('a', string='abc'), flag = re.IGNORECASE) 
+
+```
+
+
+## daty
+
+UWAGA: o pracy z datami w kontekscie DataFrames jest meteriał w pliku 1_05_PROGRAMING_data_structures-Pandas"
+
+### tworzenie dat
+
+```{python}
+
+import datetime
+
+
+# aktualny czas
+x = datetime.datetime.now()
+print(x)
+
+
+# aktualna data
+x = datetime.date.today()
+print(x)
+
+
+
+# tworzenie dat z liczb
+
+data = datetime.datetime(2018, 6, 1) #data
+czas = datetime.datetime(2018, 6, 1, 10, 10, 10) # czas sekundowy
+
+
+# data z tekstu 
+
+https://docs.python.org/3/library/datetime.html
+
+print(datetime.datetime.strptime('24052010', "%d%m%Y").date()) # pelna lista znacznikow typu %Y jest na stronie dokumentacji pakietu 'datatime' (https://docs.python.org/3/library/datetime.html)
+
+
+```
+
+
+
+### atrybuty daty
+
+```{python}
+
+import datetime
+
+czas = datetime.datetime(2018, 6, 1, 10, 10, 10) # czas sekundowy
+
+# wyciaganie informacji z daty
+czas.year
+czas.month
+czas.day
+czas.weekday()
+czas.isoweekday()
+czas.hour
+czas.minute
+czas.second
+
+import pytz
+czas_tz = datetime.datetime(2018, 6, 1, tzinfo=pytz.timezone("Poland")) # czas z podaniem strefy czasowej
+czas_tz.tzinfo # strefa czasowa (jezeli zostala okreslona)
+
+# zmiana strefy czasowej
+czas_tz = czas_tz.astimezone(pytz.timezone("America/Los_Angeles"))
+
+# wiecej o pracy ze strefami czasowymi
+# https://howchoo.com/g/ywi5m2vkodk/working-with-datetime-objects-and-timezones-in-python
+
+```
+
+### inkrementacja daty
+
+```{python}
+
+import datetime
+
+czas_1 = datetime.datetime(2019, 6, 21, 10, 10, 10) # czas sekundowy
+
+# inkrementacja o dni oraz krotsze jednostki czasu. (ponizej pokazane timedelta nie obsluguje dluzszych jednostek czasowych np. miesiecy, lat i itp.)
+
+czas_1 + datetime.timedelta(20) # dodanie do daty 20 dni
+
+czas_1 + datetime.timedelta(20) # dodanie do daty 20 dni
+
+czas_1 + datetime.timedelta(hours = 20) # dodanie do daty 20 godzin
+
+czas_1 + datetime.timedelta(years = 5) # BLAD!!! - lata nie sa obslugiwane
+
+
+
+
+# inkrementacja o dluzszcze jednostki czasowe i inne fajne triki (funkcja relativedelta)
+from dateutil.relativedelta import relativedelta
+
+czas_1 + relativedelta(months=2) # dodanie do daty 2 miesiecy
+
+czas_1 + relativedelta(quarters=-2) # odjecie od daty 2 kwartalow
+
+czas_1 + relativedelta(years=1) # dodanie do daty 1 roku
+
+czas_1 + relativedelta(quarters=1) # dodanie do daty 1 kwartalu
+
+czas_1 + relativedelta(months=1, weeks=1, hours=10) # dodanie jednego miesiaca i jednego tygodnia i 10 godzin
+
+
+from dateutil.relativedelta import relativedelta, MO, FR
+
+czas_1 + relativedelta(weekday=FR(+1)) # dodanie tyle czasu zeby uzyskac nastepny piatek (jezeli dzisiaj jest piatek zwracamy ta sama date!!!)
+
+czas_1 + relativedelta(days = 1, weekday=FR(1)) # dodanie tyle czasu zeby uzyskac nastepny piatek (ale w przeciwienstwie do poprzedniego przykladu, jezeli dzisiaj jest piatek to zwracamy i tak nastepny piatek)
+
+czas_1 + relativedelta(weekday=MO(-1)) # odjecie tyle czasu zeby uzyskac poprzedni poniedzialek
+
+
+# UWAGA - wazne rozroznienie:
+czas_1 + relativedelta(days = 31) # tutaj dodalismy 31 dni tak jakbysmy zrobili datetime.timedelta(31)
+# ALE teraz uzyjemy nie 'days', ale 'day' !!!
+czas_1 + relativedelta(day = 31) # tutaj dodajemy rozniez dni, ale mozemy maksymalnie dodac ich tyle aby dojsc do odstatniego dnia miesiaca. 31 dni to za duzo i przyrost zostanie obciety i dostaniemy jedynie 30 czerwca.
+
+# powyzsza skladnia umozliwia robienie super trickow co pokazuja dalsze przyklady
+
+czas_1 + relativedelta(day=31, weekday=FR(-1)) # dostaniemy ostatni piatek w miesiacu
+
+datetime(1997,1,1)+relativedelta(day=4, weekday=MO(-1), weeks=+14) # find the first day of the 15th week of 1997.
+
+
+# UWAGA: wiecej przykladow tego typu, na : https://dateutil.readthedocs.io/en/stable/relativedelta.html
+```
+
+
+### roznice dat
+
+```{python}
+
+from datetime import *; from dateutil.relativedelta import *
+import calendar
+import datetime
+
+
+czas_1 = datetime.datetime(2019, 6, 21, 10, 10, 10) # czas sekundowy
+czas_2 = datetime.datetime(2018, 5, 4, 10, 10, 10) # czas sekundowy
+
+
+roznica = relativedelta(czas_1, czas_2)
+roznica.years # roznica w latach
+roznica.years*12 + roznica.months # roznica w miesiacach
+(czas_1.date() - czas_2.date()).days # roznica w dniach
+
+
+
+# a teraz przyklad z uzyciem funkcji 'to_datetime' z pakietu numpy
+import numpy as np
+czas_1 = datetime.datetime(2019, 6, 21, 10, 10, 10) # czas sekundowy
+czas_2 = datetime.datetime(2018, 5, 4, 10, 10, 10) # czas sekundowy
+
+# zeby skladnia zadziala dla lat, miesiecy itp. uzyjemy konwetsji funkcja 'to_date' 
+import pandas as pd
+(pd.to_datetime((datetime.date(2010,12,10))) - pd.to_datetime(datetime.date(2010,12,11)))/np.timedelta64(1,'Y') # lata
+(pd.to_datetime((datetime.date(2010,12,10))) - pd.to_datetime(datetime.date(2010,12,11)))/np.timedelta64(1,'M') # miesiace
+(pd.to_datetime((datetime.date(2010,12,10))) - pd.to_datetime(datetime.date(2010,12,11)))/np.timedelta64(1,'m') # minuty
+
+
+
+```
+
+
+
+### zmiana wartosci
+
+```{python}
+
+czas_1 = datetime.datetime(2019, 6, 21, 10, 10, 10) # czas sekundowy
+czas_1.replace(year = 2000, hour = 11) # zmiana roku i godziny
+
+```
+
+
+
+### zaokraglanie dat
+
+```{python}
+
+import datetime
+import pandas as pd
+
+czas_1 = datetime.datetime(2019, 6, 21, 10, 10, 10) # czas sekundow
+
+czas_1 + pd.offsets.MonthBegin(0) # zaokraglam do pierwszego dnia miesiaca
+
+czas_1 + pd.offsets.MonthBegin(4) # dodaje 4 miesiace i zaokrlaglam do pierwszego dnia miesiaca
+
+czas_1 + pd.offsets.MonthEnd(4) # dodaje 4 miesiacae i zakraglam do ostatniego dnia miesiaca
+
+czas_1 + pd.offsets.MonthEnd(4) # dodaje 4 miesiacae i zakraglam do ostatniego dnia miesiaca
+
+czas_1 + pd.offsets.YearBegin(0) # zakraglam do pierwszego dnia roku
+
+# Lista dostepnych zaokraglen na stronie dokumentacji: https://pandas.pydata.org/pandas-docs/stable/reference/offset_frequency.html
+```
+
+
+### generowanie ciagu dat
+
+Funkcja 'pandas.date_range'
+```{python}
+
+import pandas as pd
+
+pd.date_range(start='1/1/2018', end='1/08/2018') # ciag data z zadanego przedzialu (domyslnie przyrost co jeden dzien)
+
+pd.date_range(start='2018-04-24', end='2018-05-30', periods=3) # wymus zwrocenie tylk 3 dat z przedzialu
+
+pd.date_range(start=datetime.date(2010,10,10), periods=5, freq='M') # zwroc 5 dat od  '2010-10-10' przy czym przyrost co miesiac
+
+pd.date_range(start='1/1/2018', periods=5, freq='3M') # zwroc 5 dat od  '1/1/2018' przy czym przyrost co 3 miesiace
+
+pd.date_range(start='1/1/2018', periods=5, tz='Asia/Tokyo')  # zwroc 5 dat od  '1/1/2018' przy czym przyrost co miesiac i dodaj strefe czasowa z Tokyo
+
+
+# uwga to co dostajemy wyzej do nie jest zwykla lista. Jezeli chcemy dostac lista z 'datetime' to robimy:
+ciag_dat = pd.date_range(start='1/1/2018', periods=5, tz='Asia/Tokyo')
+ciag_dat_lista = ciag_dat.tolist()
+ciag_dat_lista[1]
+
+
+# wiecej przykladow na stronie : https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.date_range.html
+
+```
+
+Funkcja 'numpy.arange'
+```{python}
+
+import numpy as np
+np.arange('2020-02-07', '2020-03-09', dtype='datetime64[D]') # dni od 7 lutego do 8 marca
+np.arange('2005-02', '2005-03', dtype='datetime64[D]') # dni od 1 lutego do 29 lutego
+
+t1 = np.arange('2005-02', '2006-01', dtype='datetime64[M]') # miesiaca od lutego 2005 do grudnia 2005 (bez dnia)
+t1.astype('datetime64[D]') # dodanie dnia miesiaca = 1
+t1.astype('datetime64[D]') - 1 # odjecie jednego dnia i uzuskanie ciagu ostatnich dni miesiaca od 2015-01-31 do 2005-11-30
+
+```
+
+
+
+
+
+
+

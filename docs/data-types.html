@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 DATA TYPES | Introduction to Python</title>
+  <meta name="description" content="Chapter 4 DATA TYPES | Introduction to Python" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 DATA TYPES | Introduction to Python" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 DATA TYPES | Introduction to Python" />
+  
+  
+  
+
+<meta name="author" content="Łukasz Muszyński" />
+
+
+<meta name="date" content="2020-06-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="functions-and-enviroments.html">
+<link rel="next" href="data-structures-basic.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introdution to Python</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> INTRO</a></li>
+<li class="part"><span><b>I <lfg>PROGRAMMING</lfg></b></span></li>
+<li class="chapter" data-level="2" data-path="syntax.html"><a href="syntax.html"><i class="fa fa-check"></i><b>2</b> Syntax</a><ul>
+<li class="chapter" data-level="2.1" data-path="syntax.html"><a href="syntax.html#operatory-logiczne"><i class="fa fa-check"></i><b>2.1</b> operatory logiczne</a></li>
+<li class="chapter" data-level="2.2" data-path="syntax.html"><a href="syntax.html#podstawowe-komendy-i-funkcje"><i class="fa fa-check"></i><b>2.2</b> podstawowe komendy i funkcje</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="syntax.html"><a href="syntax.html#sprawdzenie-typu-obiektu"><i class="fa fa-check"></i><b>2.2.1</b> sprawdzenie typu obiektu</a></li>
+<li class="chapter" data-level="2.2.2" data-path="syntax.html"><a href="syntax.html#inne-komendy-i-funkcje"><i class="fa fa-check"></i><b>2.2.2</b> inne komendy i funkcje</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="syntax.html"><a href="syntax.html#control-flow"><i class="fa fa-check"></i><b>2.3</b> control flow</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="syntax.html"><a href="syntax.html#if-else"><i class="fa fa-check"></i><b>2.3.1</b> if else</a></li>
+<li class="chapter" data-level="2.3.2" data-path="syntax.html"><a href="syntax.html#petla-for"><i class="fa fa-check"></i><b>2.3.2</b> petla ‘for’</a></li>
+<li class="chapter" data-level="2.3.3" data-path="syntax.html"><a href="syntax.html#petla-while"><i class="fa fa-check"></i><b>2.3.3</b> petla ‘while’</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="syntax.html"><a href="syntax.html#indicies"><i class="fa fa-check"></i><b>2.4</b> Indicies</a></li>
+<li class="chapter" data-level="2.5" data-path="syntax.html"><a href="syntax.html#shallow-and-deep-copies"><i class="fa fa-check"></i><b>2.5</b> shallow and deep copies</a></li>
+<li class="chapter" data-level="2.6" data-path="syntax.html"><a href="syntax.html#generators"><i class="fa fa-check"></i><b>2.6</b> generators</a></li>
+<li class="chapter" data-level="2.7" data-path="syntax.html"><a href="syntax.html#dynamic-code"><i class="fa fa-check"></i><b>2.7</b> dynamic code</a></li>
+<li class="chapter" data-level="2.8" data-path="syntax.html"><a href="syntax.html#errors-and-warning"><i class="fa fa-check"></i><b>2.8</b> errors and warning</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="syntax.html"><a href="syntax.html#try"><i class="fa fa-check"></i><b>2.8.1</b> try</a></li>
+<li class="chapter" data-level="2.8.2" data-path="syntax.html"><a href="syntax.html#assertion"><i class="fa fa-check"></i><b>2.8.2</b> assertion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html"><i class="fa fa-check"></i><b>3</b> FUNCTIONS AND ENVIROMENTS</a><ul>
+<li class="chapter" data-level="3.1" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#podstawowa-skadnia"><i class="fa fa-check"></i><b>3.1</b> podstawowa składnia</a></li>
+<li class="chapter" data-level="3.2" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#przekazywanie-argumentow-przez-wartosc-a-przekazywanie-przez-referencje"><i class="fa fa-check"></i><b>3.2</b> przekazywanie argumentow przez wartosc a przekazywanie przez referencje</a></li>
+<li class="chapter" data-level="3.3" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#funkcje-anonimowe"><i class="fa fa-check"></i><b>3.3</b> funkcje anonimowe</a></li>
+<li class="chapter" data-level="3.4" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#programowanie-funkcyjne"><i class="fa fa-check"></i><b>3.4</b> programowanie funkcyjne</a></li>
+<li class="chapter" data-level="3.5" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#wektoryzacja-funkcji"><i class="fa fa-check"></i><b>3.5</b> wektoryzacja funkcji</a></li>
+<li class="chapter" data-level="3.6" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#rekurencja"><i class="fa fa-check"></i><b>3.6</b> rekurencja</a></li>
+<li class="chapter" data-level="3.7" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#zakres-istnienia-zmiennych-scoping-rules"><i class="fa fa-check"></i><b>3.7</b> zakres istnienia zmiennych (scoping rules)</a></li>
+<li class="chapter" data-level="3.8" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#dekoratory"><i class="fa fa-check"></i><b>3.8</b> dekoratory</a></li>
+<li class="chapter" data-level="3.9" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#przydatne"><i class="fa fa-check"></i><b>3.9</b> Przydatne</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>4</b> DATA TYPES</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-types.html"><a href="data-types.html#liczby"><i class="fa fa-check"></i><b>4.1</b> liczby</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="data-types.html"><a href="data-types.html#tworzenie"><i class="fa fa-check"></i><b>4.1.1</b> tworzenie</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-types.html"><a href="data-types.html#ciagi"><i class="fa fa-check"></i><b>4.1.2</b> Ciagi</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-types.html"><a href="data-types.html#rozne-funkcje"><i class="fa fa-check"></i><b>4.1.3</b> rozne funkcje</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-types.html"><a href="data-types.html#text"><i class="fa fa-check"></i><b>4.2</b> text</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="data-types.html"><a href="data-types.html#tworzenie-statyczne"><i class="fa fa-check"></i><b>4.2.1</b> tworzenie statyczne</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-types.html"><a href="data-types.html#tworzenie-dynamiczne---nowa-skladnia-z-funkcja-format"><i class="fa fa-check"></i><b>4.2.2</b> Tworzenie dynamiczne - nowa skladnia z funkcja ‘format’</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-types.html"><a href="data-types.html#tworzenie-dynamiczne---stara-skladnia"><i class="fa fa-check"></i><b>4.2.3</b> Tworzenie dynamiczne - stara skladnia</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-types.html"><a href="data-types.html#multiline-string"><i class="fa fa-check"></i><b>4.2.4</b> multiline string</a></li>
+<li class="chapter" data-level="4.2.5" data-path="data-types.html"><a href="data-types.html#odwolywanie-sie-do-podstringow"><i class="fa fa-check"></i><b>4.2.5</b> odwolywanie sie do podstringow</a></li>
+<li class="chapter" data-level="4.2.6" data-path="data-types.html"><a href="data-types.html#szukanie-pozycji-podstringow"><i class="fa fa-check"></i><b>4.2.6</b> szukanie pozycji podstringow</a></li>
+<li class="chapter" data-level="4.2.7" data-path="data-types.html"><a href="data-types.html#modyfikacja"><i class="fa fa-check"></i><b>4.2.7</b> modyfikacja</a></li>
+<li class="chapter" data-level="4.2.8" data-path="data-types.html"><a href="data-types.html#inne-przydatne-triki"><i class="fa fa-check"></i><b>4.2.8</b> inne przydatne triki</a></li>
+<li class="chapter" data-level="4.2.9" data-path="data-types.html"><a href="data-types.html#rozne-podstawowe-operacje-i-funkcje-zwiazane-ze-stringami"><i class="fa fa-check"></i><b>4.2.9</b> rozne podstawowe operacje i funkcje zwiazane ze stringami</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-types.html"><a href="data-types.html#wyrazenie-regularne"><i class="fa fa-check"></i><b>4.3</b> wyrazenie regularne</a></li>
+<li class="chapter" data-level="4.4" data-path="data-types.html"><a href="data-types.html#daty"><i class="fa fa-check"></i><b>4.4</b> daty</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="data-types.html"><a href="data-types.html#tworzenie-dat"><i class="fa fa-check"></i><b>4.4.1</b> tworzenie dat</a></li>
+<li class="chapter" data-level="4.4.2" data-path="data-types.html"><a href="data-types.html#atrybuty-daty"><i class="fa fa-check"></i><b>4.4.2</b> atrybuty daty</a></li>
+<li class="chapter" data-level="4.4.3" data-path="data-types.html"><a href="data-types.html#inkrementacja-daty"><i class="fa fa-check"></i><b>4.4.3</b> inkrementacja daty</a></li>
+<li class="chapter" data-level="4.4.4" data-path="data-types.html"><a href="data-types.html#roznice-dat"><i class="fa fa-check"></i><b>4.4.4</b> roznice dat</a></li>
+<li class="chapter" data-level="4.4.5" data-path="data-types.html"><a href="data-types.html#zmiana-wartosci"><i class="fa fa-check"></i><b>4.4.5</b> zmiana wartosci</a></li>
+<li class="chapter" data-level="4.4.6" data-path="data-types.html"><a href="data-types.html#zaokraglanie-dat"><i class="fa fa-check"></i><b>4.4.6</b> zaokraglanie dat</a></li>
+<li class="chapter" data-level="4.4.7" data-path="data-types.html"><a href="data-types.html#generowanie-ciagu-dat"><i class="fa fa-check"></i><b>4.4.7</b> generowanie ciagu dat</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-structures-basic.html"><a href="data-structures-basic.html"><i class="fa fa-check"></i><b>5</b> DATA STRUCTURES - basic</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#listy"><i class="fa fa-check"></i><b>5.1</b> listy</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#atrybuty-listy"><i class="fa fa-check"></i><b>5.1.1</b> atrybuty listy</a></li>
+<li class="chapter" data-level="5.1.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-listy"><i class="fa fa-check"></i><b>5.1.2</b> tworzenie listy</a></li>
+<li class="chapter" data-level="5.1.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#dodawanie-wartosci"><i class="fa fa-check"></i><b>5.1.3</b> dodawanie wartosci</a></li>
+<li class="chapter" data-level="5.1.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#aktualizacja-wartosci"><i class="fa fa-check"></i><b>5.1.4</b> aktualizacja wartosci</a></li>
+<li class="chapter" data-level="5.1.5" data-path="data-structures-basic.html"><a href="data-structures-basic.html#usuwanie"><i class="fa fa-check"></i><b>5.1.5</b> usuwanie</a></li>
+<li class="chapter" data-level="5.1.6" data-path="data-structures-basic.html"><a href="data-structures-basic.html#filtrowanie"><i class="fa fa-check"></i><b>5.1.6</b> filtrowanie</a></li>
+<li class="chapter" data-level="5.1.7" data-path="data-structures-basic.html"><a href="data-structures-basic.html#wyszukiwanie-indeksu"><i class="fa fa-check"></i><b>5.1.7</b> wyszukiwanie indeksu</a></li>
+<li class="chapter" data-level="5.1.8" data-path="data-structures-basic.html"><a href="data-structures-basic.html#sortowanie"><i class="fa fa-check"></i><b>5.1.8</b> sortowanie</a></li>
+<li class="chapter" data-level="5.1.9" data-path="data-structures-basic.html"><a href="data-structures-basic.html#operowanie-funkcjami-na-elementach"><i class="fa fa-check"></i><b>5.1.9</b> operowanie funkcjami na elementach</a></li>
+<li class="chapter" data-level="5.1.10" data-path="data-structures-basic.html"><a href="data-structures-basic.html#ciekawe-operacje-i-triki-na-listach"><i class="fa fa-check"></i><b>5.1.10</b> ciekawe operacje i triki na listach</a></li>
+<li class="chapter" data-level="5.1.11" data-path="data-structures-basic.html"><a href="data-structures-basic.html#losowe-elementy"><i class="fa fa-check"></i><b>5.1.11</b> losowe elementy</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#slowniki"><i class="fa fa-check"></i><b>5.2</b> slowniki</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-1"><i class="fa fa-check"></i><b>5.2.1</b> tworzenie</a></li>
+<li class="chapter" data-level="5.2.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#odwolywanie-sie-do-elementow"><i class="fa fa-check"></i><b>5.2.2</b> odwolywanie sie do elementow</a></li>
+<li class="chapter" data-level="5.2.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#updating-and-adding"><i class="fa fa-check"></i><b>5.2.3</b> updating and adding</a></li>
+<li class="chapter" data-level="5.2.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#removing"><i class="fa fa-check"></i><b>5.2.4</b> removing</a></li>
+<li class="chapter" data-level="5.2.5" data-path="data-structures-basic.html"><a href="data-structures-basic.html#filtering"><i class="fa fa-check"></i><b>5.2.5</b> filtering</a></li>
+<li class="chapter" data-level="5.2.6" data-path="data-structures-basic.html"><a href="data-structures-basic.html#filtrowanie-kluczy-po-liscie"><i class="fa fa-check"></i><b>5.2.6</b> filtrowanie kluczy po liscie</a></li>
+<li class="chapter" data-level="5.2.7" data-path="data-structures-basic.html"><a href="data-structures-basic.html#filtrowanie-vartosci-po-liscie"><i class="fa fa-check"></i><b>5.2.7</b> filtrowanie vartosci po liscie</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tuples"><i class="fa fa-check"></i><b>5.3</b> tuples</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#atrybuty"><i class="fa fa-check"></i><b>5.3.1</b> atrybuty</a></li>
+<li class="chapter" data-level="5.3.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-2"><i class="fa fa-check"></i><b>5.3.2</b> tworzenie</a></li>
+<li class="chapter" data-level="5.3.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#odwolywanie-sie-do-elementow-1"><i class="fa fa-check"></i><b>5.3.3</b> odwolywanie sie do elementow</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#set-zbiory"><i class="fa fa-check"></i><b>5.4</b> set (zbiory)</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-3"><i class="fa fa-check"></i><b>5.4.1</b> tworzenie</a></li>
+<li class="chapter" data-level="5.4.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#atrubyty"><i class="fa fa-check"></i><b>5.4.2</b> atrubyty</a></li>
+<li class="chapter" data-level="5.4.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#aktualizacjadodawanieusuwaniefiltrowanie-wartosci"><i class="fa fa-check"></i><b>5.4.3</b> aktualizacja/dodawanie/usuwanie/filtrowanie wartosci</a></li>
+<li class="chapter" data-level="5.4.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#funkcje-na-elementach"><i class="fa fa-check"></i><b>5.4.4</b> funkcje na elementach</a></li>
+<li class="chapter" data-level="5.4.5" data-path="data-structures-basic.html"><a href="data-structures-basic.html#operacje-na-zbiorach"><i class="fa fa-check"></i><b>5.4.5</b> operacje na zbiorach</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html"><i class="fa fa-check"></i><b>6</b> DATA STRUCTURES-Pandas</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#series"><i class="fa fa-check"></i><b>6.1</b> Series</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#tworzenie-4"><i class="fa fa-check"></i><b>6.1.1</b> tworzenie</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#atrybuty-1"><i class="fa fa-check"></i><b>6.1.2</b> atrybuty</a></li>
+<li class="chapter" data-level="6.1.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#indeksy"><i class="fa fa-check"></i><b>6.1.3</b> indeksy</a></li>
+<li class="chapter" data-level="6.1.4" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#aktualizacja-wartosci-1"><i class="fa fa-check"></i><b>6.1.4</b> Aktualizacja wartosci</a></li>
+<li class="chapter" data-level="6.1.5" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#sortowanie-1"><i class="fa fa-check"></i><b>6.1.5</b> sortowanie</a></li>
+<li class="chapter" data-level="6.1.6" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#rozne-funkcje-1"><i class="fa fa-check"></i><b>6.1.6</b> rozne funkcje</a></li>
+<li class="chapter" data-level="6.1.7" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-brakami-danych-i-wartosciami-nieskonczonymi"><i class="fa fa-check"></i><b>6.1.7</b> praca z brakami danych i wartosciami nieskonczonymi</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#categorical"><i class="fa fa-check"></i><b>6.2</b> Categorical</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#tworzenie-5"><i class="fa fa-check"></i><b>6.2.1</b> Tworzenie</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#usuwaniedodawaniemodyfikacje-kategorii"><i class="fa fa-check"></i><b>6.2.2</b> usuwanie/dodawanie/modyfikacje kategorii</a></li>
+<li class="chapter" data-level="6.2.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dodawanie-nowych-elemntow"><i class="fa fa-check"></i><b>6.2.3</b> dodawanie nowych elemntow</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#data-frames"><i class="fa fa-check"></i><b>6.3</b> DATA FRAMES</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#najwazniejsze-atrybuty-dataframe"><i class="fa fa-check"></i><b>6.3.1</b> Najważniejsze atrybuty DataFrame</a></li>
+<li class="chapter" data-level="6.3.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#tworzenie-ramki-danych"><i class="fa fa-check"></i><b>6.3.2</b> Tworzenie ramki danych</a></li>
+<li class="chapter" data-level="6.3.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#konwersja-ramki-danych-na-inne-typy"><i class="fa fa-check"></i><b>6.3.3</b> Konwersja ramki danych na inne typy</a></li>
+<li class="chapter" data-level="6.3.4" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#indeksy-1"><i class="fa fa-check"></i><b>6.3.4</b> Indeksy</a></li>
+<li class="chapter" data-level="6.3.5" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#wymuszanie-typow-kolumn-w-dataframe"><i class="fa fa-check"></i><b>6.3.5</b> Wymuszanie typów kolumn w DataFrame</a></li>
+<li class="chapter" data-level="6.3.6" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#transpozycja"><i class="fa fa-check"></i><b>6.3.6</b> Transpozycja</a></li>
+<li class="chapter" data-level="6.3.7" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#zmiana-nazw-kolumn"><i class="fa fa-check"></i><b>6.3.7</b> Zmiana nazw kolumn</a></li>
+<li class="chapter" data-level="6.3.8" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#usuwanie-kolumn"><i class="fa fa-check"></i><b>6.3.8</b> Usuwanie kolumn</a></li>
+<li class="chapter" data-level="6.3.9" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#filtrowanie-data-frame---wybieranie-kolumn"><i class="fa fa-check"></i><b>6.3.9</b> Filtrowanie Data Frame - wybieranie kolumn</a></li>
+<li class="chapter" data-level="6.3.10" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#filtrowanie-data-frame---wybieranie-wierszy"><i class="fa fa-check"></i><b>6.3.10</b> Filtrowanie Data Frame - wybieranie wierszy</a></li>
+<li class="chapter" data-level="6.3.11" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dodawanie-nowych-kolumn"><i class="fa fa-check"></i><b>6.3.11</b> Dodawanie nowych kolumn</a></li>
+<li class="chapter" data-level="6.3.12" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#operatory-wyciaganie-danych-z-kolumn"><i class="fa fa-check"></i><b>6.3.12</b> Operatory wyciaganie danych z kolumn</a></li>
+<li class="chapter" data-level="6.3.13" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#aktualizacja-wartosci-w-kolumnach"><i class="fa fa-check"></i><b>6.3.13</b> Aktualizacja wartosci w kolumnach</a></li>
+<li class="chapter" data-level="6.3.14" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#sortowanie-2"><i class="fa fa-check"></i><b>6.3.14</b> Sortowanie</a></li>
+<li class="chapter" data-level="6.3.15" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#bindowanie---w-wierszach"><i class="fa fa-check"></i><b>6.3.15</b> Bindowanie - w wierszach</a></li>
+<li class="chapter" data-level="6.3.16" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#bindowanie---w-kolumnach"><i class="fa fa-check"></i><b>6.3.16</b> Bindowanie - w kolumnach</a></li>
+<li class="chapter" data-level="6.3.17" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#aczenie---merge"><i class="fa fa-check"></i><b>6.3.17</b> Łączenie - merge</a></li>
+<li class="chapter" data-level="6.3.18" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#duplikaty"><i class="fa fa-check"></i><b>6.3.18</b> Duplikaty</a></li>
+<li class="chapter" data-level="6.3.19" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#braki-danych"><i class="fa fa-check"></i><b>6.3.19</b> Braki danych</a></li>
+<li class="chapter" data-level="6.3.20" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#nieskonczone-wartosci"><i class="fa fa-check"></i><b>6.3.20</b> Nieskonczone wartosci</a></li>
+<li class="chapter" data-level="6.3.21" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#funkcje-oknowe"><i class="fa fa-check"></i><b>6.3.21</b> Funkcje oknowe</a></li>
+<li class="chapter" data-level="6.3.22" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-groupby"><i class="fa fa-check"></i><b>6.3.22</b> Praca z GroupBy</a></li>
+<li class="chapter" data-level="6.3.23" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#funkcje-po-kolumnach-i-wierszach"><i class="fa fa-check"></i><b>6.3.23</b> Funkcje po kolumnach i wierszach</a></li>
+<li class="chapter" data-level="6.3.24" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-tekstem"><i class="fa fa-check"></i><b>6.3.24</b> Praca z tekstem</a></li>
+<li class="chapter" data-level="6.3.25" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-datami"><i class="fa fa-check"></i><b>6.3.25</b> Praca z datami</a></li>
+<li class="chapter" data-level="6.3.26" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dummy---rekodowanie-na-zmienne-zero-jedynkowe"><i class="fa fa-check"></i><b>6.3.26</b> Dummy - rekodowanie na zmienne zero-jedynkowe</a></li>
+<li class="chapter" data-level="6.3.27" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#crosstab---analiza-liczebnosci"><i class="fa fa-check"></i><b>6.3.27</b> crosstab - analiza liczebnosci</a></li>
+<li class="chapter" data-level="6.3.28" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#zmiana-struktury-dataframe"><i class="fa fa-check"></i><b>6.3.28</b> zmiana struktury DataFrame</a></li>
+<li class="chapter" data-level="6.3.29" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#rozne-problemy"><i class="fa fa-check"></i><b>6.3.29</b> Rozne problemy</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html"><i class="fa fa-check"></i><b>7</b> DATA STRUCTURES - Numpy, Scipy</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#numpy"><i class="fa fa-check"></i><b>7.1</b> Numpy</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#tworzenie-6"><i class="fa fa-check"></i><b>7.1.1</b> Tworzenie</a></li>
+<li class="chapter" data-level="7.1.2" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#atrybuty-2"><i class="fa fa-check"></i><b>7.1.2</b> atrybuty</a></li>
+<li class="chapter" data-level="7.1.3" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#odwolywanie-sie-przez-indeksy"><i class="fa fa-check"></i><b>7.1.3</b> odwolywanie sie przez indeksy</a></li>
+<li class="chapter" data-level="7.1.4" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#filtrowanie-1"><i class="fa fa-check"></i><b>7.1.4</b> filtrowanie</a></li>
+<li class="chapter" data-level="7.1.5" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#aktualizacja-wartosci-2"><i class="fa fa-check"></i><b>7.1.5</b> aktualizacja wartosci</a></li>
+<li class="chapter" data-level="7.1.6" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#usuwanie-1"><i class="fa fa-check"></i><b>7.1.6</b> usuwanie</a></li>
+<li class="chapter" data-level="7.1.7" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#zmiana-kszattu-i-transpozycja"><i class="fa fa-check"></i><b>7.1.7</b> zmiana kszatłtu i transpozycja</a></li>
+<li class="chapter" data-level="7.1.8" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#bindowanie"><i class="fa fa-check"></i><b>7.1.8</b> bindowanie</a></li>
+<li class="chapter" data-level="7.1.9" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#operacje-na-kilku-macierzach-zwracajece-jedna-macierz"><i class="fa fa-check"></i><b>7.1.9</b> operacje na kilku macierzach zwracajece jedna macierz</a></li>
+<li class="chapter" data-level="7.1.10" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#sortowanie-3"><i class="fa fa-check"></i><b>7.1.10</b> sortowanie</a></li>
+<li class="chapter" data-level="7.1.11" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#funkcje-na-macierzach"><i class="fa fa-check"></i><b>7.1.11</b> funkcje na macierzach</a></li>
+<li class="chapter" data-level="7.1.12" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#braki-danych-i-wartosci-nieskonczone"><i class="fa fa-check"></i><b>7.1.12</b> braki danych i wartosci nieskonczone</a></li>
+<li class="chapter" data-level="7.1.13" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#rozne-funkcje-i-triki"><i class="fa fa-check"></i><b>7.1.13</b> rozne funkcje i triki</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#scipy"><i class="fa fa-check"></i><b>7.2</b> Scipy</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-structures-other.html"><a href="data-structures-other.html"><i class="fa fa-check"></i><b>8</b> DATA STRUCTURES - other</a></li>
+<li class="chapter" data-level="9" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html"><i class="fa fa-check"></i><b>9</b> DATA STRUCTURES - objective programing</a><ul>
+<li class="chapter" data-level="9.1" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#tworzenie-klasy-i-obiektow"><i class="fa fa-check"></i><b>9.1</b> Tworzenie klasy i obiektow</a></li>
+<li class="chapter" data-level="9.2" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#atrybuty-3"><i class="fa fa-check"></i><b>9.2</b> Atrybuty</a></li>
+<li class="chapter" data-level="9.3" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#metody"><i class="fa fa-check"></i><b>9.3</b> Metody</a></li>
+<li class="chapter" data-level="9.4" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#prywatne-atrybuty-i-metody"><i class="fa fa-check"></i><b>9.4</b> Prywatne atrybuty i metody</a></li>
+<li class="chapter" data-level="9.5" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#metody-statyczne"><i class="fa fa-check"></i><b>9.5</b> Metody statyczne</a></li>
+<li class="chapter" data-level="9.6" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#mechanizm-dziedziczenia"><i class="fa fa-check"></i><b>9.6</b> mechanizm dziedziczenia</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#tworzenie-podklas"><i class="fa fa-check"></i><b>9.6.1</b> tworzenie podklas</a></li>
+<li class="chapter" data-level="9.6.2" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#przeciazanie-metod"><i class="fa fa-check"></i><b>9.6.2</b> przeciazanie metod</a></li>
+<li class="chapter" data-level="9.6.3" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#funkcja-super"><i class="fa fa-check"></i><b>9.6.3</b> funkcja ‘super’</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="work-organisation.html"><a href="work-organisation.html"><i class="fa fa-check"></i><b>10</b> WORK ORGANISATION</a><ul>
+<li class="chapter" data-level="10.1" data-path="work-organisation.html"><a href="work-organisation.html#importowanie-pakietowmodulow"><i class="fa fa-check"></i><b>10.1</b> importowanie pakietow/modulow</a></li>
+<li class="chapter" data-level="10.2" data-path="work-organisation.html"><a href="work-organisation.html#wlasne-moduly-i-pakiety"><i class="fa fa-check"></i><b>10.2</b> Wlasne moduly i pakiety</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="work-organisation.html"><a href="work-organisation.html#wlasny-modul"><i class="fa fa-check"></i><b>10.2.1</b> Wlasny modul</a></li>
+<li class="chapter" data-level="10.2.2" data-path="work-organisation.html"><a href="work-organisation.html#wlasny-pakiet---wersja-uproszczona"><i class="fa fa-check"></i><b>10.2.2</b> Wlasny pakiet - wersja uproszczona</a></li>
+<li class="chapter" data-level="10.2.3" data-path="work-organisation.html"><a href="work-organisation.html#wlasny-pakiet-wg.-standardu-pip"><i class="fa fa-check"></i><b>10.2.3</b> Wlasny pakiet wg. standardu pip</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="work-organisation.html"><a href="work-organisation.html#tworzenie-wirtualnych-srodowisk"><i class="fa fa-check"></i><b>10.3</b> Tworzenie wirtualnych srodowisk</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="data-import-and-export.html"><a href="data-import-and-export.html"><i class="fa fa-check"></i><b>11</b> DATA IMPORT AND EXPORT</a><ul>
+<li class="chapter" data-level="11.1" data-path="data-import-and-export.html"><a href="data-import-and-export.html#pickles"><i class="fa fa-check"></i><b>11.1</b> pickles</a></li>
+<li class="chapter" data-level="11.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#csv-txt"><i class="fa fa-check"></i><b>11.2</b> csv / txt</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="data-import-and-export.html"><a href="data-import-and-export.html#import"><i class="fa fa-check"></i><b>11.2.1</b> Import</a></li>
+<li class="chapter" data-level="11.2.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#eksport"><i class="fa fa-check"></i><b>11.2.2</b> Eksport</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="data-import-and-export.html"><a href="data-import-and-export.html#excel"><i class="fa fa-check"></i><b>11.3</b> excel</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="data-import-and-export.html"><a href="data-import-and-export.html#import-1"><i class="fa fa-check"></i><b>11.3.1</b> Import</a></li>
+<li class="chapter" data-level="11.3.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#eksport-1"><i class="fa fa-check"></i><b>11.3.2</b> Eksport</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="data-import-and-export.html"><a href="data-import-and-export.html#schowek"><i class="fa fa-check"></i><b>11.4</b> schowek</a></li>
+<li class="chapter" data-level="11.5" data-path="data-import-and-export.html"><a href="data-import-and-export.html#dates-parser"><i class="fa fa-check"></i><b>11.5</b> dates parser</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html"><i class="fa fa-check"></i><b>12</b> TOOLS AND TRICKS</a><ul>
+<li class="chapter" data-level="12.1" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#praca-z-katalogami-i-plikami"><i class="fa fa-check"></i><b>12.1</b> praca z katalogami i plikami</a></li>
+<li class="chapter" data-level="12.2" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#podstawowe-polecenia-w-konsoli"><i class="fa fa-check"></i><b>12.2</b> Podstawowe polecenia w konsoli</a></li>
+<li class="chapter" data-level="12.3" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#python"><i class="fa fa-check"></i><b>12.3</b> python</a></li>
+<li class="chapter" data-level="12.4" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#pomiar-czasu-wykonania-kodu"><i class="fa fa-check"></i><b>12.4</b> pomiar czasu wykonania kodu</a></li>
+<li class="chapter" data-level="12.5" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#main-i-parametryzacja-z-konsoli"><i class="fa fa-check"></i><b>12.5</b> main i parametryzacja z konsoli</a><ul>
+<li class="chapter" data-level="12.5.1" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#prosty-przyklad"><i class="fa fa-check"></i><b>12.5.1</b> Prosty przyklad</a></li>
+<li class="chapter" data-level="12.5.2" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#uzycie-parsowanie"><i class="fa fa-check"></i><b>12.5.2</b> Uzycie parsowanie</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II <lfg>VISUALISATION</lfg></b></span></li>
+<li class="chapter" data-level="13" data-path="big-packages.html"><a href="big-packages.html"><i class="fa fa-check"></i><b>13</b> big packages</a><ul>
+<li class="chapter" data-level="13.1" data-path="big-packages.html"><a href="big-packages.html#matplotlib"><i class="fa fa-check"></i><b>13.1</b> matplotlib</a></li>
+<li class="chapter" data-level="13.2" data-path="big-packages.html"><a href="big-packages.html#seaborn"><i class="fa fa-check"></i><b>13.2</b> seaborn</a></li>
+<li class="chapter" data-level="13.3" data-path="big-packages.html"><a href="big-packages.html#plotly"><i class="fa fa-check"></i><b>13.3</b> plotly</a></li>
+<li class="chapter" data-level="13.4" data-path="big-packages.html"><a href="big-packages.html#bokeh"><i class="fa fa-check"></i><b>13.4</b> bokeh</a></li>
+<li class="chapter" data-level="13.5" data-path="big-packages.html"><a href="big-packages.html#plotnine"><i class="fa fa-check"></i><b>13.5</b> plotnine</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="other-packages.html"><a href="other-packages.html"><i class="fa fa-check"></i><b>14</b> other packages</a></li>
+<li class="chapter" data-level="15" data-path="graphs.html"><a href="graphs.html"><i class="fa fa-check"></i><b>15</b> graphs</a></li>
+<li class="chapter" data-level="16" data-path="maps.html"><a href="maps.html"><i class="fa fa-check"></i><b>16</b> maps</a></li>
+<li class="chapter" data-level="17" data-path="other-issues.html"><a href="other-issues.html"><i class="fa fa-check"></i><b>17</b> other issues</a></li>
+<li class="part"><span><b>III <lfg>PROGRAMMING</lfg></b></span></li>
+<li class="chapter" data-level="18" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html"><i class="fa fa-check"></i><b>18</b> Cooperation with other tools</a><ul>
+<li class="chapter" data-level="18.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#relational-databases"><i class="fa fa-check"></i><b>18.1</b> Relational databases</a><ul>
+<li class="chapter" data-level="18.1.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#sql-server"><i class="fa fa-check"></i><b>18.1.1</b> SQL Server</a></li>
+<li class="chapter" data-level="18.1.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#postgres"><i class="fa fa-check"></i><b>18.1.2</b> Postgres</a></li>
+<li class="chapter" data-level="18.1.3" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#oracle"><i class="fa fa-check"></i><b>18.1.3</b> Oracle</a></li>
+<li class="chapter" data-level="18.1.4" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#mysql"><i class="fa fa-check"></i><b>18.1.4</b> MySql</a></li>
+</ul></li>
+<li class="chapter" data-level="18.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#norelational-databases"><i class="fa fa-check"></i><b>18.2</b> Norelational databases</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#neo4j"><i class="fa fa-check"></i><b>18.2.1</b> Neo4j</a></li>
+<li class="chapter" data-level="18.2.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#redis"><i class="fa fa-check"></i><b>18.2.2</b> Redis</a></li>
+<li class="chapter" data-level="18.2.3" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#mongodb"><i class="fa fa-check"></i><b>18.2.3</b> MongoDB</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#r"><i class="fa fa-check"></i><b>18.3</b> R</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="www.html"><a href="www.html"><i class="fa fa-check"></i><b>19</b> www</a><ul>
+<li class="chapter" data-level="19.1" data-path="www.html"><a href="www.html#linter"><i class="fa fa-check"></i><b>19.1</b> Linter</a></li>
+<li class="chapter" data-level="19.2" data-path="www.html"><a href="www.html#airflow"><i class="fa fa-check"></i><b>19.2</b> AirFlow</a></li>
+<li class="chapter" data-level="19.3" data-path="www.html"><a href="www.html#luigi"><i class="fa fa-check"></i><b>19.3</b> Luigi</a></li>
+<li class="chapter" data-level="19.4" data-path="www.html"><a href="www.html#selenium"><i class="fa fa-check"></i><b>19.4</b> Selenium</a></li>
+<li class="chapter" data-level="19.5" data-path="www.html"><a href="www.html#flask"><i class="fa fa-check"></i><b>19.5</b> Flask</a></li>
+<li class="chapter" data-level="19.6" data-path="www.html"><a href="www.html#django"><i class="fa fa-check"></i><b>19.6</b> Django</a></li>
+</ul></li>
+<li class="part"><span><b>IV <lfg>APPENDICIES</lfg></b></span></li>
+<li class="chapter" data-level="20" data-path="good-habits.html"><a href="good-habits.html"><i class="fa fa-check"></i><b>20</b> good habits</a></li>
+<li class="chapter" data-level="21" data-path="ide.html"><a href="ide.html"><i class="fa fa-check"></i><b>21</b> IDE</a><ul>
+<li class="chapter" data-level="21.1" data-path="ide.html"><a href="ide.html#jupiter-notebook"><i class="fa fa-check"></i><b>21.1</b> Jupiter Notebook</a><ul>
+<li class="chapter" data-level="21.1.1" data-path="ide.html"><a href="ide.html#installation"><i class="fa fa-check"></i><b>21.1.1</b> Installation</a></li>
+<li class="chapter" data-level="21.1.2" data-path="ide.html"><a href="ide.html#connecting-with-venv"><i class="fa fa-check"></i><b>21.1.2</b> Connecting with Venv</a></li>
+<li class="chapter" data-level="21.1.3" data-path="ide.html"><a href="ide.html#magic-commends"><i class="fa fa-check"></i><b>21.1.3</b> Magic commends</a></li>
+<li class="chapter" data-level="21.1.4" data-path="ide.html"><a href="ide.html#global-settings"><i class="fa fa-check"></i><b>21.1.4</b> Global settings</a></li>
+<li class="chapter" data-level="21.1.5" data-path="ide.html"><a href="ide.html#converting-to-different-foramts"><i class="fa fa-check"></i><b>21.1.5</b> Converting to different foramts</a></li>
+<li class="chapter" data-level="21.1.6" data-path="ide.html"><a href="ide.html#widgets"><i class="fa fa-check"></i><b>21.1.6</b> widgets</a></li>
+</ul></li>
+<li class="chapter" data-level="21.2" data-path="ide.html"><a href="ide.html#jupiter-lab"><i class="fa fa-check"></i><b>21.2</b> Jupiter Lab</a><ul>
+<li class="chapter" data-level="21.2.1" data-path="ide.html"><a href="ide.html#installation-1"><i class="fa fa-check"></i><b>21.2.1</b> Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="21.3" data-path="ide.html"><a href="ide.html#pycharm"><i class="fa fa-check"></i><b>21.3</b> PyCharm</a><ul>
+<li class="chapter" data-level="21.3.1" data-path="ide.html"><a href="ide.html#konfiguracja-git-i-github"><i class="fa fa-check"></i><b>21.3.1</b> Konfiguracja Git i GitHub</a></li>
+<li class="chapter" data-level="21.3.2" data-path="ide.html"><a href="ide.html#dodanie-git-do-istniejacego-projektu"><i class="fa fa-check"></i><b>21.3.2</b> Dodanie Git do istniejącego projektu</a></li>
+<li class="chapter" data-level="21.3.3" data-path="ide.html"><a href="ide.html#zmiana-skrotow"><i class="fa fa-check"></i><b>21.3.3</b> Zmiana skrotow</a></li>
+<li class="chapter" data-level="21.3.4" data-path="ide.html"><a href="ide.html#podpinanie-do-vevn"><i class="fa fa-check"></i><b>21.3.4</b> Podpinanie do vevn</a></li>
+<li class="chapter" data-level="21.3.5" data-path="ide.html"><a href="ide.html#ustawienia-globalne-a-ustawienia-projektu"><i class="fa fa-check"></i><b>21.3.5</b> Ustawienia globalne a ustawienia projektu</a></li>
+<li class="chapter" data-level="21.3.6" data-path="ide.html"><a href="ide.html#uzyteczne-skroty"><i class="fa fa-check"></i><b>21.3.6</b> Uzyteczne skroty</a></li>
+<li class="chapter" data-level="21.3.7" data-path="ide.html"><a href="ide.html#debuggowanie"><i class="fa fa-check"></i><b>21.3.7</b> debuggowanie</a></li>
+</ul></li>
+<li class="chapter" data-level="21.4" data-path="ide.html"><a href="ide.html#rstudio"><i class="fa fa-check"></i><b>21.4</b> Rstudio</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="installation-2.html"><a href="installation-2.html"><i class="fa fa-check"></i><b>22</b> Installation</a><ul>
+<li class="chapter" data-level="22.1" data-path="installation-2.html"><a href="installation-2.html#anaconda"><i class="fa fa-check"></i><b>22.1</b> Anaconda</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="intro-1.html"><a href="intro-1.html"><i class="fa fa-check"></i><b>23</b> INTRO</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-types" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> DATA TYPES</h1>
+<div id="liczby" class="section level2">
+<h2><span class="header-section-number">4.1</span> liczby</h2>
+<div id="tworzenie" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> tworzenie</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#(1) z definicji</span>
+
+z1 <span class="op">=</span> <span class="dv">1</span>
+<span class="bu">type</span>(z) <span class="co"># typ &#39;integer</span>
+
+z2 <span class="op">=</span> <span class="fl">1.</span>
+<span class="bu">type</span>(z) <span class="co"># typ &#39;float&#39;</span>
+
+
+
+<span class="co">#(2) z konwersji liczb (zmiana typu)</span>
+z1 <span class="op">=</span> <span class="dv">10</span> <span class="co"># mamy integer</span>
+<span class="bu">float</span>(z1) <span class="co"># teraz przekonwertowalismy na float</span>
+
+z2 <span class="op">=</span> <span class="fl">10.94234</span>
+<span class="bu">int</span>(z2) <span class="co"># teraz przekonwertowalismy na integet (cala koncowka jest obcienta wiec dostalismy 10)</span>
+
+
+
+
+<span class="co">#(3) z konwersji tekstu</span>
+t1 <span class="op">=</span> <span class="st">&#39;15&#39;</span>
+<span class="bu">int</span>(t)
+
+t2 <span class="op">=</span> <span class="st">&#39;15.4&#39;</span>
+<span class="bu">float</span>(t2)
+
+<span class="co"># czy string sklada sie tylko z cyfr</span>
+<span class="co">&#39;10&#39;</span>.isdigit()   <span class="co"># True</span>
+<span class="co">&#39;10.4&#39;</span>.isdigit() <span class="co"># False</span>
+
+<span class="co"># czy string jest liczba</span>
+<span class="co">&#39;1.43&#39;</span>.replace(<span class="st">&#39;.&#39;</span>,<span class="st">&#39;&#39;</span>,<span class="dv">1</span>).isdigit()
+
+
+
+<span class="co">#(4) generowanie losowe</span>
+<span class="im">import</span> numpy <span class="im">as</span> np
+np.random.randint(<span class="dv">1</span>,<span class="dv">100</span>) <span class="co"># losowa liczba calkowita z przedzialu 1-100</span>
+np.random.uniform(<span class="dv">0</span>, <span class="dv">1</span>)<span class="op">*</span><span class="dv">100</span><span class="op">+</span><span class="dv">5</span> <span class="co"># losowa ułamkowa liczba z przedzialu 105-1005</span>
+
+<span class="im">import</span> random <span class="im">as</span> rd
+rd.randrange(start<span class="op">=</span><span class="dv">1</span>,stop<span class="op">=</span><span class="dv">30</span>,step<span class="op">=</span><span class="dv">2</span>) <span class="co"># liczba losowa z przedzialu 1-29 w uwzglednieniem co drugiej liczby (poniewaz startujemy od jedej brane pod uwage w tym przedziale beda tylko liczny nieparzyste)</span>
+
+
+<span class="im">import</span> numpy <span class="im">as</span> np
+np.random.choice([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], <span class="dv">20</span>) <span class="co"># 20 losowych liczb z listy [1,2,3]</span>
+np.random.choice([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], <span class="dv">20</span>, [<span class="fl">0.2</span>, <span class="fl">0.4</span>, <span class="fl">0.4</span>]) <span class="co"># 20 losowych liczb z listy [1,2,3] z wagami [0.2, 0.4, 0.4]</span></code></pre>
+</div>
+<div id="ciagi" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Ciagi</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> numpy <span class="im">as</span> np 
+
+<span class="co">#wygeneruj ciag liczb calkowitych</span>
+<span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">6</span>)) <span class="co"># od zera do 5 (NIE do 6 !!!)</span>
+<span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">2</span>,<span class="dv">6</span>)) <span class="co"># od 2 do 5</span>
+<span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">2</span>,<span class="dv">10</span>,<span class="dv">2</span>)) <span class="co"># od 2 do 5 do druga liczba</span>
+np.arange(<span class="dv">10</span>, <span class="dv">2</span>, <span class="dv">-1</span>) <span class="co"># od 10 do 2</span>
+
+<span class="co"># wygeneruj ciag ulamkow</span>
+np.arange(<span class="fl">0.5</span>, <span class="fl">5.25</span>, <span class="fl">0.75</span>) <span class="co"># od 0.5 do 5 co 0.5</span></code></pre>
+</div>
+<div id="rozne-funkcje" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> rozne funkcje</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># zaokraglanie</span>
+
+z1 <span class="op">=</span> <span class="fl">5.4</span>
+<span class="bu">round</span>(z1) <span class="co"># 5</span>
+
+z2 <span class="op">=</span> <span class="fl">5.9</span>
+<span class="bu">round</span>(z2) <span class="co"># 6</span>
+
+z3 <span class="op">=</span> <span class="fl">5.323422</span>
+<span class="bu">round</span>(z3, ndigits<span class="op">=</span><span class="dv">3</span> ) <span class="co"># 5.323</span>
+
+<span class="im">import</span> math
+math.ceil(<span class="fl">10.1</span>) <span class="co"># zaokraglenie do gory</span>
+math.floor(<span class="fl">10.1</span>) <span class="co"># zaokrlaglenie w dol</span>
+
+
+
+
+<span class="co"># logarytm</span>
+math.log(<span class="dv">10</span>, <span class="dv">3</span>) <span class="co"># logarytm z 10 o podstawie 3</span>
+math.log(<span class="dv">10</span>) <span class="co"># logarytm z 10 o podstawie naturalnej</span>
+math.log10(<span class="dv">10</span>) <span class="co"># logarytm z 10 o podstawie 10</span>
+
+
+<span class="co"># pociencie ciagu na kategorie</span>
+<span class="im">import</span> pandas <span class="im">as</span> pd
+<span class="im">import</span> numpy <span class="im">as</span> np
+pd.cut(np.random.randint(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>), <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">105</span>, <span class="dv">10</span>), right<span class="op">=</span><span class="va">False</span>)</code></pre>
+</div>
+</div>
+<div id="text" class="section level2">
+<h2><span class="header-section-number">4.2</span> text</h2>
+<p>UWAGA: o pracy z tekstem w kontekscie DataFrames jest materiał w pliku 1_05_PROGRAMING_data_structures-Pandas"</p>
+<p><a href="https://www.learnpython.org/en/Basic_String_Operations" class="uri">https://www.learnpython.org/en/Basic_String_Operations</a></p>
+<p>regex:
+<a href="https://www.w3schools.com/python/python_regex.asp" class="uri">https://www.w3schools.com/python/python_regex.asp</a>
+<a href="https://docs.python.org/3/howto/regex.html" class="uri">https://docs.python.org/3/howto/regex.html</a></p>
+<div id="tworzenie-statyczne" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> tworzenie statyczne</h3>
+<p>Tworzenie bezposrednie i przez konwersje</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># bezposrednio</span>
+z <span class="op">=</span> <span class="st">&#39;ale ma kota&#39;</span>
+
+
+
+<span class="co"># z liczb</span>
+<span class="bu">str</span>(<span class="dv">10</span>) <span class="co"># pojedyncza wartosci</span>
+[<span class="bu">str</span>(x) <span class="cf">for</span> x <span class="kw">in</span> [<span class="dv">1</span>,<span class="dv">2</span>]] <span class="co"># lista wartosci</span>
+
+
+
+
+<span class="co"># z dat</span>
+<span class="im">import</span> datetime
+<span class="bu">str</span>(datetime.datetime(<span class="dv">2010</span>,<span class="dv">10</span>,<span class="dv">10</span>)) <span class="co"># data i czas</span>
+<span class="bu">str</span>(datetime.date(<span class="dv">2010</span>,<span class="dv">10</span>,<span class="dv">10</span>)) <span class="co"># data</span>
+
+
+<span class="co"># sklejanie </span>
+s1 <span class="op">=</span> <span class="st">&#39;ala&#39;</span>
+s2 <span class="op">=</span> <span class="st">&#39; ma kota&#39;</span>
+s1 <span class="op">+</span> s2
+
+
+<span class="co"># sklejanie listy stringow funkcja &#39;join&#39;</span>
+lista_stringow <span class="op">=</span> [<span class="st">&quot;John&quot;</span>, <span class="st">&quot;Peter&quot;</span>, <span class="st">&quot;Vicky&quot;</span>]
+x <span class="op">=</span> <span class="st">&quot;_&quot;</span>.join(lista_stringow)
+<span class="bu">print</span>(x)</code></pre>
+</div>
+<div id="tworzenie-dynamiczne---nowa-skladnia-z-funkcja-format" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Tworzenie dynamiczne - nowa skladnia z funkcja ‘format’</h3>
+<p>Ponizej sa wybrane przyklady pochodzace ze strony:
+<a href="https://www.programiz.com/python-programming/methods/string/format" class="uri">https://www.programiz.com/python-programming/methods/string/format</a>
+Jezeli chcesz bardziej zglebic temat to zajzyj tam.</p>
+<p>Odwolywanie do pozycyjnych argumentow</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#(1) puste nawiasy {} w stringu.</span>
+<span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{}</span><span class="st"> loves </span><span class="sc">{}</span><span class="st"> &quot;</span>.<span class="bu">format</span>(<span class="st">&#39;Mary&#39;</span>, <span class="st">&#39;Tom&#39;</span>)) <span class="co"># argumenty do nawiasow &#39;{}&#39; sa podstawione w kolejnosci w jakiej sa podane w funkcji &#39;format&#39;</span>
+
+<span class="co"># w nawiasach wasatych sa indeksy odwolujace sie do pozycji argumentow w funkcji &#39;format&#39;</span>
+<span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{1}</span><span class="st"> loves </span><span class="sc">{0}</span><span class="st"> .&quot;</span>.<span class="bu">format</span>(<span class="st">&#39;Mary&#39;</span>, <span class="st">&#39;Tom&#39;</span>)) <span class="co"># Tuta mozemy sterowac w jakiej kolejnosci argumenty sa podstawiane do nawiasow.</span>
+
+<span class="co"># w nawiasach wasatych sa nazwy odwolujace sie do nazw argumentow w funckji &#39;format&#39;</span>
+<span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{osoba_2}</span><span class="st"> loves </span><span class="sc">{osoba_1}</span><span class="st"> &quot;</span>.<span class="bu">format</span>(osoba_1<span class="op">=</span><span class="st">&#39;Mary&#39;</span>, osoba_2<span class="op">=</span><span class="st">&#39;Tom&#39;</span>))
+
+<span class="co"># mozemy mieszac odwolywanie sie do indeksow i nazw argumentow znajdujacych sie w funkcji &#39;format&#39;</span>
+<span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{0}</span><span class="st"> loves </span><span class="sc">{osoba}</span><span class="st">.&quot;</span>.<span class="bu">format</span>(<span class="st">&#39;Mary&#39;</span>, osoba<span class="op">=</span><span class="st">&#39;Tom&#39;</span>))</code></pre>
+<p>Formatowanie typu liczbowego</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># podstawienie liczb calkowitych (integer)</span>
+<span class="bu">print</span>(<span class="st">&quot;The number is:</span><span class="sc">{:d}</span><span class="st">&quot;</span>.<span class="bu">format</span>(<span class="dv">123</span>))
+
+<span class="co"># podstawianie liczb zmiennoprzecinkowych (float)</span>
+<span class="bu">print</span>(<span class="st">&quot;The float number is:</span><span class="sc">{:f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(<span class="fl">123.4567898</span>))
+
+<span class="co"># podstawienie cyfr w innych formatach liczbowych (octal, binary and hexadecimal)</span>
+<span class="bu">print</span>(<span class="st">&quot;bin: </span><span class="sc">{0:b}</span><span class="st">, oct: </span><span class="sc">{0:o}</span><span class="st">, hex: </span><span class="sc">{0:x}</span><span class="st">&quot;</span>.<span class="bu">format</span>(<span class="dv">12</span>))
+
+
+
+<span class="co"># pelna lista dostepny modyfikatorow zwiaznych z typami liczbowymi:</span>
+
+d <span class="op">-</span> Decimal integer
+c <span class="op">-</span> Corresponding Unicode character
+b <span class="op">-</span> Binary <span class="bu">format</span>
+o <span class="op">-</span> Octal <span class="bu">format</span>
+x <span class="op">-</span> Hexadecimal <span class="bu">format</span> (lower case)
+X <span class="op">-</span> Hexadecimal <span class="bu">format</span> (upper case)
+n <span class="op">-</span> Same <span class="im">as</span> <span class="st">&#39;d&#39;</span>. Except it uses current locale setting <span class="cf">for</span> number separator
+e <span class="op">-</span> Exponential notation. (lowercase e)
+E <span class="op">-</span> Exponential notation (uppercase E)
+f <span class="op">-</span> Displays fixed point number (Default: <span class="dv">6</span>)
+F <span class="op">-</span> Same <span class="im">as</span> <span class="st">&#39;f&#39;</span>. Except displays <span class="st">&#39;inf&#39;</span> <span class="im">as</span> <span class="st">&#39;INF&#39;</span> <span class="kw">and</span> <span class="st">&#39;nan&#39;</span> <span class="im">as</span> <span class="st">&#39;NAN&#39;</span>
+g <span class="op">-</span> General <span class="bu">format</span>. Rounds number to p significant digits. (Default precision: <span class="dv">6</span>)
+G <span class="op">-</span> Same <span class="im">as</span> <span class="st">&#39;g&#39;</span>. Except switches to <span class="st">&#39;E&#39;</span> <span class="cf">if</span> the number <span class="kw">is</span> large.
+<span class="op">%</span> <span class="op">-</span> Percentage. Multiples by <span class="dv">100</span> <span class="kw">and</span> puts <span class="op">%</span> at the end.</code></pre>
+<p>Formatowanie typu liczbowego z paddingiem (np. dodawanie zer na początku liczby)</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># integer numbers with minimum width</span>
+<span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{:5d}</span><span class="st">&quot;</span>.<span class="bu">format</span>(<span class="dv">12</span>))
+
+<span class="co"># width doesn&#39;t work for numbers longer than padding</span>
+<span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{:2d}</span><span class="st">&quot;</span>.<span class="bu">format</span>(<span class="dv">1234</span>))
+
+<span class="co"># padding for float numbers</span>
+<span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{:8.3f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(<span class="fl">12.2346</span>))
+
+<span class="co"># integer numbers with minimum width filled with zeros</span>
+<span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{:05d}</span><span class="st">&quot;</span>.<span class="bu">format</span>(<span class="dv">12</span>))
+
+<span class="co"># padding for float numbers filled with zeros</span>
+<span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{:08.3f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(<span class="fl">12.2346</span>))</code></pre>
+<p>Formatowanie typu liczbowego ze znakiem (liczby dodatnie i ujemne)</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># show the + sign</span>
+<span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{:+f}</span><span class="st"> </span><span class="sc">{:+f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(<span class="fl">12.23</span>, <span class="fl">-12.23</span>))
+
+<span class="co"># show the - sign only</span>
+<span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{:-f}</span><span class="st"> </span><span class="sc">{:-f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(<span class="fl">12.23</span>, <span class="fl">-12.23</span>))
+
+<span class="co"># show space for + sign</span>
+<span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{: f}</span><span class="st"> </span><span class="sc">{: f}</span><span class="st">&quot;</span>.<span class="bu">format</span>(<span class="fl">12.23</span>, <span class="fl">-12.23</span>))</code></pre>
+<p>Zaawansowane formatownanie typu tekstowego</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># string padding with left alignment</span>
+<span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{:5}</span><span class="st">&quot;</span>.<span class="bu">format</span>(<span class="st">&quot;cat&quot;</span>))
+
+<span class="co"># string padding with right alignment</span>
+<span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{:&gt;5}</span><span class="st">&quot;</span>.<span class="bu">format</span>(<span class="st">&quot;cat&quot;</span>))
+
+<span class="co"># string padding with center alignment</span>
+<span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{:^5}</span><span class="st">&quot;</span>.<span class="bu">format</span>(<span class="st">&quot;cat&quot;</span>))
+
+<span class="co"># string padding with center alignment</span>
+<span class="co"># and &#39;*&#39; padding character</span>
+<span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{:*^5}</span><span class="st">&quot;</span>.<span class="bu">format</span>(<span class="st">&quot;cat&quot;</span>))</code></pre>
+</div>
+<div id="tworzenie-dynamiczne---stara-skladnia" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> Tworzenie dynamiczne - stara skladnia</h3>
+<p>Wczesniej zanim byla funkcja ‘format’ uzywano innej skladni. Ponizszy przyklad jest zywcem przeklejony ze strony. Nie obrabialem go bo ponizsze kody sa tylko dla uswiatomienia ze taka skladnia jest dopuszczalna.</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Python program to demonstrate the use of formatting using % </span>
+   
+<span class="co"># Initialize variable as a string </span>
+variable <span class="op">=</span> <span class="st">&#39;15&#39;</span>
+string <span class="op">=</span> <span class="st">&quot;Variable as string = </span><span class="sc">%s</span><span class="st">&quot;</span> <span class="op">%</span>(variable) 
+<span class="bu">print</span>(string)
+   
+<span class="co"># Printing as raw data </span>
+<span class="bu">print</span>(<span class="st">&quot;Variable as raw data = </span><span class="sc">%r</span><span class="st">&quot;</span> <span class="op">%</span>(variable)) 
+   
+<span class="co"># Convert the variable to integer </span>
+<span class="co"># And perform check other formatting options </span>
+   
+variable <span class="op">=</span> <span class="bu">int</span>(variable) <span class="co"># Without this the below statement </span>
+                        <span class="co"># will give error. </span>
+string <span class="op">=</span> <span class="st">&quot;Variable as integer = </span><span class="sc">%d</span><span class="st">&quot;</span> <span class="op">%</span>(variable) 
+<span class="bu">print</span>(string)
+<span class="bu">print</span>(<span class="st">&quot;Variable as float = </span><span class="sc">%f</span><span class="st">&quot;</span> <span class="op">%</span>(variable))
+  
+
+<span class="co"># lista znacznikow:</span>
+
+<span class="co"># %d – integer</span>
+<span class="co"># %f – float</span>
+<span class="co"># %s – string</span>
+<span class="co"># %x – hexadecimal</span>
+<span class="co"># %o – octal</span></code></pre>
+</div>
+<div id="multiline-string" class="section level3">
+<h3><span class="header-section-number">4.2.4</span> multiline string</h3>
+<pre class="sourceCode python"><code class="sourceCode python">name <span class="op">=</span> <span class="st">&quot;Eric&quot;</span>
+profession <span class="op">=</span> <span class="st">&quot;comedian&quot;</span>
+affiliation <span class="op">=</span> <span class="st">&quot;Monty Python&quot;</span>
+
+<span class="co"># ponizej string zapiszemy w kilku oddzielych linijkach</span>
+message <span class="op">=</span> (
+  <span class="ss">f&quot;Hi </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">. &quot;</span>
+  <span class="ss">f&quot;You are a </span><span class="sc">{</span>profession<span class="sc">}</span><span class="ss">. &quot;</span>
+  <span class="ss">f&quot;You were in </span><span class="sc">{</span>affiliation<span class="sc">}</span><span class="ss">.&quot;</span>
+)
+message <span class="co"># wydrukowaniu widzimy, ze mimo iz string byl w kilku linijkach jest traktowany jako calosc</span></code></pre>
+</div>
+<div id="odwolywanie-sie-do-podstringow" class="section level3">
+<h3><span class="header-section-number">4.2.5</span> odwolywanie sie do podstringow</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># po indeksach</span>
+
+astring <span class="op">=</span> <span class="st">&quot;Hello world ll!&quot;</span>
+<span class="bu">print</span>(astring[<span class="dv">3</span>:<span class="dv">7</span>:<span class="dv">2</span>])
+<span class="bu">print</span>(astring[<span class="dv">3</span>:<span class="dv">7</span>])
+<span class="bu">print</span>(astring[<span class="dv">3</span>:<span class="dv">7</span>:<span class="dv">1</span>])
+
+
+
+
+
+<span class="co"># z uzyciem wyrazen regularnych (o wyrazeniach regularnych jest oddzielny podrozdzial)</span>
+<span class="im">import</span> re
+ma <span class="op">=</span> <span class="st">&#39;abclllldefllllgh&#39;</span>
+ma1 <span class="op">=</span> re.search(<span class="st">&#39;(l){2,}&#39;</span>, ma) <span class="co"># szukam pozycji pierwszego co najmniej podwojnego wystapienia litery &#39;l&#39;</span>
+ma1.group(<span class="dv">0</span>) <span class="co"># zwracam szukany podstraing</span>
+
+
+
+
+<span class="co"># powyzsze rozwiazania ma ta wade ze szuka tylko PIERWSZEGO wystapienia. Problem rozwiazemy ponizej:</span>
+ma3 <span class="op">=</span> re.finditer(<span class="st">&#39;(l){2,}&#39;</span>, ma)
+ma4<span class="op">=</span><span class="bu">list</span>(ma3) <span class="co">#dostaniemy listę obiektow takich jak obiek z f:search o długosci odpowiadajacej ilosc znalezionych stringow</span>
+<span class="co"># odwołując sie do poszczegolnych elementow listy stosujemy taka skladnie jak w f:search</span>
+ma4[<span class="dv">0</span>].group(<span class="dv">0</span>) <span class="co"># pierwsze wystapienie</span>
+ma4[<span class="dv">1</span>].group(<span class="dv">0</span>) <span class="co"># drugie wystapienie</span>
+<span class="bu">len</span>(ma4) <span class="co"># ile bylo wyszukan</span></code></pre>
+</div>
+<div id="szukanie-pozycji-podstringow" class="section level3">
+<h3><span class="header-section-number">4.2.6</span> szukanie pozycji podstringow</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> re
+ma <span class="op">=</span> <span class="st">&#39;abc llll def llll gh llll&#39;</span>
+ma  <span class="op">=</span> re.search(<span class="st">&#39;(l){1,}&#39;</span>, astring, re.I)  <span class="co"># szukam pozycji pierwszego co najmniej podwojnego wystapienia litery &#39;l&#39;</span>
+ma.start() <span class="co"># indeks poczatkowy</span>
+ma.end() <span class="co"># indeks koncowy</span>
+
+
+
+<span class="co"># powyzsze rozwiazania ma ta wade ze szuka tylko PIERWSZEGO wystapienia.</span>
+<span class="co"># teraz wyszukamy wszystkich wystapien</span>
+
+ma3 <span class="op">=</span> re.finditer(<span class="st">&#39;(l){2,}&#39;</span>, ma)
+ma4<span class="op">=</span><span class="bu">list</span>(ma3)
+
+ma4[<span class="dv">0</span>].start() <span class="co"># pozycja poczatku pierwszego wystapienia</span>
+ma4[<span class="dv">0</span>].end() <span class="co"># pozycja konca pierwszego wystapienia</span>
+
+ma4[<span class="dv">1</span>].start() <span class="co"># pozycja poczatku drugiego wystapienia</span>
+ma4[<span class="dv">1</span>].end() <span class="co"># pozycja konca drugiego wystapienia</span></code></pre>
+</div>
+<div id="modyfikacja" class="section level3">
+<h3><span class="header-section-number">4.2.7</span> modyfikacja</h3>
+<p>Zastepowanie stringu stringiem</p>
+<pre class="sourceCode python"><code class="sourceCode python">astring <span class="op">=</span> <span class="st">&quot;Hello world ll!&quot;</span>
+sub <span class="op">=</span> re.sub(<span class="st">&#39;^H&#39;</span>,<span class="st">&#39;aaa&#39;</span>, astring) <span class="co"># zastap litere &#39;H&#39;  ktora jest na poczatku (poczatkowa pozycja wymuszona przez &#39;^&#39;) literami &#39;aaa&#39;</span></code></pre>
+<p>Zastepowanie stringu stringiem z listy mapujacej</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># wariant 1</span>
+<span class="co"># UWAGA: zadziala tylko jezeli nie ma zaleznosci miedzy mapowaniami czyli mapowanie nie ma takiej postaci:</span>
+<span class="co"># [(&#39;A&#39;, &#39;B&#39;), (&#39;B&#39;,&#39;C&#39;)]</span>
+
+my_string <span class="op">=</span> <span class="st">&#39;ABCDEF&#39;</span>
+mapping <span class="op">=</span> [ (<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>), (<span class="st">&#39;B&#39;</span>, <span class="st">&#39;2&#39;</span>), (<span class="st">&#39;C&#39;</span>, <span class="st">&#39;3&#39;</span>), (<span class="st">&#39;D&#39;</span>, <span class="st">&#39;4&#39;</span>), (<span class="st">&#39;E&#39;</span>, <span class="st">&#39;5&#39;</span>) ]
+<span class="cf">for</span> k, v <span class="kw">in</span> mapping:
+    my_string <span class="op">=</span> re.sub(k, v, my_string)
+    <span class="co"># my_string = my_string.replace(k, v)  # altermatywna skladnia nie obslugujaca regular expressions</span>
+my_string <span class="co"># zauwazmy ze &#39;A&#39; i &#39;B&#39; zostalo zamienione na &#39;2&#39;</span>
+
+
+
+<span class="co"># wariant 2</span>
+<span class="co"># dziala tylko dla mapowania z pojedynczego stringu (ale pojedynczy string moze by zamieniony na zlozony)</span>
+
+dictio <span class="op">=</span> {<span class="st">&quot;a&quot;</span>: <span class="st">&quot;b&quot;</span>, <span class="st">&quot;b&quot;</span>: <span class="st">&quot;c&quot;</span>, <span class="st">&quot;c&quot;</span>: <span class="st">&quot;CALA&quot;</span>}
+string <span class="op">=</span> <span class="st">&quot;abc&quot;</span>
+t1 <span class="op">=</span> string.maketrans(dictio)
+string.translate(t1)</code></pre>
+<p>Zastepowianie elementow o zadanych pozycjach nowym stringiem</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># UWAGA: takie cos nie zadziala:</span>
+x <span class="op">=</span> <span class="st">&#39;alalala&#39;</span>
+x[<span class="dv">2</span>:<span class="dv">3</span>] <span class="op">=</span> <span class="st">&#39;W&#39;</span> <span class="co"># nie zadziala bo string jest immutable</span>
+
+
+<span class="co"># wariant 1</span>
+
+z <span class="op">=</span> <span class="st">&#39;alalala&#39;</span>
+z <span class="op">=</span> <span class="bu">list</span>(z)
+z[<span class="dv">2</span>:<span class="dv">3</span>] <span class="op">=</span> <span class="st">&#39;W&#39;</span> <span class="co"># element o indeksie 3 zastepuje litera &#39;W&#39;</span>
+<span class="co">&#39;&#39;</span>.join(z)
+
+
+<span class="co"># wariant 2</span>
+
+text <span class="op">=</span> <span class="st">&quot;The cat sat on the mat&quot;</span>
+text <span class="op">=</span> text[:<span class="dv">8</span>] <span class="op">+</span> <span class="st">&quot;slept&quot;</span> <span class="op">+</span> text[<span class="dv">11</span>:]
+text</code></pre>
+</div>
+<div id="inne-przydatne-triki" class="section level3">
+<h3><span class="header-section-number">4.2.8</span> inne przydatne triki</h3>
+<pre class="sourceCode python"><code class="sourceCode python">Jezeli pracujemy z funkcjami z p:re to mozemu chciec aby były niewrażliwe na wielkosc liter
+
+t1 <span class="op">=</span> re.search(<span class="st">&#39;ala&#39;</span>, <span class="st">&#39;ALA&#39;</span>, re.IGNORECASE)
+t1.group(<span class="dv">0</span>)</code></pre>
+</div>
+<div id="rozne-podstawowe-operacje-i-funkcje-zwiazane-ze-stringami" class="section level3">
+<h3><span class="header-section-number">4.2.9</span> rozne podstawowe operacje i funkcje zwiazane ze stringami</h3>
+<pre class="sourceCode python"><code class="sourceCode python">astring <span class="op">=</span> <span class="st">&quot;Hello world ll!&quot;</span>
+astring
+
+<span class="bu">print</span>(astring.index(<span class="st">&quot;o&quot;</span>)) <span class="co"># indeks pierwszego wystepienia listey &#39;o&#39;</span>
+
+<span class="bu">print</span>(astring.count(<span class="st">&quot;l&quot;</span>)) <span class="co"># ile razy wystepuje litera &#39;l&#39;</span>
+
+<span class="bu">print</span>(astring.upper()) <span class="co"># zamiana na wielkie liter</span>
+
+<span class="bu">print</span>(astring.lower()) <span class="co"># zamiana na male litery</span>
+
+<span class="bu">print</span>(astring.startswith(<span class="st">&quot;Hello&quot;</span>)) <span class="co"># czy string zaczna sie od ciagu &quot;Hello&#39;</span>
+
+<span class="bu">print</span>(astring.endswith(<span class="st">&quot;ble&quot;</span>)) <span class="co"># czy string konczy sie na ciagu &#39;ble&#39;</span>
+
+<span class="bu">print</span>(astring.split(<span class="st">&quot; &quot;</span>)) <span class="co"># rozbicie string na lista po elementach ktora sa spacja</span>
+
+<span class="bu">print</span>(<span class="st">&#39;abc&#39;</span><span class="op">*</span><span class="dv">10</span>) <span class="co"># wydrukuj string &#39;abc&#39; 10 razy</span>
+
+
+
+<span class="co"># ciag liter</span>
+[<span class="bu">chr</span>(x) <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">97</span>, <span class="dv">123</span>)]  <span class="co">#  caly alfabet malymi literami</span>
+[<span class="bu">chr</span>(x).upper() <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">97</span>, <span class="dv">123</span>)] <span class="co"># caly alfabet wielkimi literami</span></code></pre>
+</div>
+</div>
+<div id="wyrazenie-regularne" class="section level2">
+<h2><span class="header-section-number">4.3</span> wyrazenie regularne</h2>
+<p>Na razie tylko wybrane przyklady !!!</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> re
+m <span class="op">=</span> 
+m.group(<span class="dv">0</span>)
+
+<span class="co"># czy string zawiera a po ktorym stoi dowolny inny znak</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;a.&#39;</span>, string<span class="op">=</span><span class="st">&#39;abc&#39;</span>)) <span class="co"># True</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;a.&#39;</span>, string<span class="op">=</span><span class="st">&#39;a&#39;</span>)) <span class="co"># False</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;a.&#39;</span>, string<span class="op">=</span><span class="st">&#39;abcd&#39;</span>)) <span class="co"># True</span>
+
+<span class="co"># czy string zaczyna sie od ciagu &#39;ab&#39;</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;^(ab)&#39;</span>, <span class="st">&#39;abc&#39;</span>)) <span class="co"># True</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;^(ab)&#39;</span>, <span class="st">&#39;acb&#39;</span>)) <span class="co"># False</span>
+
+<span class="co"># czy string zaczyna sie na &#39;a&#39; i konczy sie na &#39;z&#39;</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;^(a).(z)$&#39;</span>, <span class="st">&#39;abz&#39;</span>)) <span class="co"># True</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;^(a).(z)$&#39;</span>, <span class="st">&#39;acw&#39;</span>)) <span class="co"># False</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;^(a).(z)$&#39;</span>, <span class="st">&#39;gcz&#39;</span>)) <span class="co"># False</span>
+
+
+<span class="co"># czy string zawiera cyfre od 0 do 5</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;[0-5]&#39;</span>, <span class="st">&#39;abc 4 efg&#39;</span>)) <span class="co"># True</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;[0-5]&#39;</span>, <span class="st">&#39;abc 9 efg&#39;</span>)) <span class="co"># False</span>
+
+
+
+<span class="co"># czy string koczny sie na ciagu &#39;ab&#39;</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;(ab)$&#39;</span>, <span class="st">&#39;cab&#39;</span>)) <span class="co"># True</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;(ab)$&#39;</span>, <span class="st">&#39;bac&#39;</span>)) <span class="co"># False</span>
+
+
+<span class="co"># czy string zawiera ciag &#39;ab&#39; lub ciag &#39;wz&#39;</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;(ab)|(wz)&#39;</span>, <span class="st">&#39;abwz&#39;</span>)) <span class="co"># True</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;(ab)|(wz)&#39;</span>, <span class="st">&#39;abgg&#39;</span>)) <span class="co"># True</span>
+
+
+<span class="co"># czy string zawiera &#39;ab&#39; ktore jest powtorzone co najmniej 3 raz z rzedu</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;(ab){3,}&#39;</span>, <span class="st">&#39;ababab&#39;</span>)) <span class="co"># True</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;(ab){3,}&#39;</span>, <span class="st">&#39;abab&#39;</span>)) <span class="co"># False</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;(ab){3,}&#39;</span>, <span class="st">&#39;abababababababababab&#39;</span>)) <span class="co"># True</span>
+
+
+<span class="co"># czy string zawiera &#39;ab&#39; ktore jest powtorzone  3 lub 4 lub 5 razy</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;(ab){3,5}&#39;</span>, <span class="st">&#39;abababab&#39;</span>)) <span class="co"># True</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;(ab){3,5}&#39;</span>, <span class="st">&#39;abababababababababababab&#39;</span>)) <span class="co"># True</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;(ab){3,5}&#39;</span>, <span class="st">&#39;ab ab ab ab&#39;</span>)) <span class="co"># False</span>
+<span class="co"># czy string zawiera &#39;def&#39; ktory jest poprzedzony przez &#39;abc&#39; ?</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;(?&lt;=abc)def&#39;</span>, <span class="st">&#39;abcdef&#39;</span>)) <span class="co"># True</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;(?&lt;=abc)def&#39;</span>, <span class="st">&#39;defabc&#39;</span>)) <span class="co"># False</span>
+
+
+<span class="co"># czy string zawiera &#39;def&#39; po ktorym jest &#39;abc&#39; ?</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;def(?=abc)&#39;</span>, <span class="st">&#39;abcdef&#39;</span>)) <span class="co"># False</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;def(?=abc)&#39;</span>, <span class="st">&#39;defabc&#39;</span>)) <span class="co"># True</span>
+
+
+<span class="co"># czy string zawiera &#39;def&#39; ktory NIE jest poprzedzony &#39;abc&#39;</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;(?&lt;!abc)def&#39;</span>, <span class="st">&#39;abcdef&#39;</span>)) <span class="co"># False</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;(?&lt;!abc)def&#39;</span>, <span class="st">&#39;defabc&#39;</span>)) <span class="co"># True</span>
+
+
+<span class="co"># czy string zawiera &#39;def&#39; po ktorym NIE jest &#39;abc&#39; ?</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;def(?!abc)&#39;</span>, <span class="st">&#39;abcdef&#39;</span>)) <span class="co"># True</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;def(?!abc)&#39;</span>, <span class="st">&#39;defabc&#39;</span>)) <span class="co"># False</span></code></pre>
+<p>flagi (bardzo pomocna rzecz)</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># wyszukuj ugnorujac wielkosc liter (flaga IGNORECASE)</span>
+<span class="bu">bool</span>(re.search(<span class="st">&#39;a&#39;</span>, string<span class="op">=</span><span class="st">&#39;abc&#39;</span>), flag <span class="op">=</span> re.IGNORECASE) </code></pre>
+</div>
+<div id="daty" class="section level2">
+<h2><span class="header-section-number">4.4</span> daty</h2>
+<p>UWAGA: o pracy z datami w kontekscie DataFrames jest meteriał w pliku 1_05_PROGRAMING_data_structures-Pandas"</p>
+<div id="tworzenie-dat" class="section level3">
+<h3><span class="header-section-number">4.4.1</span> tworzenie dat</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> datetime
+
+
+<span class="co"># aktualny czas</span>
+x <span class="op">=</span> datetime.datetime.now()
+<span class="bu">print</span>(x)
+
+
+<span class="co"># aktualna data</span>
+x <span class="op">=</span> datetime.date.today()
+<span class="bu">print</span>(x)
+
+
+
+<span class="co"># tworzenie dat z liczb</span>
+
+data <span class="op">=</span> datetime.datetime(<span class="dv">2018</span>, <span class="dv">6</span>, <span class="dv">1</span>) <span class="co">#data</span>
+czas <span class="op">=</span> datetime.datetime(<span class="dv">2018</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>) <span class="co"># czas sekundowy</span>
+
+
+<span class="co"># data z tekstu </span>
+
+https:<span class="op">//</span>docs.python.org<span class="op">/</span><span class="dv">3</span><span class="op">/</span>library<span class="op">/</span>datetime.html
+
+<span class="bu">print</span>(datetime.datetime.strptime(<span class="st">&#39;24052010&#39;</span>, <span class="st">&quot;</span><span class="sc">%d</span><span class="st">%m%Y&quot;</span>).date()) <span class="co"># pelna lista znacznikow typu %Y jest na stronie dokumentacji pakietu &#39;datatime&#39; (https://docs.python.org/3/library/datetime.html)</span></code></pre>
+</div>
+<div id="atrybuty-daty" class="section level3">
+<h3><span class="header-section-number">4.4.2</span> atrybuty daty</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> datetime
+
+czas <span class="op">=</span> datetime.datetime(<span class="dv">2018</span>, <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>) <span class="co"># czas sekundowy</span>
+
+<span class="co"># wyciaganie informacji z daty</span>
+czas.year
+czas.month
+czas.day
+czas.weekday()
+czas.isoweekday()
+czas.hour
+czas.minute
+czas.second
+
+<span class="im">import</span> pytz
+czas_tz <span class="op">=</span> datetime.datetime(<span class="dv">2018</span>, <span class="dv">6</span>, <span class="dv">1</span>, tzinfo<span class="op">=</span>pytz.timezone(<span class="st">&quot;Poland&quot;</span>)) <span class="co"># czas z podaniem strefy czasowej</span>
+czas_tz.tzinfo <span class="co"># strefa czasowa (jezeli zostala okreslona)</span>
+
+<span class="co"># zmiana strefy czasowej</span>
+czas_tz <span class="op">=</span> czas_tz.astimezone(pytz.timezone(<span class="st">&quot;America/Los_Angeles&quot;</span>))
+
+<span class="co"># wiecej o pracy ze strefami czasowymi</span>
+<span class="co"># https://howchoo.com/g/ywi5m2vkodk/working-with-datetime-objects-and-timezones-in-python</span></code></pre>
+</div>
+<div id="inkrementacja-daty" class="section level3">
+<h3><span class="header-section-number">4.4.3</span> inkrementacja daty</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> datetime
+
+czas_1 <span class="op">=</span> datetime.datetime(<span class="dv">2019</span>, <span class="dv">6</span>, <span class="dv">21</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>) <span class="co"># czas sekundowy</span>
+
+<span class="co"># inkrementacja o dni oraz krotsze jednostki czasu. (ponizej pokazane timedelta nie obsluguje dluzszych jednostek czasowych np. miesiecy, lat i itp.)</span>
+
+czas_1 <span class="op">+</span> datetime.timedelta(<span class="dv">20</span>) <span class="co"># dodanie do daty 20 dni</span>
+
+czas_1 <span class="op">+</span> datetime.timedelta(<span class="dv">20</span>) <span class="co"># dodanie do daty 20 dni</span>
+
+czas_1 <span class="op">+</span> datetime.timedelta(hours <span class="op">=</span> <span class="dv">20</span>) <span class="co"># dodanie do daty 20 godzin</span>
+
+czas_1 <span class="op">+</span> datetime.timedelta(years <span class="op">=</span> <span class="dv">5</span>) <span class="co"># BLAD!!! - lata nie sa obslugiwane</span>
+
+
+
+
+<span class="co"># inkrementacja o dluzszcze jednostki czasowe i inne fajne triki (funkcja relativedelta)</span>
+<span class="im">from</span> dateutil.relativedelta <span class="im">import</span> relativedelta
+
+czas_1 <span class="op">+</span> relativedelta(months<span class="op">=</span><span class="dv">2</span>) <span class="co"># dodanie do daty 2 miesiecy</span>
+
+czas_1 <span class="op">+</span> relativedelta(quarters<span class="op">=-</span><span class="dv">2</span>) <span class="co"># odjecie od daty 2 kwartalow</span>
+
+czas_1 <span class="op">+</span> relativedelta(years<span class="op">=</span><span class="dv">1</span>) <span class="co"># dodanie do daty 1 roku</span>
+
+czas_1 <span class="op">+</span> relativedelta(quarters<span class="op">=</span><span class="dv">1</span>) <span class="co"># dodanie do daty 1 kwartalu</span>
+
+czas_1 <span class="op">+</span> relativedelta(months<span class="op">=</span><span class="dv">1</span>, weeks<span class="op">=</span><span class="dv">1</span>, hours<span class="op">=</span><span class="dv">10</span>) <span class="co"># dodanie jednego miesiaca i jednego tygodnia i 10 godzin</span>
+
+
+<span class="im">from</span> dateutil.relativedelta <span class="im">import</span> relativedelta, MO, FR
+
+czas_1 <span class="op">+</span> relativedelta(weekday<span class="op">=</span>FR(<span class="op">+</span><span class="dv">1</span>)) <span class="co"># dodanie tyle czasu zeby uzyskac nastepny piatek (jezeli dzisiaj jest piatek zwracamy ta sama date!!!)</span>
+
+czas_1 <span class="op">+</span> relativedelta(days <span class="op">=</span> <span class="dv">1</span>, weekday<span class="op">=</span>FR(<span class="dv">1</span>)) <span class="co"># dodanie tyle czasu zeby uzyskac nastepny piatek (ale w przeciwienstwie do poprzedniego przykladu, jezeli dzisiaj jest piatek to zwracamy i tak nastepny piatek)</span>
+
+czas_1 <span class="op">+</span> relativedelta(weekday<span class="op">=</span>MO(<span class="op">-</span><span class="dv">1</span>)) <span class="co"># odjecie tyle czasu zeby uzyskac poprzedni poniedzialek</span>
+
+
+<span class="co"># UWAGA - wazne rozroznienie:</span>
+czas_1 <span class="op">+</span> relativedelta(days <span class="op">=</span> <span class="dv">31</span>) <span class="co"># tutaj dodalismy 31 dni tak jakbysmy zrobili datetime.timedelta(31)</span>
+<span class="co"># ALE teraz uzyjemy nie &#39;days&#39;, ale &#39;day&#39; !!!</span>
+czas_1 <span class="op">+</span> relativedelta(day <span class="op">=</span> <span class="dv">31</span>) <span class="co"># tutaj dodajemy rozniez dni, ale mozemy maksymalnie dodac ich tyle aby dojsc do odstatniego dnia miesiaca. 31 dni to za duzo i przyrost zostanie obciety i dostaniemy jedynie 30 czerwca.</span>
+
+<span class="co"># powyzsza skladnia umozliwia robienie super trickow co pokazuja dalsze przyklady</span>
+
+czas_1 <span class="op">+</span> relativedelta(day<span class="op">=</span><span class="dv">31</span>, weekday<span class="op">=</span>FR(<span class="op">-</span><span class="dv">1</span>)) <span class="co"># dostaniemy ostatni piatek w miesiacu</span>
+
+datetime(<span class="dv">1997</span>,<span class="dv">1</span>,<span class="dv">1</span>)<span class="op">+</span>relativedelta(day<span class="op">=</span><span class="dv">4</span>, weekday<span class="op">=</span>MO(<span class="op">-</span><span class="dv">1</span>), weeks<span class="op">=+</span><span class="dv">14</span>) <span class="co"># find the first day of the 15th week of 1997.</span>
+
+
+<span class="co"># UWAGA: wiecej przykladow tego typu, na : https://dateutil.readthedocs.io/en/stable/relativedelta.html</span></code></pre>
+</div>
+<div id="roznice-dat" class="section level3">
+<h3><span class="header-section-number">4.4.4</span> roznice dat</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> datetime <span class="im">import</span> <span class="op">*;</span> <span class="im">from</span> dateutil.relativedelta <span class="im">import</span> <span class="op">*</span>
+<span class="im">import</span> calendar
+<span class="im">import</span> datetime
+
+
+czas_1 <span class="op">=</span> datetime.datetime(<span class="dv">2019</span>, <span class="dv">6</span>, <span class="dv">21</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>) <span class="co"># czas sekundowy</span>
+czas_2 <span class="op">=</span> datetime.datetime(<span class="dv">2018</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>) <span class="co"># czas sekundowy</span>
+
+
+roznica <span class="op">=</span> relativedelta(czas_1, czas_2)
+roznica.years <span class="co"># roznica w latach</span>
+roznica.years<span class="op">*</span><span class="dv">12</span> <span class="op">+</span> roznica.months <span class="co"># roznica w miesiacach</span>
+(czas_1.date() <span class="op">-</span> czas_2.date()).days <span class="co"># roznica w dniach</span>
+
+
+
+<span class="co"># a teraz przyklad z uzyciem funkcji &#39;to_datetime&#39; z pakietu numpy</span>
+<span class="im">import</span> numpy <span class="im">as</span> np
+czas_1 <span class="op">=</span> datetime.datetime(<span class="dv">2019</span>, <span class="dv">6</span>, <span class="dv">21</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>) <span class="co"># czas sekundowy</span>
+czas_2 <span class="op">=</span> datetime.datetime(<span class="dv">2018</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>) <span class="co"># czas sekundowy</span>
+
+<span class="co"># zeby skladnia zadziala dla lat, miesiecy itp. uzyjemy konwetsji funkcja &#39;to_date&#39; </span>
+<span class="im">import</span> pandas <span class="im">as</span> pd
+(pd.to_datetime((datetime.date(<span class="dv">2010</span>,<span class="dv">12</span>,<span class="dv">10</span>))) <span class="op">-</span> pd.to_datetime(datetime.date(<span class="dv">2010</span>,<span class="dv">12</span>,<span class="dv">11</span>)))<span class="op">/</span>np.timedelta64(<span class="dv">1</span>,<span class="st">&#39;Y&#39;</span>) <span class="co"># lata</span>
+(pd.to_datetime((datetime.date(<span class="dv">2010</span>,<span class="dv">12</span>,<span class="dv">10</span>))) <span class="op">-</span> pd.to_datetime(datetime.date(<span class="dv">2010</span>,<span class="dv">12</span>,<span class="dv">11</span>)))<span class="op">/</span>np.timedelta64(<span class="dv">1</span>,<span class="st">&#39;M&#39;</span>) <span class="co"># miesiace</span>
+(pd.to_datetime((datetime.date(<span class="dv">2010</span>,<span class="dv">12</span>,<span class="dv">10</span>))) <span class="op">-</span> pd.to_datetime(datetime.date(<span class="dv">2010</span>,<span class="dv">12</span>,<span class="dv">11</span>)))<span class="op">/</span>np.timedelta64(<span class="dv">1</span>,<span class="st">&#39;m&#39;</span>) <span class="co"># minuty</span></code></pre>
+</div>
+<div id="zmiana-wartosci" class="section level3">
+<h3><span class="header-section-number">4.4.5</span> zmiana wartosci</h3>
+<pre class="sourceCode python"><code class="sourceCode python">czas_1 <span class="op">=</span> datetime.datetime(<span class="dv">2019</span>, <span class="dv">6</span>, <span class="dv">21</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>) <span class="co"># czas sekundowy</span>
+czas_1.replace(year <span class="op">=</span> <span class="dv">2000</span>, hour <span class="op">=</span> <span class="dv">11</span>) <span class="co"># zmiana roku i godziny</span></code></pre>
+</div>
+<div id="zaokraglanie-dat" class="section level3">
+<h3><span class="header-section-number">4.4.6</span> zaokraglanie dat</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> datetime
+<span class="im">import</span> pandas <span class="im">as</span> pd
+
+czas_1 <span class="op">=</span> datetime.datetime(<span class="dv">2019</span>, <span class="dv">6</span>, <span class="dv">21</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>) <span class="co"># czas sekundow</span>
+
+czas_1 <span class="op">+</span> pd.offsets.MonthBegin(<span class="dv">0</span>) <span class="co"># zaokraglam do pierwszego dnia miesiaca</span>
+
+czas_1 <span class="op">+</span> pd.offsets.MonthBegin(<span class="dv">4</span>) <span class="co"># dodaje 4 miesiace i zaokrlaglam do pierwszego dnia miesiaca</span>
+
+czas_1 <span class="op">+</span> pd.offsets.MonthEnd(<span class="dv">4</span>) <span class="co"># dodaje 4 miesiacae i zakraglam do ostatniego dnia miesiaca</span>
+
+czas_1 <span class="op">+</span> pd.offsets.MonthEnd(<span class="dv">4</span>) <span class="co"># dodaje 4 miesiacae i zakraglam do ostatniego dnia miesiaca</span>
+
+czas_1 <span class="op">+</span> pd.offsets.YearBegin(<span class="dv">0</span>) <span class="co"># zakraglam do pierwszego dnia roku</span>
+
+<span class="co"># Lista dostepnych zaokraglen na stronie dokumentacji: https://pandas.pydata.org/pandas-docs/stable/reference/offset_frequency.html</span></code></pre>
+</div>
+<div id="generowanie-ciagu-dat" class="section level3">
+<h3><span class="header-section-number">4.4.7</span> generowanie ciagu dat</h3>
+<p>Funkcja ‘pandas.date_range’</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas <span class="im">as</span> pd
+
+pd.date_range(start<span class="op">=</span><span class="st">&#39;1/1/2018&#39;</span>, end<span class="op">=</span><span class="st">&#39;1/08/2018&#39;</span>) <span class="co"># ciag data z zadanego przedzialu (domyslnie przyrost co jeden dzien)</span>
+
+pd.date_range(start<span class="op">=</span><span class="st">&#39;2018-04-24&#39;</span>, end<span class="op">=</span><span class="st">&#39;2018-05-30&#39;</span>, periods<span class="op">=</span><span class="dv">3</span>) <span class="co"># wymus zwrocenie tylk 3 dat z przedzialu</span>
+
+pd.date_range(start<span class="op">=</span>datetime.date(<span class="dv">2010</span>,<span class="dv">10</span>,<span class="dv">10</span>), periods<span class="op">=</span><span class="dv">5</span>, freq<span class="op">=</span><span class="st">&#39;M&#39;</span>) <span class="co"># zwroc 5 dat od  &#39;2010-10-10&#39; przy czym przyrost co miesiac</span>
+
+pd.date_range(start<span class="op">=</span><span class="st">&#39;1/1/2018&#39;</span>, periods<span class="op">=</span><span class="dv">5</span>, freq<span class="op">=</span><span class="st">&#39;3M&#39;</span>) <span class="co"># zwroc 5 dat od  &#39;1/1/2018&#39; przy czym przyrost co 3 miesiace</span>
+
+pd.date_range(start<span class="op">=</span><span class="st">&#39;1/1/2018&#39;</span>, periods<span class="op">=</span><span class="dv">5</span>, tz<span class="op">=</span><span class="st">&#39;Asia/Tokyo&#39;</span>)  <span class="co"># zwroc 5 dat od  &#39;1/1/2018&#39; przy czym przyrost co miesiac i dodaj strefe czasowa z Tokyo</span>
+
+
+<span class="co"># uwga to co dostajemy wyzej do nie jest zwykla lista. Jezeli chcemy dostac lista z &#39;datetime&#39; to robimy:</span>
+ciag_dat <span class="op">=</span> pd.date_range(start<span class="op">=</span><span class="st">&#39;1/1/2018&#39;</span>, periods<span class="op">=</span><span class="dv">5</span>, tz<span class="op">=</span><span class="st">&#39;Asia/Tokyo&#39;</span>)
+ciag_dat_lista <span class="op">=</span> ciag_dat.tolist()
+ciag_dat_lista[<span class="dv">1</span>]
+
+
+<span class="co"># wiecej przykladow na stronie : https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.date_range.html</span></code></pre>
+<p>Funkcja ‘numpy.arange’</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> numpy <span class="im">as</span> np
+np.arange(<span class="st">&#39;2020-02-07&#39;</span>, <span class="st">&#39;2020-03-09&#39;</span>, dtype<span class="op">=</span><span class="st">&#39;datetime64[D]&#39;</span>) <span class="co"># dni od 7 lutego do 8 marca</span>
+np.arange(<span class="st">&#39;2005-02&#39;</span>, <span class="st">&#39;2005-03&#39;</span>, dtype<span class="op">=</span><span class="st">&#39;datetime64[D]&#39;</span>) <span class="co"># dni od 1 lutego do 29 lutego</span>
+
+t1 <span class="op">=</span> np.arange(<span class="st">&#39;2005-02&#39;</span>, <span class="st">&#39;2006-01&#39;</span>, dtype<span class="op">=</span><span class="st">&#39;datetime64[M]&#39;</span>) <span class="co"># miesiaca od lutego 2005 do grudnia 2005 (bez dnia)</span>
+t1.astype(<span class="st">&#39;datetime64[D]&#39;</span>) <span class="co"># dodanie dnia miesiaca = 1</span>
+t1.astype(<span class="st">&#39;datetime64[D]&#39;</span>) <span class="op">-</span> <span class="dv">1</span> <span class="co"># odjecie jednego dnia i uzuskanie ciagu ostatnich dni miesiaca od 2015-01-31 do 2005-11-30</span></code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="functions-and-enviroments.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-structures-basic.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": true,
+"linkedin": true,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"],
+"instapper": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/1_03_PROGRAMING_data_types.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-Manual_R.pdf", "bookdown-Manual_R.epub"],
+"toc": {
+"collapse": "section",
+"depth": 4
+}
+});
+});
+</script>
+
+</body>
+
+</html>

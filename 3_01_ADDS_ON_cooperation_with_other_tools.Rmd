@@ -1,0 +1,259 @@
+# (PART) <lfg>PROGRAMMING</lfg> {-} 
+
+
+# Cooperation with other tools
+
+
+## Relational databases
+
+
+
+### SQL Server
+
+Łączenie się do SQL server przez sterowniki Windowsowe ODBC i pakiet pyodbc
+```{python}
+
+
+import pyodbc
+
+#(1) Jezeli sql server jest na innym komputerze/serwerze to tworze poleczenie do serwera zgodnie ze stringiem o skladni: 
+conn = pyodbc.connect("DRIVER={sterownik};SERVER=nazwa_servera;DATABASE=nazwa_bazy;UID=nazwa_uzytkownika;PWD=haslo")
+
+#(2) Jezeli sql server jest localhostem uzywamy skladni: 
+conn = pyodbc.connect('DRIVER={sterownik};Server=nazwa_servera_server;Database=nazwa_bazy;Trusted_Connection=yes;')
+# na moim lokalnym komputerze laczenie z localhostem wylada tak:
+conn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};Server=DESKTOP-BACLRCB;Database=Test;Trusted_Connection=yes;') # Ja mam wpisane ze sterownik to "ODBC Driver 17 for SQL Server" ale mozesz miec inna wersje sterownika ODBC. Sprawdz to sobie w podgladzie sterownikow ODBC w Windowsie. Nazwe servera sprawdzisz w "Management Studio"
+
+# UWAGA!!!: Ja mam zainstalowany SQL Server Developer. Jezli masz SQL Server Express to przy nazwie serwera w powyzszych stringach polaczenie powinna byc skladnia: 'nazwa_serwera\\SQLEXPRESS' a nie samo 'nazwa_serwera'
+
+
+```
+
+
+
+Łączenie się do SQL server przez pakiet sqlAlchemy
+```{python}
+
+
+from sqlalchemy import create_engine
+import urllib
+import pyodbc
+import pandas as pd
+
+
+# wklejam string polaczenia zgodnie ze sposobem opisanym w podrozdzialen 'Łączenie się do SQL server przez sterowniki Windowsowe ODBC i pakiet pyodbc':
+quoted = urllib.parse.quote_plus("DRIVER={ODBC Driver 17 for SQL Server};Server=DESKTOP-BACLRCB;Database=Test;Trusted_Connection=yes;")
+
+# tworze patametry dla polaczenie pod pokiet sqlAlchemy bazujac na wczeniej zdefiniowanym stringu polaczenia
+engine = create_engine('mssql+pyodbc:///?odbc_connect={}'.format(quoted))
+
+# lacze sie do bazy
+conn = engine.connect()
+
+```
+
+
+
+
+Ladowanie/insertowanie danych
+Uwaga: zeby ladowac dane bezposrednio z DataFrames musimy na ta chwile uzyc podloczenia sie przez pakiet 'sqlAlchemy' a nie 'pyodbc'.
+```{python}
+
+from sqlalchemy import create_engine
+import urllib
+import pyodbc
+import pandas as pd
+
+
+# przygotowuje DataFrame do zaladowania
+df = pd.DataFrame({'A':[1,2,3,4,5], 'B':[7,8,9,10,11]})
+
+# lacze sie do bazy zgodnie z logika pakietu 'sqlAlchemy'
+quoted = urllib.parse.quote_plus("DRIVER={ODBC Driver 17 for SQL Server};Server=DESKTOP-BACLRCB;Database=Test;Trusted_Connection=yes;")
+engine = create_engine('mssql+pyodbc:///?odbc_connect={}'.format(quoted))
+conn = engine.connect()
+
+# laduje tabele do bazy
+df.to_sql(name='nowa_tabela', con = conn, if_exists='append') # parametr 'if_exists' mowi co zrobic gdyby tabela 'nowa_tabela' juz istniala w bazie. Wartosc 'append' oznacze ze do istaniejacej tabeli zostana dodane wiersze. Inne mozliwe wartosci to 'fila' i 'replace'
+
+
+```
+
+
+
+Pobieranie danych
+Tutaj mozemy laczyc sie zarowno przez pakiet 'sqlAlchemy' jak i 'pyodbc'
+```{python}
+
+import pandas as pd
+import pyodbc
+
+
+# lacze sie do bazy sterownikiem ODBC przez pakiet 'pyodbc' (mozemy tez oczywiscie uzyc rozwiazania a pakietu sqlAlchemy)
+conn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};Server=DESKTOP-BACLRCB;Database=Test;Trusted_Connection=yes;')
+
+# przygotowuje string z zapytaniem SQL
+sql = 'SELECT top 10 * FROM recipes'
+
+# pobieram dane
+df = pd.read_sql(sql=sql, con=conn)
+
+
+```
+
+
+Wykonywanie dowolnego stringu SQL na bazie
+```{python}
+
+import pyodbc
+
+conn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};Server=DESKTOP-BACLRCB;Database=Test;Trusted_Connection=yes;')
+cursor = conn.cursor()
+cursor.execute("drop table recipes") # przyklad sql-a uzuwajacego tabele
+cursor.commit()
+cursor.close()
+
+
+```
+
+
+
+
+
+
+
+### Postgres
+
+Łączenie się do bazy pakietem 'sqlalchemy'. Nie wymaga zainstalowanych sterownikow ODBC
+```{python}
+
+import sqlalchemy # trzeba miec roznie zainstalowany pakiet 'psycopg2' !!!. Inaczej funkcje z pakietu 'sqlalchemy' nie beda dzialac
+import pandas as pd
+
+# utorzenie polaczenia: skladnia stringu polaczenia to 'postgresql+psycopg2://uzytkownik:haslo@server:port/baza'
+engine = sqlalchemy.create_engine('postgresql+psycopg2://postgres:postgres@localhost:5432/postgres') # skladnia polazenia 
+conn = engine.connect()
+
+conn.close() # zakonczenie polaczenia z baza
+
+```
+
+
+Łączenie się do bazy pakietem 'pyodbc'. Wymaga zainstalowanych sterownikow ODBC
+```{python}
+
+import pyodbc
+
+connection = pyodbc.connect("DRIVER={PostgreSQL Unicode};SERVER=localhost;DATABASE=postgres;UID=postgres;PWD=password")
+
+conn.close() # zakonczenie polaczenia z baza
+
+```
+
+
+
+Ładowanie danych do bazy
+Uwaga: zeby ladowac dane bezposrednio z DataFrames musimy na ta chwile uzyc podloczenia sie przez pakiet 'sqlAlchemy' a nie 'pyodbc'.
+```{python}
+
+
+import sqlalchemy # trzeba miec roznie zainstalowany pakiet 'psycopg2' !!!. Inaczej funkcje z pakietu 'sqlalchemy' nie beda dzialac
+import pandas as pd
+
+# utorzenie polaczenia: skladnia stringu polaczenia to 'postgresql+psycopg2://uzytkownik:haslo@server:port/baza'
+engine = sqlalchemy.create_engine('postgresql+psycopg2://postgres:postgres@localhost:5432/postgres') # skladnia polazenia 
+conn = engine.connect()
+
+
+# Tworze DataFrame ktora bedzie eksportowana do Postgresa
+lista_hello = ['hello4', 'hello5']
+lista_world = ['world4', 'world5']
+df = pd.DataFrame(data={'hello': lista_hello, 'world': lista_world})
+
+
+# wyslanie DataFrame do Postgresa
+df.to_sql(name='helloworld2'
+          , con=engine
+          , if_exists='append' # 'if exists = append' oznacze ze jezeli tabela istnieje to nokordy beda dodane. 
+          , index=False) 
+
+conn.close() # zakonczenie polaczenia z baza
+
+```
+
+
+Pobieranie danych
+Tutaj mozemy laczyc sie zarowno przez pakiet 'sqlAlchemy' jak i 'pyodbc'. 
+```{python}
+
+
+import sqlalchemy # trzeba miec roznie zainstalowany pakiet 'psycopg2' !!!. Inaczej funkcje z pakietu 'sqlalchemy' nie beda dzialac
+import pandas as pd
+
+# utorzenie polaczenia: skladnia stringu polaczenia to 'postgresql+psycopg2://uzytkownik:haslo@server:port/baza'
+engine = sqlalchemy.create_engine('postgresql+psycopg2://postgres:postgres@localhost:5432/postgres') # skladnia polazenia 
+conn = engine.connect()
+
+# pobranie danych z bazy Postgres (SPOSOB 1)
+from sqlalchemy.sql import text
+s = text(
+     "SELECT * "
+         "FROM helloworld "
+         "WHERE world = :word ")
+result = conn.execute(s, word='world5').fetchall()  # string 'world5' bedzie w kwerendzie postawiony pod ':word'
+pd.DataFrame(result)
+
+# pobranie danych z bazy Postgres (SPOSOB 2)
+df12 = pd.read_sql_query(sql='select * from helloworld where world={}'.format("'world5'"), con=conn)
+
+
+conn.close() # zakonczenie polaczenia z baza
+
+```
+
+Wykonywanie dowolnego polecenia na bazie
+```{python}
+
+# przylad pobrania listy tabel w schemacie 'public'
+q = conn.execute("SELECT tablename FROM pg_catalog.pg_tables where schemaname = 'public'").fetchall()
+conn.close()  # zakonczenie polaczenia z baza
+
+```
+
+
+### Oracle
+
+
+### MySql
+
+
+
+
+## Norelational databases
+
+### Neo4j
+
+### Redis
+
+### MongoDB
+
+
+
+## R
+
+<!-- To check whether your inside Virtualenv: -->
+
+
+<!-- ```{r} -->
+
+<!-- # use_condaenv('test', conda = "auto", required = FALSE) -->
+
+<!-- ``` -->
+
+```{python}
+
+
+
+
+```
+

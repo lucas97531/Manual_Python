@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 DATA STRUCTURES - Numpy, Scipy | Introduction to Python</title>
+  <meta name="description" content="Chapter 8 DATA STRUCTURES - Numpy, Scipy | Introduction to Python" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 DATA STRUCTURES - Numpy, Scipy | Introduction to Python" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 DATA STRUCTURES - Numpy, Scipy | Introduction to Python" />
+  
+  
+  
+
+<meta name="author" content="Łukasz Muszyński" />
+
+
+<meta name="date" content="2019-08-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-structures-pandas.html">
+<link rel="next" href="data-structures-other.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introdution to Python</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> INTRO</a></li>
+<li class="part"><span><b>I <lfg>PROGRAMMING</lfg></b></span></li>
+<li class="chapter" data-level="2" data-path="syntax.html"><a href="syntax.html"><i class="fa fa-check"></i><b>2</b> Syntax</a><ul>
+<li class="chapter" data-level="2.1" data-path="syntax.html"><a href="syntax.html#operatory-logiczne"><i class="fa fa-check"></i><b>2.1</b> operatory logiczne</a></li>
+<li class="chapter" data-level="2.2" data-path="syntax.html"><a href="syntax.html#podstawowe-komendy-i-funkcje"><i class="fa fa-check"></i><b>2.2</b> podstawowe komendy i funkcje</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="syntax.html"><a href="syntax.html#sprawdzenie-typu-obiektu"><i class="fa fa-check"></i><b>2.2.1</b> sprawdzenie typu obiektu</a></li>
+<li class="chapter" data-level="2.2.2" data-path="syntax.html"><a href="syntax.html#inne-komendy-i-funkcje"><i class="fa fa-check"></i><b>2.2.2</b> inne komendy i funkcje</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="syntax.html"><a href="syntax.html#control-flow"><i class="fa fa-check"></i><b>2.3</b> control flow</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="syntax.html"><a href="syntax.html#if-else"><i class="fa fa-check"></i><b>2.3.1</b> if else</a></li>
+<li class="chapter" data-level="2.3.2" data-path="syntax.html"><a href="syntax.html#petla-for"><i class="fa fa-check"></i><b>2.3.2</b> petla ‘for’</a></li>
+<li class="chapter" data-level="2.3.3" data-path="syntax.html"><a href="syntax.html#petla-while"><i class="fa fa-check"></i><b>2.3.3</b> petla ‘while’</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="syntax.html"><a href="syntax.html#indicies"><i class="fa fa-check"></i><b>2.4</b> Indicies</a></li>
+<li class="chapter" data-level="2.5" data-path="syntax.html"><a href="syntax.html#shallow-and-deep-copies"><i class="fa fa-check"></i><b>2.5</b> shallow and deep copies</a></li>
+<li class="chapter" data-level="2.6" data-path="syntax.html"><a href="syntax.html#generators"><i class="fa fa-check"></i><b>2.6</b> generators</a></li>
+<li class="chapter" data-level="2.7" data-path="syntax.html"><a href="syntax.html#dynamic-code"><i class="fa fa-check"></i><b>2.7</b> dynamic code</a></li>
+<li class="chapter" data-level="2.8" data-path="syntax.html"><a href="syntax.html#errors-and-warning"><i class="fa fa-check"></i><b>2.8</b> errors and warning</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="syntax.html"><a href="syntax.html#try"><i class="fa fa-check"></i><b>2.8.1</b> try</a></li>
+<li class="chapter" data-level="2.8.2" data-path="syntax.html"><a href="syntax.html#assertion"><i class="fa fa-check"></i><b>2.8.2</b> assertion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html"><i class="fa fa-check"></i><b>3</b> FUNCTIONS AND ENVIROMENTS</a><ul>
+<li class="chapter" data-level="3.1" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#podstawowa-skadnia"><i class="fa fa-check"></i><b>3.1</b> podstawowa składnia</a></li>
+<li class="chapter" data-level="3.2" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#przekazywanie-argumentow-przez-wartosc-a-przekazywanie-przez-referencje"><i class="fa fa-check"></i><b>3.2</b> przekazywanie argumentow przez wartosc a przekazywanie przez referencje</a></li>
+<li class="chapter" data-level="3.3" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#funkcje-anonimowe"><i class="fa fa-check"></i><b>3.3</b> funkcje anonimowe</a></li>
+<li class="chapter" data-level="3.4" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#programowanie-funkcyjne"><i class="fa fa-check"></i><b>3.4</b> programowanie funkcyjne</a></li>
+<li class="chapter" data-level="3.5" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#wektoryzacja-funkcji"><i class="fa fa-check"></i><b>3.5</b> wektoryzacja funkcji</a></li>
+<li class="chapter" data-level="3.6" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#rekurencja"><i class="fa fa-check"></i><b>3.6</b> rekurencja</a></li>
+<li class="chapter" data-level="3.7" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#zakres-istnienia-zmiennych-scoping-rules"><i class="fa fa-check"></i><b>3.7</b> zakres istnienia zmiennych (scoping rules)</a></li>
+<li class="chapter" data-level="3.8" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#dekoratory"><i class="fa fa-check"></i><b>3.8</b> dekoratory</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>4</b> DATA TYPES</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-types.html"><a href="data-types.html#liczby"><i class="fa fa-check"></i><b>4.1</b> liczby</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="data-types.html"><a href="data-types.html#tworzenie"><i class="fa fa-check"></i><b>4.1.1</b> tworzenie</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-types.html"><a href="data-types.html#ciagi"><i class="fa fa-check"></i><b>4.1.2</b> Ciagi</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-types.html"><a href="data-types.html#rozne-funkcje"><i class="fa fa-check"></i><b>4.1.3</b> rozne funkcje</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-types.html"><a href="data-types.html#text"><i class="fa fa-check"></i><b>4.2</b> text</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="data-types.html"><a href="data-types.html#tworzenie-statyczne"><i class="fa fa-check"></i><b>4.2.1</b> tworzenie statyczne</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-types.html"><a href="data-types.html#tworzenie-dynamiczne---nowa-skladnia-z-funkcja-format"><i class="fa fa-check"></i><b>4.2.2</b> Tworzenie dynamiczne - nowa skladnia z funkcja ‘format’</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-types.html"><a href="data-types.html#tworzenie-dynamiczne---stara-skladnia"><i class="fa fa-check"></i><b>4.2.3</b> Tworzenie dynamiczne - stara skladnia</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-types.html"><a href="data-types.html#multiline-string"><i class="fa fa-check"></i><b>4.2.4</b> multiline string</a></li>
+<li class="chapter" data-level="4.2.5" data-path="data-types.html"><a href="data-types.html#odwolywanie-sie-do-podstringow"><i class="fa fa-check"></i><b>4.2.5</b> odwolywanie sie do podstringow</a></li>
+<li class="chapter" data-level="4.2.6" data-path="data-types.html"><a href="data-types.html#szukanie-pozycji-podstringow"><i class="fa fa-check"></i><b>4.2.6</b> szukanie pozycji podstringow</a></li>
+<li class="chapter" data-level="4.2.7" data-path="data-types.html"><a href="data-types.html#modyfikacja"><i class="fa fa-check"></i><b>4.2.7</b> modyfikacja</a></li>
+<li class="chapter" data-level="4.2.8" data-path="data-types.html"><a href="data-types.html#rozne-podstawowe-operacje-i-funkcje-zwiazane-ze-stringami"><i class="fa fa-check"></i><b>4.2.8</b> rozne podstawowe operacje i funkcje zwiazane ze stringami</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-types.html"><a href="data-types.html#wyrazenie-regularne"><i class="fa fa-check"></i><b>4.3</b> wyrazenie regularne</a></li>
+<li class="chapter" data-level="4.4" data-path="data-types.html"><a href="data-types.html#daty"><i class="fa fa-check"></i><b>4.4</b> daty</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="data-types.html"><a href="data-types.html#tworzenie-dat"><i class="fa fa-check"></i><b>4.4.1</b> tworzenie dat</a></li>
+<li class="chapter" data-level="4.4.2" data-path="data-types.html"><a href="data-types.html#atrybuty-daty"><i class="fa fa-check"></i><b>4.4.2</b> atrybuty daty</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="inkrementacja-daty.html"><a href="inkrementacja-daty.html"><i class="fa fa-check"></i><b>5</b> inkrementacja daty</a><ul>
+<li class="chapter" data-level="5.1" data-path="inkrementacja-daty.html"><a href="inkrementacja-daty.html#roznice-dat"><i class="fa fa-check"></i><b>5.1</b> roznice dat</a></li>
+<li class="chapter" data-level="5.2" data-path="inkrementacja-daty.html"><a href="inkrementacja-daty.html#zmiana-wartosci"><i class="fa fa-check"></i><b>5.2</b> zmiana wartosci</a></li>
+<li class="chapter" data-level="5.3" data-path="inkrementacja-daty.html"><a href="inkrementacja-daty.html#zaokraglanie-dat"><i class="fa fa-check"></i><b>5.3</b> zaokraglanie dat</a></li>
+<li class="chapter" data-level="5.4" data-path="inkrementacja-daty.html"><a href="inkrementacja-daty.html#generowanie-ciagu-dat"><i class="fa fa-check"></i><b>5.4</b> generowanie ciagu dat</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-structures-basic.html"><a href="data-structures-basic.html"><i class="fa fa-check"></i><b>6</b> DATA STRUCTURES - basic</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#listy"><i class="fa fa-check"></i><b>6.1</b> listy</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#atrybuty-listy"><i class="fa fa-check"></i><b>6.1.1</b> atrybuty listy</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-listy"><i class="fa fa-check"></i><b>6.1.2</b> tworzenie listy</a></li>
+<li class="chapter" data-level="6.1.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#dodawanie-wartosci"><i class="fa fa-check"></i><b>6.1.3</b> dodawanie wartosci</a></li>
+<li class="chapter" data-level="6.1.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#aktualizacja-wartosci"><i class="fa fa-check"></i><b>6.1.4</b> aktualizacja wartosci</a></li>
+<li class="chapter" data-level="6.1.5" data-path="data-structures-basic.html"><a href="data-structures-basic.html#usuwanie"><i class="fa fa-check"></i><b>6.1.5</b> usuwanie</a></li>
+<li class="chapter" data-level="6.1.6" data-path="data-structures-basic.html"><a href="data-structures-basic.html#filtrowanie"><i class="fa fa-check"></i><b>6.1.6</b> filtrowanie</a></li>
+<li class="chapter" data-level="6.1.7" data-path="data-structures-basic.html"><a href="data-structures-basic.html#wyszukiwanie-indeksu"><i class="fa fa-check"></i><b>6.1.7</b> wyszukiwanie indeksu</a></li>
+<li class="chapter" data-level="6.1.8" data-path="data-structures-basic.html"><a href="data-structures-basic.html#sortowanie"><i class="fa fa-check"></i><b>6.1.8</b> sortowanie</a></li>
+<li class="chapter" data-level="6.1.9" data-path="data-structures-basic.html"><a href="data-structures-basic.html#operowanie-funkcjami-na-elementach"><i class="fa fa-check"></i><b>6.1.9</b> operowanie funkcjami na elementach</a></li>
+<li class="chapter" data-level="6.1.10" data-path="data-structures-basic.html"><a href="data-structures-basic.html#ciekawe-operacje-i-triki-na-listach"><i class="fa fa-check"></i><b>6.1.10</b> ciekawe operacje i triki na listach</a></li>
+<li class="chapter" data-level="6.1.11" data-path="data-structures-basic.html"><a href="data-structures-basic.html#losowe-elementy"><i class="fa fa-check"></i><b>6.1.11</b> losowe elementy</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#slowniki"><i class="fa fa-check"></i><b>6.2</b> slowniki</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-1"><i class="fa fa-check"></i><b>6.2.1</b> tworzenie</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#odwolywanie-sie-do-elementow"><i class="fa fa-check"></i><b>6.2.2</b> odwolywanie sie do elementow</a></li>
+<li class="chapter" data-level="6.2.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#updating-and-adding"><i class="fa fa-check"></i><b>6.2.3</b> updating and adding</a></li>
+<li class="chapter" data-level="6.2.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#removing"><i class="fa fa-check"></i><b>6.2.4</b> removing</a></li>
+<li class="chapter" data-level="6.2.5" data-path="data-structures-basic.html"><a href="data-structures-basic.html#filtering"><i class="fa fa-check"></i><b>6.2.5</b> filtering</a></li>
+<li class="chapter" data-level="6.2.6" data-path="data-structures-basic.html"><a href="data-structures-basic.html#nazwy-dla-ktorych-wartosci-spelniaja-warunek"><i class="fa fa-check"></i><b>6.2.6</b> nazwy dla ktorych wartosci spelniaja warunek</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tuples"><i class="fa fa-check"></i><b>6.3</b> tuples</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#atrybuty"><i class="fa fa-check"></i><b>6.3.1</b> atrybuty</a></li>
+<li class="chapter" data-level="6.3.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-2"><i class="fa fa-check"></i><b>6.3.2</b> tworzenie</a></li>
+<li class="chapter" data-level="6.3.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#odwolywanie-sie-do-elementow-1"><i class="fa fa-check"></i><b>6.3.3</b> odwolywanie sie do elementow</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#set-zbiory"><i class="fa fa-check"></i><b>6.4</b> set (zbiory)</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-3"><i class="fa fa-check"></i><b>6.4.1</b> tworzenie</a></li>
+<li class="chapter" data-level="6.4.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#atrubyty"><i class="fa fa-check"></i><b>6.4.2</b> atrubyty</a></li>
+<li class="chapter" data-level="6.4.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#aktualizacjadodawanieusuwanie-wartosci"><i class="fa fa-check"></i><b>6.4.3</b> aktualizacja/dodawanie/usuwanie wartosci</a></li>
+<li class="chapter" data-level="6.4.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#funkcje-na-elementach"><i class="fa fa-check"></i><b>6.4.4</b> funkcje na elementach</a></li>
+<li class="chapter" data-level="6.4.5" data-path="data-structures-basic.html"><a href="data-structures-basic.html#operacje-na-zbiorach"><i class="fa fa-check"></i><b>6.4.5</b> operacje na zbiorach</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html"><i class="fa fa-check"></i><b>7</b> DATA STRUCTURES-Pandas</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#series"><i class="fa fa-check"></i><b>7.1</b> Series</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#tworzenie-4"><i class="fa fa-check"></i><b>7.1.1</b> tworzenie</a></li>
+<li class="chapter" data-level="7.1.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#atrybuty-1"><i class="fa fa-check"></i><b>7.1.2</b> atrybuty</a></li>
+<li class="chapter" data-level="7.1.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#odwolywanie-sie-do-elementow-2"><i class="fa fa-check"></i><b>7.1.3</b> Odwolywanie sie do elementow</a></li>
+<li class="chapter" data-level="7.1.4" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#sortowanie-1"><i class="fa fa-check"></i><b>7.1.4</b> sortowanie</a></li>
+<li class="chapter" data-level="7.1.5" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dodawanie-wartosci-i-problem-z-indeksami"><i class="fa fa-check"></i><b>7.1.5</b> dodawanie wartosci i problem z indeksami</a></li>
+<li class="chapter" data-level="7.1.6" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#aktualizacja-wartosci-1"><i class="fa fa-check"></i><b>7.1.6</b> aktualizacja wartosci</a></li>
+<li class="chapter" data-level="7.1.7" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#rozne-funkcje-1"><i class="fa fa-check"></i><b>7.1.7</b> rozne funkcje</a></li>
+<li class="chapter" data-level="7.1.8" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-brakami-danych-i-wartowsciami-nieskonczonymi"><i class="fa fa-check"></i><b>7.1.8</b> praca z brakami danych i wartowsciami nieskonczonymi</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#categorical"><i class="fa fa-check"></i><b>7.2</b> Categorical</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#tworzenie-5"><i class="fa fa-check"></i><b>7.2.1</b> Tworzenie</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#usuwaniedodawaniemodyfikacje-kategorii"><i class="fa fa-check"></i><b>7.2.2</b> usuwanie/dodawanie/modyfikacje kategorii</a></li>
+<li class="chapter" data-level="7.2.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dodawanie-nowych-elemntow"><i class="fa fa-check"></i><b>7.2.3</b> dodawanie nowych elemntow</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#data-frames"><i class="fa fa-check"></i><b>7.3</b> DATA FRAMES</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#najwazniejsze-atrybuty-dataframe"><i class="fa fa-check"></i><b>7.3.1</b> Najważniejsze atrybuty DataFrame</a></li>
+<li class="chapter" data-level="7.3.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#tworzenie-ramki-danych"><i class="fa fa-check"></i><b>7.3.2</b> Tworzenie ramki danych</a></li>
+<li class="chapter" data-level="7.3.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#uwagi-o-indeksach"><i class="fa fa-check"></i><b>7.3.3</b> Uwagi o indeksach</a></li>
+<li class="chapter" data-level="7.3.4" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#wymuszanie-typow-kolumn-w-dataframe"><i class="fa fa-check"></i><b>7.3.4</b> Wymuszanie typów kolumn w DataFrame</a></li>
+<li class="chapter" data-level="7.3.5" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#transpozycja-dataframe"><i class="fa fa-check"></i><b>7.3.5</b> Transpozycja DataFrame</a></li>
+<li class="chapter" data-level="7.3.6" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#zmiana-nazw-kolumn"><i class="fa fa-check"></i><b>7.3.6</b> Zmiana nazw kolumn</a></li>
+<li class="chapter" data-level="7.3.7" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#usuwanie-kolumn"><i class="fa fa-check"></i><b>7.3.7</b> Usuwanie kolumn</a></li>
+<li class="chapter" data-level="7.3.8" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#filtrowanie-data-frame---wybieranie-kolumn"><i class="fa fa-check"></i><b>7.3.8</b> Filtrowanie Data Frame - wybieranie kolumn</a></li>
+<li class="chapter" data-level="7.3.9" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#filtrowanie-data-frame---wybieranie-wierszy"><i class="fa fa-check"></i><b>7.3.9</b> Filtrowanie Data Frame - wybieranie wierszy</a></li>
+<li class="chapter" data-level="7.3.10" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dodawanie-nowych-kolumn"><i class="fa fa-check"></i><b>7.3.10</b> Dodawanie nowych kolumn</a></li>
+<li class="chapter" data-level="7.3.11" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#aktualizacja-wartosci-w-kolumnach"><i class="fa fa-check"></i><b>7.3.11</b> Aktualizacja wartosci w kolumnach</a></li>
+<li class="chapter" data-level="7.3.12" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#sortowanie-2"><i class="fa fa-check"></i><b>7.3.12</b> Sortowanie</a></li>
+<li class="chapter" data-level="7.3.13" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#bindowanie---w-wierszach"><i class="fa fa-check"></i><b>7.3.13</b> Bindowanie - w wierszach</a></li>
+<li class="chapter" data-level="7.3.14" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#bindowanie---w-kolumnach"><i class="fa fa-check"></i><b>7.3.14</b> Bindowanie - w kolumnach</a></li>
+<li class="chapter" data-level="7.3.15" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#aczenie---merge"><i class="fa fa-check"></i><b>7.3.15</b> Łączenie - merge</a></li>
+<li class="chapter" data-level="7.3.16" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-duplikatami"><i class="fa fa-check"></i><b>7.3.16</b> Praca z duplikatami</a></li>
+<li class="chapter" data-level="7.3.17" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-brakami-danych"><i class="fa fa-check"></i><b>7.3.17</b> Praca z brakami danych</a></li>
+<li class="chapter" data-level="7.3.18" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-wartosciami-nieskonczonymi"><i class="fa fa-check"></i><b>7.3.18</b> Praca z wartosciami nieskonczonymi</a></li>
+<li class="chapter" data-level="7.3.19" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#funkcje-oknowe"><i class="fa fa-check"></i><b>7.3.19</b> Funkcje oknowe</a></li>
+<li class="chapter" data-level="7.3.20" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-groupby"><i class="fa fa-check"></i><b>7.3.20</b> Praca z GroupBy</a></li>
+<li class="chapter" data-level="7.3.21" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#funkcje-po-kolumnach-i-wierszach"><i class="fa fa-check"></i><b>7.3.21</b> Funkcje po kolumnach i wierszach</a></li>
+<li class="chapter" data-level="7.3.22" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-tekstem"><i class="fa fa-check"></i><b>7.3.22</b> Praca z tekstem</a></li>
+<li class="chapter" data-level="7.3.23" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-datami"><i class="fa fa-check"></i><b>7.3.23</b> Praca z datami</a></li>
+<li class="chapter" data-level="7.3.24" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dummy---rekodowanie-na-zmienne-zero-jedynkowe"><i class="fa fa-check"></i><b>7.3.24</b> Dummy - rekodowanie na zmienne zero-jedynkowe</a></li>
+<li class="chapter" data-level="7.3.25" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#crosstab---analiza-liczebnosci"><i class="fa fa-check"></i><b>7.3.25</b> crosstab - analiza liczebnosci</a></li>
+<li class="chapter" data-level="7.3.26" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#zmiana-struktury-dataframe"><i class="fa fa-check"></i><b>7.3.26</b> zmiana struktury DataFrame</a></li>
+<li class="chapter" data-level="7.3.27" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#rozne-problemy"><i class="fa fa-check"></i><b>7.3.27</b> Rozne problemy</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html"><i class="fa fa-check"></i><b>8</b> DATA STRUCTURES - Numpy, Scipy</a><ul>
+<li class="chapter" data-level="8.1" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#numpy"><i class="fa fa-check"></i><b>8.1</b> Numpy</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#tworzenie-6"><i class="fa fa-check"></i><b>8.1.1</b> Tworzenie</a></li>
+<li class="chapter" data-level="8.1.2" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#atrybuty-2"><i class="fa fa-check"></i><b>8.1.2</b> atrybuty</a></li>
+<li class="chapter" data-level="8.1.3" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#odwolywanie-sie-przez-indeksy"><i class="fa fa-check"></i><b>8.1.3</b> odwolywanie sie przez indeksy</a></li>
+<li class="chapter" data-level="8.1.4" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#filtrowanie-1"><i class="fa fa-check"></i><b>8.1.4</b> filtrowanie</a></li>
+<li class="chapter" data-level="8.1.5" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#aktualizacja-wartosci-2"><i class="fa fa-check"></i><b>8.1.5</b> aktualizacja wartosci</a></li>
+<li class="chapter" data-level="8.1.6" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#usuwanie-1"><i class="fa fa-check"></i><b>8.1.6</b> usuwanie</a></li>
+<li class="chapter" data-level="8.1.7" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#zmiana-kszattu-i-transpozycja"><i class="fa fa-check"></i><b>8.1.7</b> zmiana kszatłtu i transpozycja</a></li>
+<li class="chapter" data-level="8.1.8" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#bindowanie"><i class="fa fa-check"></i><b>8.1.8</b> bindowanie</a></li>
+<li class="chapter" data-level="8.1.9" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#operacje-na-kilku-macierzach-zwracajece-jedna-macierz"><i class="fa fa-check"></i><b>8.1.9</b> operacje na kilku macierzach zwracajece jedna macierz</a></li>
+<li class="chapter" data-level="8.1.10" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#sortowanie-3"><i class="fa fa-check"></i><b>8.1.10</b> sortowanie</a></li>
+<li class="chapter" data-level="8.1.11" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#funkcje-na-macierzach"><i class="fa fa-check"></i><b>8.1.11</b> funkcje na macierzach</a></li>
+<li class="chapter" data-level="8.1.12" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#braki-danych-i-wartosci-nieskonczone"><i class="fa fa-check"></i><b>8.1.12</b> braki danych i wartosci nieskonczone</a></li>
+<li class="chapter" data-level="8.1.13" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#rozne-funkcje-i-triki"><i class="fa fa-check"></i><b>8.1.13</b> rozne funkcje i triki</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#scipy"><i class="fa fa-check"></i><b>8.2</b> Scipy</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="data-structures-other.html"><a href="data-structures-other.html"><i class="fa fa-check"></i><b>9</b> DATA STRUCTURES - other</a></li>
+<li class="chapter" data-level="10" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html"><i class="fa fa-check"></i><b>10</b> DATA STRUCTURES - objective programing</a><ul>
+<li class="chapter" data-level="10.1" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#tworzenie-klasy-i-obiektow"><i class="fa fa-check"></i><b>10.1</b> tworzenie klasy i obiektow</a></li>
+<li class="chapter" data-level="10.2" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#metody-i-klasy-prywatne"><i class="fa fa-check"></i><b>10.2</b> metody i klasy prywatne</a></li>
+<li class="chapter" data-level="10.3" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#mechanizm-dziedziczenia"><i class="fa fa-check"></i><b>10.3</b> mechanizm dziedziczenia</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#tworzenie-podklas"><i class="fa fa-check"></i><b>10.3.1</b> tworzenie podklas</a></li>
+<li class="chapter" data-level="10.3.2" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#przeciazanie-metod"><i class="fa fa-check"></i><b>10.3.2</b> przeciazanie metod</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="work-organisation.html"><a href="work-organisation.html"><i class="fa fa-check"></i><b>11</b> WORK ORGANISATION</a><ul>
+<li class="chapter" data-level="11.1" data-path="work-organisation.html"><a href="work-organisation.html#importowanie-pakietowmodulow"><i class="fa fa-check"></i><b>11.1</b> importowanie pakietow/modulow</a></li>
+<li class="chapter" data-level="11.2" data-path="work-organisation.html"><a href="work-organisation.html#wlasne-moduly-i-pakiety"><i class="fa fa-check"></i><b>11.2</b> Wlasne moduly i pakiety</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="work-organisation.html"><a href="work-organisation.html#wlasny-modul"><i class="fa fa-check"></i><b>11.2.1</b> Wlasny modul</a></li>
+<li class="chapter" data-level="11.2.2" data-path="work-organisation.html"><a href="work-organisation.html#wlasny-pakiet---wersja-uproszczona"><i class="fa fa-check"></i><b>11.2.2</b> Wlasny pakiet - wersja uproszczona</a></li>
+<li class="chapter" data-level="11.2.3" data-path="work-organisation.html"><a href="work-organisation.html#wlasny-pakiet-wg.-standardu-pip"><i class="fa fa-check"></i><b>11.2.3</b> Wlasny pakiet wg. standardu pip</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="work-organisation.html"><a href="work-organisation.html#tworzenie-wirtualnych-srodowisk"><i class="fa fa-check"></i><b>11.3</b> tworzenie wirtualnych srodowisk</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="data-import-and-export.html"><a href="data-import-and-export.html"><i class="fa fa-check"></i><b>12</b> DATA IMPORT AND EXPORT</a><ul>
+<li class="chapter" data-level="12.1" data-path="data-import-and-export.html"><a href="data-import-and-export.html#pickles"><i class="fa fa-check"></i><b>12.1</b> pickles</a></li>
+<li class="chapter" data-level="12.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#csv-txt"><i class="fa fa-check"></i><b>12.2</b> csv / txt</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="data-import-and-export.html"><a href="data-import-and-export.html#import"><i class="fa fa-check"></i><b>12.2.1</b> Import</a></li>
+<li class="chapter" data-level="12.2.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#eksport"><i class="fa fa-check"></i><b>12.2.2</b> Eksport</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="data-import-and-export.html"><a href="data-import-and-export.html#excel"><i class="fa fa-check"></i><b>12.3</b> excel</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="data-import-and-export.html"><a href="data-import-and-export.html#import-1"><i class="fa fa-check"></i><b>12.3.1</b> Import</a></li>
+<li class="chapter" data-level="12.3.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#eksport-1"><i class="fa fa-check"></i><b>12.3.2</b> Eksport</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="data-import-and-export.html"><a href="data-import-and-export.html#schowek"><i class="fa fa-check"></i><b>12.4</b> schowek</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html"><i class="fa fa-check"></i><b>13</b> TOOLS AND TRICKS</a><ul>
+<li class="chapter" data-level="13.1" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#praca-z-katalogami-i-plikami"><i class="fa fa-check"></i><b>13.1</b> praca z katalogami i plikami</a></li>
+<li class="chapter" data-level="13.2" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#podstawowe-polecenia-w-konsoli"><i class="fa fa-check"></i><b>13.2</b> Podstawowe polecenia w konsoli</a></li>
+<li class="chapter" data-level="13.3" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#python"><i class="fa fa-check"></i><b>13.3</b> python</a></li>
+<li class="chapter" data-level="13.4" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#pommiar-czasu-wykonania-kodu"><i class="fa fa-check"></i><b>13.4</b> pommiar czasu wykonania kodu</a></li>
+</ul></li>
+<li class="part"><span><b>II <lfg>VISUALISATION</lfg></b></span></li>
+<li class="chapter" data-level="14" data-path="big-packages.html"><a href="big-packages.html"><i class="fa fa-check"></i><b>14</b> big packages</a><ul>
+<li class="chapter" data-level="14.1" data-path="big-packages.html"><a href="big-packages.html#matplotlib"><i class="fa fa-check"></i><b>14.1</b> matplotlib</a></li>
+<li class="chapter" data-level="14.2" data-path="big-packages.html"><a href="big-packages.html#seaborn"><i class="fa fa-check"></i><b>14.2</b> seaborn</a></li>
+<li class="chapter" data-level="14.3" data-path="big-packages.html"><a href="big-packages.html#plotly"><i class="fa fa-check"></i><b>14.3</b> plotly</a></li>
+<li class="chapter" data-level="14.4" data-path="big-packages.html"><a href="big-packages.html#bokeh"><i class="fa fa-check"></i><b>14.4</b> bokeh</a></li>
+<li class="chapter" data-level="14.5" data-path="big-packages.html"><a href="big-packages.html#plotnine"><i class="fa fa-check"></i><b>14.5</b> plotnine</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="other-packages.html"><a href="other-packages.html"><i class="fa fa-check"></i><b>15</b> other packages</a></li>
+<li class="chapter" data-level="16" data-path="graphs.html"><a href="graphs.html"><i class="fa fa-check"></i><b>16</b> graphs</a></li>
+<li class="chapter" data-level="17" data-path="maps.html"><a href="maps.html"><i class="fa fa-check"></i><b>17</b> maps</a></li>
+<li class="chapter" data-level="18" data-path="other-issues.html"><a href="other-issues.html"><i class="fa fa-check"></i><b>18</b> other issues</a></li>
+<li class="part"><span><b>III <lfg>PROGRAMMING</lfg></b></span></li>
+<li class="chapter" data-level="19" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html"><i class="fa fa-check"></i><b>19</b> Cooperation with other tools</a><ul>
+<li class="chapter" data-level="19.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#relational-databases"><i class="fa fa-check"></i><b>19.1</b> Relational databases</a><ul>
+<li class="chapter" data-level="19.1.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#sql-server"><i class="fa fa-check"></i><b>19.1.1</b> SQL Server</a></li>
+<li class="chapter" data-level="19.1.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#postgres"><i class="fa fa-check"></i><b>19.1.2</b> Postgres</a></li>
+<li class="chapter" data-level="19.1.3" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#oracle"><i class="fa fa-check"></i><b>19.1.3</b> Oracle</a></li>
+<li class="chapter" data-level="19.1.4" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#mysql"><i class="fa fa-check"></i><b>19.1.4</b> MySql</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#norelational-databases"><i class="fa fa-check"></i><b>19.2</b> Norelational databases</a><ul>
+<li class="chapter" data-level="19.2.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#neo4j"><i class="fa fa-check"></i><b>19.2.1</b> Neo4j</a></li>
+<li class="chapter" data-level="19.2.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#redis"><i class="fa fa-check"></i><b>19.2.2</b> Redis</a></li>
+<li class="chapter" data-level="19.2.3" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#mongodb"><i class="fa fa-check"></i><b>19.2.3</b> MongoDB</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#r"><i class="fa fa-check"></i><b>19.3</b> R</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="www.html"><a href="www.html"><i class="fa fa-check"></i><b>20</b> www</a><ul>
+<li class="chapter" data-level="20.1" data-path="www.html"><a href="www.html#flask"><i class="fa fa-check"></i><b>20.1</b> Flask</a></li>
+<li class="chapter" data-level="20.2" data-path="www.html"><a href="www.html#django"><i class="fa fa-check"></i><b>20.2</b> Django</a></li>
+</ul></li>
+<li class="part"><span><b>IV <lfg>APPENDICIES</lfg></b></span></li>
+<li class="chapter" data-level="21" data-path="good-habits.html"><a href="good-habits.html"><i class="fa fa-check"></i><b>21</b> good habits</a></li>
+<li class="chapter" data-level="22" data-path="ide.html"><a href="ide.html"><i class="fa fa-check"></i><b>22</b> IDE</a><ul>
+<li class="chapter" data-level="22.1" data-path="ide.html"><a href="ide.html#jupiter"><i class="fa fa-check"></i><b>22.1</b> Jupiter</a></li>
+<li class="chapter" data-level="22.2" data-path="ide.html"><a href="ide.html#pycharm"><i class="fa fa-check"></i><b>22.2</b> PyCharm</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="intro-1.html"><a href="intro-1.html"><i class="fa fa-check"></i><b>23</b> INTRO</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-structures---numpy-scipy" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> DATA STRUCTURES - Numpy, Scipy</h1>
+<div id="numpy" class="section level2">
+<h2><span class="header-section-number">8.1</span> Numpy</h2>
+<p>Fajny cheat sheet do Nympy
+<a href="https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Numpy_Python_Cheat_Sheet.pdf" class="uri">https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Numpy_Python_Cheat_Sheet.pdf</a></p>
+<div id="tworzenie-6" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> Tworzenie</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> numpy <span class="im">as</span> np
+
+
+<span class="co">#(1) z definicji</span>
+
+<span class="co"># jednowymiarowa macierz</span>
+np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])
+
+<span class="co"># tak jak przy DataFrames, tworzymy dwuwymiarową macierz podajac kolejno elementy wiersza a nie kolumny:</span>
+np.array( [[<span class="dv">1</span>,<span class="dv">2</span>], [<span class="dv">3</span>,<span class="dv">4</span>]] ) <span class="co"># wartosci 1 i 2 to bedzie pierwszy wiersza a nie kolumna</span>
+
+<span class="co"># wymusze typu danych (w przykladnie na typ &#39;string&#39;</span>
+a <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], dtype<span class="op">=</span><span class="st">&#39;str&#39;</span>) <span class="co"># UWAGA -to nie jest Pandas wiec tekst to nie typ &#39;object&#39;, ale tak jak w całym Pythonie &#39;str&#39;</span>
+
+<span class="co"># macierz wielowymiarowa</span>
+a_w <span class="op">=</span> np.array([[[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]], [[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]], [[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]]]) <span class="co"># macierz 3 wymiarowa (3x3x3 elementow)</span>
+a_w.ndim <span class="co"># macierz ma 3 wymiary</span>
+
+
+
+
+
+
+<span class="co">#(2) z listy</span>
+
+l1 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]
+np.array(l)
+
+l2 <span class="op">=</span> [<span class="dv">1</span>, <span class="st">&#39;a&#39;</span>]
+a <span class="op">=</span> np.array(l2) <span class="co"># macierz musi byc jednorodna pod wzgledem typu, wiec liczba 1 zostala przekonwertowana na tekst</span>
+a.dtype <span class="co"># typ U11 oznacza ze &quot;All the elements got converted into a string&quot;</span>
+
+
+
+
+<span class="co">#(3) z DataFrame</span>
+
+<span class="im">import</span> pandas <span class="im">as</span> pd
+df <span class="op">=</span> pd.DataFrame([[<span class="dv">1</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">4</span>]], columns <span class="op">=</span> [<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>])
+
+<span class="co"># sposob 1</span>
+a1 <span class="op">=</span> df.as_matrix(columns<span class="op">=</span>[<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>]) <span class="co"># tutaj mozemy wybierac kolumny</span>
+
+<span class="co"># sposob 2</span>
+a2 <span class="op">=</span> np.asmatrix(df, dtype <span class="op">=</span> <span class="st">&#39;str&#39;</span>) <span class="co"># tutaj jest mozliowosc wymuszenia typu</span>
+
+
+<span class="co"># sposob 3</span>
+a3 <span class="op">=</span> np.asarray(df, dtype <span class="op">=</span> <span class="st">&#39;str&#39;</span>) <span class="co"># tutaj jest mozliowosc wymuszenia typu</span>
+
+
+
+
+
+
+<span class="co">#(4) tworzenie specyficznych macierzy</span>
+a <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])
+np.zeros_like(a) <span class="co"># tworze macierz o takich samych rozmwiarach jak macierz &#39;a&#39; ale wypelniam wszystko ZERAMI</span>
+np.ones_like(a) <span class="co"># tworze macierz o takich samych rozmwiarach jak macierz &#39;a&#39; ale wypelniam wszystko JEDYNKAMI</span>
+
+np.empty(shape<span class="op">=</span>[<span class="dv">3</span>,<span class="dv">3</span>], dtype<span class="op">=</span><span class="st">&#39;str&#39;</span>) <span class="co"># utworzenie pustej tabeli typu &#39;str&#39; (tekst)</span>
+np.empty(shape<span class="op">=</span>[<span class="dv">3</span>,<span class="dv">3</span>], dtype<span class="op">=</span><span class="st">&#39;int&#39;</span>) <span class="co"># utworzenie tabeli typu &#39;int&#39; - bedzie wypelniona losowymi wartosciami</span>
+
+np.zeros(shape<span class="op">=</span>[<span class="dv">3</span>,<span class="dv">3</span>]) <span class="co"># utworzenie pustej tabeli o wymiarach 3X3 wypelnionej zerami</span>
+np.ones(shape<span class="op">=</span>[<span class="dv">3</span>,<span class="dv">3</span>]) <span class="co"># utworzenie pustej tabeli o wymiarach 3X3 wypelnionej jedynkami</span>
+
+np.full(shape<span class="op">=</span>[<span class="dv">3</span>,<span class="dv">3</span>], fill_value<span class="op">=</span><span class="dv">10</span>) <span class="co"># utworzenie pustej tabeli o wymiarach 3X3 wypelnionej liczba 10.</span></code></pre>
+</div>
+<div id="atrybuty-2" class="section level3">
+<h3><span class="header-section-number">8.1.2</span> atrybuty</h3>
+<p>Macierze przechowuja dane jednorodne. W macierze (w przeciwienstwie np. do list) nie moze byc dwoch typow danych na raz (np. liczba i tekst)</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> numpy <span class="im">as</span> np
+
+<span class="co">#(1) jednorodnosc typu</span>
+
+<span class="co"># jezeli kolumny sa roznego typu to tak jak przy pistach sie je ujednoradnia</span>
+df2 <span class="op">=</span> pd.DataFrame([[<span class="dv">1</span>,<span class="st">&#39;2&#39;</span>],[<span class="dv">3</span>,<span class="st">&#39;4&#39;</span>]]) <span class="co"># pierwsza kolumna to liczba a druga to tekst</span>
+a2 <span class="op">=</span> df2.as_matrix() <span class="co"># wszystko zostal zamienione na tekst</span>
+a2[:,<span class="dv">0</span>] <span class="co"># podglad pierwszej kolumny przekonwertowanej na tekst</span>
+
+
+<span class="co">#(2) inne atrybuty</span>
+
+a <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">4</span>]])
+
+a.ndim <span class="co"># ilosc wymiarow</span>
+
+a.shape <span class="co"># rozmiary</span>
+
+a.size <span class="co"># ilosc elementow</span>
+
+a.dtype <span class="co"># typ przechowywanych danych</span></code></pre>
+</div>
+<div id="odwolywanie-sie-przez-indeksy" class="section level3">
+<h3><span class="header-section-number">8.1.3</span> odwolywanie sie przez indeksy</h3>
+<p>Dla macierzy jednowymiarowych sytuacja jest tak jak przy listach.</p>
+<p>Macierze dwuwymiarowe</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># tworze macierz o wymiarach 4x3 (4 wiersze, 3 kolumny)</span>
+a <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>],[<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>],[<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>]])
+
+a[<span class="dv">1</span>,<span class="dv">1</span>]<span class="co"># piersze komorka (pierwszy wiersz, pierwsza kolumn)</span>
+a[:,<span class="dv">0</span>] <span class="co"># pierwsza kolumna</span>
+a[<span class="dv">0</span>,:] <span class="co"># pierwszy wiersz</span>
+a[<span class="dv">1</span>:,:] <span class="co"># od drugiego wiersza w dol</span>
+a[:,<span class="dv">1</span>:] <span class="co"># od drugiej kolumny w dol</span>
+a[:,a.shape[<span class="dv">1</span>]<span class="op">-</span><span class="dv">1</span> ] <span class="co"># ostatnia kolumna</span>
+a[a.shape[<span class="dv">0</span>]<span class="op">-</span><span class="dv">1</span>, : ] <span class="co"># ostatni wiersz</span></code></pre>
+<p>Macierze wielowymiarowe</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># tworze macierz o wymiarach 2x2x2</span>
+a <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">4</span>]],[[<span class="dv">5</span>,<span class="dv">6</span>],[<span class="dv">7</span>,<span class="dv">8</span>]])
+
+
+
+<span class="co"># dołożenie nowych wymiarow powoduje ze dostajemy kolejny ineks. Kolejny indeks jest dokladany z lewej strony (po zobaczeniu przykadlwo zrozumiesz o co chodzi zo dokladaniem po lewej:</span>
+
+<span class="co"># mamy jeden wymiar</span>
+a<span class="op">=</span>np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])
+a[<span class="dv">2</span>] <span class="co"># dostaje drugi element (druga kolumna jezeli traktowa to jako macierz o wymiarach 1X3)</span>
+
+<span class="co"># dokladam wymiar drugi</span>
+a<span class="op">=</span>np.array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], [<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]])
+a[<span class="dv">3</span>,<span class="dv">2</span>] <span class="co"># wartosc 2 odwoluje sie dalej do drugiej KOLUMNY (ale jest to juz nie wymiar o indeksie 0 ale wymiar o indeksie 1, bo zostal przesuniety w prawo). Nowy wymiar jest po lewej stronie i on leci po nowym wymiarze o indeksie 1 (wiersze)</span>
+
+<span class="co"># dokladam trzeci wymiar</span>
+a<span class="op">=</span>np.array([[[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], [<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]], [[<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>],[<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>]]])
+a[<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>] <span class="co"># nowy wymiar (plastry trojwymiarowej macierzy) jest dolozony po lewej stronie (w przykladnie wartosc 1)</span>
+
+
+<span class="co"># graficzne podsumowanie tej logiki wymiarow na rysunku:</span>
+https:<span class="op">//</span>www.google.com<span class="op">/</span>search?q<span class="op">=</span>numpy<span class="op">+</span>array<span class="op">&amp;</span>tbm<span class="op">=</span>isch<span class="op">&amp;</span>source<span class="op">=</span>iu<span class="op">&amp;</span>ictx<span class="op">=</span><span class="dv">1</span><span class="op">&amp;</span>fir<span class="op">=</span>uiZt51tvuJE1PM<span class="op">%</span>253A<span class="op">%</span>252C1A3kHFAoV2Q2XM<span class="op">%</span>252C_<span class="op">&amp;</span>vet<span class="op">=</span><span class="dv">1</span><span class="op">&amp;</span>usg<span class="op">=</span>AI4_<span class="op">-</span>kRLpak4KNy8fqWXrsph4EYf_EkHPQ<span class="op">&amp;</span>sa<span class="op">=</span>X<span class="op">&amp;</span>ved<span class="op">=</span>2ahUKEwi<span class="op">-</span>7frq4PziAhWR7KYKHdw9BeIQ9QEwAHoECAIQAw<span class="co">#imgrc=3MW07qtoURqTWM:&amp;vet=1</span>
+
+
+<span class="co"># przyklady uzywanie powyzszej reguly (Asiu, ja tak na 90% jestem pewien poprawnosci ponizszego nazewnictwa :). Zaladam ze nowy (trzeci) wymiar doklada plasterki w dol (jak warstwy na torcie), a nie w tyl (jak ksiazki na polce) )</span>
+a[:,:,<span class="dv">2</span>] <span class="co"># tyl macierzy</span>
+a[:,:,<span class="dv">0</span>] <span class="co"># czolo macierzy</span>
+a[<span class="dv">0</span>:,:,:] <span class="co"># dach macierzy (gorny plaster)</span>
+a[<span class="dv">2</span>:,:,:] <span class="co"># spod macierzy (dolny plaster)</span>
+a[:,<span class="dv">0</span>,:] <span class="co"># bok macierzy (lewy)</span>
+a[:,<span class="dv">2</span>,:] <span class="co"># bok macierzy (prawy)</span></code></pre>
+</div>
+<div id="filtrowanie-1" class="section level3">
+<h3><span class="header-section-number">8.1.4</span> filtrowanie</h3>
+<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]])
+
+a[np.where(a<span class="op">&gt;</span><span class="dv">2</span>)] <span class="co"># wartosci wieksze od 2. Macierz nie jest juz kwadratowa tylo jest wektorem.</span>
+ 
+a.diagonal() <span class="co"># elementy diagonalne</span></code></pre>
+</div>
+<div id="aktualizacja-wartosci-2" class="section level3">
+<h3><span class="header-section-number">8.1.5</span> aktualizacja wartosci</h3>
+<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]])
+a[:,<span class="dv">1</span>] <span class="op">=</span> np.array([<span class="dv">10</span>,<span class="dv">20</span>]) <span class="co"># zmieniam druga kolumne</span>
+a</code></pre>
+</div>
+<div id="usuwanie-1" class="section level3">
+<h3><span class="header-section-number">8.1.6</span> usuwanie</h3>
+<pre class="sourceCode python"><code class="sourceCode python">a<span class="op">=</span>np.array([[[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]], [[<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>],[<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>]]])
+a
+
+<span class="co"># usuwanie elementow tak zeby zachowac ksztalt macierzy (wycinamy cale plastry)</span>
+np.delete(arr<span class="op">=</span>a, obj<span class="op">=</span>(<span class="dv">1</span>), axis<span class="op">=</span> <span class="dv">0</span>) <span class="co"># dla wymiaru 0 wycinam dla niego wszytko co ma indeks 1.</span>
+np.delete(arr<span class="op">=</span>a, obj<span class="op">=</span>(<span class="dv">0</span>,<span class="dv">1</span>), axis<span class="op">=</span> <span class="dv">1</span>) <span class="co"># dla wymiaru 1 wycinam dla niego wszytko co ma indeks 0 i 1.</span>
+np.delete(arr<span class="op">=</span>a, obj<span class="op">=</span>np.s_[<span class="dv">0</span>:<span class="dv">1</span>], axis<span class="op">=</span> <span class="dv">1</span>) <span class="co">#to co linijka wyzej ale skladnia umowliziwajace poslugowaniem sie logika indeksow przy definiowaniu elementow do usuniecie</span></code></pre>
+</div>
+<div id="zmiana-kszattu-i-transpozycja" class="section level3">
+<h3><span class="header-section-number">8.1.7</span> zmiana kszatłtu i transpozycja</h3>
+<p>Transpozycja</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#(1) transpozycja macierzy kwadratowej</span>
+a <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">4</span>]]) 
+a.transpose()
+
+
+<span class="co">#(2) transpozycja macierzy wielowymiarowych</span>
+a<span class="op">=</span>np.array([[[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]], [[<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>],[<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>]]])
+a
+np.transpose(a, axes<span class="op">=</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">2</span>) ) <span class="co"># wymiary teraz maja byc w kolejnosci: wymiar pierwszy jako drugi, drugi jako pierwszy, a trzeci zostaje na swoim miejscu</span></code></pre>
+<p>Zmiana ksztaltu</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># macierz o wymiarach 2x6 (2 wiersze , 6 kolumn)</span>
+a <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>],[<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>]])
+a
+a.shape
+
+<span class="co"># podstawowy reshape</span>
+a1 <span class="op">=</span> a.reshape((<span class="dv">6</span>,<span class="dv">2</span>)) <span class="co"># zmiana wymiarow z 6x2 na 2x6.</span>
+a1
+a1.shape 
+
+
+<span class="co"># reshape z innych schematem kolejnosci elementow</span>
+a2 <span class="op">=</span> a.reshape((<span class="dv">6</span>,<span class="dv">2</span>), order<span class="op">=</span><span class="st">&#39;F&#39;</span>) <span class="co"># zmiana wymiarow z 6x2 na 2x6. Ale tutaj otrzymujemy inna kolejnosc elementow. W pierwszym wierszu mamy element w pierwszy pierwszego starego wiersza i element pierwszy drugiego starego wiersza</span>
+a2
+a2.shape </code></pre>
+</div>
+<div id="bindowanie" class="section level3">
+<h3><span class="header-section-number">8.1.8</span> bindowanie</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> numpy <span class="im">as</span> np
+
+<span class="co"># (1) przyklad macierzy dwuwymiarowych</span>
+
+<span class="co"># doklejenie do macierzy 2X3 nastepnej macierzy 2X2</span>
+a1<span class="op">=</span>np.array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], [<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]])
+a2<span class="op">=</span>np.array([[<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>], [<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">50</span>]])
+
+np.append(a1, a2, axis<span class="op">=</span><span class="dv">0</span>) <span class="co"># sklejenie maciarzy jedna pod druga</span>
+np.append(a1, a2, axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># sklejenie maciarzy jedna obok drugie</span>
+
+
+
+<span class="co">#(3) Macierze wielowymiarowe</span>
+
+
+a1 <span class="op">=</span> np.array([[[<span class="dv">1</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">4</span>]], [[<span class="dv">5</span>,<span class="dv">6</span>],[<span class="dv">7</span>,<span class="dv">8</span>]]]) <span class="co"># macierz 2x2X2</span>
+a2 <span class="op">=</span> np.array([[<span class="dv">10</span>,<span class="dv">20</span>],[<span class="dv">30</span>,<span class="dv">40</span>]]) <span class="co"># macierz 2X2 (plaserek w przestrzni trojwymiarowe)</span>
+
+<span class="co"># macierz a2 ma za malo wymiarow (dwa, a macierz a1 ma trzy. Musimy zrobic plasterek 2X2 z trzecim wymiarem (dodobic 3 indeks)</span>
+a3 <span class="op">=</span> a2.reshape((<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>))
+
+
+np.append(a1, a3, axis <span class="op">=</span> <span class="dv">0</span>) <span class="co"># doklejenie w dol</span>
+
+np.append(a1, a3, axis <span class="op">=</span> <span class="dv">1</span>) <span class="co"># doklejenie w bok - tutaj blad bo nie pasuja rozmary</span>
+np.append(a1, a3.transpose((<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">2</span>)), axis <span class="op">=</span> <span class="dv">1</span>) <span class="co"># doklejenie w bok - teraz pasuje bo odopowiednie przetransponowalismy doklejany do macirzy a1 plasterek a3</span>
+
+np.append(a1, a3, axis <span class="op">=</span> <span class="dv">2</span>) <span class="co"># doklejenie w tyl - ale znowu blad</span>
+np.append(a1, a3.transpose((<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">0</span>)), axis <span class="op">=</span> <span class="dv">2</span>) <span class="co"># doklejenie w tyl - teraz pasuje bo odopowiednie przetransponowalismy doklejany do macirzy a1 plasterek a3</span>
+
+<span class="co"># przy dokleaniu ponuje mniej wiecej taka zasada zgocnosci wymiarow:</span>
+<span class="co"># jezeli sklejam po wymiarze axis - n to dla pozostalych wymiarow roznych od n musi zachodzic zgodnosc rozmarow</span></code></pre>
+</div>
+<div id="operacje-na-kilku-macierzach-zwracajece-jedna-macierz" class="section level3">
+<h3><span class="header-section-number">8.1.9</span> operacje na kilku macierzach zwracajece jedna macierz</h3>
+<pre class="sourceCode python"><code class="sourceCode python">a1 <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">4</span>]])
+a2 <span class="op">=</span> np.array([<span class="dv">10</span>,<span class="dv">20</span>])
+
+a1 <span class="op">+</span> a2 <span class="co"># wektor a2 jest dodawany do kazdego wiersza macierzy a1</span>
+
+a1 <span class="op">*</span> a2  <span class="co"># kolejne elementy kazdego wiersza a2 sa mnozone przez kolejne elementy wektora  a1</span></code></pre>
+</div>
+<div id="sortowanie-3" class="section level3">
+<h3><span class="header-section-number">8.1.10</span> sortowanie</h3>
+<pre class="sourceCode python"><code class="sourceCode python">a1 <span class="op">=</span> np.array([[<span class="dv">7</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">6</span>],[<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>]])
+
+a1[np.argsort(a1[:, <span class="dv">0</span>]),:] <span class="co"># po sortowanie po pierwszej kolumnnie</span>
+
+a1[:,np.argsort(a1[<span class="dv">0</span>, :])] <span class="co"># po sortowanie po pierwszym wierszu</span></code></pre>
+</div>
+<div id="funkcje-na-macierzach" class="section level3">
+<h3><span class="header-section-number">8.1.11</span> funkcje na macierzach</h3>
+<pre class="sourceCode python"><code class="sourceCode python">a1 <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">4</span>]])
+
+a1.<span class="bu">sum</span>() <span class="co"># suma wszystkich elementow</span>
+a1.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># suma po wymiarze 1</span>
+
+np.apply_over_axes(np.<span class="bu">sum</span>, a1, [<span class="dv">0</span>]) <span class="co"># sum w po wierszach (w dol)</span>
+np.apply_over_axes(np.<span class="bu">sum</span>, a1, [<span class="dv">1</span>]) <span class="co"># sum w po kolumnach (w prawo)</span>
+
+np.apply_over_axes(func<span class="op">=</span><span class="kw">lambda</span> x, y: np.<span class="bu">sum</span>(x,y) , a<span class="op">=</span>a1, axes<span class="op">=</span>[<span class="dv">1</span>]) <span class="co"># to co linijke wyzej ale z uzyciem skladni funkcji anominowej. Do lambdy przekazalem argument x (kolejne wiersze) i y (axes - osie po ktorych ma byc sumowanie)</span>
+
+np.apply_over_axes(func<span class="op">=</span><span class="kw">lambda</span> x, y: np.<span class="bu">sum</span>(x<span class="op">**</span><span class="dv">2</span>,y) , a<span class="op">=</span>a1, axes<span class="op">=</span>[<span class="dv">1</span>]) <span class="co"># sumuje po kolumnach, ale dodatkowo kazdy element podnosze do kwadratu</span>
+
+
+
+a2 <span class="op">=</span> np.array([[[<span class="dv">1</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">4</span>]], [[<span class="dv">5</span>,<span class="dv">6</span>],[<span class="dv">7</span>,<span class="dv">8</span>]]]) <span class="co"># macierz 2x2X2</span>
+np.apply_over_axes(func<span class="op">=</span><span class="kw">lambda</span> x, y: np.<span class="bu">sum</span>(x<span class="op">**</span><span class="dv">2</span>,y) , a<span class="op">=</span>a2, axes<span class="op">=</span>[<span class="dv">1</span>]) <span class="co"># sumowanie po jednym wymiarze macierzy trojwymiarowej</span>
+np.apply_over_axes(func<span class="op">=</span><span class="kw">lambda</span> x, y: np.<span class="bu">sum</span>(x<span class="op">**</span><span class="dv">2</span>,y) , a<span class="op">=</span>a2, axes<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>]) <span class="co"># sumowanie po dwoch wymiarach macierzy trojwymiarowej</span></code></pre>
+</div>
+<div id="braki-danych-i-wartosci-nieskonczone" class="section level3">
+<h3><span class="header-section-number">8.1.12</span> braki danych i wartosci nieskonczone</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> numpy <span class="im">as</span> np
+
+a <span class="op">=</span> np.array([[<span class="dv">1</span>, np.inf, <span class="dv">10</span>], [<span class="dv">3</span>, np.nan, np.inf]]) <span class="co"># macierz z wartoscia nieskonczona i brakami danych</span>
+
+a[np.isinf(a)]  <span class="op">=</span> <span class="dv">-10</span> <span class="co"># zamiana wartosci nieskonczonych na -10</span>
+a[np.isnan(a)] <span class="op">=</span> <span class="dv">-1</span> <span class="co"># zamiana brakow danych na -1</span>
+
+
+a <span class="op">=</span> np.array([[<span class="dv">1</span>,np.inf,<span class="dv">10</span>],[<span class="dv">3</span>,np.nan, np.inf]]) <span class="co"># macierz z wartoscia nieskonczona i brakami danych</span>
+a[<span class="dv">1</span>, np.isinf(a)[<span class="dv">1</span>,]] <span class="op">=</span> <span class="dv">-10</span> <span class="co"># zamiana na 10 wartosci nieskonczonych w drugi wierszu</span>
+a</code></pre>
+</div>
+<div id="rozne-funkcje-i-triki" class="section level3">
+<h3><span class="header-section-number">8.1.13</span> rozne funkcje i triki</h3>
+<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">4</span>]])
+a<span class="op">+</span><span class="dv">1</span> <span class="co"># dodanie do wszystkich elementow wartosci 1</span>
+a<span class="op">*</span><span class="dv">10</span> <span class="co"># pomnozenie wszystkich elementow przez wartosci 10</span>
+
+<span class="co"># UWAGA przypominam ze w przypadku np. list powyzsza skladania daje inne rezultaty: &#39;+ 1&#39; oznacza doklejenie elementu &#39;1&#39;,a  &#39;* 10&#39; oznacza zwrocenie listy 10 razy:</span>
+lista <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]
+lista <span class="op">+</span> [<span class="dv">1</span>]
+lista <span class="op">*</span> <span class="dv">10</span>
+
+
+a <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">7</span>],[<span class="dv">3</span>,<span class="dv">4</span>]])
+a.argmin(axis<span class="op">=</span><span class="dv">0</span>) <span class="co"># pozycja najmiejszego elementu dla kazdej kolumny</span>
+a.argmin(axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># pozycja najmiejszego elementu dla kazdego wiersza</span>
+
+a.argmax(axis<span class="op">=</span><span class="dv">0</span>) <span class="co"># pozycja najwiekszego elementu dla kazdej kolumny</span></code></pre>
+</div>
+</div>
+<div id="scipy" class="section level2">
+<h2><span class="header-section-number">8.2</span> Scipy</h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-structures-pandas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-structures-other.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": true,
+"linkedin": true,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"],
+"instapper": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/1_06_PROGRAMING_data_structures-Numpy_Scipy.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-Manual_R.pdf", "bookdown-Manual_R.epub"],
+"toc": {
+"collapse": "section",
+"depth": 4
+}
+});
+});
+</script>
+
+</body>
+
+</html>
