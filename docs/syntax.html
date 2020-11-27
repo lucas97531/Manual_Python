@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Syntax | Introduction to Python</title>
-  <meta name="description" content="Chapter 2 Syntax | Introduction to Python" />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <title>Chapter 2 Syntax | Introduction to R</title>
+  <meta name="description" content="Chapter 2 Syntax | Introduction to R" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Syntax | Introduction to Python" />
+  <meta property="og:title" content="Chapter 2 Syntax | Introduction to R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Syntax | Introduction to Python" />
+  <meta name="twitter:title" content="Chapter 2 Syntax | Introduction to R" />
   
   
   
@@ -24,15 +24,16 @@
 <meta name="author" content="Łukasz Muszyński" />
 
 
-<meta name="date" content="2020-06-20" />
+<meta name="date" content="2020-11-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="functions-and-enviroments.html">
+<link rel="prev" href="index.html"/>
+<link rel="next" href="functions-and-enviroments.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +41,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -47,29 +49,33 @@
 
 
 
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -78,9 +84,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -131,13 +137,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> INTRO</a></li>
 <li class="part"><span><b>I <lfg>PROGRAMMING</lfg></b></span></li>
-<li class="chapter" data-level="2" data-path="syntax.html"><a href="syntax.html"><i class="fa fa-check"></i><b>2</b> Syntax</a><ul>
+<li class="chapter" data-level="2" data-path="syntax.html"><a href="syntax.html"><i class="fa fa-check"></i><b>2</b> Syntax</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="syntax.html"><a href="syntax.html#operatory-logiczne"><i class="fa fa-check"></i><b>2.1</b> operatory logiczne</a></li>
-<li class="chapter" data-level="2.2" data-path="syntax.html"><a href="syntax.html#podstawowe-komendy-i-funkcje"><i class="fa fa-check"></i><b>2.2</b> podstawowe komendy i funkcje</a><ul>
+<li class="chapter" data-level="2.2" data-path="syntax.html"><a href="syntax.html#podstawowe-komendy-i-funkcje"><i class="fa fa-check"></i><b>2.2</b> podstawowe komendy i funkcje</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="syntax.html"><a href="syntax.html#sprawdzenie-typu-obiektu"><i class="fa fa-check"></i><b>2.2.1</b> sprawdzenie typu obiektu</a></li>
 <li class="chapter" data-level="2.2.2" data-path="syntax.html"><a href="syntax.html#inne-komendy-i-funkcje"><i class="fa fa-check"></i><b>2.2.2</b> inne komendy i funkcje</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="syntax.html"><a href="syntax.html#control-flow"><i class="fa fa-check"></i><b>2.3</b> control flow</a><ul>
+<li class="chapter" data-level="2.3" data-path="syntax.html"><a href="syntax.html#control-flow"><i class="fa fa-check"></i><b>2.3</b> control flow</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="syntax.html"><a href="syntax.html#if-else"><i class="fa fa-check"></i><b>2.3.1</b> if else</a></li>
 <li class="chapter" data-level="2.3.2" data-path="syntax.html"><a href="syntax.html#petla-for"><i class="fa fa-check"></i><b>2.3.2</b> petla ‘for’</a></li>
 <li class="chapter" data-level="2.3.3" data-path="syntax.html"><a href="syntax.html#petla-while"><i class="fa fa-check"></i><b>2.3.3</b> petla ‘while’</a></li>
@@ -146,13 +155,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5" data-path="syntax.html"><a href="syntax.html#shallow-and-deep-copies"><i class="fa fa-check"></i><b>2.5</b> shallow and deep copies</a></li>
 <li class="chapter" data-level="2.6" data-path="syntax.html"><a href="syntax.html#generators"><i class="fa fa-check"></i><b>2.6</b> generators</a></li>
 <li class="chapter" data-level="2.7" data-path="syntax.html"><a href="syntax.html#dynamic-code"><i class="fa fa-check"></i><b>2.7</b> dynamic code</a></li>
-<li class="chapter" data-level="2.8" data-path="syntax.html"><a href="syntax.html#errors-and-warning"><i class="fa fa-check"></i><b>2.8</b> errors and warning</a><ul>
+<li class="chapter" data-level="2.8" data-path="syntax.html"><a href="syntax.html#errors-and-warning"><i class="fa fa-check"></i><b>2.8</b> errors and warning</a>
+<ul>
 <li class="chapter" data-level="2.8.1" data-path="syntax.html"><a href="syntax.html#try"><i class="fa fa-check"></i><b>2.8.1</b> try</a></li>
 <li class="chapter" data-level="2.8.2" data-path="syntax.html"><a href="syntax.html#assertion"><i class="fa fa-check"></i><b>2.8.2</b> assertion</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html"><i class="fa fa-check"></i><b>3</b> FUNCTIONS AND ENVIROMENTS</a><ul>
-<li class="chapter" data-level="3.1" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#podstawowa-skadnia"><i class="fa fa-check"></i><b>3.1</b> podstawowa składnia</a></li>
+<li class="chapter" data-level="3" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html"><i class="fa fa-check"></i><b>3</b> FUNCTIONS AND ENVIROMENTS</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#podstawowa-składnia"><i class="fa fa-check"></i><b>3.1</b> podstawowa składnia</a></li>
 <li class="chapter" data-level="3.2" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#przekazywanie-argumentow-przez-wartosc-a-przekazywanie-przez-referencje"><i class="fa fa-check"></i><b>3.2</b> przekazywanie argumentow przez wartosc a przekazywanie przez referencje</a></li>
 <li class="chapter" data-level="3.3" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#funkcje-anonimowe"><i class="fa fa-check"></i><b>3.3</b> funkcje anonimowe</a></li>
 <li class="chapter" data-level="3.4" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#programowanie-funkcyjne"><i class="fa fa-check"></i><b>3.4</b> programowanie funkcyjne</a></li>
@@ -162,25 +173,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.8" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#dekoratory"><i class="fa fa-check"></i><b>3.8</b> dekoratory</a></li>
 <li class="chapter" data-level="3.9" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#przydatne"><i class="fa fa-check"></i><b>3.9</b> Przydatne</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>4</b> DATA TYPES</a><ul>
-<li class="chapter" data-level="4.1" data-path="data-types.html"><a href="data-types.html#liczby"><i class="fa fa-check"></i><b>4.1</b> liczby</a><ul>
+<li class="chapter" data-level="4" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>4</b> DATA TYPES</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-types.html"><a href="data-types.html#liczby"><i class="fa fa-check"></i><b>4.1</b> liczby</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="data-types.html"><a href="data-types.html#tworzenie"><i class="fa fa-check"></i><b>4.1.1</b> tworzenie</a></li>
 <li class="chapter" data-level="4.1.2" data-path="data-types.html"><a href="data-types.html#ciagi"><i class="fa fa-check"></i><b>4.1.2</b> Ciagi</a></li>
 <li class="chapter" data-level="4.1.3" data-path="data-types.html"><a href="data-types.html#rozne-funkcje"><i class="fa fa-check"></i><b>4.1.3</b> rozne funkcje</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="data-types.html"><a href="data-types.html#text"><i class="fa fa-check"></i><b>4.2</b> text</a><ul>
+<li class="chapter" data-level="4.2" data-path="data-types.html"><a href="data-types.html#tekst"><i class="fa fa-check"></i><b>4.2</b> tekst</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="data-types.html"><a href="data-types.html#tworzenie-statyczne"><i class="fa fa-check"></i><b>4.2.1</b> tworzenie statyczne</a></li>
 <li class="chapter" data-level="4.2.2" data-path="data-types.html"><a href="data-types.html#tworzenie-dynamiczne---nowa-skladnia-z-funkcja-format"><i class="fa fa-check"></i><b>4.2.2</b> Tworzenie dynamiczne - nowa skladnia z funkcja ‘format’</a></li>
-<li class="chapter" data-level="4.2.3" data-path="data-types.html"><a href="data-types.html#tworzenie-dynamiczne---stara-skladnia"><i class="fa fa-check"></i><b>4.2.3</b> Tworzenie dynamiczne - stara skladnia</a></li>
-<li class="chapter" data-level="4.2.4" data-path="data-types.html"><a href="data-types.html#multiline-string"><i class="fa fa-check"></i><b>4.2.4</b> multiline string</a></li>
-<li class="chapter" data-level="4.2.5" data-path="data-types.html"><a href="data-types.html#odwolywanie-sie-do-podstringow"><i class="fa fa-check"></i><b>4.2.5</b> odwolywanie sie do podstringow</a></li>
-<li class="chapter" data-level="4.2.6" data-path="data-types.html"><a href="data-types.html#szukanie-pozycji-podstringow"><i class="fa fa-check"></i><b>4.2.6</b> szukanie pozycji podstringow</a></li>
-<li class="chapter" data-level="4.2.7" data-path="data-types.html"><a href="data-types.html#modyfikacja"><i class="fa fa-check"></i><b>4.2.7</b> modyfikacja</a></li>
-<li class="chapter" data-level="4.2.8" data-path="data-types.html"><a href="data-types.html#inne-przydatne-triki"><i class="fa fa-check"></i><b>4.2.8</b> inne przydatne triki</a></li>
-<li class="chapter" data-level="4.2.9" data-path="data-types.html"><a href="data-types.html#rozne-podstawowe-operacje-i-funkcje-zwiazane-ze-stringami"><i class="fa fa-check"></i><b>4.2.9</b> rozne podstawowe operacje i funkcje zwiazane ze stringami</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-types.html"><a href="data-types.html#formatowanie-wygladu-skladnia"><i class="fa fa-check"></i><b>4.2.3</b> Formatowanie wygladu-skladnia</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-types.html"><a href="data-types.html#tworzenie-dynamiczne---stara-skladnia"><i class="fa fa-check"></i><b>4.2.4</b> Tworzenie dynamiczne - stara skladnia</a></li>
+<li class="chapter" data-level="4.2.5" data-path="data-types.html"><a href="data-types.html#multiline-string"><i class="fa fa-check"></i><b>4.2.5</b> multiline string</a></li>
+<li class="chapter" data-level="4.2.6" data-path="data-types.html"><a href="data-types.html#odwolywanie-sie-do-podstringow"><i class="fa fa-check"></i><b>4.2.6</b> odwolywanie sie do podstringow</a></li>
+<li class="chapter" data-level="4.2.7" data-path="data-types.html"><a href="data-types.html#szukanie-pozycji-podstringow"><i class="fa fa-check"></i><b>4.2.7</b> szukanie pozycji podstringow</a></li>
+<li class="chapter" data-level="4.2.8" data-path="data-types.html"><a href="data-types.html#modyfikacja"><i class="fa fa-check"></i><b>4.2.8</b> modyfikacja</a></li>
+<li class="chapter" data-level="4.2.9" data-path="data-types.html"><a href="data-types.html#inne-przydatne-triki"><i class="fa fa-check"></i><b>4.2.9</b> inne przydatne triki</a></li>
+<li class="chapter" data-level="4.2.10" data-path="data-types.html"><a href="data-types.html#rozne-podstawowe-operacje-i-funkcje-zwiazane-ze-stringami"><i class="fa fa-check"></i><b>4.2.10</b> rozne podstawowe operacje i funkcje zwiazane ze stringami</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="data-types.html"><a href="data-types.html#wyrazenie-regularne"><i class="fa fa-check"></i><b>4.3</b> wyrazenie regularne</a></li>
-<li class="chapter" data-level="4.4" data-path="data-types.html"><a href="data-types.html#daty"><i class="fa fa-check"></i><b>4.4</b> daty</a><ul>
+<li class="chapter" data-level="4.4" data-path="data-types.html"><a href="data-types.html#daty"><i class="fa fa-check"></i><b>4.4</b> daty</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="data-types.html"><a href="data-types.html#tworzenie-dat"><i class="fa fa-check"></i><b>4.4.1</b> tworzenie dat</a></li>
 <li class="chapter" data-level="4.4.2" data-path="data-types.html"><a href="data-types.html#atrybuty-daty"><i class="fa fa-check"></i><b>4.4.2</b> atrybuty daty</a></li>
 <li class="chapter" data-level="4.4.3" data-path="data-types.html"><a href="data-types.html#inkrementacja-daty"><i class="fa fa-check"></i><b>4.4.3</b> inkrementacja daty</a></li>
@@ -190,21 +206,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.7" data-path="data-types.html"><a href="data-types.html#generowanie-ciagu-dat"><i class="fa fa-check"></i><b>4.4.7</b> generowanie ciagu dat</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="data-structures-basic.html"><a href="data-structures-basic.html"><i class="fa fa-check"></i><b>5</b> DATA STRUCTURES - basic</a><ul>
-<li class="chapter" data-level="5.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#listy"><i class="fa fa-check"></i><b>5.1</b> listy</a><ul>
+<li class="chapter" data-level="5" data-path="data-structures-basic.html"><a href="data-structures-basic.html"><i class="fa fa-check"></i><b>5</b> DATA STRUCTURES - basic</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#listy"><i class="fa fa-check"></i><b>5.1</b> listy</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#atrybuty-listy"><i class="fa fa-check"></i><b>5.1.1</b> atrybuty listy</a></li>
 <li class="chapter" data-level="5.1.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-listy"><i class="fa fa-check"></i><b>5.1.2</b> tworzenie listy</a></li>
 <li class="chapter" data-level="5.1.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#dodawanie-wartosci"><i class="fa fa-check"></i><b>5.1.3</b> dodawanie wartosci</a></li>
 <li class="chapter" data-level="5.1.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#aktualizacja-wartosci"><i class="fa fa-check"></i><b>5.1.4</b> aktualizacja wartosci</a></li>
-<li class="chapter" data-level="5.1.5" data-path="data-structures-basic.html"><a href="data-structures-basic.html#usuwanie"><i class="fa fa-check"></i><b>5.1.5</b> usuwanie</a></li>
-<li class="chapter" data-level="5.1.6" data-path="data-structures-basic.html"><a href="data-structures-basic.html#filtrowanie"><i class="fa fa-check"></i><b>5.1.6</b> filtrowanie</a></li>
-<li class="chapter" data-level="5.1.7" data-path="data-structures-basic.html"><a href="data-structures-basic.html#wyszukiwanie-indeksu"><i class="fa fa-check"></i><b>5.1.7</b> wyszukiwanie indeksu</a></li>
-<li class="chapter" data-level="5.1.8" data-path="data-structures-basic.html"><a href="data-structures-basic.html#sortowanie"><i class="fa fa-check"></i><b>5.1.8</b> sortowanie</a></li>
-<li class="chapter" data-level="5.1.9" data-path="data-structures-basic.html"><a href="data-structures-basic.html#operowanie-funkcjami-na-elementach"><i class="fa fa-check"></i><b>5.1.9</b> operowanie funkcjami na elementach</a></li>
-<li class="chapter" data-level="5.1.10" data-path="data-structures-basic.html"><a href="data-structures-basic.html#ciekawe-operacje-i-triki-na-listach"><i class="fa fa-check"></i><b>5.1.10</b> ciekawe operacje i triki na listach</a></li>
-<li class="chapter" data-level="5.1.11" data-path="data-structures-basic.html"><a href="data-structures-basic.html#losowe-elementy"><i class="fa fa-check"></i><b>5.1.11</b> losowe elementy</a></li>
+<li class="chapter" data-level="5.1.5" data-path="data-structures-basic.html"><a href="data-structures-basic.html#splaszczanie-flattening"><i class="fa fa-check"></i><b>5.1.5</b> splaszczanie (flattening)</a></li>
+<li class="chapter" data-level="5.1.6" data-path="data-structures-basic.html"><a href="data-structures-basic.html#usuwanie"><i class="fa fa-check"></i><b>5.1.6</b> usuwanie</a></li>
+<li class="chapter" data-level="5.1.7" data-path="data-structures-basic.html"><a href="data-structures-basic.html#filtrowanie"><i class="fa fa-check"></i><b>5.1.7</b> filtrowanie</a></li>
+<li class="chapter" data-level="5.1.8" data-path="data-structures-basic.html"><a href="data-structures-basic.html#wyszukiwanie-indeksu"><i class="fa fa-check"></i><b>5.1.8</b> wyszukiwanie indeksu</a></li>
+<li class="chapter" data-level="5.1.9" data-path="data-structures-basic.html"><a href="data-structures-basic.html#sortowanie"><i class="fa fa-check"></i><b>5.1.9</b> sortowanie</a></li>
+<li class="chapter" data-level="5.1.10" data-path="data-structures-basic.html"><a href="data-structures-basic.html#operowanie-funkcjami-na-elementach"><i class="fa fa-check"></i><b>5.1.10</b> operowanie funkcjami na elementach</a></li>
+<li class="chapter" data-level="5.1.11" data-path="data-structures-basic.html"><a href="data-structures-basic.html#ciekawe-operacje-i-triki-na-listach"><i class="fa fa-check"></i><b>5.1.11</b> ciekawe operacje i triki na listach</a></li>
+<li class="chapter" data-level="5.1.12" data-path="data-structures-basic.html"><a href="data-structures-basic.html#losowe-elementy"><i class="fa fa-check"></i><b>5.1.12</b> losowe elementy</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#slowniki"><i class="fa fa-check"></i><b>5.2</b> slowniki</a><ul>
+<li class="chapter" data-level="5.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#slowniki"><i class="fa fa-check"></i><b>5.2</b> slowniki</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-1"><i class="fa fa-check"></i><b>5.2.1</b> tworzenie</a></li>
 <li class="chapter" data-level="5.2.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#odwolywanie-sie-do-elementow"><i class="fa fa-check"></i><b>5.2.2</b> odwolywanie sie do elementow</a></li>
 <li class="chapter" data-level="5.2.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#updating-and-adding"><i class="fa fa-check"></i><b>5.2.3</b> updating and adding</a></li>
@@ -213,12 +233,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.6" data-path="data-structures-basic.html"><a href="data-structures-basic.html#filtrowanie-kluczy-po-liscie"><i class="fa fa-check"></i><b>5.2.6</b> filtrowanie kluczy po liscie</a></li>
 <li class="chapter" data-level="5.2.7" data-path="data-structures-basic.html"><a href="data-structures-basic.html#filtrowanie-vartosci-po-liscie"><i class="fa fa-check"></i><b>5.2.7</b> filtrowanie vartosci po liscie</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tuples"><i class="fa fa-check"></i><b>5.3</b> tuples</a><ul>
+<li class="chapter" data-level="5.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tuples"><i class="fa fa-check"></i><b>5.3</b> tuples</a>
+<ul>
 <li class="chapter" data-level="5.3.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#atrybuty"><i class="fa fa-check"></i><b>5.3.1</b> atrybuty</a></li>
 <li class="chapter" data-level="5.3.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-2"><i class="fa fa-check"></i><b>5.3.2</b> tworzenie</a></li>
 <li class="chapter" data-level="5.3.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#odwolywanie-sie-do-elementow-1"><i class="fa fa-check"></i><b>5.3.3</b> odwolywanie sie do elementow</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#set-zbiory"><i class="fa fa-check"></i><b>5.4</b> set (zbiory)</a><ul>
+<li class="chapter" data-level="5.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#set-zbiory"><i class="fa fa-check"></i><b>5.4</b> set (zbiory)</a>
+<ul>
 <li class="chapter" data-level="5.4.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-3"><i class="fa fa-check"></i><b>5.4.1</b> tworzenie</a></li>
 <li class="chapter" data-level="5.4.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#atrubyty"><i class="fa fa-check"></i><b>5.4.2</b> atrubyty</a></li>
 <li class="chapter" data-level="5.4.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#aktualizacjadodawanieusuwaniefiltrowanie-wartosci"><i class="fa fa-check"></i><b>5.4.3</b> aktualizacja/dodawanie/usuwanie/filtrowanie wartosci</a></li>
@@ -226,8 +248,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4.5" data-path="data-structures-basic.html"><a href="data-structures-basic.html#operacje-na-zbiorach"><i class="fa fa-check"></i><b>5.4.5</b> operacje na zbiorach</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html"><i class="fa fa-check"></i><b>6</b> DATA STRUCTURES-Pandas</a><ul>
-<li class="chapter" data-level="6.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#series"><i class="fa fa-check"></i><b>6.1</b> Series</a><ul>
+<li class="chapter" data-level="6" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html"><i class="fa fa-check"></i><b>6</b> DATA STRUCTURES-Pandas</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#series"><i class="fa fa-check"></i><b>6.1</b> Series</a>
+<ul>
 <li class="chapter" data-level="6.1.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#tworzenie-4"><i class="fa fa-check"></i><b>6.1.1</b> tworzenie</a></li>
 <li class="chapter" data-level="6.1.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#atrybuty-1"><i class="fa fa-check"></i><b>6.1.2</b> atrybuty</a></li>
 <li class="chapter" data-level="6.1.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#indeksy"><i class="fa fa-check"></i><b>6.1.3</b> indeksy</a></li>
@@ -236,52 +260,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1.6" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#rozne-funkcje-1"><i class="fa fa-check"></i><b>6.1.6</b> rozne funkcje</a></li>
 <li class="chapter" data-level="6.1.7" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-brakami-danych-i-wartosciami-nieskonczonymi"><i class="fa fa-check"></i><b>6.1.7</b> praca z brakami danych i wartosciami nieskonczonymi</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#categorical"><i class="fa fa-check"></i><b>6.2</b> Categorical</a><ul>
+<li class="chapter" data-level="6.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#categorical"><i class="fa fa-check"></i><b>6.2</b> Categorical</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#tworzenie-5"><i class="fa fa-check"></i><b>6.2.1</b> Tworzenie</a></li>
 <li class="chapter" data-level="6.2.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#usuwaniedodawaniemodyfikacje-kategorii"><i class="fa fa-check"></i><b>6.2.2</b> usuwanie/dodawanie/modyfikacje kategorii</a></li>
 <li class="chapter" data-level="6.2.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dodawanie-nowych-elemntow"><i class="fa fa-check"></i><b>6.2.3</b> dodawanie nowych elemntow</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#data-frames"><i class="fa fa-check"></i><b>6.3</b> DATA FRAMES</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#najwazniejsze-atrybuty-dataframe"><i class="fa fa-check"></i><b>6.3.1</b> Najważniejsze atrybuty DataFrame</a></li>
+<li class="chapter" data-level="6.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#data-frames"><i class="fa fa-check"></i><b>6.3</b> DATA FRAMES</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#najważniejsze-atrybuty-dataframe"><i class="fa fa-check"></i><b>6.3.1</b> Najważniejsze atrybuty DataFrame</a></li>
 <li class="chapter" data-level="6.3.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#tworzenie-ramki-danych"><i class="fa fa-check"></i><b>6.3.2</b> Tworzenie ramki danych</a></li>
 <li class="chapter" data-level="6.3.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#konwersja-ramki-danych-na-inne-typy"><i class="fa fa-check"></i><b>6.3.3</b> Konwersja ramki danych na inne typy</a></li>
 <li class="chapter" data-level="6.3.4" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#indeksy-1"><i class="fa fa-check"></i><b>6.3.4</b> Indeksy</a></li>
-<li class="chapter" data-level="6.3.5" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#wymuszanie-typow-kolumn-w-dataframe"><i class="fa fa-check"></i><b>6.3.5</b> Wymuszanie typów kolumn w DataFrame</a></li>
-<li class="chapter" data-level="6.3.6" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#transpozycja"><i class="fa fa-check"></i><b>6.3.6</b> Transpozycja</a></li>
-<li class="chapter" data-level="6.3.7" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#zmiana-nazw-kolumn"><i class="fa fa-check"></i><b>6.3.7</b> Zmiana nazw kolumn</a></li>
-<li class="chapter" data-level="6.3.8" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#usuwanie-kolumn"><i class="fa fa-check"></i><b>6.3.8</b> Usuwanie kolumn</a></li>
-<li class="chapter" data-level="6.3.9" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#filtrowanie-data-frame---wybieranie-kolumn"><i class="fa fa-check"></i><b>6.3.9</b> Filtrowanie Data Frame - wybieranie kolumn</a></li>
-<li class="chapter" data-level="6.3.10" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#filtrowanie-data-frame---wybieranie-wierszy"><i class="fa fa-check"></i><b>6.3.10</b> Filtrowanie Data Frame - wybieranie wierszy</a></li>
-<li class="chapter" data-level="6.3.11" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dodawanie-nowych-kolumn"><i class="fa fa-check"></i><b>6.3.11</b> Dodawanie nowych kolumn</a></li>
-<li class="chapter" data-level="6.3.12" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#operatory-wyciaganie-danych-z-kolumn"><i class="fa fa-check"></i><b>6.3.12</b> Operatory wyciaganie danych z kolumn</a></li>
-<li class="chapter" data-level="6.3.13" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#aktualizacja-wartosci-w-kolumnach"><i class="fa fa-check"></i><b>6.3.13</b> Aktualizacja wartosci w kolumnach</a></li>
-<li class="chapter" data-level="6.3.14" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#sortowanie-2"><i class="fa fa-check"></i><b>6.3.14</b> Sortowanie</a></li>
-<li class="chapter" data-level="6.3.15" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#bindowanie---w-wierszach"><i class="fa fa-check"></i><b>6.3.15</b> Bindowanie - w wierszach</a></li>
-<li class="chapter" data-level="6.3.16" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#bindowanie---w-kolumnach"><i class="fa fa-check"></i><b>6.3.16</b> Bindowanie - w kolumnach</a></li>
-<li class="chapter" data-level="6.3.17" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#aczenie---merge"><i class="fa fa-check"></i><b>6.3.17</b> Łączenie - merge</a></li>
-<li class="chapter" data-level="6.3.18" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#duplikaty"><i class="fa fa-check"></i><b>6.3.18</b> Duplikaty</a></li>
-<li class="chapter" data-level="6.3.19" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#braki-danych"><i class="fa fa-check"></i><b>6.3.19</b> Braki danych</a></li>
-<li class="chapter" data-level="6.3.20" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#nieskonczone-wartosci"><i class="fa fa-check"></i><b>6.3.20</b> Nieskonczone wartosci</a></li>
-<li class="chapter" data-level="6.3.21" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#funkcje-oknowe"><i class="fa fa-check"></i><b>6.3.21</b> Funkcje oknowe</a></li>
-<li class="chapter" data-level="6.3.22" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-groupby"><i class="fa fa-check"></i><b>6.3.22</b> Praca z GroupBy</a></li>
-<li class="chapter" data-level="6.3.23" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#funkcje-po-kolumnach-i-wierszach"><i class="fa fa-check"></i><b>6.3.23</b> Funkcje po kolumnach i wierszach</a></li>
-<li class="chapter" data-level="6.3.24" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-tekstem"><i class="fa fa-check"></i><b>6.3.24</b> Praca z tekstem</a></li>
-<li class="chapter" data-level="6.3.25" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-datami"><i class="fa fa-check"></i><b>6.3.25</b> Praca z datami</a></li>
-<li class="chapter" data-level="6.3.26" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dummy---rekodowanie-na-zmienne-zero-jedynkowe"><i class="fa fa-check"></i><b>6.3.26</b> Dummy - rekodowanie na zmienne zero-jedynkowe</a></li>
-<li class="chapter" data-level="6.3.27" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#crosstab---analiza-liczebnosci"><i class="fa fa-check"></i><b>6.3.27</b> crosstab - analiza liczebnosci</a></li>
-<li class="chapter" data-level="6.3.28" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#zmiana-struktury-dataframe"><i class="fa fa-check"></i><b>6.3.28</b> zmiana struktury DataFrame</a></li>
-<li class="chapter" data-level="6.3.29" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#rozne-problemy"><i class="fa fa-check"></i><b>6.3.29</b> Rozne problemy</a></li>
+<li class="chapter" data-level="6.3.5" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#wymuszanie-typów-kolumn-w-dataframe"><i class="fa fa-check"></i><b>6.3.5</b> Wymuszanie typów kolumn w DataFrame</a></li>
+<li class="chapter" data-level="6.3.6" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#zmiana-nazw-kolumn"><i class="fa fa-check"></i><b>6.3.6</b> Zmiana nazw kolumn</a></li>
+<li class="chapter" data-level="6.3.7" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#usuwanie-kolumn"><i class="fa fa-check"></i><b>6.3.7</b> Usuwanie kolumn</a></li>
+<li class="chapter" data-level="6.3.8" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#filtrowanie-data-frame---wybieranie-kolumn"><i class="fa fa-check"></i><b>6.3.8</b> Filtrowanie Data Frame - wybieranie kolumn</a></li>
+<li class="chapter" data-level="6.3.9" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#filtrowanie-data-frame---wybieranie-wierszy"><i class="fa fa-check"></i><b>6.3.9</b> Filtrowanie Data Frame - wybieranie wierszy</a></li>
+<li class="chapter" data-level="6.3.10" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dodawanie-nowych-kolumn"><i class="fa fa-check"></i><b>6.3.10</b> Dodawanie nowych kolumn</a></li>
+<li class="chapter" data-level="6.3.11" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#operatory-wyciaganie-danych-z-kolumn"><i class="fa fa-check"></i><b>6.3.11</b> Operatory wyciaganie danych z kolumn</a></li>
+<li class="chapter" data-level="6.3.12" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#aktualizacja-wartosci-w-kolumnach"><i class="fa fa-check"></i><b>6.3.12</b> Aktualizacja wartosci w kolumnach</a></li>
+<li class="chapter" data-level="6.3.13" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#sortowanie-2"><i class="fa fa-check"></i><b>6.3.13</b> Sortowanie</a></li>
+<li class="chapter" data-level="6.3.14" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#bindowanie---w-wierszach"><i class="fa fa-check"></i><b>6.3.14</b> Bindowanie - w wierszach</a></li>
+<li class="chapter" data-level="6.3.15" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#bindowanie---w-kolumnach"><i class="fa fa-check"></i><b>6.3.15</b> Bindowanie - w kolumnach</a></li>
+<li class="chapter" data-level="6.3.16" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#łączenie---merge"><i class="fa fa-check"></i><b>6.3.16</b> Łączenie - merge</a></li>
+<li class="chapter" data-level="6.3.17" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#problemy-z-danymi"><i class="fa fa-check"></i><b>6.3.17</b> Problemy z danymi</a></li>
+<li class="chapter" data-level="6.3.18" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#funkcje-oknowe"><i class="fa fa-check"></i><b>6.3.18</b> Funkcje oknowe</a></li>
+<li class="chapter" data-level="6.3.19" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-groupby"><i class="fa fa-check"></i><b>6.3.19</b> Praca z GroupBy</a></li>
+<li class="chapter" data-level="6.3.20" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#funkcje-po-kolumnach-i-wierszach"><i class="fa fa-check"></i><b>6.3.20</b> Funkcje po kolumnach i wierszach</a></li>
+<li class="chapter" data-level="6.3.21" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-tekstem"><i class="fa fa-check"></i><b>6.3.21</b> Praca z tekstem</a></li>
+<li class="chapter" data-level="6.3.22" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-datami"><i class="fa fa-check"></i><b>6.3.22</b> Praca z datami</a></li>
+<li class="chapter" data-level="6.3.23" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dummy---rekodowanie-na-zmienne-zero-jedynkowe"><i class="fa fa-check"></i><b>6.3.23</b> Dummy - rekodowanie na zmienne zero-jedynkowe</a></li>
+<li class="chapter" data-level="6.3.24" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#crosstab---analiza-liczebnosci"><i class="fa fa-check"></i><b>6.3.24</b> crosstab - analiza liczebnosci</a></li>
+<li class="chapter" data-level="6.3.25" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#zmiana-struktury-dataframe"><i class="fa fa-check"></i><b>6.3.25</b> zmiana struktury DataFrame</a></li>
+<li class="chapter" data-level="6.3.26" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#rozne-problemy"><i class="fa fa-check"></i><b>6.3.26</b> Rozne problemy</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html"><i class="fa fa-check"></i><b>7</b> DATA STRUCTURES - Numpy, Scipy</a><ul>
-<li class="chapter" data-level="7.1" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#numpy"><i class="fa fa-check"></i><b>7.1</b> Numpy</a><ul>
+<li class="chapter" data-level="7" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html"><i class="fa fa-check"></i><b>7</b> DATA STRUCTURES - Numpy, Scipy</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#numpy"><i class="fa fa-check"></i><b>7.1</b> Numpy</a>
+<ul>
 <li class="chapter" data-level="7.1.1" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#tworzenie-6"><i class="fa fa-check"></i><b>7.1.1</b> Tworzenie</a></li>
 <li class="chapter" data-level="7.1.2" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#atrybuty-2"><i class="fa fa-check"></i><b>7.1.2</b> atrybuty</a></li>
 <li class="chapter" data-level="7.1.3" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#odwolywanie-sie-przez-indeksy"><i class="fa fa-check"></i><b>7.1.3</b> odwolywanie sie przez indeksy</a></li>
 <li class="chapter" data-level="7.1.4" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#filtrowanie-1"><i class="fa fa-check"></i><b>7.1.4</b> filtrowanie</a></li>
 <li class="chapter" data-level="7.1.5" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#aktualizacja-wartosci-2"><i class="fa fa-check"></i><b>7.1.5</b> aktualizacja wartosci</a></li>
 <li class="chapter" data-level="7.1.6" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#usuwanie-1"><i class="fa fa-check"></i><b>7.1.6</b> usuwanie</a></li>
-<li class="chapter" data-level="7.1.7" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#zmiana-kszattu-i-transpozycja"><i class="fa fa-check"></i><b>7.1.7</b> zmiana kszatłtu i transpozycja</a></li>
+<li class="chapter" data-level="7.1.7" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#zmiana-kszatłtu-i-transpozycja"><i class="fa fa-check"></i><b>7.1.7</b> zmiana kszatłtu i transpozycja</a></li>
 <li class="chapter" data-level="7.1.8" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#bindowanie"><i class="fa fa-check"></i><b>7.1.8</b> bindowanie</a></li>
 <li class="chapter" data-level="7.1.9" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#operacje-na-kilku-macierzach-zwracajece-jedna-macierz"><i class="fa fa-check"></i><b>7.1.9</b> operacje na kilku macierzach zwracajece jedna macierz</a></li>
 <li class="chapter" data-level="7.1.10" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#sortowanie-3"><i class="fa fa-check"></i><b>7.1.10</b> sortowanie</a></li>
@@ -292,52 +317,67 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#scipy"><i class="fa fa-check"></i><b>7.2</b> Scipy</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="data-structures-other.html"><a href="data-structures-other.html"><i class="fa fa-check"></i><b>8</b> DATA STRUCTURES - other</a></li>
-<li class="chapter" data-level="9" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html"><i class="fa fa-check"></i><b>9</b> DATA STRUCTURES - objective programing</a><ul>
+<li class="chapter" data-level="9" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html"><i class="fa fa-check"></i><b>9</b> DATA STRUCTURES - objective programing</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#tworzenie-klasy-i-obiektow"><i class="fa fa-check"></i><b>9.1</b> Tworzenie klasy i obiektow</a></li>
 <li class="chapter" data-level="9.2" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#atrybuty-3"><i class="fa fa-check"></i><b>9.2</b> Atrybuty</a></li>
 <li class="chapter" data-level="9.3" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#metody"><i class="fa fa-check"></i><b>9.3</b> Metody</a></li>
 <li class="chapter" data-level="9.4" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#prywatne-atrybuty-i-metody"><i class="fa fa-check"></i><b>9.4</b> Prywatne atrybuty i metody</a></li>
 <li class="chapter" data-level="9.5" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#metody-statyczne"><i class="fa fa-check"></i><b>9.5</b> Metody statyczne</a></li>
-<li class="chapter" data-level="9.6" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#mechanizm-dziedziczenia"><i class="fa fa-check"></i><b>9.6</b> mechanizm dziedziczenia</a><ul>
+<li class="chapter" data-level="9.6" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#mechanizm-dziedziczenia"><i class="fa fa-check"></i><b>9.6</b> mechanizm dziedziczenia</a>
+<ul>
 <li class="chapter" data-level="9.6.1" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#tworzenie-podklas"><i class="fa fa-check"></i><b>9.6.1</b> tworzenie podklas</a></li>
 <li class="chapter" data-level="9.6.2" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#przeciazanie-metod"><i class="fa fa-check"></i><b>9.6.2</b> przeciazanie metod</a></li>
 <li class="chapter" data-level="9.6.3" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#funkcja-super"><i class="fa fa-check"></i><b>9.6.3</b> funkcja ‘super’</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="work-organisation.html"><a href="work-organisation.html"><i class="fa fa-check"></i><b>10</b> WORK ORGANISATION</a><ul>
+<li class="chapter" data-level="10" data-path="work-organisation.html"><a href="work-organisation.html"><i class="fa fa-check"></i><b>10</b> WORK ORGANISATION</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="work-organisation.html"><a href="work-organisation.html#importowanie-pakietowmodulow"><i class="fa fa-check"></i><b>10.1</b> importowanie pakietow/modulow</a></li>
-<li class="chapter" data-level="10.2" data-path="work-organisation.html"><a href="work-organisation.html#wlasne-moduly-i-pakiety"><i class="fa fa-check"></i><b>10.2</b> Wlasne moduly i pakiety</a><ul>
+<li class="chapter" data-level="10.2" data-path="work-organisation.html"><a href="work-organisation.html#wlasne-moduly-i-pakiety"><i class="fa fa-check"></i><b>10.2</b> Wlasne moduly i pakiety</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="work-organisation.html"><a href="work-organisation.html#wlasny-modul"><i class="fa fa-check"></i><b>10.2.1</b> Wlasny modul</a></li>
 <li class="chapter" data-level="10.2.2" data-path="work-organisation.html"><a href="work-organisation.html#wlasny-pakiet---wersja-uproszczona"><i class="fa fa-check"></i><b>10.2.2</b> Wlasny pakiet - wersja uproszczona</a></li>
 <li class="chapter" data-level="10.2.3" data-path="work-organisation.html"><a href="work-organisation.html#wlasny-pakiet-wg.-standardu-pip"><i class="fa fa-check"></i><b>10.2.3</b> Wlasny pakiet wg. standardu pip</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="work-organisation.html"><a href="work-organisation.html#tworzenie-wirtualnych-srodowisk"><i class="fa fa-check"></i><b>10.3</b> Tworzenie wirtualnych srodowisk</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="data-import-and-export.html"><a href="data-import-and-export.html"><i class="fa fa-check"></i><b>11</b> DATA IMPORT AND EXPORT</a><ul>
+<li class="chapter" data-level="11" data-path="data-import-and-export.html"><a href="data-import-and-export.html"><i class="fa fa-check"></i><b>11</b> DATA IMPORT AND EXPORT</a>
+<ul>
 <li class="chapter" data-level="11.1" data-path="data-import-and-export.html"><a href="data-import-and-export.html#pickles"><i class="fa fa-check"></i><b>11.1</b> pickles</a></li>
-<li class="chapter" data-level="11.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#csv-txt"><i class="fa fa-check"></i><b>11.2</b> csv / txt</a><ul>
+<li class="chapter" data-level="11.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#csv-txt"><i class="fa fa-check"></i><b>11.2</b> csv / txt</a>
+<ul>
 <li class="chapter" data-level="11.2.1" data-path="data-import-and-export.html"><a href="data-import-and-export.html#import"><i class="fa fa-check"></i><b>11.2.1</b> Import</a></li>
 <li class="chapter" data-level="11.2.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#eksport"><i class="fa fa-check"></i><b>11.2.2</b> Eksport</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="data-import-and-export.html"><a href="data-import-and-export.html#excel"><i class="fa fa-check"></i><b>11.3</b> excel</a><ul>
+<li class="chapter" data-level="11.3" data-path="data-import-and-export.html"><a href="data-import-and-export.html#excel"><i class="fa fa-check"></i><b>11.3</b> excel</a>
+<ul>
 <li class="chapter" data-level="11.3.1" data-path="data-import-and-export.html"><a href="data-import-and-export.html#import-1"><i class="fa fa-check"></i><b>11.3.1</b> Import</a></li>
 <li class="chapter" data-level="11.3.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#eksport-1"><i class="fa fa-check"></i><b>11.3.2</b> Eksport</a></li>
 </ul></li>
 <li class="chapter" data-level="11.4" data-path="data-import-and-export.html"><a href="data-import-and-export.html#schowek"><i class="fa fa-check"></i><b>11.4</b> schowek</a></li>
 <li class="chapter" data-level="11.5" data-path="data-import-and-export.html"><a href="data-import-and-export.html#dates-parser"><i class="fa fa-check"></i><b>11.5</b> dates parser</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html"><i class="fa fa-check"></i><b>12</b> TOOLS AND TRICKS</a><ul>
+<li class="chapter" data-level="12" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html"><i class="fa fa-check"></i><b>12</b> TOOLS AND TRICKS</a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#praca-z-katalogami-i-plikami"><i class="fa fa-check"></i><b>12.1</b> praca z katalogami i plikami</a></li>
 <li class="chapter" data-level="12.2" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#podstawowe-polecenia-w-konsoli"><i class="fa fa-check"></i><b>12.2</b> Podstawowe polecenia w konsoli</a></li>
 <li class="chapter" data-level="12.3" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#python"><i class="fa fa-check"></i><b>12.3</b> python</a></li>
 <li class="chapter" data-level="12.4" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#pomiar-czasu-wykonania-kodu"><i class="fa fa-check"></i><b>12.4</b> pomiar czasu wykonania kodu</a></li>
-<li class="chapter" data-level="12.5" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#main-i-parametryzacja-z-konsoli"><i class="fa fa-check"></i><b>12.5</b> main i parametryzacja z konsoli</a><ul>
+<li class="chapter" data-level="12.5" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#main-i-parametryzacja-z-konsoli"><i class="fa fa-check"></i><b>12.5</b> main i parametryzacja z konsoli</a>
+<ul>
 <li class="chapter" data-level="12.5.1" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#prosty-przyklad"><i class="fa fa-check"></i><b>12.5.1</b> Prosty przyklad</a></li>
-<li class="chapter" data-level="12.5.2" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#uzycie-parsowanie"><i class="fa fa-check"></i><b>12.5.2</b> Uzycie parsowanie</a></li>
+<li class="chapter" data-level="12.5.2" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#uzycie-parsowania"><i class="fa fa-check"></i><b>12.5.2</b> Uzycie parsowania</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#rozne"><i class="fa fa-check"></i><b>12.6</b> Rozne</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#podglad-kodu-funkcji"><i class="fa fa-check"></i><b>12.6.1</b> Podglad kodu funkcji</a></li>
+<li class="chapter" data-level="12.6.2" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#realtive-paths"><i class="fa fa-check"></i><b>12.6.2</b> Realtive paths</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II <lfg>VISUALISATION</lfg></b></span></li>
-<li class="chapter" data-level="13" data-path="big-packages.html"><a href="big-packages.html"><i class="fa fa-check"></i><b>13</b> big packages</a><ul>
+<li class="chapter" data-level="13" data-path="big-packages.html"><a href="big-packages.html"><i class="fa fa-check"></i><b>13</b> big packages</a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="big-packages.html"><a href="big-packages.html#matplotlib"><i class="fa fa-check"></i><b>13.1</b> matplotlib</a></li>
 <li class="chapter" data-level="13.2" data-path="big-packages.html"><a href="big-packages.html#seaborn"><i class="fa fa-check"></i><b>13.2</b> seaborn</a></li>
 <li class="chapter" data-level="13.3" data-path="big-packages.html"><a href="big-packages.html#plotly"><i class="fa fa-check"></i><b>13.3</b> plotly</a></li>
@@ -349,21 +389,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="16" data-path="maps.html"><a href="maps.html"><i class="fa fa-check"></i><b>16</b> maps</a></li>
 <li class="chapter" data-level="17" data-path="other-issues.html"><a href="other-issues.html"><i class="fa fa-check"></i><b>17</b> other issues</a></li>
 <li class="part"><span><b>III <lfg>PROGRAMMING</lfg></b></span></li>
-<li class="chapter" data-level="18" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html"><i class="fa fa-check"></i><b>18</b> Cooperation with other tools</a><ul>
-<li class="chapter" data-level="18.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#relational-databases"><i class="fa fa-check"></i><b>18.1</b> Relational databases</a><ul>
+<li class="chapter" data-level="18" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html"><i class="fa fa-check"></i><b>18</b> Cooperation with other tools</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#relational-databases"><i class="fa fa-check"></i><b>18.1</b> Relational databases</a>
+<ul>
 <li class="chapter" data-level="18.1.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#sql-server"><i class="fa fa-check"></i><b>18.1.1</b> SQL Server</a></li>
 <li class="chapter" data-level="18.1.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#postgres"><i class="fa fa-check"></i><b>18.1.2</b> Postgres</a></li>
 <li class="chapter" data-level="18.1.3" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#oracle"><i class="fa fa-check"></i><b>18.1.3</b> Oracle</a></li>
 <li class="chapter" data-level="18.1.4" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#mysql"><i class="fa fa-check"></i><b>18.1.4</b> MySql</a></li>
 </ul></li>
-<li class="chapter" data-level="18.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#norelational-databases"><i class="fa fa-check"></i><b>18.2</b> Norelational databases</a><ul>
+<li class="chapter" data-level="18.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#norelational-databases"><i class="fa fa-check"></i><b>18.2</b> Norelational databases</a>
+<ul>
 <li class="chapter" data-level="18.2.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#neo4j"><i class="fa fa-check"></i><b>18.2.1</b> Neo4j</a></li>
 <li class="chapter" data-level="18.2.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#redis"><i class="fa fa-check"></i><b>18.2.2</b> Redis</a></li>
 <li class="chapter" data-level="18.2.3" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#mongodb"><i class="fa fa-check"></i><b>18.2.3</b> MongoDB</a></li>
 </ul></li>
 <li class="chapter" data-level="18.3" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#r"><i class="fa fa-check"></i><b>18.3</b> R</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="www.html"><a href="www.html"><i class="fa fa-check"></i><b>19</b> www</a><ul>
+<li class="chapter" data-level="19" data-path="www.html"><a href="www.html"><i class="fa fa-check"></i><b>19</b> www</a>
+<ul>
 <li class="chapter" data-level="19.1" data-path="www.html"><a href="www.html#linter"><i class="fa fa-check"></i><b>19.1</b> Linter</a></li>
 <li class="chapter" data-level="19.2" data-path="www.html"><a href="www.html#airflow"><i class="fa fa-check"></i><b>19.2</b> AirFlow</a></li>
 <li class="chapter" data-level="19.3" data-path="www.html"><a href="www.html#luigi"><i class="fa fa-check"></i><b>19.3</b> Luigi</a></li>
@@ -373,21 +417,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="part"><span><b>IV <lfg>APPENDICIES</lfg></b></span></li>
 <li class="chapter" data-level="20" data-path="good-habits.html"><a href="good-habits.html"><i class="fa fa-check"></i><b>20</b> good habits</a></li>
-<li class="chapter" data-level="21" data-path="ide.html"><a href="ide.html"><i class="fa fa-check"></i><b>21</b> IDE</a><ul>
-<li class="chapter" data-level="21.1" data-path="ide.html"><a href="ide.html#jupiter-notebook"><i class="fa fa-check"></i><b>21.1</b> Jupiter Notebook</a><ul>
+<li class="chapter" data-level="21" data-path="ide.html"><a href="ide.html"><i class="fa fa-check"></i><b>21</b> IDE</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="ide.html"><a href="ide.html#jupiter-notebook"><i class="fa fa-check"></i><b>21.1</b> Jupiter Notebook</a>
+<ul>
 <li class="chapter" data-level="21.1.1" data-path="ide.html"><a href="ide.html#installation"><i class="fa fa-check"></i><b>21.1.1</b> Installation</a></li>
 <li class="chapter" data-level="21.1.2" data-path="ide.html"><a href="ide.html#connecting-with-venv"><i class="fa fa-check"></i><b>21.1.2</b> Connecting with Venv</a></li>
 <li class="chapter" data-level="21.1.3" data-path="ide.html"><a href="ide.html#magic-commends"><i class="fa fa-check"></i><b>21.1.3</b> Magic commends</a></li>
 <li class="chapter" data-level="21.1.4" data-path="ide.html"><a href="ide.html#global-settings"><i class="fa fa-check"></i><b>21.1.4</b> Global settings</a></li>
-<li class="chapter" data-level="21.1.5" data-path="ide.html"><a href="ide.html#converting-to-different-foramts"><i class="fa fa-check"></i><b>21.1.5</b> Converting to different foramts</a></li>
+<li class="chapter" data-level="21.1.5" data-path="ide.html"><a href="ide.html#converting-to-different-formats"><i class="fa fa-check"></i><b>21.1.5</b> Converting to different formats</a></li>
 <li class="chapter" data-level="21.1.6" data-path="ide.html"><a href="ide.html#widgets"><i class="fa fa-check"></i><b>21.1.6</b> widgets</a></li>
 </ul></li>
-<li class="chapter" data-level="21.2" data-path="ide.html"><a href="ide.html#jupiter-lab"><i class="fa fa-check"></i><b>21.2</b> Jupiter Lab</a><ul>
+<li class="chapter" data-level="21.2" data-path="ide.html"><a href="ide.html#jupiter-lab"><i class="fa fa-check"></i><b>21.2</b> Jupiter Lab</a>
+<ul>
 <li class="chapter" data-level="21.2.1" data-path="ide.html"><a href="ide.html#installation-1"><i class="fa fa-check"></i><b>21.2.1</b> Installation</a></li>
 </ul></li>
-<li class="chapter" data-level="21.3" data-path="ide.html"><a href="ide.html#pycharm"><i class="fa fa-check"></i><b>21.3</b> PyCharm</a><ul>
+<li class="chapter" data-level="21.3" data-path="ide.html"><a href="ide.html#pycharm"><i class="fa fa-check"></i><b>21.3</b> PyCharm</a>
+<ul>
 <li class="chapter" data-level="21.3.1" data-path="ide.html"><a href="ide.html#konfiguracja-git-i-github"><i class="fa fa-check"></i><b>21.3.1</b> Konfiguracja Git i GitHub</a></li>
-<li class="chapter" data-level="21.3.2" data-path="ide.html"><a href="ide.html#dodanie-git-do-istniejacego-projektu"><i class="fa fa-check"></i><b>21.3.2</b> Dodanie Git do istniejącego projektu</a></li>
+<li class="chapter" data-level="21.3.2" data-path="ide.html"><a href="ide.html#dodanie-git-do-istniejącego-projektu"><i class="fa fa-check"></i><b>21.3.2</b> Dodanie Git do istniejącego projektu</a></li>
 <li class="chapter" data-level="21.3.3" data-path="ide.html"><a href="ide.html#zmiana-skrotow"><i class="fa fa-check"></i><b>21.3.3</b> Zmiana skrotow</a></li>
 <li class="chapter" data-level="21.3.4" data-path="ide.html"><a href="ide.html#podpinanie-do-vevn"><i class="fa fa-check"></i><b>21.3.4</b> Podpinanie do vevn</a></li>
 <li class="chapter" data-level="21.3.5" data-path="ide.html"><a href="ide.html#ustawienia-globalne-a-ustawienia-projektu"><i class="fa fa-check"></i><b>21.3.5</b> Ustawienia globalne a ustawienia projektu</a></li>
@@ -396,7 +444,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="21.4" data-path="ide.html"><a href="ide.html#rstudio"><i class="fa fa-check"></i><b>21.4</b> Rstudio</a></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="installation-2.html"><a href="installation-2.html"><i class="fa fa-check"></i><b>22</b> Installation</a><ul>
+<li class="chapter" data-level="22" data-path="installation-2.html"><a href="installation-2.html"><i class="fa fa-check"></i><b>22</b> Installation</a>
+<ul>
 <li class="chapter" data-level="22.1" data-path="installation-2.html"><a href="installation-2.html#anaconda"><i class="fa fa-check"></i><b>22.1</b> Anaconda</a></li>
 </ul></li>
 <li class="chapter" data-level="23" data-path="intro-1.html"><a href="intro-1.html"><i class="fa fa-check"></i><b>23</b> INTRO</a></li>
@@ -412,7 +461,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Python</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R</a>
           </h1>
         </div>
 
@@ -420,532 +469,516 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="syntax" class="section level1">
+<div id="syntax" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Syntax</h1>
-<div id="operatory-logiczne" class="section level2">
+<div id="operatory-logiczne" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> operatory logiczne</h2>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">==</span> b
-a <span class="op">!=</span> b
-a <span class="op">&lt;</span> b
-a <span class="op">&lt;=</span> b
-a <span class="op">&gt;</span> b
-a <span class="op">&gt;=</span> b</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="syntax.html#cb1-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">==</span> b</span>
+<span id="cb1-2"><a href="syntax.html#cb1-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">!=</span> b</span>
+<span id="cb1-3"><a href="syntax.html#cb1-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">&lt;</span> b</span>
+<span id="cb1-4"><a href="syntax.html#cb1-4" aria-hidden="true" tabindex="-1"></a>a <span class="op">&lt;=</span> b</span>
+<span id="cb1-5"><a href="syntax.html#cb1-5" aria-hidden="true" tabindex="-1"></a>a <span class="op">&gt;</span> b</span>
+<span id="cb1-6"><a href="syntax.html#cb1-6" aria-hidden="true" tabindex="-1"></a>a <span class="op">&gt;=</span> b</span></code></pre></div>
 </div>
-<div id="podstawowe-komendy-i-funkcje" class="section level2">
+<div id="podstawowe-komendy-i-funkcje" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> podstawowe komendy i funkcje</h2>
-<div id="sprawdzenie-typu-obiektu" class="section level3">
+<div id="sprawdzenie-typu-obiektu" class="section level3" number="2.2.1">
 <h3><span class="header-section-number">2.2.1</span> sprawdzenie typu obiektu</h3>
-<pre class="sourceCode python"><code class="sourceCode python">string <span class="op">=</span> <span class="st">&#39;abdc&#39;</span>
-liczba <span class="op">=</span> <span class="dv">100</span>
-
-
-
-<span class="co">#(1) uzycie funkcji &#39;type&#39; </span>
-<span class="bu">type</span>(string) <span class="op">==</span> <span class="bu">str</span>
-<span class="bu">type</span>(string) <span class="kw">is</span> <span class="bu">str</span>
-<span class="bu">type</span>(liczba) <span class="op">==</span> <span class="bu">int</span>
-<span class="bu">type</span>(liczba) <span class="kw">is</span> <span class="bu">int</span>
-
-<span class="co"># zeby sprawdzic pandas to &#39;modul&#39;</span>
-<span class="bu">type</span>(pandas) <span class="kw">is</span> <span class="bu">type</span>(__builtins__)
-
-
-<span class="co">#(2) uzycie funkcji &#39;insinstance&#39;</span>
-<span class="bu">isinstance</span>(string, (<span class="bu">int</span>, <span class="bu">float</span>)) <span class="co"># obiekt to typ &#39;int&#39; lub &#39;float&#39;</span>
-<span class="bu">isinstance</span>(string, (<span class="bu">int</span>, <span class="bu">float</span>, <span class="bu">str</span>))  <span class="co"># obiekt to typ &#39;int&#39; lub &#39;float&#39; lub &#39;str&#39; </span>
-
-
-
-
-
-<span class="co">#(3) ROZNICA MIEDZY funkcjami &#39;type&#39; I &#39;isinstance&#39;:</span>
-<span class="co"># Isinstance caters for inheritance (an instance of a derived class is an instance of a base class, too), while checking for equality of type does not (it demands identity of types and rejects instances of subtypes, AKA subclasses).</span>
-<span class="co"># To co napisano powyzej ma np. znaczenie przy podklasach bedacych elementami nadklas (patrz plik o programowaniu obiektowym &#39;1_08_PROGRAMING_data_structures-objective_programing&#39;). Popatrzmy na przyklad:</span>
-
-<span class="co"># definiujemy klase &#39;Vehicle&#39;</span>
-<span class="kw">class</span> Vehicle:
-    <span class="cf">pass</span>
-
-<span class="co"># definiujemy klase &#39;Truck&#39; bedaca podklasa klasy &#39;Vehicle&#39;</span>
-<span class="kw">class</span> Truck(Vehicle):
-    <span class="cf">pass</span>
-
-<span class="bu">isinstance</span>(Vehicle(), Vehicle)  <span class="co"># returns True</span>
-<span class="bu">type</span>(Vehicle()) <span class="op">==</span> Vehicle      <span class="co"># returns True</span>
-<span class="bu">isinstance</span>(Truck(), Vehicle)    <span class="co"># returns True</span>
-<span class="bu">type</span>(Truck()) <span class="op">==</span> Vehicle        <span class="co"># returns False</span>
-
-
-
-
-<span class="co">#(4) Sprawdzenie najbardziej podstawowych typow</span>
-
-<span class="co"># array </span>
-<span class="im">import</span> numpy <span class="im">as</span> np
-a1 <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>])
-<span class="bu">type</span>(a1) <span class="kw">is</span> np.ndarray
-
-
-<span class="co"># DataFrame</span>
-<span class="im">import</span> pandas <span class="im">as</span> pd
-df <span class="op">=</span> pd.DataFrame([<span class="dv">1</span>])
-<span class="bu">type</span>(df) <span class="kw">is</span> pd.core.frame.DataFrame
-
-
-<span class="co"># list </span>
-li <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>]
-<span class="bu">type</span>(li) <span class="kw">is</span> <span class="bu">list</span>
-
-
-<span class="co"># Series</span>
-<span class="im">import</span> pandas <span class="im">as</span> pd
-df <span class="op">=</span> pd.Series([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])
-<span class="bu">type</span>(df) <span class="kw">is</span> pd.core.series.Series
-
-
-<span class="co">#tuple</span>
-tup <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)
-<span class="bu">type</span>(tup) <span class="kw">is</span> x
-
-
-<span class="co"># set</span>
-sett <span class="op">=</span> {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>}
-<span class="bu">type</span>(sett) <span class="kw">is</span> <span class="bu">set</span></code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="syntax.html#cb2-1" aria-hidden="true" tabindex="-1"></a>string <span class="op">=</span> <span class="st">&#39;abdc&#39;</span></span>
+<span id="cb2-2"><a href="syntax.html#cb2-2" aria-hidden="true" tabindex="-1"></a>liczba <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb2-3"><a href="syntax.html#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="syntax.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#(1) uzycie funkcji &#39;type&#39; </span></span>
+<span id="cb2-5"><a href="syntax.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(string) <span class="op">==</span> <span class="bu">str</span></span>
+<span id="cb2-6"><a href="syntax.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(string) <span class="kw">is</span> <span class="bu">str</span></span>
+<span id="cb2-7"><a href="syntax.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(liczba) <span class="op">==</span> <span class="bu">int</span></span>
+<span id="cb2-8"><a href="syntax.html#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(liczba) <span class="kw">is</span> <span class="bu">int</span></span>
+<span id="cb2-9"><a href="syntax.html#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="syntax.html#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># zeby sprawdzic czy pandas to &#39;modul&#39;</span></span>
+<span id="cb2-11"><a href="syntax.html#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-12"><a href="syntax.html#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(pd) <span class="kw">is</span> <span class="bu">type</span>(__builtins__)</span>
+<span id="cb2-13"><a href="syntax.html#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="syntax.html#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#(2) uzycie funkcji &#39;insinstance&#39;</span></span>
+<span id="cb2-15"><a href="syntax.html#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="bu">isinstance</span>(string, (<span class="bu">int</span>, <span class="bu">float</span>))       <span class="co"># czy obiekt to typ &#39;int&#39; lub &#39;float&#39;</span></span>
+<span id="cb2-16"><a href="syntax.html#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="bu">isinstance</span>(string, (<span class="bu">int</span>, <span class="bu">float</span>, <span class="bu">str</span>))  <span class="co"># czy obiekt to typ &#39;int&#39; lub &#39;float&#39; lub &#39;str&#39; </span></span>
+<span id="cb2-17"><a href="syntax.html#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="syntax.html#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="syntax.html#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="syntax.html#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#(3) ROZNICA MIEDZY funkcjami &#39;type&#39; i &#39;isinstance&#39;:</span></span>
+<span id="cb2-21"><a href="syntax.html#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Isinstance caters for inheritance (an instance of a derived class is an instance of a base class, too), while checking for equality of type does not (it demands identity of types and rejects instances of subtypes, AKA subclasses).</span></span>
+<span id="cb2-22"><a href="syntax.html#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># To co napisano powyzej ma np. znaczenie przy podklasach bedacych elementami nadklas (patrz plik o programowaniu obiektowym &#39;1_08_PROGRAMING_data_structures-objective_programing&#39;). Popatrzmy na przyklad:</span></span>
+<span id="cb2-23"><a href="syntax.html#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="syntax.html#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># definiujemy klase &#39;Vehicle&#39;</span></span>
+<span id="cb2-25"><a href="syntax.html#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Vehicle:</span>
+<span id="cb2-26"><a href="syntax.html#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">pass</span></span>
+<span id="cb2-27"><a href="syntax.html#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="syntax.html#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># definiujemy klase &#39;Truck&#39; bedaca podklasa klasy &#39;Vehicle&#39;</span></span>
+<span id="cb2-29"><a href="syntax.html#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Truck(Vehicle):</span>
+<span id="cb2-30"><a href="syntax.html#cb2-30" aria-hidden="true" tabindex="-1"></a>  <span class="cf">pass</span></span>
+<span id="cb2-31"><a href="syntax.html#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="syntax.html#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="bu">isinstance</span>(Vehicle(), Vehicle)  <span class="co"># returns True</span></span>
+<span id="cb2-33"><a href="syntax.html#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(Vehicle()) <span class="op">==</span> Vehicle      <span class="co"># returns True</span></span>
+<span id="cb2-34"><a href="syntax.html#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="bu">isinstance</span>(Truck(), Vehicle)    <span class="co"># returns True</span></span>
+<span id="cb2-35"><a href="syntax.html#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(Truck()) <span class="op">==</span> Vehicle        <span class="co"># returns False</span></span>
+<span id="cb2-36"><a href="syntax.html#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="syntax.html#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="syntax.html#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="syntax.html#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="syntax.html#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co">#(4) Sprawdzenie najbardziej podstawowych typow</span></span>
+<span id="cb2-41"><a href="syntax.html#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-42"><a href="syntax.html#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="co"># array </span></span>
+<span id="cb2-43"><a href="syntax.html#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-44"><a href="syntax.html#cb2-44" aria-hidden="true" tabindex="-1"></a>a1 <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>])</span>
+<span id="cb2-45"><a href="syntax.html#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(a1) <span class="kw">is</span> np.ndarray</span>
+<span id="cb2-46"><a href="syntax.html#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="syntax.html#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="syntax.html#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co"># DataFrame</span></span>
+<span id="cb2-49"><a href="syntax.html#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-50"><a href="syntax.html#cb2-50" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame([<span class="dv">1</span>])</span>
+<span id="cb2-51"><a href="syntax.html#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(df) <span class="kw">is</span> pd.core.frame.DataFrame</span>
+<span id="cb2-52"><a href="syntax.html#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-53"><a href="syntax.html#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="syntax.html#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="co"># list </span></span>
+<span id="cb2-55"><a href="syntax.html#cb2-55" aria-hidden="true" tabindex="-1"></a>li <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb2-56"><a href="syntax.html#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(li) <span class="kw">is</span> <span class="bu">list</span></span>
+<span id="cb2-57"><a href="syntax.html#cb2-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-58"><a href="syntax.html#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-59"><a href="syntax.html#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="co"># Series</span></span>
+<span id="cb2-60"><a href="syntax.html#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-61"><a href="syntax.html#cb2-61" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.Series([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span>
+<span id="cb2-62"><a href="syntax.html#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(df) <span class="kw">is</span> pd.core.series.Series</span>
+<span id="cb2-63"><a href="syntax.html#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-64"><a href="syntax.html#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-65"><a href="syntax.html#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="co">#tuple</span></span>
+<span id="cb2-66"><a href="syntax.html#cb2-66" aria-hidden="true" tabindex="-1"></a>tup <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb2-67"><a href="syntax.html#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(tup) <span class="kw">is</span> x</span>
+<span id="cb2-68"><a href="syntax.html#cb2-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-69"><a href="syntax.html#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-70"><a href="syntax.html#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="co"># set</span></span>
+<span id="cb2-71"><a href="syntax.html#cb2-71" aria-hidden="true" tabindex="-1"></a>sett <span class="op">=</span> {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>}</span>
+<span id="cb2-72"><a href="syntax.html#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(sett) <span class="kw">is</span> <span class="bu">set</span></span></code></pre></div>
 </div>
-<div id="inne-komendy-i-funkcje" class="section level3">
+<div id="inne-komendy-i-funkcje" class="section level3" number="2.2.2">
 <h3><span class="header-section-number">2.2.2</span> inne komendy i funkcje</h3>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># usuwanie zmiennej</span>
-z<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]
-<span class="kw">del</span> z
-
-z <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]
-w <span class="op">=</span> [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]
-<span class="kw">del</span> z, w <span class="co"># mozna tez kilka zmiennych na raz usunac</span>
-
-
-
-<span class="co"># lista atrybutow i metod obiektu</span>
-z <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]
-<span class="bu">dir</span>(z)
-
-
-
-<span class="co"># wielkosci obiektu w pamieci</span>
-sys.getsizeof(z) <span class="co"># ile w bajtach zajmuje lista w pamieci</span>
-sys.getsizeof(z)<span class="op">/</span><span class="fl">1e+6</span> <span class="co"># ile w megabajtach (decimal) zajmuje lista w pamieci</span>
-sys.getsizeof(z)<span class="op">/</span><span class="dv">1048576</span> <span class="co"># ile w megabajtach (binary) zajmuje lista w pamieci</span>
-
-
-
-<span class="co"># unikalne ID obiektu</span>
-<span class="bu">id</span>(z)
-
-
-
-<span class="co"># typ obiektu</span>
-<span class="bu">type</span>(z)
-
-
-
-<span class="co"># czy obiekty są tożsame (silny warunek tozsamosci)</span>
-w <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]
-z <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]
-w <span class="kw">is</span> z <span class="co"># obiekty są identyczne co do zawartosći i typu, ale to są 2 różne obiekty (mają różną lokalizację w pamięci) więc dostajemy FALSE</span>
-
-
-
-<span class="co"># czy obiekty sa takie same do do wartosci i typu (slaby warunek tozsamosci)</span>
-w <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]
-z <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]
-w <span class="op">==</span> z <span class="co"># dostajemy TRUE</span>
-
-
-
-<span class="co"># trik zwiazany z przypisaniem wartosci do kilku zmiennych w jednej linii</span>
-z1, z2 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>] <span class="co"># z1 bedzie rowne 1 a z2 2</span>
-x1, x2 <span class="op">=</span> <span class="dv">1</span>, <span class="dv">2</span> <span class="co"># x1 bedzie rowne 1 a x2 2</span>
-w1, w2 <span class="op">=</span> [[<span class="dv">1</span>,<span class="dv">2</span>], [<span class="dv">3</span>,<span class="dv">4</span>]] <span class="co"># w1 bedzie rowne [1,2] a w2 [3,4]</span></code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="syntax.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># usuwanie zmiennych</span></span>
+<span id="cb3-2"><a href="syntax.html#cb3-2" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb3-3"><a href="syntax.html#cb3-3" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]</span>
+<span id="cb3-4"><a href="syntax.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">del</span> z, w <span class="co"># mozna kilka zmiennych na raz usunac</span></span>
+<span id="cb3-5"><a href="syntax.html#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="syntax.html#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="syntax.html#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># lista atrybutow i metod obiektu</span></span>
+<span id="cb3-8"><a href="syntax.html#cb3-8" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]</span>
+<span id="cb3-9"><a href="syntax.html#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">dir</span>(z)</span>
+<span id="cb3-10"><a href="syntax.html#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="syntax.html#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="syntax.html#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># wielkosci obiektu w pamieci</span></span>
+<span id="cb3-13"><a href="syntax.html#cb3-13" aria-hidden="true" tabindex="-1"></a>sys.getsizeof(z) <span class="co"># ile w bajtach zajmuje lista w pamieci</span></span>
+<span id="cb3-14"><a href="syntax.html#cb3-14" aria-hidden="true" tabindex="-1"></a>sys.getsizeof(z)<span class="op">/</span><span class="fl">1e+6</span> <span class="co"># ile w megabajtach (decimal) zajmuje lista w pamieci</span></span>
+<span id="cb3-15"><a href="syntax.html#cb3-15" aria-hidden="true" tabindex="-1"></a>sys.getsizeof(z)<span class="op">/</span><span class="dv">1048576</span> <span class="co"># ile w megabajtach (binary) zajmuje lista w pamieci</span></span>
+<span id="cb3-16"><a href="syntax.html#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="syntax.html#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="syntax.html#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># unikalne ID obiektu</span></span>
+<span id="cb3-19"><a href="syntax.html#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="bu">id</span>(z)</span>
+<span id="cb3-20"><a href="syntax.html#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="syntax.html#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="syntax.html#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co"># czy obiekty są tożsame (silny warunek tozsamosci)</span></span>
+<span id="cb3-23"><a href="syntax.html#cb3-23" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb3-24"><a href="syntax.html#cb3-24" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb3-25"><a href="syntax.html#cb3-25" aria-hidden="true" tabindex="-1"></a>w <span class="kw">is</span> z <span class="co"># obiekty są identyczne co do zawartosći i typu, ale to są 2 różne obiekty (mają różną lokalizację w pamięci) więc dostajemy FALSE</span></span>
+<span id="cb3-26"><a href="syntax.html#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="syntax.html#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="syntax.html#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="syntax.html#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co"># czy obiekty sa takie same do do wartosci i typu (slaby warunek tozsamosci)</span></span>
+<span id="cb3-30"><a href="syntax.html#cb3-30" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb3-31"><a href="syntax.html#cb3-31" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb3-32"><a href="syntax.html#cb3-32" aria-hidden="true" tabindex="-1"></a>w <span class="op">==</span> z <span class="co"># dostajemy TRUE</span></span>
+<span id="cb3-33"><a href="syntax.html#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="syntax.html#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-35"><a href="syntax.html#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-36"><a href="syntax.html#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="co"># trik zwiazany z przypisaniem wartosci do kilku zmiennych w jednej linii</span></span>
+<span id="cb3-37"><a href="syntax.html#cb3-37" aria-hidden="true" tabindex="-1"></a>z1, z2 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>] <span class="co"># z1 bedzie rowne 1 a z2 2</span></span>
+<span id="cb3-38"><a href="syntax.html#cb3-38" aria-hidden="true" tabindex="-1"></a>x1, x2 <span class="op">=</span> <span class="dv">1</span>, <span class="dv">2</span> <span class="co"># x1 bedzie rowne 1 a x2 2</span></span>
+<span id="cb3-39"><a href="syntax.html#cb3-39" aria-hidden="true" tabindex="-1"></a>w1, w2 <span class="op">=</span> [[<span class="dv">1</span>,<span class="dv">2</span>], [<span class="dv">3</span>,<span class="dv">4</span>]] <span class="co"># w1 bedzie rowne [1,2] a w2 [3,4]</span></span></code></pre></div>
 </div>
 </div>
-<div id="control-flow" class="section level2">
+<div id="control-flow" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> control flow</h2>
-<div id="if-else" class="section level3">
+<div id="if-else" class="section level3" number="2.3.1">
 <h3><span class="header-section-number">2.3.1</span> if else</h3>
 <p>‘else if’ w jednej linii. Użyteczne np. w funkcjach anonimowych</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># (1) Wersja pierwsza składni</span>
-
-<span class="co"># ogolna skladnia</span>
-expr1 <span class="cf">if</span> condition1 <span class="cf">else</span> expr2 <span class="cf">if</span> condition2 <span class="cf">else</span> expr
-
-
-<span class="co"># przyklad</span>
-a <span class="op">=</span> <span class="st">&quot;ujemna&quot;</span> <span class="cf">if</span> b<span class="op">&lt;</span><span class="dv">0</span> <span class="cf">else</span> <span class="st">&quot;dodatnia&quot;</span> <span class="cf">if</span> b<span class="op">&gt;</span><span class="dv">0</span> <span class="cf">else</span> <span class="st">&quot;zero&quot;</span>
-
-
-<span class="co"># przyklad w funkcji anonimowej (tzw. funkcja lambda)</span>
-z <span class="op">=</span> [<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>] <span class="co">#tworze liste</span>
-<span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x : <span class="st">&quot;ujemna&quot;</span> <span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">&quot;dodatnia&quot;</span> <span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">&quot;zero&quot;</span>, z)) <span class="co"># wartosci liczbowe listy przekodowuje na teksowe opisy</span>
-
-
-
-
-<span class="co"># (2) Wersja druga składni</span>
-
-<span class="cf">if</span> a <span class="op">&gt;</span> b: <span class="bu">print</span>(<span class="st">&quot;a is greater than b&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="syntax.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (1) Wersja pierwsza składni</span></span>
+<span id="cb4-2"><a href="syntax.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="syntax.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ogolna skladnia</span></span>
+<span id="cb4-4"><a href="syntax.html#cb4-4" aria-hidden="true" tabindex="-1"></a>expr1 <span class="cf">if</span> condition1 <span class="cf">else</span> expr2 <span class="cf">if</span> condition2 <span class="cf">else</span> expr</span>
+<span id="cb4-5"><a href="syntax.html#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="syntax.html#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="syntax.html#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># przyklad</span></span>
+<span id="cb4-8"><a href="syntax.html#cb4-8" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="st">&quot;ujemna&quot;</span> <span class="cf">if</span> b<span class="op">&lt;</span><span class="dv">0</span> <span class="cf">else</span> <span class="st">&quot;dodatnia&quot;</span> <span class="cf">if</span> b<span class="op">&gt;</span><span class="dv">0</span> <span class="cf">else</span> <span class="st">&quot;zero&quot;</span></span>
+<span id="cb4-9"><a href="syntax.html#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="syntax.html#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="syntax.html#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># przyklad w funkcji anonimowej (tzw. funkcja lambda)</span></span>
+<span id="cb4-12"><a href="syntax.html#cb4-12" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> [<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>] <span class="co">#tworze liste</span></span>
+<span id="cb4-13"><a href="syntax.html#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(<span class="bu">map</span>(<span class="kw">lambda</span> x : <span class="st">&quot;ujemna&quot;</span> <span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">&quot;dodatnia&quot;</span> <span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">&quot;zero&quot;</span>, z)) <span class="co"># wartosci liczbowe listy przekodowuje na teksowe opisy</span></span>
+<span id="cb4-14"><a href="syntax.html#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="syntax.html#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="syntax.html#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="syntax.html#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="syntax.html#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># (2) Wersja druga składni</span></span>
+<span id="cb4-19"><a href="syntax.html#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="syntax.html#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> a <span class="op">&gt;</span> b: <span class="bu">print</span>(<span class="st">&quot;a is greater than b&quot;</span>)</span></code></pre></div>
 <p>if else w wielu liniach</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># ogolna skladnia</span>
-<span class="cf">if</span> expression1:
-   statement(s)
-<span class="cf">elif</span> expression2:
-   statement(s)
-<span class="cf">elif</span> expression3:
-   statement(s)
-<span class="cf">else</span>:
-   statement(s)
-
-<span class="co"># przyklad 1:</span>
-a <span class="op">=</span> <span class="dv">33</span>
-b <span class="op">=</span> <span class="dv">200</span>
-<span class="cf">if</span> b <span class="op">&gt;</span> a:
-  <span class="bu">print</span>(<span class="st">&quot;b is greater than a&quot;</span>)
-
-
-<span class="co"># przyklad 2:</span>
-a <span class="op">=</span> <span class="dv">33</span>
-b <span class="op">=</span> <span class="dv">33</span>
-<span class="cf">if</span> b <span class="op">&gt;</span> a:
-  <span class="bu">print</span>(<span class="st">&quot;b is greater than a&quot;</span>)
-<span class="cf">elif</span> a <span class="op">==</span> b:
-  <span class="bu">print</span>(<span class="st">&quot;a and b are equal&quot;</span>)
-
-
-<span class="co"># przyklad 3:</span>
-a <span class="op">=</span> <span class="dv">200</span>
-b <span class="op">=</span> <span class="dv">33</span>
-<span class="cf">if</span> b <span class="op">&gt;</span> a:
-  <span class="bu">print</span>(<span class="st">&quot;b is greater than a&quot;</span>)
-<span class="cf">elif</span> a <span class="op">==</span> b:
-  <span class="bu">print</span>(<span class="st">&quot;a and b are equal&quot;</span>)
-<span class="cf">else</span>:
-  <span class="bu">print</span>(<span class="st">&quot;a is greater than b&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="syntax.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ogolna skladnia</span></span>
+<span id="cb5-2"><a href="syntax.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> expression1:</span>
+<span id="cb5-3"><a href="syntax.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  statement(s)</span>
+<span id="cb5-4"><a href="syntax.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> expression2:</span>
+<span id="cb5-5"><a href="syntax.html#cb5-5" aria-hidden="true" tabindex="-1"></a>  statement(s)</span>
+<span id="cb5-6"><a href="syntax.html#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> expression3:</span>
+<span id="cb5-7"><a href="syntax.html#cb5-7" aria-hidden="true" tabindex="-1"></a>  statement(s)</span>
+<span id="cb5-8"><a href="syntax.html#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb5-9"><a href="syntax.html#cb5-9" aria-hidden="true" tabindex="-1"></a>  statement(s)</span>
+<span id="cb5-10"><a href="syntax.html#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="syntax.html#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># przyklad 1:</span></span>
+<span id="cb5-12"><a href="syntax.html#cb5-12" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">33</span></span>
+<span id="cb5-13"><a href="syntax.html#cb5-13" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">200</span></span>
+<span id="cb5-14"><a href="syntax.html#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> b <span class="op">&gt;</span> a:</span>
+<span id="cb5-15"><a href="syntax.html#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;b is greater than a&quot;</span>)</span>
+<span id="cb5-16"><a href="syntax.html#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="syntax.html#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="syntax.html#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># przyklad 2:</span></span>
+<span id="cb5-19"><a href="syntax.html#cb5-19" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">33</span></span>
+<span id="cb5-20"><a href="syntax.html#cb5-20" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">33</span></span>
+<span id="cb5-21"><a href="syntax.html#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> b <span class="op">&gt;</span> a:</span>
+<span id="cb5-22"><a href="syntax.html#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;b is greater than a&quot;</span>)</span>
+<span id="cb5-23"><a href="syntax.html#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> a <span class="op">==</span> b:</span>
+<span id="cb5-24"><a href="syntax.html#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;a and b are equal&quot;</span>)</span>
+<span id="cb5-25"><a href="syntax.html#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="syntax.html#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="syntax.html#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co"># przyklad 3:</span></span>
+<span id="cb5-28"><a href="syntax.html#cb5-28" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">200</span></span>
+<span id="cb5-29"><a href="syntax.html#cb5-29" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">33</span></span>
+<span id="cb5-30"><a href="syntax.html#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> b <span class="op">&gt;</span> a:</span>
+<span id="cb5-31"><a href="syntax.html#cb5-31" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;b is greater than a&quot;</span>)</span>
+<span id="cb5-32"><a href="syntax.html#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> a <span class="op">==</span> b:</span>
+<span id="cb5-33"><a href="syntax.html#cb5-33" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;a and b are equal&quot;</span>)</span>
+<span id="cb5-34"><a href="syntax.html#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb5-35"><a href="syntax.html#cb5-35" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;a is greater than b&quot;</span>)</span></code></pre></div>
 </div>
-<div id="petla-for" class="section level3">
+<div id="petla-for" class="section level3" number="2.3.2">
 <h3><span class="header-section-number">2.3.2</span> petla ‘for’</h3>
-<div id="podstawowy-for" class="section level4">
+<div id="podstawowy-for" class="section level4" number="2.3.2.1">
 <h4><span class="header-section-number">2.3.2.1</span> Podstawowy for</h4>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># for po liscie:</span>
-fruits <span class="op">=</span> [<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>]
-<span class="cf">for</span> x <span class="kw">in</span> fruits:
-  <span class="bu">print</span>(x)
-  
-  
-<span class="co"># for po stringu:</span>
-<span class="cf">for</span> x <span class="kw">in</span> <span class="st">&quot;banana&quot;</span>:
-  <span class="bu">print</span>(x)
-  
-  
-<span class="co"># po zakresie liczbowym:</span>
-<span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>):
-  <span class="bu">print</span>(x)
-
-
-<span class="co"># uzycie &#39;break&#39; - przerwanie petli</span>
-fruits <span class="op">=</span> [<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>]
-<span class="cf">for</span> x <span class="kw">in</span> fruits:
-  <span class="bu">print</span>(x) 
-  <span class="cf">if</span> x <span class="op">==</span> <span class="st">&quot;banana&quot;</span>: <span class="co"># w momencie kiedy petla dojdzie to &#39;banana&#39; zostaje przerwana</span>
-    <span class="cf">break</span>
-
-
-<span class="co"># uzycie &#39;continue&#39; - przeskoczenie iteracji</span>
-fruits <span class="op">=</span> [<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>]
-<span class="cf">for</span> x <span class="kw">in</span> fruits:
-  <span class="cf">if</span> x <span class="op">==</span> <span class="st">&quot;banana&quot;</span>: <span class="co"># kiedy petla dojdzie do &#39;banana&#39; zostanie przerwana biezaca iteracja (&#39;banana&#39; nie bedzie wydrukowane przez &#39;print&#39;) i nastąpi przeskok do kolejnej iteracji.</span>
-    <span class="cf">continue</span>
-  <span class="bu">print</span>(x)</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="syntax.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for po liscie:</span></span>
+<span id="cb6-2"><a href="syntax.html#cb6-2" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>]</span>
+<span id="cb6-3"><a href="syntax.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> fruits:</span>
+<span id="cb6-4"><a href="syntax.html#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(x)</span>
+<span id="cb6-5"><a href="syntax.html#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="syntax.html#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="syntax.html#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># for po stringu:</span></span>
+<span id="cb6-8"><a href="syntax.html#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="st">&quot;banana&quot;</span>:</span>
+<span id="cb6-9"><a href="syntax.html#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(x)</span>
+<span id="cb6-10"><a href="syntax.html#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="syntax.html#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="syntax.html#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># po zakresie liczbowym:</span></span>
+<span id="cb6-13"><a href="syntax.html#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>):</span>
+<span id="cb6-14"><a href="syntax.html#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(x)</span>
+<span id="cb6-15"><a href="syntax.html#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="syntax.html#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="syntax.html#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># uzycie &#39;break&#39; - przerwanie petli</span></span>
+<span id="cb6-18"><a href="syntax.html#cb6-18" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>]</span>
+<span id="cb6-19"><a href="syntax.html#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> fruits:</span>
+<span id="cb6-20"><a href="syntax.html#cb6-20" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(x) </span>
+<span id="cb6-21"><a href="syntax.html#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">==</span> <span class="st">&quot;banana&quot;</span>: <span class="co"># w momencie kiedy petla dojdzie to &#39;banana&#39; zostaje przerwana</span></span>
+<span id="cb6-22"><a href="syntax.html#cb6-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">break</span></span>
+<span id="cb6-23"><a href="syntax.html#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="syntax.html#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="syntax.html#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co"># uzycie &#39;continue&#39; - przeskoczenie iteracji</span></span>
+<span id="cb6-26"><a href="syntax.html#cb6-26" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>]</span>
+<span id="cb6-27"><a href="syntax.html#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> fruits:</span>
+<span id="cb6-28"><a href="syntax.html#cb6-28" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> x <span class="op">==</span> <span class="st">&quot;banana&quot;</span>: <span class="co"># kiedy petla dojdzie do &#39;banana&#39; zostanie przerwana biezaca iteracja (&#39;banana&#39; nie bedzie wydrukowane przez &#39;print&#39;) i nastąpi przeskok do kolejnej iteracji.</span></span>
+<span id="cb6-29"><a href="syntax.html#cb6-29" aria-hidden="true" tabindex="-1"></a>  <span class="cf">continue</span></span>
+<span id="cb6-30"><a href="syntax.html#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code></pre></div>
 </div>
-<div id="for-w-listach" class="section level4">
+<div id="for-w-listach" class="section level4" number="2.3.2.2">
 <h4><span class="header-section-number">2.3.2.2</span> For w listach</h4>
-<pre class="sourceCode python"><code class="sourceCode python">lista <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]
-w <span class="op">=</span> [x<span class="op">^</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> lista] <span class="co"># podniesienie do kwadratu kazdej liczby w liscie &#39;lista&#39;</span>
-
-
-<span class="co"># dodanie warunkow logicznych (filtorwanie liczb z listy)</span>
-x <span class="op">=</span> [<span class="fl">1.5</span>, <span class="fl">2.3</span>, <span class="fl">4.4</span>, <span class="fl">5.4</span>, <span class="st">&#39;n&#39;</span>, <span class="fl">1.5</span>, <span class="fl">5.1</span>, <span class="st">&#39;a&#39;</span>] <span class="co"># Original list</span>
-x_non_str <span class="op">=</span> [el <span class="cf">for</span> el <span class="kw">in</span> X <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span>(el, <span class="bu">str</span>)] <span class="co"># Extract non-strings from X to new list</span></code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="syntax.html#cb7-1" aria-hidden="true" tabindex="-1"></a>lista <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
+<span id="cb7-2"><a href="syntax.html#cb7-2" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> [x<span class="op">^</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> lista] <span class="co"># podniesienie do kwadratu kazdej liczby w liscie &#39;lista&#39;</span></span>
+<span id="cb7-3"><a href="syntax.html#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="syntax.html#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="syntax.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># dodanie warunkow logicznych (filtrowanie liczb z listy)</span></span>
+<span id="cb7-6"><a href="syntax.html#cb7-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="fl">1.5</span>, <span class="fl">2.3</span>, <span class="fl">4.4</span>, <span class="fl">5.4</span>, <span class="st">&#39;n&#39;</span>, <span class="fl">1.5</span>, <span class="fl">5.1</span>, <span class="st">&#39;a&#39;</span>] <span class="co"># Original list</span></span>
+<span id="cb7-7"><a href="syntax.html#cb7-7" aria-hidden="true" tabindex="-1"></a>x_non_str <span class="op">=</span> [el <span class="cf">for</span> el <span class="kw">in</span> X <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span>(el, <span class="bu">str</span>)] <span class="co"># Extract non-strings from X to new list</span></span></code></pre></div>
 </div>
-<div id="for-iterujace-po-kilku-listach-rownolegle" class="section level4">
+<div id="for-iterujace-po-kilku-listach-rownolegle" class="section level4" number="2.3.2.3">
 <h4><span class="header-section-number">2.3.2.3</span> For iterujace po kilku listach rownolegle</h4>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="st">&#39;a1&#39;</span>, <span class="st">&#39;a2&#39;</span>, <span class="st">&#39;a3&#39;</span>]
-b <span class="op">=</span> [<span class="st">&#39;b1&#39;</span>, <span class="st">&#39;b2&#39;</span>]
-
-<span class="co"># pierwsza skladnia</span>
-<span class="cf">for</span> (x, y) <span class="kw">in</span> <span class="bu">zip</span>(a, b): <span class="co"># uwaga: bez nawiasow wogole x,y tez zadziala</span>
-    <span class="bu">print</span>(x, y) <span class="co"># nie wydrukuje wartosci &#39;a3&#39; z pierwszego wektora, bo nie ma ona odpowiednika na tej samej pozycji w wektorze &#39;b&#39;</span>
-
-
-<span class="co"># druga skladnia</span>
-<span class="im">import</span> itertools
-<span class="cf">for</span> (x, y) <span class="kw">in</span> itertools.zip_longest(a, b): 
-    <span class="bu">print</span>(x, y) <span class="co"># tym razem &#39;a3&#39; z pierwszego wektora zostanie wydrukowana</span></code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="syntax.html#cb8-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="st">&#39;a1&#39;</span>, <span class="st">&#39;a2&#39;</span>, <span class="st">&#39;a3&#39;</span>]</span>
+<span id="cb8-2"><a href="syntax.html#cb8-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> [<span class="st">&#39;b1&#39;</span>, <span class="st">&#39;b2&#39;</span>]</span>
+<span id="cb8-3"><a href="syntax.html#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="syntax.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># pierwsza skladnia</span></span>
+<span id="cb8-5"><a href="syntax.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (x, y) <span class="kw">in</span> <span class="bu">zip</span>(a, b): <span class="co"># uwaga: bez nawiasow wokol x i y tez zadziala</span></span>
+<span id="cb8-6"><a href="syntax.html#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(x, y) <span class="co"># nie wydrukuje wartosci &#39;a3&#39; z pierwszego wektora, bo nie ma ona odpowiednika na tej samej pozycji w wektorze &#39;b&#39;</span></span>
+<span id="cb8-7"><a href="syntax.html#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="syntax.html#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="syntax.html#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># druga skladnia</span></span>
+<span id="cb8-10"><a href="syntax.html#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itertools</span>
+<span id="cb8-11"><a href="syntax.html#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (x, y) <span class="kw">in</span> itertools.zip_longest(a, b): </span>
+<span id="cb8-12"><a href="syntax.html#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(x, y) <span class="co"># tym razem &#39;a3&#39; z pierwszego wektora zostanie wydrukowana</span></span></code></pre></div>
 </div>
 </div>
-<div id="petla-while" class="section level3">
+<div id="petla-while" class="section level3" number="2.3.3">
 <h3><span class="header-section-number">2.3.3</span> petla ‘while’</h3>
-<pre class="sourceCode python"><code class="sourceCode python">i <span class="op">=</span> <span class="dv">1</span>
-<span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">6</span>: <span class="co"># wyswietlaj zmienna &#39;i&#39; tak długo jak jest mniejsza od 6. </span>
-  <span class="bu">print</span>(i)
-  i <span class="op">+=</span> <span class="dv">1</span> <span class="co"># zwiekszanie wartosci zmiennej &#39;i&#39; o 1 w interacji</span>
-
-
-<span class="co"># przerwanie petli - &#39;break&#39;</span>
-i <span class="op">=</span> <span class="dv">1</span>
-<span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">6</span>:
-  <span class="bu">print</span>(i)
-  <span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:
-    <span class="cf">break</span> <span class="co"># jezeli i == 3 przerwij wykonywanie petli. </span>
-  i <span class="op">+=</span> <span class="dv">1</span>
-
-
-<span class="co"># continue - przeskoczenie iteracji</span>
-i <span class="op">=</span> <span class="dv">0</span>
-<span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">6</span>:
-  i <span class="op">+=</span> <span class="dv">1</span> 
-  <span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:
-    <span class="cf">continue</span> <span class="co"># jezeli i==3 zostanie przerwana biezaca iteracja (&#39;3&#39; nie bedzie wydrukowane przez &#39;print&#39;) i nastąpi przeskok do kolejnej iteracji</span>
-  <span class="bu">print</span>(i)</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="syntax.html#cb9-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb9-2"><a href="syntax.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">6</span>: <span class="co"># wyswietlaj zmienna &#39;i&#39; tak długo jak jest mniejsza od 6. </span></span>
+<span id="cb9-3"><a href="syntax.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(i)</span>
+<span id="cb9-4"><a href="syntax.html#cb9-4" aria-hidden="true" tabindex="-1"></a>i <span class="op">+=</span> <span class="dv">1</span> <span class="co"># zwiekszanie wartosci zmiennej &#39;i&#39; o 1 w interacji</span></span>
+<span id="cb9-5"><a href="syntax.html#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="syntax.html#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="syntax.html#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># przerwanie petli - &#39;break&#39;</span></span>
+<span id="cb9-8"><a href="syntax.html#cb9-8" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb9-9"><a href="syntax.html#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">6</span>:</span>
+<span id="cb9-10"><a href="syntax.html#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(i)</span>
+<span id="cb9-11"><a href="syntax.html#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb9-12"><a href="syntax.html#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">break</span> <span class="co"># jezeli i == 3 przerwij wykonywanie petli. </span></span>
+<span id="cb9-13"><a href="syntax.html#cb9-13" aria-hidden="true" tabindex="-1"></a>i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb9-14"><a href="syntax.html#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="syntax.html#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="syntax.html#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co"># continue - przeskoczenie iteracji</span></span>
+<span id="cb9-17"><a href="syntax.html#cb9-17" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb9-18"><a href="syntax.html#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">6</span>:</span>
+<span id="cb9-19"><a href="syntax.html#cb9-19" aria-hidden="true" tabindex="-1"></a>  i <span class="op">+=</span> <span class="dv">1</span> </span>
+<span id="cb9-20"><a href="syntax.html#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb9-21"><a href="syntax.html#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">continue</span> <span class="co"># jezeli i==3 zostanie przerwana biezaca iteracja (&#39;3&#39; nie bedzie wydrukowane przez &#39;print&#39;) i nastąpi przeskok do kolejnej iteracji</span></span>
+<span id="cb9-22"><a href="syntax.html#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(i)</span></code></pre></div>
 </div>
 </div>
-<div id="indicies" class="section level2">
+<div id="indicies" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> Indicies</h2>
-<pre class="sourceCode python"><code class="sourceCode python">Logika indeksow prezentuje sie nastepujaco:
-
-<span class="op">+---+---+---+---+---+---+</span>
-<span class="op">|</span> P <span class="op">|</span> y <span class="op">|</span> t <span class="op">|</span> h <span class="op">|</span> o <span class="op">|</span> n <span class="op">|</span>    <span class="co"># wektor o 6 elementach</span>
-<span class="op">+---+---+---+---+---+---+</span>
-  <span class="dv">0</span>   <span class="dv">1</span>   <span class="dv">2</span>   <span class="dv">3</span>   <span class="dv">4</span>   <span class="dv">5</span>      <span class="co"># indeksy dodatnie</span>
- <span class="dv">-6</span>  <span class="dv">-5</span>  <span class="dv">-4</span>  <span class="dv">-3</span>  <span class="dv">-2</span>  <span class="dv">-1</span>      <span class="co"># indeksy ujemne</span>
-
-<span class="co">#Jak widac indeksowanie liczbami dodatnimi jest od zera. </span>
-<span class="co">#Do indeksow mozna się tez odwolywac przez ujemne wartosci.</span>
-
-
-<span class="co"># utworzenie listy do przykladow</span>
-z<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>,<span class="dv">4</span> ,<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>] <span class="co"># celowo lista zawiera liczby pokrywajace sie z ich indeksami zeby było łatwiej zrozumiec rezultaty przykladow</span>
-
-
-z[<span class="dv">1</span>:<span class="dv">5</span>] <span class="co"># indeksy od 1 do 4 (UWAGA: nie od 1 do 5 !!!!!. 5 jest obcinane ). </span>
-
-z[:<span class="dv">2</span>] <span class="co"># pierwsze dwa indeksy</span>
-
-z[<span class="dv">4</span>:] <span class="co"># indeksy od 4 w w gore</span>
-
-z[<span class="dv">1</span>:<span class="dv">5</span>:<span class="dv">2</span>] <span class="co"># co drugi indeks z ineksow z przedzialu od 1 do 4.</span>
-
-z[:<span class="dv">6</span>:<span class="dv">3</span>] <span class="co"># co trzeci indeks z ineksow z przedzialu od 0 do 5.</span>
-
-z[<span class="dv">5</span>:<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="co"># indeksy od 5 do 2 w odwrocnej kolenjosci</span>
-
-z[<span class="dv">5</span>:<span class="dv">1</span>:<span class="op">-</span><span class="dv">2</span>] <span class="co"># co drugi indeks z zakresu indeksow od 5 do 2 w odwroconej kolejnosci</span>
-
-z[<span class="op">-</span><span class="dv">4</span>:<span class="op">-</span><span class="dv">2</span>] <span class="co"># odwolanie do ujemnych indeksow: od czwartego elementu (liczac od konca) do trzeciego elementu (liczac od konca - NIE drugiego elementu do konca !!!!)</span>
-
-z[<span class="op">-</span><span class="dv">4</span>:] <span class="co"># odwolanie do ujemnych indeksow: od czwartego elementu (liczac od konca) od konca do konca wektora</span>
-
-z[<span class="op">-</span><span class="dv">4</span>::<span class="dv">2</span>] <span class="co"># odwolanie do ujemnych indeksow: od czwartego elementu (liczac od konca) do konca wektora, ale co drugi indeks</span></code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="syntax.html#cb10-1" aria-hidden="true" tabindex="-1"></a>Logika indeksow prezentuje sie nastepujaco:</span>
+<span id="cb10-2"><a href="syntax.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-3"><a href="syntax.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">+---+---+---+---+---+---+</span></span>
+<span id="cb10-4"><a href="syntax.html#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">|</span> P <span class="op">|</span> y <span class="op">|</span> t <span class="op">|</span> h <span class="op">|</span> o <span class="op">|</span> n <span class="op">|</span>    <span class="co"># wektor o 6 elementach</span></span>
+<span id="cb10-5"><a href="syntax.html#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">+---+---+---+---+---+---+</span></span>
+<span id="cb10-6"><a href="syntax.html#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>   <span class="dv">1</span>   <span class="dv">2</span>   <span class="dv">3</span>   <span class="dv">4</span>   <span class="dv">5</span>      <span class="co"># indeksy dodatnie</span></span>
+<span id="cb10-7"><a href="syntax.html#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="op">-</span><span class="dv">6</span>  <span class="op">-</span><span class="dv">5</span>  <span class="op">-</span><span class="dv">4</span>  <span class="op">-</span><span class="dv">3</span>  <span class="op">-</span><span class="dv">2</span>  <span class="op">-</span><span class="dv">1</span>      <span class="co"># indeksy ujemne</span></span>
+<span id="cb10-8"><a href="syntax.html#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="syntax.html#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Jak widac indeksowanie liczbami dodatnimi jest od zera. </span></span>
+<span id="cb10-10"><a href="syntax.html#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Do indeksow mozna się tez odwolywac przez ujemne wartosci.</span></span>
+<span id="cb10-11"><a href="syntax.html#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="syntax.html#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="syntax.html#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># utworzenie listy do przykladow</span></span>
+<span id="cb10-14"><a href="syntax.html#cb10-14" aria-hidden="true" tabindex="-1"></a>z<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>,<span class="dv">4</span> ,<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>] <span class="co"># celowo lista zawiera liczby pokrywajace sie z ich indeksami zeby było łatwiej zrozumiec rezultaty przykladow</span></span>
+<span id="cb10-15"><a href="syntax.html#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="syntax.html#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="syntax.html#cb10-17" aria-hidden="true" tabindex="-1"></a>z[<span class="dv">1</span>:<span class="dv">5</span>] <span class="co"># indeksy od 1 do 4 (UWAGA: nie od 1 do 5 !!!!!. 5 jest obcinane ). </span></span>
+<span id="cb10-18"><a href="syntax.html#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="syntax.html#cb10-19" aria-hidden="true" tabindex="-1"></a>z[:<span class="dv">2</span>] <span class="co"># pierwsze dwa indeksy</span></span>
+<span id="cb10-20"><a href="syntax.html#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="syntax.html#cb10-21" aria-hidden="true" tabindex="-1"></a>z[<span class="dv">4</span>:] <span class="co"># indeksy od 4 w w gore</span></span>
+<span id="cb10-22"><a href="syntax.html#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-23"><a href="syntax.html#cb10-23" aria-hidden="true" tabindex="-1"></a>z[<span class="dv">1</span>:<span class="dv">5</span>:<span class="dv">2</span>] <span class="co"># co drugi indeks z ineksow z przedzialu od 1 do 4.</span></span>
+<span id="cb10-24"><a href="syntax.html#cb10-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-25"><a href="syntax.html#cb10-25" aria-hidden="true" tabindex="-1"></a>z[:<span class="dv">6</span>:<span class="dv">3</span>] <span class="co"># co trzeci indeks z ineksow z przedzialu od 0 do 5.</span></span>
+<span id="cb10-26"><a href="syntax.html#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="syntax.html#cb10-27" aria-hidden="true" tabindex="-1"></a>z[<span class="dv">5</span>:<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="co"># indeksy od 5 do 2 w odwrocnej kolenjosci</span></span>
+<span id="cb10-28"><a href="syntax.html#cb10-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-29"><a href="syntax.html#cb10-29" aria-hidden="true" tabindex="-1"></a>z[<span class="dv">5</span>:<span class="dv">1</span>:<span class="op">-</span><span class="dv">2</span>] <span class="co"># co drugi indeks z zakresu indeksow od 5 do 2 w odwroconej kolejnosci</span></span>
+<span id="cb10-30"><a href="syntax.html#cb10-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-31"><a href="syntax.html#cb10-31" aria-hidden="true" tabindex="-1"></a>z[<span class="op">-</span><span class="dv">4</span>:<span class="op">-</span><span class="dv">2</span>] <span class="co"># odwolanie do ujemnych indeksow: od czwartego elementu (liczac od konca) do trzeciego elementu (liczac od konca - NIE drugiego elementu do konca !!!!)</span></span>
+<span id="cb10-32"><a href="syntax.html#cb10-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-33"><a href="syntax.html#cb10-33" aria-hidden="true" tabindex="-1"></a>z[<span class="op">-</span><span class="dv">4</span>:] <span class="co"># odwolanie do ujemnych indeksow: od czwartego elementu (liczac od konca) od konca do konca wektora</span></span>
+<span id="cb10-34"><a href="syntax.html#cb10-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-35"><a href="syntax.html#cb10-35" aria-hidden="true" tabindex="-1"></a>z[<span class="op">-</span><span class="dv">4</span>::<span class="dv">2</span>] <span class="co"># odwolanie do ujemnych indeksow: od czwartego elementu (liczac od konca) do konca wektora, ale co drugi indeks</span></span></code></pre></div>
 </div>
-<div id="shallow-and-deep-copies" class="section level2">
+<div id="shallow-and-deep-copies" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> shallow and deep copies</h2>
 <p>Przyklad dla list</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># tworze wektor</span>
-xs <span class="op">=</span> [[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]]
-
-<span class="co"># tworze plytka kopie wektora</span>
-ys <span class="op">=</span> <span class="bu">list</span>(xs)  <span class="co"># Make a shallow copy</span>
-
-<span class="co">#plytnosc kopii oznacze ze &#39;ys&#39; sklada sie tak naprawde ze wskaznikow do elementow &#39;xs&#39;:</span>
-<span class="co"># zmodyfikujmy jakis element w &#39;xs&#39;</span>
-xs[<span class="dv">0</span>][<span class="dv">1</span>] <span class="op">=</span> <span class="st">&#39;X&#39;</span> <span class="co"># w pierwszym elementcie zamienilem drugi podelement na wartosc &#39;X&#39;</span>
-
-<span class="co"># wyswietlmy teraz &#39;ys&#39;</span>
-ys <span class="co"># haha: tutaj tez dostalismy &#39;X&#39; - jest to dowod na to ze &#39;ys&#39; nie jest niezalezna zmienna, a tyklo lista wskanikow do &#39;xs&#39;</span>
-
-<span class="co"># ale jezeli do &#39;xs&#39; dolozymy calkowicie nowy element to &#39;ys&#39; nie bedzie mial dodanego automatycznie wskanika na niego:</span>
-xs.append([<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>]) 
-xs <span class="co"># tutaj mamy dodany nowy element</span>
-ys <span class="co"># a tutaj nie mamy nowego elementu, bo nie dodano nowego wskaznika</span>
-
-
-<span class="co"># zeby wykonac prawdziwa kopie (czyli kopie gleboka) w przypadku list stosuje nastepujaca skladnie</span>
-<span class="im">import</span> copy
-tx<span class="op">=</span>[[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]]
-ws <span class="op">=</span> copy.deepcopy(tx)
-tx[<span class="dv">0</span>][<span class="dv">2</span>] <span class="op">=</span> <span class="st">&#39;ZW&#39;</span>
-tx
-ws <span class="co"># w liscie &#39;ws&#39; nie mamy wartosci &#39;ZW&#39;</span></code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="syntax.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tworze wektor</span></span>
+<span id="cb11-2"><a href="syntax.html#cb11-2" aria-hidden="true" tabindex="-1"></a>xs <span class="op">=</span> [[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]]</span>
+<span id="cb11-3"><a href="syntax.html#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="syntax.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># tworze plytka kopie wektora</span></span>
+<span id="cb11-5"><a href="syntax.html#cb11-5" aria-hidden="true" tabindex="-1"></a>ys <span class="op">=</span> <span class="bu">list</span>(xs)  <span class="co"># Make a shallow copy</span></span>
+<span id="cb11-6"><a href="syntax.html#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="syntax.html#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#plytnosc kopii oznacze ze &#39;ys&#39; sklada sie tak naprawde ze wskaznikow do elementow &#39;xs&#39;:</span></span>
+<span id="cb11-8"><a href="syntax.html#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># zmodyfikujmy jakis element w &#39;xs&#39;</span></span>
+<span id="cb11-9"><a href="syntax.html#cb11-9" aria-hidden="true" tabindex="-1"></a>xs[<span class="dv">0</span>][<span class="dv">1</span>] <span class="op">=</span> <span class="st">&#39;X&#39;</span> <span class="co"># w pierwszym elementcie zamienilem drugi podelement na wartosc &#39;X&#39;</span></span>
+<span id="cb11-10"><a href="syntax.html#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="syntax.html#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co"># wyswietlmy teraz &#39;ys&#39;</span></span>
+<span id="cb11-12"><a href="syntax.html#cb11-12" aria-hidden="true" tabindex="-1"></a>ys <span class="co"># tutaj tez dostalismy &#39;X&#39; - jest to dowod na to ze &#39;ys&#39; nie jest niezalezna zmienna, a tylko lista wskanikow do &#39;xs&#39;</span></span>
+<span id="cb11-13"><a href="syntax.html#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="syntax.html#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co"># ale jezeli do &#39;xs&#39; dolozymy calkowicie nowy element to &#39;ys&#39; nie bedzie mial dodanego automatycznie wskaznika na niego:</span></span>
+<span id="cb11-15"><a href="syntax.html#cb11-15" aria-hidden="true" tabindex="-1"></a>xs.append([<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>])</span>
+<span id="cb11-16"><a href="syntax.html#cb11-16" aria-hidden="true" tabindex="-1"></a>xs <span class="co"># tutaj mamy dodany nowy element</span></span>
+<span id="cb11-17"><a href="syntax.html#cb11-17" aria-hidden="true" tabindex="-1"></a>ys <span class="co"># a tutaj nie mamy nowego elementu, bo nie dodano nowego wskaznika</span></span>
+<span id="cb11-18"><a href="syntax.html#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="syntax.html#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="syntax.html#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co"># zeby wykonac prawdziwa kopie (czyli kopie gleboka) w przypadku list stosuje nastepujaca skladnie</span></span>
+<span id="cb11-21"><a href="syntax.html#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> copy</span>
+<span id="cb11-22"><a href="syntax.html#cb11-22" aria-hidden="true" tabindex="-1"></a>tx<span class="op">=</span>[[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]]</span>
+<span id="cb11-23"><a href="syntax.html#cb11-23" aria-hidden="true" tabindex="-1"></a>ws <span class="op">=</span> copy.deepcopy(tx)</span>
+<span id="cb11-24"><a href="syntax.html#cb11-24" aria-hidden="true" tabindex="-1"></a>tx[<span class="dv">0</span>][<span class="dv">2</span>] <span class="op">=</span> <span class="st">&#39;ZW&#39;</span></span>
+<span id="cb11-25"><a href="syntax.html#cb11-25" aria-hidden="true" tabindex="-1"></a>tx</span>
+<span id="cb11-26"><a href="syntax.html#cb11-26" aria-hidden="true" tabindex="-1"></a>ws <span class="co"># w liscie &#39;ws&#39; nie mamy wartosci &#39;ZW&#39;</span></span></code></pre></div>
 <p>Przyklad dla obiektow</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> pies:
-  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, wiek):
-    <span class="va">self</span>.wiek <span class="op">=</span> wiek
-    
-  <span class="kw">def</span> modyf_wiek(<span class="va">self</span>, wiek_nowy):
-    <span class="va">self</span>.wiek <span class="op">=</span> wiek_nowy
-
-    
-pies <span class="op">=</span> pies(wiek<span class="op">=</span><span class="dv">10</span>) <span class="co"># nasz pies bedzie mial 10 lat</span>
-pies_shallow <span class="op">=</span> pies
-pies_deep <span class="op">=</span> copy.deepcopy(pies)
-pies.wiek
-
-pies.modyf_wiek(<span class="dv">15</span>) <span class="co"># modyfikujemy w pierwszym obiekcie wiek psa na 15 lat</span>
-pies.wiek <span class="co"># mamy 15 lat po modyfikacji</span>
-pies_shallow.wiek <span class="co"># tutaj mamy tez 15 lat bo to tylko plytka kopia</span>
-pies_deep.wiek <span class="co"># tutaj dalej jest 10. Zmiana w &#39;pies&#39; nie wplynela na wartosci atrybutow &#39;pies_deep&#39;</span></code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="syntax.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> pies:</span>
+<span id="cb12-2"><a href="syntax.html#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, wiek):</span>
+<span id="cb12-3"><a href="syntax.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="va">self</span>.wiek <span class="op">=</span> wiek</span>
+<span id="cb12-4"><a href="syntax.html#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="syntax.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> modyf_wiek(<span class="va">self</span>, wiek_nowy):</span>
+<span id="cb12-6"><a href="syntax.html#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="va">self</span>.wiek <span class="op">=</span> wiek_nowy</span>
+<span id="cb12-7"><a href="syntax.html#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="syntax.html#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="syntax.html#cb12-9" aria-hidden="true" tabindex="-1"></a>pies <span class="op">=</span> pies(wiek<span class="op">=</span><span class="dv">10</span>) <span class="co"># nasz pies bedzie mial 10 lat</span></span>
+<span id="cb12-10"><a href="syntax.html#cb12-10" aria-hidden="true" tabindex="-1"></a>pies_shallow <span class="op">=</span> pies</span>
+<span id="cb12-11"><a href="syntax.html#cb12-11" aria-hidden="true" tabindex="-1"></a>pies_deep <span class="op">=</span> copy.deepcopy(pies)</span>
+<span id="cb12-12"><a href="syntax.html#cb12-12" aria-hidden="true" tabindex="-1"></a>pies.wiek</span>
+<span id="cb12-13"><a href="syntax.html#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="syntax.html#cb12-14" aria-hidden="true" tabindex="-1"></a>pies.modyf_wiek(<span class="dv">15</span>) <span class="co"># modyfikujemy w pierwszym obiekcie wiek psa na 15 lat</span></span>
+<span id="cb12-15"><a href="syntax.html#cb12-15" aria-hidden="true" tabindex="-1"></a>pies.wiek <span class="co"># mamy 15 lat po modyfikacji</span></span>
+<span id="cb12-16"><a href="syntax.html#cb12-16" aria-hidden="true" tabindex="-1"></a>pies_shallow.wiek <span class="co"># tutaj mamy tez 15 lat bo to tylko plytka kopia</span></span>
+<span id="cb12-17"><a href="syntax.html#cb12-17" aria-hidden="true" tabindex="-1"></a>pies_deep.wiek <span class="co"># tutaj dalej jest 10. Zmiana w &#39;pies&#39; nie wplynela na wartosci atrybutow &#39;pies_deep&#39;</span></span></code></pre></div>
 </div>
-<div id="generators" class="section level2">
+<div id="generators" class="section level2" number="2.6">
 <h2><span class="header-section-number">2.6</span> generators</h2>
 <p>Każda funkcja ktora ma w sobie wyrazenie ‘yield’ jest generatorem. Na przykladzie wyjasnimy jak dziala generator</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># W poniższe funkcji zamiast polecenia &#39;return&#39; umiescimy &#39;yield&#39; </span>
-<span class="kw">def</span> my_gen():
-  n <span class="op">=</span> <span class="dv">1</span>
-  <span class="bu">print</span>(<span class="st">&#39;This is printed first&#39;</span>)
-  <span class="co"># Generator function contains yield statements</span>
-  <span class="cf">yield</span> n
-  
-  n <span class="op">+=</span> <span class="dv">1</span>
-  <span class="bu">print</span>(<span class="st">&#39;This is printed second&#39;</span>)
-  <span class="cf">yield</span> n
-  
-  n <span class="op">+=</span> <span class="dv">1</span>
-  <span class="bu">print</span>(<span class="st">&#39;This is printed at last&#39;</span>)
-  <span class="cf">yield</span> n
-
-
-
-<span class="co"># taraz odpalimy funckje:</span>
-a <span class="op">=</span> my_gen() <span class="co"># nic sie nie dzieje</span>
-
-<span class="co"># odpalimy funkcja z uzyciem funkcji &#39;next&#39;</span>
-<span class="bu">next</span>(a)
-<span class="co"># to co sie stalo wymaga szerszego komentarza. Gdyby na miejscu fragmentu &#39;yield n&#39; bylo &#39;return(n)&#39; funkcja doszlaby by do tego momentu, zwrocila wartosc &#39;n&#39; i jej dzialanie zostalo zakonczone. Ale tutaj mamy do czynienia z generatorem. Zobaczmy co sie bedzie dzialo dalej.</span>
-
-<span class="bu">next</span>(a)
-<span class="co"># otorz funkcja po wywolaniu pierwszego &#39;yeild&#39;, zostala tylko zapauzowana. Jej stan wewnetrzny (np. wartosci zmiennych wewnatrz funkcji) jest dalej przechowywane w pamieci komputera. Wywolanie funkci &#39;my_gen()&#39; poraz drugie przez funkcje &#39;next&#39; spowodowalo odpauzowanie funkcji i wykonanie kodu od pierwszego do drugiego &#39;yielda&#39;. Zatem zapamietano z poprzedniego wykonania ze n=1, po czym dodano do n wartosc 1 i wykonano polecenie &#39;yield&#39; znowu pauzujac funkcje</span>
-
-<span class="bu">next</span>(a) <span class="co"># nie trudno zgadnac ze teraz bedzie wykonany kod od drugiego do trzeciego yielda. </span>
-
-<span class="bu">next</span>(a) <span class="co"># poniewaz nie ma czwartego &#39;yielda&#39; odpalenie funkcji czwarty raz konczy prace generatora</span>
-
-
-<span class="co"># UWAGA. Iteracje funkcja &#39;next&#39; po kolejnych &#39;yieldach&#39; mozna wykonac tylko raz. Jezeli chcemy powtorzyc operacje musimy utworzyc nowy obiekt z funkcja generatora.</span>
-
-b <span class="op">=</span> my_gen()
-<span class="bu">next</span>(b)
-<span class="bu">next</span>(b)
-<span class="bu">next</span>(b)
-
-
-
-<span class="co"># generatory mozna odpalac w petli </span>
-
-<span class="co"># Using for loop</span>
-<span class="cf">for</span> item <span class="kw">in</span> my_gen():
-    <span class="bu">print</span>(item)   </code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="syntax.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># W poniższe funkcji zamiast polecenia &#39;return&#39; umiescimy &#39;yield&#39; </span></span>
+<span id="cb13-2"><a href="syntax.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_gen():</span>
+<span id="cb13-3"><a href="syntax.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  n <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb13-4"><a href="syntax.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;This is printed first&#39;</span>)</span>
+<span id="cb13-5"><a href="syntax.html#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Generator function contains yield statements</span></span>
+<span id="cb13-6"><a href="syntax.html#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="cf">yield</span> n</span>
+<span id="cb13-7"><a href="syntax.html#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="syntax.html#cb13-8" aria-hidden="true" tabindex="-1"></a>n <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb13-9"><a href="syntax.html#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;This is printed second&#39;</span>)</span>
+<span id="cb13-10"><a href="syntax.html#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="cf">yield</span> n</span>
+<span id="cb13-11"><a href="syntax.html#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="syntax.html#cb13-12" aria-hidden="true" tabindex="-1"></a>n <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb13-13"><a href="syntax.html#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;This is printed at last&#39;</span>)</span>
+<span id="cb13-14"><a href="syntax.html#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="cf">yield</span> n</span>
+<span id="cb13-15"><a href="syntax.html#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="syntax.html#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="syntax.html#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-18"><a href="syntax.html#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co"># taraz odpalimy funckje:</span></span>
+<span id="cb13-19"><a href="syntax.html#cb13-19" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> my_gen() <span class="co"># nic sie nie dzieje</span></span>
+<span id="cb13-20"><a href="syntax.html#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="syntax.html#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="co"># odpalimy funkcja z uzyciem funkcji &#39;next&#39;</span></span>
+<span id="cb13-22"><a href="syntax.html#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="bu">next</span>(a)</span>
+<span id="cb13-23"><a href="syntax.html#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="co"># to co sie stalo wymaga szerszego komentarza. Gdyby na miejscu fragmentu &#39;yield n&#39; bylo &#39;return(n)&#39; funkcja doszlaby by do tego momentu, zwrocila wartosc &#39;n&#39; i jej dzialanie zostalo zakonczone. Ale tutaj mamy do czynienia z generatorem. Zobaczmy co sie bedzie dzialo dalej.</span></span>
+<span id="cb13-24"><a href="syntax.html#cb13-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-25"><a href="syntax.html#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="bu">next</span>(a)</span>
+<span id="cb13-26"><a href="syntax.html#cb13-26" aria-hidden="true" tabindex="-1"></a><span class="co"># otorz funkcja po wywolaniu pierwszego &#39;yeild&#39;, zostala tylko zapauzowana. Jej stan wewnetrzny (np. wartosci zmiennych wewnatrz funkcji) jest dalej przechowywane w pamieci komputera. Wywolanie funkci &#39;my_gen()&#39; poraz drugie przez funkcje &#39;next&#39; spowodowalo odpauzowanie funkcji i wykonanie kodu od pierwszego do drugiego &#39;yielda&#39;. Zatem zapamietano z poprzedniego wykonania ze n=1, po czym dodano do n wartosc 1 i wykonano polecenie &#39;yield&#39; znowu pauzujac funkcje</span></span>
+<span id="cb13-27"><a href="syntax.html#cb13-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-28"><a href="syntax.html#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="bu">next</span>(a) <span class="co"># nie trudno zgadnac ze teraz bedzie wykonany kod od drugiego do trzeciego yielda. </span></span>
+<span id="cb13-29"><a href="syntax.html#cb13-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-30"><a href="syntax.html#cb13-30" aria-hidden="true" tabindex="-1"></a><span class="bu">next</span>(a) <span class="co"># poniewaz nie ma czwartego &#39;yielda&#39; odpalenie funkcji czwarty raz konczy prace generatora</span></span>
+<span id="cb13-31"><a href="syntax.html#cb13-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-32"><a href="syntax.html#cb13-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-33"><a href="syntax.html#cb13-33" aria-hidden="true" tabindex="-1"></a><span class="co"># UWAGA. Iteracje funkcja &#39;next&#39; po kolejnych &#39;yieldach&#39; mozna wykonac tylko raz. Jezeli chcemy powtorzyc operacje musimy utworzyc nowy obiekt z funkcja generatora.</span></span>
+<span id="cb13-34"><a href="syntax.html#cb13-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-35"><a href="syntax.html#cb13-35" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> my_gen()</span>
+<span id="cb13-36"><a href="syntax.html#cb13-36" aria-hidden="true" tabindex="-1"></a><span class="bu">next</span>(b)</span>
+<span id="cb13-37"><a href="syntax.html#cb13-37" aria-hidden="true" tabindex="-1"></a><span class="bu">next</span>(b)</span>
+<span id="cb13-38"><a href="syntax.html#cb13-38" aria-hidden="true" tabindex="-1"></a><span class="bu">next</span>(b)</span>
+<span id="cb13-39"><a href="syntax.html#cb13-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-40"><a href="syntax.html#cb13-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-41"><a href="syntax.html#cb13-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-42"><a href="syntax.html#cb13-42" aria-hidden="true" tabindex="-1"></a><span class="co"># generatory mozna odpalac w petli </span></span>
+<span id="cb13-43"><a href="syntax.html#cb13-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-44"><a href="syntax.html#cb13-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Using for loop</span></span>
+<span id="cb13-45"><a href="syntax.html#cb13-45" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> my_gen():</span>
+<span id="cb13-46"><a href="syntax.html#cb13-46" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(item)   </span></code></pre></div>
 <p>Generowanie iteratorow inna skladnia</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Intialize the list</span>
-my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">10</span>]
-
-<span class="co"># tworzenie generatora</span>
-a <span class="op">=</span> (x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> my_list)
-<span class="co"># Output: 1</span>
-<span class="bu">print</span>(<span class="bu">next</span>(a))
-
-<span class="co"># Output: 9</span>
-<span class="bu">print</span>(<span class="bu">next</span>(a))
-
-<span class="co"># Output: 36</span>
-<span class="bu">print</span>(<span class="bu">next</span>(a))
-
-<span class="co"># Output: 100</span>
-<span class="bu">print</span>(<span class="bu">next</span>(a))
-
-<span class="co"># Output: StopIteration</span>
-<span class="bu">next</span>(a)</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="syntax.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Intialize the list</span></span>
+<span id="cb14-2"><a href="syntax.html#cb14-2" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">10</span>]</span>
+<span id="cb14-3"><a href="syntax.html#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="syntax.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># tworzenie generatora</span></span>
+<span id="cb14-5"><a href="syntax.html#cb14-5" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> (x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> my_list)</span>
+<span id="cb14-6"><a href="syntax.html#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Output: 1</span></span>
+<span id="cb14-7"><a href="syntax.html#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">next</span>(a))</span>
+<span id="cb14-8"><a href="syntax.html#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="syntax.html#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Output: 9</span></span>
+<span id="cb14-10"><a href="syntax.html#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">next</span>(a))</span>
+<span id="cb14-11"><a href="syntax.html#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="syntax.html#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Output: 36</span></span>
+<span id="cb14-13"><a href="syntax.html#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">next</span>(a))</span>
+<span id="cb14-14"><a href="syntax.html#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="syntax.html#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Output: 100</span></span>
+<span id="cb14-16"><a href="syntax.html#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">next</span>(a))</span>
+<span id="cb14-17"><a href="syntax.html#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-18"><a href="syntax.html#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Output: StopIteration</span></span>
+<span id="cb14-19"><a href="syntax.html#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="bu">next</span>(a)</span></code></pre></div>
 </div>
-<div id="dynamic-code" class="section level2">
+<div id="dynamic-code" class="section level2" number="2.7">
 <h2><span class="header-section-number">2.7</span> dynamic code</h2>
 <p>Dynamiczne generowanie kodu.
 Czasem kod ktory ma byc wykonany powinien byc wygenerowany z dynamicznie wygenerowanego stringu ktory potem trzeba wykonac tak jak by byl normalnym kodem</p>
-<pre class="sourceCode python"><code class="sourceCode python">command_1 <span class="op">=</span> <span class="st">&quot;print(100)&quot;</span> <span class="co"># polecenie pythonowe schowane w stringu</span>
-<span class="bu">exec</span>(command_1) <span class="co"># wykonuje polecenie</span>
-
-command_2 <span class="op">=</span> <span class="st">&quot;print(</span><span class="sc">{x}</span><span class="st">)&quot;</span>.<span class="bu">format</span>(x<span class="op">=</span><span class="dv">500</span>) <span class="co"># polecenie pythonowe schowane w stringu ktory jest dynamicznie generowany z uzyciem zmiennej &#39;x&#39;</span>
-<span class="bu">exec</span>(command_2) <span class="co"># wykonuje polecenie</span>
-
-
-x<span class="op">=</span><span class="dv">100</span>
-y<span class="op">=</span><span class="dv">200</span>
-command_3<span class="op">=</span><span class="st">&quot;del </span><span class="sc">{a}</span><span class="st">, </span><span class="sc">{b}</span><span class="st">&quot;</span>.<span class="bu">format</span>(a<span class="op">=</span><span class="st">&#39;x&#39;</span>,b<span class="op">=</span><span class="st">&#39;y&#39;</span>) <span class="co"># chcemy dynamicznie generowac nazwy zmiennych ktore maja byc usuniete poleceniem &#39;del&#39;</span>
-<span class="bu">exec</span>(command_3) <span class="co"># usunelismy zmienne &#39;x&#39; i &#39;y&#39; </span></code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="syntax.html#cb15-1" aria-hidden="true" tabindex="-1"></a>command_1 <span class="op">=</span> <span class="st">&quot;print(100)&quot;</span> <span class="co"># polecenie pythonowe schowane w stringu</span></span>
+<span id="cb15-2"><a href="syntax.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">exec</span>(command_1) <span class="co"># wykonuje polecenie</span></span>
+<span id="cb15-3"><a href="syntax.html#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="syntax.html#cb15-4" aria-hidden="true" tabindex="-1"></a>command_2 <span class="op">=</span> <span class="st">&quot;print(</span><span class="sc">{x}</span><span class="st">)&quot;</span>.<span class="bu">format</span>(x<span class="op">=</span><span class="dv">500</span>) <span class="co"># polecenie pythonowe schowane w stringu ktory jest dynamicznie generowany z uzyciem zmiennej &#39;x&#39;</span></span>
+<span id="cb15-5"><a href="syntax.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="bu">exec</span>(command_2) <span class="co"># wykonuje polecenie</span></span>
+<span id="cb15-6"><a href="syntax.html#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="syntax.html#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="syntax.html#cb15-8" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span><span class="dv">100</span></span>
+<span id="cb15-9"><a href="syntax.html#cb15-9" aria-hidden="true" tabindex="-1"></a>y<span class="op">=</span><span class="dv">200</span></span>
+<span id="cb15-10"><a href="syntax.html#cb15-10" aria-hidden="true" tabindex="-1"></a>command_3<span class="op">=</span><span class="st">&quot;del </span><span class="sc">{a}</span><span class="st">, </span><span class="sc">{b}</span><span class="st">&quot;</span>.<span class="bu">format</span>(a<span class="op">=</span><span class="st">&#39;x&#39;</span>,b<span class="op">=</span><span class="st">&#39;y&#39;</span>) <span class="co"># chcemy dynamicznie generowac nazwy zmiennych ktore maja byc usuniete poleceniem &#39;del&#39;</span></span>
+<span id="cb15-11"><a href="syntax.html#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="bu">exec</span>(command_3) <span class="co"># usunelismy zmienne &#39;x&#39; i &#39;y&#39; </span></span></code></pre></div>
 </div>
-<div id="errors-and-warning" class="section level2">
+<div id="errors-and-warning" class="section level2" number="2.8">
 <h2><span class="header-section-number">2.8</span> errors and warning</h2>
-<div id="try" class="section level3">
+<div id="try" class="section level3" number="2.8.1">
 <h3><span class="header-section-number">2.8.1</span> try</h3>
 <p>Mechanizm umozliwa obsluge bledow. Dzieku temy nawet jezeli jakis fragment kodu zwraca blod, mozemy zrobic zabezpieczenie tak aby program mogl dalej dzialac.</p>
 <p><a href="https://www.w3schools.com/python/python_try_except.asp" class="uri">https://www.w3schools.com/python/python_try_except.asp</a></p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#(1) najprostsza skladnia</span>
-<span class="cf">try</span>: <span class="co"># po &#39;try&#39; jest blok kodu ktory chcemy obsluzyc pod katem ewentualnego bledu</span>
-  <span class="bu">print</span>(x)
-<span class="cf">except</span>: <span class="co"># po &#39;except&#39; okreslamy co ma sie zadziac po wystapieniu bledu</span>
-  <span class="bu">print</span>(<span class="st">&quot;An exception occurred&quot;</span>)  <span class="co"># jezeli wystapi jakis wlad </span>
-
-<span class="co"># uwga: powyzszy kod powoduje ze nawet jezeli kod ujety po &#39;try&#39; zwroci blad beda wykonywane kolejne liniki kodu</span>
-
-
-<span class="co">#(2) mozemy tez robic obsluge pod konkretny blad (bledy maja swoje nazwy do ktorych mozemy sie odnosic)</span>
-<span class="cf">try</span>:
-  <span class="bu">print</span>(x)
-<span class="cf">except</span> <span class="pp">NameError</span>: <span class="co"># Tutaj mamy &#39;except&#39; do obslugi bledu o nazwie &#39;NameError&#39;. Blad taki wystepuje kiedy dana zmienne nie istnieje</span>
-  <span class="bu">print</span>(<span class="st">&quot;Variable x is not defined&quot;</span>)
-<span class="cf">except</span>: <span class="co"># mozemy sobie zostawic dalej obsluge dla pozostalych rodzajow bledow (moze byc wiele wyrazen &#39;exception&#39; pod &#39;try&#39;)</span>
-  <span class="bu">print</span>(<span class="st">&quot;Something else went wrong&quot;</span>)
-
-
-
-<span class="co">#(3) jezeli chcemy zeby w razie niewystapienie bledu zostal zrealizowany jakis inny kod, to uzywamy &#39;else&#39;</span>
-<span class="cf">try</span>:
-  <span class="bu">print</span>(<span class="st">&quot;Hello&quot;</span>)
-<span class="cf">except</span>:
-  <span class="bu">print</span>(<span class="st">&quot;Something went wrong&quot;</span>)
-<span class="cf">else</span>: <span class="co"># jezeli blok kodu po &#39;try&#39; nie zwrocil bledu wykonaj kod po &#39;else&#39;</span>
-  <span class="bu">print</span>(<span class="st">&quot;Nothing went wrong&quot;</span>)
-
-
-
-<span class="co">#(4) mozemy tez chciec zeby zostal wykonany jakis kod, niezaleznie od tego czy blad wystapil czy nie. Do tego sluzy wyrazenie &#39;finally&#39;.</span>
-<span class="cf">try</span>:
-  <span class="bu">print</span>(x)
-<span class="cf">except</span>:
-  <span class="bu">print</span>(<span class="st">&quot;Something went wrong&quot;</span>)
-<span class="cf">finally</span>: <span class="co"># kod wykonywany niezaleznie od tego czy blok kodu pod &#39;try&#39; zawrocil blad.</span>
-  <span class="bu">print</span>(<span class="st">&quot;The &#39;try except&#39; is finished&quot;</span>) <span class="co"># printed always</span>
-
-
-
-<span class="co">#(5) czasem mozemy chciec zeby w razie wystapienia bledu zostala wyswietlona jego tresc:</span>
-<span class="cf">try</span>:
-  <span class="dv">1</span><span class="op">/</span><span class="dv">0</span>
-<span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:
-  <span class="bu">print</span>(e)<span class="op">;</span>  <span class="co"># dostaniemy tresc bledu wygenerowana przez wyrazenie po &#39;try&#39; (bedzie to &#39;division by zero&#39;)  </span></code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="syntax.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#(1) najprostsza skladnia</span></span>
+<span id="cb16-2"><a href="syntax.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>: <span class="co"># po &#39;try&#39; jest blok kodu ktory chcemy obsluzyc pod katem ewentualnego bledu</span></span>
+<span id="cb16-3"><a href="syntax.html#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(x)</span>
+<span id="cb16-4"><a href="syntax.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>: <span class="co"># po &#39;except&#39; okreslamy co ma sie zadziac po wystapieniu bledu</span></span>
+<span id="cb16-5"><a href="syntax.html#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;An exception occurred&quot;</span>)  <span class="co"># jezeli wystapi jakis wlad </span></span>
+<span id="cb16-6"><a href="syntax.html#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="syntax.html#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># uwga: powyzszy kod powoduje ze nawet jezeli kod ujety po &#39;try&#39; zwroci blad beda wykonywane kolejne liniki kodu</span></span>
+<span id="cb16-8"><a href="syntax.html#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="syntax.html#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="syntax.html#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co">#(2) mozemy tez robic obsluge pod konkretny blad (bledy maja swoje nazwy do ktorych mozemy sie odnosic)</span></span>
+<span id="cb16-11"><a href="syntax.html#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb16-12"><a href="syntax.html#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(x)</span>
+<span id="cb16-13"><a href="syntax.html#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">NameError</span>: <span class="co"># Tutaj mamy &#39;except&#39; do obslugi bledu o nazwie &#39;NameError&#39;. Blad taki wystepuje kiedy dana zmienne nie istnieje</span></span>
+<span id="cb16-14"><a href="syntax.html#cb16-14" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;Variable x is not defined&quot;</span>)</span>
+<span id="cb16-15"><a href="syntax.html#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>: <span class="co"># mozemy sobie zostawic dalej obsluge dla pozostalych rodzajow bledow (moze byc wiele wyrazen &#39;exception&#39; pod &#39;try&#39;)</span></span>
+<span id="cb16-16"><a href="syntax.html#cb16-16" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;Something else went wrong&quot;</span>)</span>
+<span id="cb16-17"><a href="syntax.html#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-18"><a href="syntax.html#cb16-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-19"><a href="syntax.html#cb16-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-20"><a href="syntax.html#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="co">#(3) jezeli chcemy zeby w razie niewystapienie bledu zostal zrealizowany jakis inny kod, to uzywamy &#39;else&#39;</span></span>
+<span id="cb16-21"><a href="syntax.html#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb16-22"><a href="syntax.html#cb16-22" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;Hello&quot;</span>)</span>
+<span id="cb16-23"><a href="syntax.html#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
+<span id="cb16-24"><a href="syntax.html#cb16-24" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;Something went wrong&quot;</span>)</span>
+<span id="cb16-25"><a href="syntax.html#cb16-25" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>: <span class="co"># jezeli blok kodu po &#39;try&#39; nie zwrocil bledu wykonaj kod po &#39;else&#39;</span></span>
+<span id="cb16-26"><a href="syntax.html#cb16-26" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;Nothing went wrong&quot;</span>)</span>
+<span id="cb16-27"><a href="syntax.html#cb16-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-28"><a href="syntax.html#cb16-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-29"><a href="syntax.html#cb16-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-30"><a href="syntax.html#cb16-30" aria-hidden="true" tabindex="-1"></a><span class="co">#(4) mozemy tez chciec zeby zostal wykonany jakis kod, niezaleznie od tego czy blad wystapil czy nie. Do tego sluzy wyrazenie &#39;finally&#39;.</span></span>
+<span id="cb16-31"><a href="syntax.html#cb16-31" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb16-32"><a href="syntax.html#cb16-32" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(x)</span>
+<span id="cb16-33"><a href="syntax.html#cb16-33" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
+<span id="cb16-34"><a href="syntax.html#cb16-34" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;Something went wrong&quot;</span>)</span>
+<span id="cb16-35"><a href="syntax.html#cb16-35" aria-hidden="true" tabindex="-1"></a><span class="cf">finally</span>: <span class="co"># kod wykonywany niezaleznie od tego czy blok kodu pod &#39;try&#39; zawrocil blad.</span></span>
+<span id="cb16-36"><a href="syntax.html#cb16-36" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;The &#39;try except&#39; is finished&quot;</span>) <span class="co"># printed always</span></span>
+<span id="cb16-37"><a href="syntax.html#cb16-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-38"><a href="syntax.html#cb16-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-39"><a href="syntax.html#cb16-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-40"><a href="syntax.html#cb16-40" aria-hidden="true" tabindex="-1"></a><span class="co">#(5) czasem mozemy chciec zeby w razie wystapienia bledu zostala wyswietlona jego tresc:</span></span>
+<span id="cb16-41"><a href="syntax.html#cb16-41" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb16-42"><a href="syntax.html#cb16-42" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span><span class="op">/</span><span class="dv">0</span></span>
+<span id="cb16-43"><a href="syntax.html#cb16-43" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb16-44"><a href="syntax.html#cb16-44" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(e)<span class="op">;</span>  <span class="co"># dostaniemy tresc bledu wygenerowana przez wyrazenie po &#39;try&#39; (bedzie to &#39;division by zero&#39;)  </span></span></code></pre></div>
 </div>
-<div id="assertion" class="section level3">
+<div id="assertion" class="section level3" number="2.8.2">
 <h3><span class="header-section-number">2.8.2</span> assertion</h3>
 <p>O wyrazeniu ‘assertion’:
 Assertions are simply boolean expressions that checks if the conditions return true or not. If it is true, the program does nothing and move to the next line of code. However, if it’s false, the program stops and THROWS an ERROR.</p>
 <p><a href="https://www.programiz.com/python-programming/assert-statement" class="uri">https://www.programiz.com/python-programming/assert-statement</a></p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="cf">assert</span> <span class="dv">1</span><span class="op">==</span><span class="dv">2</span>, <span class="st">&#39;mamy blad&#39;</span> <span class="co"># warunek nie jest spelniony wiec &#39;assertion&#39; zwroci nam blad i komunikat o tresci &#39;mamy blad&#39;</span>
-<span class="cf">assert</span> <span class="dv">1</span><span class="op">!=</span><span class="dv">2</span>, <span class="st">&#39;mamy blad&#39;</span> <span class="co"># warunke jest spelnioiny wiec nie dzieje sie nic. </span></code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="syntax.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="dv">1</span><span class="op">==</span><span class="dv">2</span>, <span class="st">&#39;mamy blad&#39;</span> <span class="co"># warunek nie jest spelniony wiec &#39;assertion&#39; zwroci nam blad i komunikat o tresci &#39;mamy blad&#39;</span></span>
+<span id="cb17-2"><a href="syntax.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="dv">1</span><span class="op">!=</span><span class="dv">2</span>, <span class="st">&#39;mamy blad&#39;</span> <span class="co"># warunke jest spelnioiny wiec nie dzieje sie nic. </span></span></code></pre></div>
 
 </div>
 </div>
@@ -961,11 +994,13 @@ Assertions are simply boolean expressions that checks if the conditions return t
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -973,12 +1008,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": true,
 "linkedin": true,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"],
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"],
+"google": true,
 "instapper": false
 },
 "fontsettings": {
@@ -991,6 +1026,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
