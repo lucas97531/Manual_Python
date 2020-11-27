@@ -50,11 +50,11 @@ isinstance(string, (int, float, str))  # czy obiekt to typ 'int' lub 'float' lub
 
 # definiujemy klase 'Vehicle'
 class Vehicle:
-    pass
+  pass
 
 # definiujemy klase 'Truck' bedaca podklasa klasy 'Vehicle'
 class Truck(Vehicle):
-    pass
+  pass
 
 isinstance(Vehicle(), Vehicle)  # returns True
 type(Vehicle()) == Vehicle      # returns True
@@ -193,13 +193,13 @@ if else w wielu liniach
 
 # ogolna skladnia
 if expression1:
-   statement(s)
+  statement(s)
 elif expression2:
-   statement(s)
+  statement(s)
 elif expression3:
-   statement(s)
+  statement(s)
 else:
-   statement(s)
+  statement(s)
 
 # przyklad 1:
 a = 33
@@ -239,13 +239,13 @@ else:
 fruits = ["apple", "banana", "cherry"]
 for x in fruits:
   print(x)
-  
-  
+
+
 # for po stringu:
 for x in "banana":
   print(x)
-  
-  
+
+
 # po zakresie liczbowym:
 for x in range(6):
   print(x)
@@ -255,16 +255,16 @@ for x in range(6):
 fruits = ["apple", "banana", "cherry"]
 for x in fruits:
   print(x) 
-  if x == "banana": # w momencie kiedy petla dojdzie to 'banana' zostaje przerwana
-    break
+if x == "banana": # w momencie kiedy petla dojdzie to 'banana' zostaje przerwana
+  break
 
 
 # uzycie 'continue' - przeskoczenie iteracji
 fruits = ["apple", "banana", "cherry"]
 for x in fruits:
   if x == "banana": # kiedy petla dojdzie do 'banana' zostanie przerwana biezaca iteracja ('banana' nie bedzie wydrukowane przez 'print') i nastąpi przeskok do kolejnej iteracji.
-    continue
-  print(x)
+  continue
+print(x)
 
 ```
 
@@ -291,13 +291,13 @@ b = ['b1', 'b2']
 
 # pierwsza skladnia
 for (x, y) in zip(a, b): # uwaga: bez nawiasow wokol x i y tez zadziala
-    print(x, y) # nie wydrukuje wartosci 'a3' z pierwszego wektora, bo nie ma ona odpowiednika na tej samej pozycji w wektorze 'b'
+  print(x, y) # nie wydrukuje wartosci 'a3' z pierwszego wektora, bo nie ma ona odpowiednika na tej samej pozycji w wektorze 'b'
 
 
 # druga skladnia
 import itertools
 for (x, y) in itertools.zip_longest(a, b): 
-    print(x, y) # tym razem 'a3' z pierwszego wektora zostanie wydrukowana
+  print(x, y) # tym razem 'a3' z pierwszego wektora zostanie wydrukowana
 
 
 ```
@@ -311,25 +311,25 @@ for (x, y) in itertools.zip_longest(a, b):
 i = 1
 while i < 6: # wyswietlaj zmienna 'i' tak długo jak jest mniejsza od 6. 
   print(i)
-  i += 1 # zwiekszanie wartosci zmiennej 'i' o 1 w interacji
+i += 1 # zwiekszanie wartosci zmiennej 'i' o 1 w interacji
 
 
 # przerwanie petli - 'break'
 i = 1
 while i < 6:
   print(i)
-  if i == 3:
-    break # jezeli i == 3 przerwij wykonywanie petli. 
-  i += 1
+if i == 3:
+  break # jezeli i == 3 przerwij wykonywanie petli. 
+i += 1
 
 
 # continue - przeskoczenie iteracji
 i = 0
 while i < 6:
   i += 1 
-  if i == 3:
-    continue # jezeli i==3 zostanie przerwana biezaca iteracja ('3' nie bedzie wydrukowane przez 'print') i nastąpi przeskok do kolejnej iteracji
-  print(i)
+if i == 3:
+  continue # jezeli i==3 zostanie przerwana biezaca iteracja ('3' nie bedzie wydrukowane przez 'print') i nastąpi przeskok do kolejnej iteracji
+print(i)
 
 
 ```
@@ -341,12 +341,12 @@ while i < 6:
 ```{python}
 
 Logika indeksow prezentuje sie nastepujaco:
-
-+---+---+---+---+---+---+
-| P | y | t | h | o | n |    # wektor o 6 elementach
-+---+---+---+---+---+---+
+  
+  +---+---+---+---+---+---+
+  | P | y | t | h | o | n |    # wektor o 6 elementach
+  +---+---+---+---+---+---+
   0   1   2   3   4   5      # indeksy dodatnie
- -6  -5  -4  -3  -2  -1      # indeksy ujemne
+-6  -5  -4  -3  -2  -1      # indeksy ujemne
 
 #Jak widac indeksowanie liczbami dodatnimi jest od zera. 
 #Do indeksow mozna się tez odwolywac przez ujemne wartosci.
@@ -400,7 +400,7 @@ xs[0][1] = 'X' # w pierwszym elementcie zamienilem drugi podelement na wartosc '
 ys # tutaj tez dostalismy 'X' - jest to dowod na to ze 'ys' nie jest niezalezna zmienna, a tylko lista wskanikow do 'xs'
 
 # ale jezeli do 'xs' dolozymy calkowicie nowy element to 'ys' nie bedzie mial dodanego automatycznie wskaznika na niego:
-xs.append(['a','b','c']) 
+xs.append(['a','b','c'])
 xs # tutaj mamy dodany nowy element
 ys # a tutaj nie mamy nowego elementu, bo nie dodano nowego wskaznika
 
@@ -421,12 +421,12 @@ Przyklad dla obiektow
 
 class pies:
   def __init__(self, wiek):
-    self.wiek = wiek
-    
-  def modyf_wiek(self, wiek_nowy):
-    self.wiek = wiek_nowy
+  self.wiek = wiek
 
-    
+def modyf_wiek(self, wiek_nowy):
+  self.wiek = wiek_nowy
+
+
 pies = pies(wiek=10) # nasz pies bedzie mial 10 lat
 pies_shallow = pies
 pies_deep = copy.deepcopy(pies)
@@ -451,17 +451,17 @@ Każda funkcja ktora ma w sobie wyrazenie 'yield' jest generatorem. Na przykladz
 # W poniższe funkcji zamiast polecenia 'return' umiescimy 'yield' 
 def my_gen():
   n = 1
-  print('This is printed first')
-  # Generator function contains yield statements
-  yield n
-  
-  n += 1
-  print('This is printed second')
-  yield n
-  
-  n += 1
-  print('This is printed at last')
-  yield n
+print('This is printed first')
+# Generator function contains yield statements
+yield n
+
+n += 1
+print('This is printed second')
+yield n
+
+n += 1
+print('This is printed at last')
+yield n
 
 
 
@@ -493,7 +493,7 @@ next(b)
 
 # Using for loop
 for item in my_gen():
-    print(item)   
+  print(item)   
 
 ```
 
@@ -612,7 +612,7 @@ except Exception as e:
 ### assertion
 
 O wyrazeniu 'assertion':
-Assertions are simply boolean expressions that checks if the conditions return true or not. If it is true, the program does nothing and move to the next line of code. However, if it's false, the program stops and THROWS an ERROR.
+  Assertions are simply boolean expressions that checks if the conditions return true or not. If it is true, the program does nothing and move to the next line of code. However, if it's false, the program stops and THROWS an ERROR.
 
 https://www.programiz.com/python-programming/assert-statement
 ```{python}

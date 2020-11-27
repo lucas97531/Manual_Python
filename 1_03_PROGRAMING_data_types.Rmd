@@ -122,7 +122,7 @@ pd.cut(np.random.randint(0, 100, 20), range(0, 105, 10), right=False)
 
 
 
-## text
+## tekst
 
 UWAGA: o pracy z tekstem w kontekscie DataFrames jest materiał w pliku 1_05_PROGRAMING_data_structures-Pandas"
 
@@ -196,92 +196,62 @@ print("{0} loves {osoba}.".format('Mary', osoba='Tom'))
 ```
 
 
-Formatowanie typu liczbowego
+
+### Formatowanie wygladu-skladnia
+
+#### tekst
+
 ```{python}
 
-# podstawienie liczb calkowitych (integer)
-print("The number is:{:d}".format(123))
+# tekst dluosci 10 wyrownany do lewej z wypadowaniem zerami po prawej
+print('{:0<10}'.format('abc'))
 
-# podstawianie liczb zmiennoprzecinkowych (float)
-print("The float number is:{:f}".format(123.4567898))
+# tekst dluosci 10 wyrownany do prawej z wypadowaniem zerami po lewej
+print('{:0>10}'.format('abc'))
 
-# podstawienie cyfr w innych formatach liczbowych (octal, binary and hexadecimal)
-print("bin: {0:b}, oct: {0:o}, hex: {0:x}".format(12))
-
-
-
-# pelna lista dostepny modyfikatorow zwiaznych z typami liczbowymi:
-
-d - Decimal integer
-c - Corresponding Unicode character
-b - Binary format
-o - Octal format
-x - Hexadecimal format (lower case)
-X - Hexadecimal format (upper case)
-n - Same as 'd'. Except it uses current locale setting for number separator
-e - Exponential notation. (lowercase e)
-E - Exponential notation (uppercase E)
-f - Displays fixed point number (Default: 6)
-F - Same as 'f'. Except displays 'inf' as 'INF' and 'nan' as 'NAN'
-g - General format. Rounds number to p significant digits. (Default precision: 6)
-G - Same as 'g'. Except switches to 'E' if the number is large.
-% - Percentage. Multiples by 100 and puts % at the end.
-
-```
-
-
-Formatowanie typu liczbowego z paddingiem (np. dodawanie zer na początku liczby)
-```{python}
-
-# integer numbers with minimum width
-print("{:5d}".format(12))
-
-# width doesn't work for numbers longer than padding
-print("{:2d}".format(1234))
-
-# padding for float numbers
-print("{:8.3f}".format(12.2346))
-
-# integer numbers with minimum width filled with zeros
-print("{:05d}".format(12))
-
-# padding for float numbers filled with zeros
-print("{:08.3f}".format(12.2346))
-```
-
-
-
-Formatowanie typu liczbowego ze znakiem (liczby dodatnie i ujemne)
-```{python}
-
-# show the + sign
-print("{:+f} {:+f}".format(12.23, -12.23))
-
-# show the - sign only
-print("{:-f} {:-f}".format(12.23, -12.23))
-
-# show space for + sign
-print("{: f} {: f}".format(12.23, -12.23))
+# tekst dluosci 10 wyrownany do srodka z wypadowaniem zerami po obu stronach
+print('{:0^10}'.format('abc'))
 
 ```
 
 
 
-Zaawansowane formatownanie typu tekstowego
+
+#### liczby
+
 ```{python}
 
-# string padding with left alignment
-print("{:5}".format("cat"))
+# liczba calkowita dluosci 10 z wypadowanymi zerami
+print('{:010d}'.format(10))
 
-# string padding with right alignment
-print("{:>5}".format("cat"))
 
-# string padding with center alignment
-print("{:^5}".format("cat"))
+# liczba ulamkowa z dwoma miejscami po przecinku
+print('{:0>.2f}'.format(10.234))
 
-# string padding with center alignment
-# and '*' padding character
-print("{:*^5}".format("cat"))
+# liczba ulamkowa dluosci 8+2 z wypadowanymi zerami po lewej stronie
+print('{:0>8.2f}'.format(10.234))
+
+# liczba ulamowa dluosci 8+2 z wypadowanymi zerami po prawej stronie
+print('{:0<8.2f}'.format(10))
+
+# format naukowy
+print('{:e}'.format(10000))
+
+# format procentowy bez miejsc po przecinku
+print('{:.0%}'.format(0.5))
+
+# format procentowy z jednym miejscem po przecinku
+print('{:.1%}'.format(0.5))
+
+# format walutowy
+print('{:.2f}zl'.format(12.03))
+
+# format binarny
+print('{:b}'.format(123))
+
+# format hexalny
+print('{:x}'.format(123))
+
 
 ```
 

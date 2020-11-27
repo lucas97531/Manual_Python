@@ -90,9 +90,25 @@ W pakiecie 'Pandas' mozemy tez bezposrednio do DataFrame importowac plik excelow
 
 ```{python}
 
+
+# PRZYKALD 1
+
 import pandas as pd
 
 pd.read_excel(io = 'plik.xlsx', sheet_name = 'Arkusz1')
+
+
+
+
+# PRZYKLAD 2
+
+pd.read_excel('dane.xlsx'
+              ,index_col  = None
+              ,sheet_name = 'sheet1'
+              ,converters = {'col1':str, 'col2':int}
+              ,parse_dates = ['col3','col4'])
+
+
 
 ```
 
@@ -103,6 +119,7 @@ pd.read_excel(io = 'plik.xlsx', sheet_name = 'Arkusz1')
 Export DataFrame do excela
 
 ```{python}
+
 
 import pandas as pd
 

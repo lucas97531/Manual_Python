@@ -734,6 +734,28 @@ pd.concat([s1, s2], axis = 1, ignore_index=True)
 ```
 
 
+#### Przydane funkcje
+
+```{python}
+
+df = pd.DataFrame({'a':['a','a','a','b','b','b','c','c','c'], 'b':['A','B','C','A','B','C','A','B','C'], 'ilosc':list(range(1,10))})
+
+# konwersja kolumn na indeksy
+df = df.set_index(['a','b'])
+
+# nazwy kolumn bedacych inseksami
+df.index.names
+
+# unikalne wartosci indeksu
+df.index.unique(0) # dla indeksu o pozycji '0'
+
+
+# macierz wartosci indeksow
+df.index.values
+
+
+```
+
 
 ### Wymuszanie typów kolumn w DataFrame
 
@@ -1840,9 +1862,33 @@ Nie dopuszcza duplikatow w kolumnach (jesli sa uzywamy tabiej zaawansowanego piv
 
 
 
-#### stack - unstack
-Odpowiedniki pivot/melt, ale zrobione po to aby dzialac na multiindeksach
-```{r}
+#### unstack-melt
+
+Przetapianie bez uzycia funkcji agregujacych.
+
+```{python}
+
+
+import pandas as pd
+
+df = pd.DataFrame({'a':['a','a','a','b','b','b','c','c','c'], 'b':['A','B','C','A','B','C','A','B','C'], 'ilosc':list(range(1,10))})
+
+# przeksztalacanie na indeks kolumn z wyjakiem kolumny pelniacej funkcje 'value'
+df = df.set_index(['a','b'])
+df = df.unstack(1) # pivotuje maciez podajac podycje kolumny indeksowej ktora bedzie w grupowaniu kolumn (uzyjemy zmiennej 'b' datego '1')
+
+# usuwanie indeksow wierszowych
+df = df.reset_index(drop=False)
+
+# laczenie ideksow kolumnowych
+df.columns = ['_'.join(col).strip() for col in df.columns.values]
+
+# poprawka nazw indeksow wieszowych
+df_unstacked = df.rename(columns = {'a_':'a'})
+
+
+# z powrotem mozemy zrobic melt:
+df_unstacked.melt(id_vars=['a'],  var_name = 'nowa_kolumna', value_name = 'ilosc'  )
 
 ```
 

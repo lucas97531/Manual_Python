@@ -93,13 +93,41 @@ z[1,2,3,4,5]
 z[1:2] = [100, 200 , 300] # mimo ze powalismy tylko 2 indeksy do modyfikacji a, wartosci po wstawienia są 3 wartosci nie dostaniemy błędy. Trzecia wartosc (300), zostanie 'wepchana miedzy 200 i 3
 
 
-# modyfikacja elementow spelniajacych warunek
+# modyfikacja elementow spelniajacych warunek (pojedynczy if else)
 z = [1,2,3,4,5]
 [0 if i >=3 else i for i in z] # zamiana na zero elementow wiekszych lub rownych 3
 
 
+# modyfikacja elementow spelniajacych warunek (wielokrotny if else)
+z = [1,2,3,4,5]
+[0 if i >=3 else 1 if i < 2 else 2 for i in z]  # zamiana na zero elementow wiekszych lub rownych 3
+
+
+
 ```
 
+
+### splaszczanie (flattening)
+
+
+```{python}
+
+# sposob 1 - dziala tylko na pierwszy stopien zagniezdzenia
+
+from functools import reduce #python 3
+l = [[1,2,3],[4,5,6], [7], [8,9,[1,2,3]]]
+reduce(lambda x,y: x+y,l)
+
+
+
+
+# sposob 2 - dziala na wszystkie poziomy zagniezdzenia
+
+from pandas.core.common import flatten
+list(flatten(l))
+
+
+```
 
 
 

@@ -5,7 +5,7 @@ shell.exec('bibliography.xlsx')
 shell.exec('book.bib')
 
 katalog:
-  shell.exec('C:/Users/memy/OneDrive/Pulpit/1_Programs_and_programing/PYTHON/Manual_Python')
+  shell.exec('cd F:\\1_Programs_and_programing\\LANG_PYTHON\\Manual_Python')
 
 
 
@@ -17,7 +17,8 @@ Przykladowy wpis:
 
 
 # Path for git
-cd C:/Users/memy/OneDrive/Pulpit/1_Programs_and_programing/LANG_PYTHON/Manual_Python
+cd F:\\1_Programs_and_programing\\LANG_PYTHON\\Manual_Python
+
 
 
 # Url
