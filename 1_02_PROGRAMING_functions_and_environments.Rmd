@@ -9,7 +9,7 @@
 rozna ilosc argumentow
 ```{python}
 
-# prosta funkcja z dwoma argumentami
+#(1) prosta funkcja z dwoma argumentami
 def funkcja_1(a, b):
   return(a*b) 
 
@@ -17,7 +17,7 @@ funkcja_1(10, 10)
 
 
 
-# funkcja bez argumentow
+#(2) funkcja bez argumentow
 def funkcja_2():
   return(random.randint(1,21)*5) # liczba losowa z przedzialu od 5 do 105
   
@@ -26,7 +26,7 @@ funkcja_2()
   
 
 
-# funkcja z nieokreslono ilosci argumentow. Zakladamy ze argumenty NIE MUSZA byc ponazywane
+#(3) funkcja z nieokreslono ilosci argumentow. Zakladamy ze argumenty NIE MUSZA byc ponazywane
 
 def test_var_args(f_arg, *argv): # Pierwszy argument jest normalny argumentem.  Pod argument z gwiazdka bedzie mozna podstawic dowolna ilosc argumentow bez podawania ich nazwy
     print("first normal arg:", f_arg) # pierwszy argument normalnie zadeklarowany z definicji funkcji
@@ -40,7 +40,7 @@ test_var_args('yasoob', 'python', 'eggs', 'test')
 
 
 
-# funkcja z nieokreslono iloscia argumentow. Zakladamy ze argumenty MUSZA byc ponazywane
+#(4) funkcja z nieokreslono iloscia argumentow. Zakladamy ze argumenty MUSZA byc ponazywane
 
 def greet_me(**kwargs):
     for key, value in kwargs.items():
@@ -322,39 +322,43 @@ Program Explanation
 
 ## zakres istnienia zmiennych (scoping rules)
 
-Scope resolution via LEGB rule :
+Scope resolution via LEGB rule :<br>
 In Python, the LEGB rule is used to decide the order in which the namespaces are to be searched for scope resolution.
 The scopes are listed below in terms of hierarchy(highest to lowest/narrowest to broadest):
 
-Local(L): Defined inside function/class
-Enclosed(E): Defined inside enclosing functions(Nested function concept)
-Global(G): Defined at the uppermost level
-Built-in(B): Reserved names in Python builtin modules
+-<b>Local(L)</b>: Defined inside function/class
+-<b>Enclosed(E)</b>: Defined inside enclosing functions(Nested function concept)
+-<b>Global(G)</b>: Defined at the uppermost level
+-<b>Built-in(B)</b>: Reserved names in Python builtin modules
 
-______________________________________
-|Buil-in                              |
-|    ______________________________   |
-|    |    Global                  |   |
-|    |       __________________   |   |
-|    |      |  Enclosed        |  |   |
-|    |      |      ________    |  |   |
-|    |      |     |       |    |  |   |
-|    |      |     | Local |    |  |   |
-|    |      |     |_______|    |  |   |
-|    |      |                  |  |   |
-|    |      |__________________|  |   |
-|    |_____________________________   |
-|                                     |
-______________________________________
+Buil-in > Global > Enclosed > Local
 
 
+<!-- ______________________________________ -->
+<!-- |Buil-in                              | -->
+<!-- |    ______________________________   | -->
+<!-- |    |    Global                  |   | -->
+<!-- |    |       __________________   |   | -->
+<!-- |    |      |  Enclosed        |  |   | -->
+<!-- |    |      |      ________    |  |   | -->
+<!-- |    |      |     |       |    |  |   | -->
+<!-- |    |      |     | Local |    |  |   | -->
+<!-- |    |      |     |_______|    |  |   | -->
+<!-- |    |      |                  |  |   | -->
+<!-- |    |      |__________________|  |   | -->
+<!-- |    |_____________________________   | -->
+<!-- |                                     | -->
+<!-- ______________________________________ -->
 
-local and global scope
+
+
+local vs global scope
 ```{python}
 
 # Global Scope 
   
 pi = 'global pi variable'
+
 def inner(): 
     pi = 'inner pi variable' # zdefiniowanie 'pi' lokalnie w funkcji
     print(pi) 
@@ -363,45 +367,40 @@ inner()  # zwracam 'pi' z wnetrza funkcji (local scope)
 print(pi)  # zwracam 'pi' z globalnej przestrzni (global scope)
 
 
+```
 
 
-# UWAGA: tutaj 'pi' nie jest zdefinionwane w funkcji. Co wtedy????
+
+Enclosed scope
+```{python}
+
+import numpy as np
+
 pi = 'global pi variable'
-def inner_bez_pi(): 
-    print(pi) 
-  
-inner_bez_pi()  # funkcja szuka 'pi' poza swoją przestrzenia. Znajduje ja w globalnej przestrzeni
+
+
+def outer():
+    pi = "John"
+
+    def inner():
+        nonlocal x
+        pi = "hello"
+
+    inner()
+    return pi
+
+
+outer() # zwroci nam 'hello' bo modyfikacjia w f:inner wykonana na zmiennej nielokalnej i tym samym napisuje zmienna 'pi' w f:outer (enclosed scope)
+print(pi)  # zwracam 'pi' z globalnej przestrzni (global scope)
 
 ```
 
 
 
 
-
-Local, Enclosed and Global Scopes
+Built-in scopes 
 ```{python}
 
-pi = 'global pi variable'
-  
-def outer(): 
-    pi = 'outer pi variable'
-    def inner(): 
-        # pi = 'inner pi variable' 
-        nonlocal pi 
-        print(pi) 
-    inner() 
-  
-outer() # 'pi' jest zwracane z kodu w funkcji 'outer' znajdujacego sie  na zewnatrz funkcji 'inner' (enclosed scope)
-print(pi) # zwracam 'pi' z globalnej przestrzni (global scope)
-
-```
-
-
-
-
-
-Local,Enclosed,Global and Built-in Scopes 
-```{python}
 # Built-in Scope 
 from math import pi 
   
@@ -420,7 +419,6 @@ outer() # nie jest zdefuniowane wewnatrz funkcji 'inner' ani 'outer'. Funkcja sz
 
 
 
-
 Uzycie operatora global
 ```{python}
 
@@ -432,7 +430,7 @@ def a():
 
 a()
 
-print(foo) # foo przyjmie wartosc 'A' mimo ze napisanie bylo w wykonanie w funkcji.
+print(foo) # foo przyjmie wartosc 'A' mimo ze nadpisanie bylo wykonanie w funkcji.
 
 ```
 
@@ -476,7 +474,7 @@ say_hi() # teraz funkcja po "udekorowaniu" zwraca napis WIELKIMI LITERAMI.
 
 ## Przydatne 
 
-Wilokrotne wywolanie tej samej funkcji
+Wielokrotne wywolanie tej samej funkcji
 
 ```{python}
 

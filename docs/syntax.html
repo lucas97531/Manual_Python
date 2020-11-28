@@ -24,7 +24,7 @@
 <meta name="author" content="Łukasz Muszyński" />
 
 
-<meta name="date" content="2020-11-27" />
+<meta name="date" content="2020-11-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -440,7 +440,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="21.3.4" data-path="ide.html"><a href="ide.html#podpinanie-do-vevn"><i class="fa fa-check"></i><b>21.3.4</b> Podpinanie do vevn</a></li>
 <li class="chapter" data-level="21.3.5" data-path="ide.html"><a href="ide.html#ustawienia-globalne-a-ustawienia-projektu"><i class="fa fa-check"></i><b>21.3.5</b> Ustawienia globalne a ustawienia projektu</a></li>
 <li class="chapter" data-level="21.3.6" data-path="ide.html"><a href="ide.html#uzyteczne-skroty"><i class="fa fa-check"></i><b>21.3.6</b> Uzyteczne skroty</a></li>
-<li class="chapter" data-level="21.3.7" data-path="ide.html"><a href="ide.html#debuggowanie"><i class="fa fa-check"></i><b>21.3.7</b> debuggowanie</a></li>
+<li class="chapter" data-level="21.3.7" data-path="ide.html"><a href="ide.html#srodowiska-w-linuxie"><i class="fa fa-check"></i><b>21.3.7</b> Srodowiska w linuxie:</a></li>
+<li class="chapter" data-level="21.3.8" data-path="ide.html"><a href="ide.html#debuggowanie"><i class="fa fa-check"></i><b>21.3.8</b> debuggowanie</a></li>
 </ul></li>
 <li class="chapter" data-level="21.4" data-path="ide.html"><a href="ide.html#rstudio"><i class="fa fa-check"></i><b>21.4</b> Rstudio</a></li>
 </ul></li>
@@ -686,8 +687,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-18"><a href="syntax.html#cb6-18" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;cherry&quot;</span>]</span>
 <span id="cb6-19"><a href="syntax.html#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> fruits:</span>
 <span id="cb6-20"><a href="syntax.html#cb6-20" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(x) </span>
-<span id="cb6-21"><a href="syntax.html#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">==</span> <span class="st">&quot;banana&quot;</span>: <span class="co"># w momencie kiedy petla dojdzie to &#39;banana&#39; zostaje przerwana</span></span>
-<span id="cb6-22"><a href="syntax.html#cb6-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">break</span></span>
+<span id="cb6-21"><a href="syntax.html#cb6-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> x <span class="op">==</span> <span class="st">&quot;banana&quot;</span>: <span class="co"># w momencie kiedy petla dojdzie to &#39;banana&#39; zostaje przerwana</span></span>
+<span id="cb6-22"><a href="syntax.html#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span>
 <span id="cb6-23"><a href="syntax.html#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-24"><a href="syntax.html#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-25"><a href="syntax.html#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co"># uzycie &#39;continue&#39; - przeskoczenie iteracji</span></span>
@@ -728,25 +729,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="syntax.html#cb9-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb9-2"><a href="syntax.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">6</span>: <span class="co"># wyswietlaj zmienna &#39;i&#39; tak długo jak jest mniejsza od 6. </span></span>
 <span id="cb9-3"><a href="syntax.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(i)</span>
-<span id="cb9-4"><a href="syntax.html#cb9-4" aria-hidden="true" tabindex="-1"></a>i <span class="op">+=</span> <span class="dv">1</span> <span class="co"># zwiekszanie wartosci zmiennej &#39;i&#39; o 1 w interacji</span></span>
+<span id="cb9-4"><a href="syntax.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  i <span class="op">+=</span> <span class="dv">1</span> <span class="co"># zwiekszanie wartosci zmiennej &#39;i&#39; o 1 w interacji</span></span>
 <span id="cb9-5"><a href="syntax.html#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-6"><a href="syntax.html#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-7"><a href="syntax.html#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># przerwanie petli - &#39;break&#39;</span></span>
 <span id="cb9-8"><a href="syntax.html#cb9-8" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb9-9"><a href="syntax.html#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">6</span>:</span>
 <span id="cb9-10"><a href="syntax.html#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(i)</span>
-<span id="cb9-11"><a href="syntax.html#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
-<span id="cb9-12"><a href="syntax.html#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">break</span> <span class="co"># jezeli i == 3 przerwij wykonywanie petli. </span></span>
-<span id="cb9-13"><a href="syntax.html#cb9-13" aria-hidden="true" tabindex="-1"></a>i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb9-11"><a href="syntax.html#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb9-12"><a href="syntax.html#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span> <span class="co"># jezeli i == 3 przerwij wykonywanie petli. </span></span>
+<span id="cb9-13"><a href="syntax.html#cb9-13" aria-hidden="true" tabindex="-1"></a>  i <span class="op">+=</span> <span class="dv">1</span></span>
 <span id="cb9-14"><a href="syntax.html#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-15"><a href="syntax.html#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-16"><a href="syntax.html#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co"># continue - przeskoczenie iteracji</span></span>
 <span id="cb9-17"><a href="syntax.html#cb9-17" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb9-18"><a href="syntax.html#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">6</span>:</span>
 <span id="cb9-19"><a href="syntax.html#cb9-19" aria-hidden="true" tabindex="-1"></a>  i <span class="op">+=</span> <span class="dv">1</span> </span>
-<span id="cb9-20"><a href="syntax.html#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
-<span id="cb9-21"><a href="syntax.html#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">continue</span> <span class="co"># jezeli i==3 zostanie przerwana biezaca iteracja (&#39;3&#39; nie bedzie wydrukowane przez &#39;print&#39;) i nastąpi przeskok do kolejnej iteracji</span></span>
-<span id="cb9-22"><a href="syntax.html#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(i)</span></code></pre></div>
+<span id="cb9-20"><a href="syntax.html#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb9-21"><a href="syntax.html#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">continue</span> <span class="co"># jezeli i==3 zostanie przerwana biezaca iteracja (&#39;3&#39; nie bedzie wydrukowane przez &#39;print&#39;) i nastąpi przeskok do kolejnej iteracji</span></span>
+<span id="cb9-22"><a href="syntax.html#cb9-22" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(i)</span></code></pre></div>
 </div>
 </div>
 <div id="indicies" class="section level2" number="2.4">
@@ -798,10 +799,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-6"><a href="syntax.html#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-7"><a href="syntax.html#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#plytnosc kopii oznacze ze &#39;ys&#39; sklada sie tak naprawde ze wskaznikow do elementow &#39;xs&#39;:</span></span>
 <span id="cb11-8"><a href="syntax.html#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># zmodyfikujmy jakis element w &#39;xs&#39;</span></span>
-<span id="cb11-9"><a href="syntax.html#cb11-9" aria-hidden="true" tabindex="-1"></a>xs[<span class="dv">0</span>][<span class="dv">1</span>] <span class="op">=</span> <span class="st">&#39;X&#39;</span> <span class="co"># w pierwszym elementcie zamienilem drugi podelement na wartosc &#39;X&#39;</span></span>
+<span id="cb11-9"><a href="syntax.html#cb11-9" aria-hidden="true" tabindex="-1"></a>xs[<span class="dv">0</span>][<span class="dv">1</span>] <span class="op">=</span> <span class="st">&#39;X&#39;</span> <span class="co"># w pierwszym elemencie zamienilem drugi podelement na wartosc &#39;X&#39;</span></span>
 <span id="cb11-10"><a href="syntax.html#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-11"><a href="syntax.html#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co"># wyswietlmy teraz &#39;ys&#39;</span></span>
-<span id="cb11-12"><a href="syntax.html#cb11-12" aria-hidden="true" tabindex="-1"></a>ys <span class="co"># tutaj tez dostalismy &#39;X&#39; - jest to dowod na to ze &#39;ys&#39; nie jest niezalezna zmienna, a tylko lista wskanikow do &#39;xs&#39;</span></span>
+<span id="cb11-12"><a href="syntax.html#cb11-12" aria-hidden="true" tabindex="-1"></a>ys <span class="co"># tutaj tez dostalismy &#39;X&#39; - jest to dowod na to ze &#39;ys&#39; nie jest niezalezna zmienna, a tylko lista wskaznikow do &#39;xs&#39;</span></span>
 <span id="cb11-13"><a href="syntax.html#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-14"><a href="syntax.html#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co"># ale jezeli do &#39;xs&#39; dolozymy calkowicie nowy element to &#39;ys&#39; nie bedzie mial dodanego automatycznie wskaznika na niego:</span></span>
 <span id="cb11-15"><a href="syntax.html#cb11-15" aria-hidden="true" tabindex="-1"></a>xs.append([<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>])</span>
@@ -841,17 +842,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="syntax.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># W poniższe funkcji zamiast polecenia &#39;return&#39; umiescimy &#39;yield&#39; </span></span>
 <span id="cb13-2"><a href="syntax.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_gen():</span>
 <span id="cb13-3"><a href="syntax.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  n <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb13-4"><a href="syntax.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;This is printed first&#39;</span>)</span>
-<span id="cb13-5"><a href="syntax.html#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Generator function contains yield statements</span></span>
-<span id="cb13-6"><a href="syntax.html#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="cf">yield</span> n</span>
-<span id="cb13-7"><a href="syntax.html#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="syntax.html#cb13-8" aria-hidden="true" tabindex="-1"></a>n <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb13-9"><a href="syntax.html#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;This is printed second&#39;</span>)</span>
-<span id="cb13-10"><a href="syntax.html#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="cf">yield</span> n</span>
-<span id="cb13-11"><a href="syntax.html#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-12"><a href="syntax.html#cb13-12" aria-hidden="true" tabindex="-1"></a>n <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb13-13"><a href="syntax.html#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;This is printed at last&#39;</span>)</span>
-<span id="cb13-14"><a href="syntax.html#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="cf">yield</span> n</span>
+<span id="cb13-4"><a href="syntax.html#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&#39;This is printed first&#39;</span>)</span>
+<span id="cb13-5"><a href="syntax.html#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Generator function contains yield statements</span></span>
+<span id="cb13-6"><a href="syntax.html#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">yield</span> n</span>
+<span id="cb13-7"><a href="syntax.html#cb13-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-8"><a href="syntax.html#cb13-8" aria-hidden="true" tabindex="-1"></a>  n <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb13-9"><a href="syntax.html#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&#39;This is printed second&#39;</span>)</span>
+<span id="cb13-10"><a href="syntax.html#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">yield</span> n</span>
+<span id="cb13-11"><a href="syntax.html#cb13-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-12"><a href="syntax.html#cb13-12" aria-hidden="true" tabindex="-1"></a>  n <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb13-13"><a href="syntax.html#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&#39;This is printed at last&#39;</span>)</span>
+<span id="cb13-14"><a href="syntax.html#cb13-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">yield</span> n</span>
 <span id="cb13-15"><a href="syntax.html#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-16"><a href="syntax.html#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-17"><a href="syntax.html#cb13-17" aria-hidden="true" tabindex="-1"></a></span>

@@ -25,7 +25,7 @@ Atrubuty (zmienna zwiazane z klasami i obiektami) dzieli na
 - zwiazane z klasa. Beda je mialy wszystkie obiekty danej klasy
 - zwiazana z obiektami. Moga sie roznic pomiedzy obiektami
 
-Metody (czyli funkcje zwiazane z klasami i obiektami) rowniz dzielimy na 
+Metody (czyli funkcje zwiazane z klasami i obiektami) rowniez dzielimy na 
 - zwiazane z klasa. Operacje wykonywane przez te metody beda mialy wplyw na wszystkie instancje klasy
 - zwiazana z obiektami. Operacje wykonywane przez te metody beda mialy wplyw tylko na instancja na ktorych jest wykonywana funkcja
 
@@ -36,7 +36,7 @@ Metody (czyli funkcje zwiazane z klasami i obiektami) rowniz dzielimy na
 
 #(1) znowu tworzymy klase 
 class pies:
-  # atrybut 'rodzaj' bedzie dotyczyl wszystkich instancji tej klasy. Jest to atrybut dla calej klasy
+  # atrybut 'rodzaj' bedzie dotyczyl wszystkich instancji tej klasy. Jest to atrybut dla CALEJ KLASY
   rodzaj = 'ssak'
   
   # zeby stworzyc atrybuty ktorych wartosci moga sie roznic pomiedzy instancjami tworze funkcje inicjalizujaca (konstruktor), ktora bedzie automatycznie wywolywana przy tworzeniu obiektu
@@ -73,7 +73,7 @@ class pies:
     return(self.wiek_psa * 7)
     
   
-  # funkcja dla klasu
+  # funkcja dla klasy
   @classmethod  # musze uzyc specjalnego dekoratora zeby poinformowac ze to funkcja dla calej klasy (o dekoratorze jest przyklad w pliku "1_02_PROGRAMING_functions_and_environments")
   def zmiana_wielkosci_litery(cls, czy_na_male): # funkcje klasy maja 'cls' jako pierwszy argument zeby funkcja mogla sie odnosic do klasy
     if czy_na_male:
@@ -109,7 +109,7 @@ pies_2.wiek_ludzki()
 pies_1.zmiana_wielkosci_litery(czy_na_male=False)
 
 pies_1.rodzaj()
-pies_2.rodzaj() #UWAGA!!!. Mimo ze wiekosc liter dla globalnego atrybutu zmienilismy tylko dla pies_1 to zmiana zaszla tak jak chcielismy dla calej klasy czyli dla wszystkich instancji. Dlatego dla pies_2 tez jest pisany wielka litera
+pies_2.rodzaj() #UWAGA!!!. Mimo ze wiekosc liter dla globalnego atrybutu zmienilismy tylko dla pies_1 to zmiana zaszla tak jak chcielismy, dla calej klasy czyli dla wszystkich instancji. Dlatego dla pies_2 tez jest pisany wielka litera
 
 
 
@@ -119,7 +119,7 @@ pies_2.rodzaj() #UWAGA!!!. Mimo ze wiekosc liter dla globalnego atrybutu zmienil
 
 ## Prywatne atrybuty i metody
 
-W programowaniu obiektowym elementy prywatne (atrybuty, funkcje) robi sie dla wewnetrznego uzytku obiektu. Sa to np. jakies pomocnicze funkcje ktorych uzytkownik nie powinien widziec, a ktorych rola jest np. wspieranie funkcji ktore sa z kolei wywolywane przez przez uzytownika (czyli funkcji publicznych. Dla scislosci wspomne ze funkcje w obiektach klas nazywa sie metodami. 
+W programowaniu obiektowym elementy prywatne (atrybuty, funkcje) robi sie dla wewnetrznego uzytku obiektu. Sa to np. jakies pomocnicze funkcje ktorych uzytkownik nie powinien widziec, a ktorych rola jest np. wspieranie funkcji ktore sa z kolei wywolywane przez uzytownika (czyli funkcji publicznych. Dla scislosci wspomne ze funkcje w obiektach klas nazywa sie metodami. 
 
 W Pythonie nazwy elementow prywatnych zaczynaja sie od podwojnego podkreslenia '__'.
 
@@ -135,10 +135,10 @@ class employee:
 
 
 emp = employee(name = 'lukasz', sal = 5000)
-emp.__salary # atrybutu salary nie sa sie wywolac bo jest prywatny i przez to niedostepny dla uzytkownika. Dostaniemy blad
+emp.__salary # atrybutu salary nie da sie wywolac bo jest prywatny i przez to niedostepny dla uzytkownika. Dostaniemy blad
 emp._employee__salary # ale mozna go wywalc posrednio taka nazwa: podkreslnik+nazwa_klasy_podkreslnik+nazwa_prywanego_atrybutu
 
-emp.__pensja_netto()  # funkcji salary nie sa sie wywolac bo jest prywatna i przez to niedostepna dla uzytkownika. Dostaniemy blad
+emp.__pensja_netto()  # funkcji salary nie da sie wywolac bo jest prywatna i przez to niedostepna dla uzytkownika. Dostaniemy blad
 emp._employee__pensja_netto()# ale mozna ja wywalc posrednio taka nazwa: podkreslnik+nazwa_klasy_podkreslnik+nazwa_prywanej_funkcji
 
 
@@ -150,7 +150,7 @@ emp._employee__pensja_netto()# ale mozna ja wywalc posrednio taka nazwa: podkres
 
 ## Metody statyczne
 
-Sluza jak elementy wykonywane 'na boku' bez wsolywania na atrybuty klasy i jej instancji
+Sluza jak elementy wykonywane 'na boku' bez wplywania na atrybuty klasy i jej instancji
 ```{python}
 
 
@@ -234,7 +234,7 @@ x.say_goodbye()
 
 ### przeciazanie metod
 
-Przeciazanie metod. Polega na tym ze co prawda podklasa dziewczyny nazwe funkcji po nadklasie, ale niekoniecznie cialo tej funkcji. Czyli w podklasie funkcja moze robic cos innego nic w glownej klasie.
+Przeciazanie metod. Polega na tym ze co prawda podklasa dziedziczy nazwe funkcji po nadklasie, ale niekoniecznie cialo tej funkcji. Czyli w podklasie funkcja moze robic cos innego nic w glownej klasie.
 ```{python}
 
 # tworze klase 'robot'

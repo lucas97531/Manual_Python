@@ -248,6 +248,7 @@ zmiana-skrotow
 podpinanie-do-vevn
 ustawienia-globalne-a-ustawienia-projektu
 uzyteczne-skroty
+srodowiska-w-linuxie
 debuggowanie
 rstudio
 installation-2

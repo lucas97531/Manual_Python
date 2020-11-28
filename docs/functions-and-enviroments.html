@@ -24,7 +24,7 @@
 <meta name="author" content="Łukasz Muszyński" />
 
 
-<meta name="date" content="2020-11-27" />
+<meta name="date" content="2020-11-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -440,7 +440,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="21.3.4" data-path="ide.html"><a href="ide.html#podpinanie-do-vevn"><i class="fa fa-check"></i><b>21.3.4</b> Podpinanie do vevn</a></li>
 <li class="chapter" data-level="21.3.5" data-path="ide.html"><a href="ide.html#ustawienia-globalne-a-ustawienia-projektu"><i class="fa fa-check"></i><b>21.3.5</b> Ustawienia globalne a ustawienia projektu</a></li>
 <li class="chapter" data-level="21.3.6" data-path="ide.html"><a href="ide.html#uzyteczne-skroty"><i class="fa fa-check"></i><b>21.3.6</b> Uzyteczne skroty</a></li>
-<li class="chapter" data-level="21.3.7" data-path="ide.html"><a href="ide.html#debuggowanie"><i class="fa fa-check"></i><b>21.3.7</b> debuggowanie</a></li>
+<li class="chapter" data-level="21.3.7" data-path="ide.html"><a href="ide.html#srodowiska-w-linuxie"><i class="fa fa-check"></i><b>21.3.7</b> Srodowiska w linuxie:</a></li>
+<li class="chapter" data-level="21.3.8" data-path="ide.html"><a href="ide.html#debuggowanie"><i class="fa fa-check"></i><b>21.3.8</b> debuggowanie</a></li>
 </ul></li>
 <li class="chapter" data-level="21.4" data-path="ide.html"><a href="ide.html#rstudio"><i class="fa fa-check"></i><b>21.4</b> Rstudio</a></li>
 </ul></li>
@@ -474,7 +475,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="podstawowa-składnia" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> podstawowa składnia</h2>
 <p>rozna ilosc argumentow</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="functions-and-enviroments.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># prosta funkcja z dwoma argumentami</span></span>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="functions-and-enviroments.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#(1) prosta funkcja z dwoma argumentami</span></span>
 <span id="cb18-2"><a href="functions-and-enviroments.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> funkcja_1(a, b):</span>
 <span id="cb18-3"><a href="functions-and-enviroments.html#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span>(a<span class="op">*</span>b) </span>
 <span id="cb18-4"><a href="functions-and-enviroments.html#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -482,7 +483,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb18-6"><a href="functions-and-enviroments.html#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-7"><a href="functions-and-enviroments.html#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-8"><a href="functions-and-enviroments.html#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-9"><a href="functions-and-enviroments.html#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># funkcja bez argumentow</span></span>
+<span id="cb18-9"><a href="functions-and-enviroments.html#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">#(2) funkcja bez argumentow</span></span>
 <span id="cb18-10"><a href="functions-and-enviroments.html#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> funkcja_2():</span>
 <span id="cb18-11"><a href="functions-and-enviroments.html#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span>(random.randint(<span class="dv">1</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>) <span class="co"># liczba losowa z przedzialu od 5 do 105</span></span>
 <span id="cb18-12"><a href="functions-and-enviroments.html#cb18-12" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -491,7 +492,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb18-15"><a href="functions-and-enviroments.html#cb18-15" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb18-16"><a href="functions-and-enviroments.html#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-17"><a href="functions-and-enviroments.html#cb18-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-18"><a href="functions-and-enviroments.html#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="co"># funkcja z nieokreslono ilosci argumentow. Zakladamy ze argumenty NIE MUSZA byc ponazywane</span></span>
+<span id="cb18-18"><a href="functions-and-enviroments.html#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="co">#(3) funkcja z nieokreslono ilosci argumentow. Zakladamy ze argumenty NIE MUSZA byc ponazywane</span></span>
 <span id="cb18-19"><a href="functions-and-enviroments.html#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-20"><a href="functions-and-enviroments.html#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_var_args(f_arg, <span class="op">*</span>argv): <span class="co"># Pierwszy argument jest normalny argumentem.  Pod argument z gwiazdka bedzie mozna podstawic dowolna ilosc argumentow bez podawania ich nazwy</span></span>
 <span id="cb18-21"><a href="functions-and-enviroments.html#cb18-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;first normal arg:&quot;</span>, f_arg) <span class="co"># pierwszy argument normalnie zadeklarowany z definicji funkcji</span></span>
@@ -505,7 +506,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb18-29"><a href="functions-and-enviroments.html#cb18-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-30"><a href="functions-and-enviroments.html#cb18-30" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-31"><a href="functions-and-enviroments.html#cb18-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-32"><a href="functions-and-enviroments.html#cb18-32" aria-hidden="true" tabindex="-1"></a><span class="co"># funkcja z nieokreslono iloscia argumentow. Zakladamy ze argumenty MUSZA byc ponazywane</span></span>
+<span id="cb18-32"><a href="functions-and-enviroments.html#cb18-32" aria-hidden="true" tabindex="-1"></a><span class="co">#(4) funkcja z nieokreslono iloscia argumentow. Zakladamy ze argumenty MUSZA byc ponazywane</span></span>
 <span id="cb18-33"><a href="functions-and-enviroments.html#cb18-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-34"><a href="functions-and-enviroments.html#cb18-34" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> greet_me(<span class="op">**</span>kwargs):</span>
 <span id="cb18-35"><a href="functions-and-enviroments.html#cb18-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> key, value <span class="kw">in</span> kwargs.items():</span>
@@ -705,62 +706,60 @@ Przez referencje przekazuje sie obiektu typu ‘mutable,’ czyli takie obiekty 
 </div>
 <div id="zakres-istnienia-zmiennych-scoping-rules" class="section level2" number="3.7">
 <h2><span class="header-section-number">3.7</span> zakres istnienia zmiennych (scoping rules)</h2>
-<p>Scope resolution via LEGB rule :
+<p>Scope resolution via LEGB rule :<br>
 In Python, the LEGB rule is used to decide the order in which the namespaces are to be searched for scope resolution.
 The scopes are listed below in terms of hierarchy(highest to lowest/narrowest to broadest):</p>
-<p>Local(L): Defined inside function/class
-Enclosed(E): Defined inside enclosing functions(Nested function concept)
-Global(G): Defined at the uppermost level
-Built-in(B): Reserved names in Python builtin modules</p>
-<hr />
-<p>|Buil-in |
-| ______________________________ |
-| | Global | |
-| | __________________ | |
-| | | Enclosed | | |
-| | | ________ | | |
-| | | | | | | |
-| | | | Local | | | |
-| | | |_______| | | |
-| | | | | |
-| | |__________________| | |
-| |_____________________________ |
-| |
-______________________________________</p>
-<p>local and global scope</p>
+<p>-<b>Local(L)</b>: Defined inside function/class
+-<b>Enclosed(E)</b>: Defined inside enclosing functions(Nested function concept)
+-<b>Global(G)</b>: Defined at the uppermost level
+-<b>Built-in(B)</b>: Reserved names in Python builtin modules</p>
+<p>Buil-in &gt; Global &gt; Enclosed &gt; Local</p>
+<!-- ______________________________________ -->
+<!-- |Buil-in                              | -->
+<!-- |    ______________________________   | -->
+<!-- |    |    Global                  |   | -->
+<!-- |    |       __________________   |   | -->
+<!-- |    |      |  Enclosed        |  |   | -->
+<!-- |    |      |      ________    |  |   | -->
+<!-- |    |      |     |       |    |  |   | -->
+<!-- |    |      |     | Local |    |  |   | -->
+<!-- |    |      |     |_______|    |  |   | -->
+<!-- |    |      |                  |  |   | -->
+<!-- |    |      |__________________|  |   | -->
+<!-- |    |_____________________________   | -->
+<!-- |                                     | -->
+<!-- ______________________________________ -->
+<p>local vs global scope</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="functions-and-enviroments.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Global Scope </span></span>
 <span id="cb28-2"><a href="functions-and-enviroments.html#cb28-2" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb28-3"><a href="functions-and-enviroments.html#cb28-3" aria-hidden="true" tabindex="-1"></a>pi <span class="op">=</span> <span class="st">&#39;global pi variable&#39;</span></span>
-<span id="cb28-4"><a href="functions-and-enviroments.html#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> inner(): </span>
-<span id="cb28-5"><a href="functions-and-enviroments.html#cb28-5" aria-hidden="true" tabindex="-1"></a>    pi <span class="op">=</span> <span class="st">&#39;inner pi variable&#39;</span> <span class="co"># zdefiniowanie &#39;pi&#39; lokalnie w funkcji</span></span>
-<span id="cb28-6"><a href="functions-and-enviroments.html#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(pi) </span>
-<span id="cb28-7"><a href="functions-and-enviroments.html#cb28-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb28-8"><a href="functions-and-enviroments.html#cb28-8" aria-hidden="true" tabindex="-1"></a>inner()  <span class="co"># zwracam &#39;pi&#39; z wnetrza funkcji (local scope)</span></span>
-<span id="cb28-9"><a href="functions-and-enviroments.html#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pi)  <span class="co"># zwracam &#39;pi&#39; z globalnej przestrzni (global scope)</span></span>
-<span id="cb28-10"><a href="functions-and-enviroments.html#cb28-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-11"><a href="functions-and-enviroments.html#cb28-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-12"><a href="functions-and-enviroments.html#cb28-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-13"><a href="functions-and-enviroments.html#cb28-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-14"><a href="functions-and-enviroments.html#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="co"># UWAGA: tutaj &#39;pi&#39; nie jest zdefinionwane w funkcji. Co wtedy????</span></span>
-<span id="cb28-15"><a href="functions-and-enviroments.html#cb28-15" aria-hidden="true" tabindex="-1"></a>pi <span class="op">=</span> <span class="st">&#39;global pi variable&#39;</span></span>
-<span id="cb28-16"><a href="functions-and-enviroments.html#cb28-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> inner_bez_pi(): </span>
-<span id="cb28-17"><a href="functions-and-enviroments.html#cb28-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(pi) </span>
-<span id="cb28-18"><a href="functions-and-enviroments.html#cb28-18" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb28-19"><a href="functions-and-enviroments.html#cb28-19" aria-hidden="true" tabindex="-1"></a>inner_bez_pi()  <span class="co"># funkcja szuka &#39;pi&#39; poza swoją przestrzenia. Znajduje ja w globalnej przestrzeni</span></span></code></pre></div>
-<p>Local, Enclosed and Global Scopes</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="functions-and-enviroments.html#cb29-1" aria-hidden="true" tabindex="-1"></a>pi <span class="op">=</span> <span class="st">&#39;global pi variable&#39;</span></span>
-<span id="cb29-2"><a href="functions-and-enviroments.html#cb29-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb29-3"><a href="functions-and-enviroments.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> outer(): </span>
-<span id="cb29-4"><a href="functions-and-enviroments.html#cb29-4" aria-hidden="true" tabindex="-1"></a>    pi <span class="op">=</span> <span class="st">&#39;outer pi variable&#39;</span></span>
-<span id="cb29-5"><a href="functions-and-enviroments.html#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> inner(): </span>
-<span id="cb29-6"><a href="functions-and-enviroments.html#cb29-6" aria-hidden="true" tabindex="-1"></a>        <span class="co"># pi = &#39;inner pi variable&#39; </span></span>
-<span id="cb29-7"><a href="functions-and-enviroments.html#cb29-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">nonlocal</span> pi </span>
-<span id="cb29-8"><a href="functions-and-enviroments.html#cb29-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(pi) </span>
-<span id="cb29-9"><a href="functions-and-enviroments.html#cb29-9" aria-hidden="true" tabindex="-1"></a>    inner() </span>
-<span id="cb29-10"><a href="functions-and-enviroments.html#cb29-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb29-11"><a href="functions-and-enviroments.html#cb29-11" aria-hidden="true" tabindex="-1"></a>outer() <span class="co"># &#39;pi&#39; jest zwracane z kodu w funkcji &#39;outer&#39; znajdujacego sie  na zewnatrz funkcji &#39;inner&#39; (enclosed scope)</span></span>
-<span id="cb29-12"><a href="functions-and-enviroments.html#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pi) <span class="co"># zwracam &#39;pi&#39; z globalnej przestrzni (global scope)</span></span></code></pre></div>
-<p>Local,Enclosed,Global and Built-in Scopes</p>
+<span id="cb28-4"><a href="functions-and-enviroments.html#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="functions-and-enviroments.html#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> inner(): </span>
+<span id="cb28-6"><a href="functions-and-enviroments.html#cb28-6" aria-hidden="true" tabindex="-1"></a>    pi <span class="op">=</span> <span class="st">&#39;inner pi variable&#39;</span> <span class="co"># zdefiniowanie &#39;pi&#39; lokalnie w funkcji</span></span>
+<span id="cb28-7"><a href="functions-and-enviroments.html#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(pi) </span>
+<span id="cb28-8"><a href="functions-and-enviroments.html#cb28-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb28-9"><a href="functions-and-enviroments.html#cb28-9" aria-hidden="true" tabindex="-1"></a>inner()  <span class="co"># zwracam &#39;pi&#39; z wnetrza funkcji (local scope)</span></span>
+<span id="cb28-10"><a href="functions-and-enviroments.html#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pi)  <span class="co"># zwracam &#39;pi&#39; z globalnej przestrzni (global scope)</span></span></code></pre></div>
+<p>Enclosed scope</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="functions-and-enviroments.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb29-2"><a href="functions-and-enviroments.html#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="functions-and-enviroments.html#cb29-3" aria-hidden="true" tabindex="-1"></a>pi <span class="op">=</span> <span class="st">&#39;global pi variable&#39;</span></span>
+<span id="cb29-4"><a href="functions-and-enviroments.html#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="functions-and-enviroments.html#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="functions-and-enviroments.html#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> outer():</span>
+<span id="cb29-7"><a href="functions-and-enviroments.html#cb29-7" aria-hidden="true" tabindex="-1"></a>    pi <span class="op">=</span> <span class="st">&quot;John&quot;</span></span>
+<span id="cb29-8"><a href="functions-and-enviroments.html#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-9"><a href="functions-and-enviroments.html#cb29-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> inner():</span>
+<span id="cb29-10"><a href="functions-and-enviroments.html#cb29-10" aria-hidden="true" tabindex="-1"></a>        <span class="kw">nonlocal</span> x</span>
+<span id="cb29-11"><a href="functions-and-enviroments.html#cb29-11" aria-hidden="true" tabindex="-1"></a>        pi <span class="op">=</span> <span class="st">&quot;hello&quot;</span></span>
+<span id="cb29-12"><a href="functions-and-enviroments.html#cb29-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-13"><a href="functions-and-enviroments.html#cb29-13" aria-hidden="true" tabindex="-1"></a>    inner()</span>
+<span id="cb29-14"><a href="functions-and-enviroments.html#cb29-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pi</span>
+<span id="cb29-15"><a href="functions-and-enviroments.html#cb29-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-16"><a href="functions-and-enviroments.html#cb29-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-17"><a href="functions-and-enviroments.html#cb29-17" aria-hidden="true" tabindex="-1"></a>outer() <span class="co"># zwroci nam &#39;hello&#39; bo modyfikacjia w f:inner wykonana na zmiennej nielokalnej i tym samym napisuje zmienna &#39;pi&#39; w f:outer (enclosed scope)</span></span>
+<span id="cb29-18"><a href="functions-and-enviroments.html#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pi)  <span class="co"># zwracam &#39;pi&#39; z globalnej przestrzni (global scope)</span></span></code></pre></div>
+<p>Built-in scopes</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="functions-and-enviroments.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Built-in Scope </span></span>
 <span id="cb30-2"><a href="functions-and-enviroments.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> pi </span>
 <span id="cb30-3"><a href="functions-and-enviroments.html#cb30-3" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -783,7 +782,7 @@ ______________________________________</p>
 <span id="cb31-6"><a href="functions-and-enviroments.html#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-7"><a href="functions-and-enviroments.html#cb31-7" aria-hidden="true" tabindex="-1"></a>a()</span>
 <span id="cb31-8"><a href="functions-and-enviroments.html#cb31-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-9"><a href="functions-and-enviroments.html#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(foo) <span class="co"># foo przyjmie wartosc &#39;A&#39; mimo ze napisanie bylo w wykonanie w funkcji.</span></span></code></pre></div>
+<span id="cb31-9"><a href="functions-and-enviroments.html#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(foo) <span class="co"># foo przyjmie wartosc &#39;A&#39; mimo ze nadpisanie bylo wykonanie w funkcji.</span></span></code></pre></div>
 </div>
 <div id="dekoratory" class="section level2" number="3.8">
 <h2><span class="header-section-number">3.8</span> dekoratory</h2>
@@ -814,7 +813,7 @@ ______________________________________</p>
 </div>
 <div id="przydatne" class="section level2" number="3.9">
 <h2><span class="header-section-number">3.9</span> Przydatne</h2>
-<p>Wilokrotne wywolanie tej samej funkcji</p>
+<p>Wielokrotne wywolanie tej samej funkcji</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="functions-and-enviroments.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random <span class="im">as</span> rd</span>
 <span id="cb33-2"><a href="functions-and-enviroments.html#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-3"><a href="functions-and-enviroments.html#cb33-3" aria-hidden="true" tabindex="-1"></a>[rd.uniform(a<span class="op">=</span><span class="dv">1</span>, b<span class="op">=</span><span class="dv">2</span>) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>)] <span class="co"># zaroc uwagne na &#39;_&#39; w skladni. </span></span></code></pre></div>

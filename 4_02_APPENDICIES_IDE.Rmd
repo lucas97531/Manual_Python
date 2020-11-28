@@ -164,7 +164,11 @@ Ustawienia projektu są podpunktem w ustawieniach globalnych: File->settings->Pr
 
 
 ### Uzyteczne skroty
-Ctrl+P - podposiada argumenty w funkcji
+Ctrl+P - jakie argumenty ma funkcji (wywolujemy kiedy kursor jest w nawiasach)
+Ctrl+Shift+I - kod funkcji
+
+### Srodowiska w linuxie:
+
 
 
 ### debuggowanie

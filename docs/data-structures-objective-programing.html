@@ -24,7 +24,7 @@
 <meta name="author" content="Łukasz Muszyński" />
 
 
-<meta name="date" content="2020-11-27" />
+<meta name="date" content="2020-11-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -440,7 +440,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="21.3.4" data-path="ide.html"><a href="ide.html#podpinanie-do-vevn"><i class="fa fa-check"></i><b>21.3.4</b> Podpinanie do vevn</a></li>
 <li class="chapter" data-level="21.3.5" data-path="ide.html"><a href="ide.html#ustawienia-globalne-a-ustawienia-projektu"><i class="fa fa-check"></i><b>21.3.5</b> Ustawienia globalne a ustawienia projektu</a></li>
 <li class="chapter" data-level="21.3.6" data-path="ide.html"><a href="ide.html#uzyteczne-skroty"><i class="fa fa-check"></i><b>21.3.6</b> Uzyteczne skroty</a></li>
-<li class="chapter" data-level="21.3.7" data-path="ide.html"><a href="ide.html#debuggowanie"><i class="fa fa-check"></i><b>21.3.7</b> debuggowanie</a></li>
+<li class="chapter" data-level="21.3.7" data-path="ide.html"><a href="ide.html#srodowiska-w-linuxie"><i class="fa fa-check"></i><b>21.3.7</b> Srodowiska w linuxie:</a></li>
+<li class="chapter" data-level="21.3.8" data-path="ide.html"><a href="ide.html#debuggowanie"><i class="fa fa-check"></i><b>21.3.8</b> debuggowanie</a></li>
 </ul></li>
 <li class="chapter" data-level="21.4" data-path="ide.html"><a href="ide.html#rstudio"><i class="fa fa-check"></i><b>21.4</b> Rstudio</a></li>
 </ul></li>
@@ -486,7 +487,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Atrubuty (zmienna zwiazane z klasami i obiektami) dzieli na
 - zwiazane z klasa. Beda je mialy wszystkie obiekty danej klasy
 - zwiazana z obiektami. Moga sie roznic pomiedzy obiektami</p>
-<p>Metody (czyli funkcje zwiazane z klasami i obiektami) rowniz dzielimy na
+<p>Metody (czyli funkcje zwiazane z klasami i obiektami) rowniez dzielimy na
 - zwiazane z klasa. Operacje wykonywane przez te metody beda mialy wplyw na wszystkie instancje klasy
 - zwiazana z obiektami. Operacje wykonywane przez te metody beda mialy wplyw tylko na instancja na ktorych jest wykonywana funkcja</p>
 </div>
@@ -494,7 +495,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">9.2</span> Atrybuty</h2>
 <div class="sourceCode" id="cb172"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb172-1"><a href="data-structures-objective-programing.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="co">#(1) znowu tworzymy klase </span></span>
 <span id="cb172-2"><a href="data-structures-objective-programing.html#cb172-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> pies:</span>
-<span id="cb172-3"><a href="data-structures-objective-programing.html#cb172-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># atrybut &#39;rodzaj&#39; bedzie dotyczyl wszystkich instancji tej klasy. Jest to atrybut dla calej klasy</span></span>
+<span id="cb172-3"><a href="data-structures-objective-programing.html#cb172-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># atrybut &#39;rodzaj&#39; bedzie dotyczyl wszystkich instancji tej klasy. Jest to atrybut dla CALEJ KLASY</span></span>
 <span id="cb172-4"><a href="data-structures-objective-programing.html#cb172-4" aria-hidden="true" tabindex="-1"></a>  rodzaj <span class="op">=</span> <span class="st">&#39;ssak&#39;</span></span>
 <span id="cb172-5"><a href="data-structures-objective-programing.html#cb172-5" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb172-6"><a href="data-structures-objective-programing.html#cb172-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># zeby stworzyc atrybuty ktorych wartosci moga sie roznic pomiedzy instancjami tworze funkcje inicjalizujaca (konstruktor), ktora bedzie automatycznie wywolywana przy tworzeniu obiektu</span></span>
@@ -527,7 +528,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb173-14"><a href="data-structures-objective-programing.html#cb173-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>(<span class="va">self</span>.wiek_psa <span class="op">*</span> <span class="dv">7</span>)</span>
 <span id="cb173-15"><a href="data-structures-objective-programing.html#cb173-15" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb173-16"><a href="data-structures-objective-programing.html#cb173-16" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb173-17"><a href="data-structures-objective-programing.html#cb173-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># funkcja dla klasu</span></span>
+<span id="cb173-17"><a href="data-structures-objective-programing.html#cb173-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># funkcja dla klasy</span></span>
 <span id="cb173-18"><a href="data-structures-objective-programing.html#cb173-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">@classmethod</span>  <span class="co"># musze uzyc specjalnego dekoratora zeby poinformowac ze to funkcja dla calej klasy (o dekoratorze jest przyklad w pliku &quot;1_02_PROGRAMING_functions_and_environments&quot;)</span></span>
 <span id="cb173-19"><a href="data-structures-objective-programing.html#cb173-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> zmiana_wielkosci_litery(cls, czy_na_male): <span class="co"># funkcje klasy maja &#39;cls&#39; jako pierwszy argument zeby funkcja mogla sie odnosic do klasy</span></span>
 <span id="cb173-20"><a href="data-structures-objective-programing.html#cb173-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> czy_na_male:</span>
@@ -563,11 +564,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb173-50"><a href="data-structures-objective-programing.html#cb173-50" aria-hidden="true" tabindex="-1"></a>pies_1.zmiana_wielkosci_litery(czy_na_male<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb173-51"><a href="data-structures-objective-programing.html#cb173-51" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb173-52"><a href="data-structures-objective-programing.html#cb173-52" aria-hidden="true" tabindex="-1"></a>pies_1.rodzaj()</span>
-<span id="cb173-53"><a href="data-structures-objective-programing.html#cb173-53" aria-hidden="true" tabindex="-1"></a>pies_2.rodzaj() <span class="co">#UWAGA!!!. Mimo ze wiekosc liter dla globalnego atrybutu zmienilismy tylko dla pies_1 to zmiana zaszla tak jak chcielismy dla calej klasy czyli dla wszystkich instancji. Dlatego dla pies_2 tez jest pisany wielka litera</span></span></code></pre></div>
+<span id="cb173-53"><a href="data-structures-objective-programing.html#cb173-53" aria-hidden="true" tabindex="-1"></a>pies_2.rodzaj() <span class="co">#UWAGA!!!. Mimo ze wiekosc liter dla globalnego atrybutu zmienilismy tylko dla pies_1 to zmiana zaszla tak jak chcielismy, dla calej klasy czyli dla wszystkich instancji. Dlatego dla pies_2 tez jest pisany wielka litera</span></span></code></pre></div>
 </div>
 <div id="prywatne-atrybuty-i-metody" class="section level2" number="9.4">
 <h2><span class="header-section-number">9.4</span> Prywatne atrybuty i metody</h2>
-<p>W programowaniu obiektowym elementy prywatne (atrybuty, funkcje) robi sie dla wewnetrznego uzytku obiektu. Sa to np. jakies pomocnicze funkcje ktorych uzytkownik nie powinien widziec, a ktorych rola jest np. wspieranie funkcji ktore sa z kolei wywolywane przez przez uzytownika (czyli funkcji publicznych. Dla scislosci wspomne ze funkcje w obiektach klas nazywa sie metodami.</p>
+<p>W programowaniu obiektowym elementy prywatne (atrybuty, funkcje) robi sie dla wewnetrznego uzytku obiektu. Sa to np. jakies pomocnicze funkcje ktorych uzytkownik nie powinien widziec, a ktorych rola jest np. wspieranie funkcji ktore sa z kolei wywolywane przez uzytownika (czyli funkcji publicznych. Dla scislosci wspomne ze funkcje w obiektach klas nazywa sie metodami.</p>
 <p>W Pythonie nazwy elementow prywatnych zaczynaja sie od podwojnego podkreslenia ’__’.</p>
 <div class="sourceCode" id="cb174"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb174-1"><a href="data-structures-objective-programing.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> employee:</span>
 <span id="cb174-2"><a href="data-structures-objective-programing.html#cb174-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, sal):</span>
@@ -579,15 +580,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb174-8"><a href="data-structures-objective-programing.html#cb174-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb174-9"><a href="data-structures-objective-programing.html#cb174-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb174-10"><a href="data-structures-objective-programing.html#cb174-10" aria-hidden="true" tabindex="-1"></a>emp <span class="op">=</span> employee(name <span class="op">=</span> <span class="st">&#39;lukasz&#39;</span>, sal <span class="op">=</span> <span class="dv">5000</span>)</span>
-<span id="cb174-11"><a href="data-structures-objective-programing.html#cb174-11" aria-hidden="true" tabindex="-1"></a>emp.__salary <span class="co"># atrybutu salary nie sa sie wywolac bo jest prywatny i przez to niedostepny dla uzytkownika. Dostaniemy blad</span></span>
+<span id="cb174-11"><a href="data-structures-objective-programing.html#cb174-11" aria-hidden="true" tabindex="-1"></a>emp.__salary <span class="co"># atrybutu salary nie da sie wywolac bo jest prywatny i przez to niedostepny dla uzytkownika. Dostaniemy blad</span></span>
 <span id="cb174-12"><a href="data-structures-objective-programing.html#cb174-12" aria-hidden="true" tabindex="-1"></a>emp._employee__salary <span class="co"># ale mozna go wywalc posrednio taka nazwa: podkreslnik+nazwa_klasy_podkreslnik+nazwa_prywanego_atrybutu</span></span>
 <span id="cb174-13"><a href="data-structures-objective-programing.html#cb174-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb174-14"><a href="data-structures-objective-programing.html#cb174-14" aria-hidden="true" tabindex="-1"></a>emp.__pensja_netto()  <span class="co"># funkcji salary nie sa sie wywolac bo jest prywatna i przez to niedostepna dla uzytkownika. Dostaniemy blad</span></span>
+<span id="cb174-14"><a href="data-structures-objective-programing.html#cb174-14" aria-hidden="true" tabindex="-1"></a>emp.__pensja_netto()  <span class="co"># funkcji salary nie da sie wywolac bo jest prywatna i przez to niedostepna dla uzytkownika. Dostaniemy blad</span></span>
 <span id="cb174-15"><a href="data-structures-objective-programing.html#cb174-15" aria-hidden="true" tabindex="-1"></a>emp._employee__pensja_netto()<span class="co"># ale mozna ja wywalc posrednio taka nazwa: podkreslnik+nazwa_klasy_podkreslnik+nazwa_prywanej_funkcji</span></span></code></pre></div>
 </div>
 <div id="metody-statyczne" class="section level2" number="9.5">
 <h2><span class="header-section-number">9.5</span> Metody statyczne</h2>
-<p>Sluza jak elementy wykonywane ‘na boku’ bez wsolywania na atrybuty klasy i jej instancji</p>
+<p>Sluza jak elementy wykonywane ‘na boku’ bez wplywania na atrybuty klasy i jej instancji</p>
 <div class="sourceCode" id="cb175"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb175-1"><a href="data-structures-objective-programing.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python program to demonstrate  </span></span>
 <span id="cb175-2"><a href="data-structures-objective-programing.html#cb175-2" aria-hidden="true" tabindex="-1"></a><span class="co"># use of class method and static method. </span></span>
 <span id="cb175-3"><a href="data-structures-objective-programing.html#cb175-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> date </span>
@@ -653,7 +654,7 @@ Podklasy dziedzicza cechy nadklasy, ale moga dodawac jakies swoje kolejne elemen
 </div>
 <div id="przeciazanie-metod" class="section level3" number="9.6.2">
 <h3><span class="header-section-number">9.6.2</span> przeciazanie metod</h3>
-<p>Przeciazanie metod. Polega na tym ze co prawda podklasa dziewczyny nazwe funkcji po nadklasie, ale niekoniecznie cialo tej funkcji. Czyli w podklasie funkcja moze robic cos innego nic w glownej klasie.</p>
+<p>Przeciazanie metod. Polega na tym ze co prawda podklasa dziedziczy nazwe funkcji po nadklasie, ale niekoniecznie cialo tej funkcji. Czyli w podklasie funkcja moze robic cos innego nic w glownej klasie.</p>
 <div class="sourceCode" id="cb177"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb177-1"><a href="data-structures-objective-programing.html#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tworze klase &#39;robot&#39;</span></span>
 <span id="cb177-2"><a href="data-structures-objective-programing.html#cb177-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Robot:</span>
 <span id="cb177-3"><a href="data-structures-objective-programing.html#cb177-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name):</span>

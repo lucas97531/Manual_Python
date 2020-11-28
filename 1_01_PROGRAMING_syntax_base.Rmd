@@ -255,8 +255,8 @@ for x in range(6):
 fruits = ["apple", "banana", "cherry"]
 for x in fruits:
   print(x) 
-if x == "banana": # w momencie kiedy petla dojdzie to 'banana' zostaje przerwana
-  break
+  if x == "banana": # w momencie kiedy petla dojdzie to 'banana' zostaje przerwana
+    break
 
 
 # uzycie 'continue' - przeskoczenie iteracji
@@ -311,25 +311,25 @@ for (x, y) in itertools.zip_longest(a, b):
 i = 1
 while i < 6: # wyswietlaj zmienna 'i' tak długo jak jest mniejsza od 6. 
   print(i)
-i += 1 # zwiekszanie wartosci zmiennej 'i' o 1 w interacji
+  i += 1 # zwiekszanie wartosci zmiennej 'i' o 1 w interacji
 
 
 # przerwanie petli - 'break'
 i = 1
 while i < 6:
   print(i)
-if i == 3:
-  break # jezeli i == 3 przerwij wykonywanie petli. 
-i += 1
+  if i == 3:
+    break # jezeli i == 3 przerwij wykonywanie petli. 
+  i += 1
 
 
 # continue - przeskoczenie iteracji
 i = 0
 while i < 6:
   i += 1 
-if i == 3:
-  continue # jezeli i==3 zostanie przerwana biezaca iteracja ('3' nie bedzie wydrukowane przez 'print') i nastąpi przeskok do kolejnej iteracji
-print(i)
+  if i == 3:
+    continue # jezeli i==3 zostanie przerwana biezaca iteracja ('3' nie bedzie wydrukowane przez 'print') i nastąpi przeskok do kolejnej iteracji
+  print(i)
 
 
 ```
@@ -394,10 +394,10 @@ ys = list(xs)  # Make a shallow copy
 
 #plytnosc kopii oznacze ze 'ys' sklada sie tak naprawde ze wskaznikow do elementow 'xs':
 # zmodyfikujmy jakis element w 'xs'
-xs[0][1] = 'X' # w pierwszym elementcie zamienilem drugi podelement na wartosc 'X'
+xs[0][1] = 'X' # w pierwszym elemencie zamienilem drugi podelement na wartosc 'X'
 
 # wyswietlmy teraz 'ys'
-ys # tutaj tez dostalismy 'X' - jest to dowod na to ze 'ys' nie jest niezalezna zmienna, a tylko lista wskanikow do 'xs'
+ys # tutaj tez dostalismy 'X' - jest to dowod na to ze 'ys' nie jest niezalezna zmienna, a tylko lista wskaznikow do 'xs'
 
 # ale jezeli do 'xs' dolozymy calkowicie nowy element to 'ys' nie bedzie mial dodanego automatycznie wskaznika na niego:
 xs.append(['a','b','c'])
@@ -451,17 +451,17 @@ Każda funkcja ktora ma w sobie wyrazenie 'yield' jest generatorem. Na przykladz
 # W poniższe funkcji zamiast polecenia 'return' umiescimy 'yield' 
 def my_gen():
   n = 1
-print('This is printed first')
-# Generator function contains yield statements
-yield n
-
-n += 1
-print('This is printed second')
-yield n
-
-n += 1
-print('This is printed at last')
-yield n
+  print('This is printed first')
+  # Generator function contains yield statements
+  yield n
+  
+  n += 1
+  print('This is printed second')
+  yield n
+  
+  n += 1
+  print('This is printed at last')
+  yield n
 
 
 
