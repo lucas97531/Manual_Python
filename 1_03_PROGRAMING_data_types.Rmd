@@ -572,6 +572,16 @@ bool(re.search('a', string='abc'), flag = re.IGNORECASE)
 ```
 
 
+Zamiana slashy (r"\")
+```{python}
+
+# 'r' na poczatku umozliwa nam podawanie sciezek z normalnymi slashami
+r'C:\Program Files\RStudio\bin
+
+```
+
+
+
 ## daty
 
 UWAGA: o pracy z datami w kontekscie DataFrames jest meteriał w pliku 1_05_PROGRAMING_data_structures-Pandas"

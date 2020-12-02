@@ -121,7 +121,7 @@ dir(z)
 sys.getsizeof(z) # ile w bajtach zajmuje lista w pamieci
 sys.getsizeof(z)/1e+6 # ile w megabajtach (decimal) zajmuje lista w pamieci
 sys.getsizeof(z)/1048576 # ile w megabajtach (binary) zajmuje lista w pamieci
-
+print('{:10.10f}'.format(sys.getsizeof(z)/1e+6)) # wyswietlenie w formacie nienaukowym
 
 # unikalne ID obiektu
 id(z)

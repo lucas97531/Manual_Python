@@ -166,6 +166,8 @@ Ustawienia projektu są podpunktem w ustawieniach globalnych: File->settings->Pr
 ### Uzyteczne skroty
 Ctrl+P - jakie argumenty ma funkcji (wywolujemy kiedy kursor jest w nawiasach)
 Ctrl+Shift+I - kod funkcji
+Ctrl+q - szybkie informacje na temat funkcji
+
 
 ### Srodowiska w linuxie:
 

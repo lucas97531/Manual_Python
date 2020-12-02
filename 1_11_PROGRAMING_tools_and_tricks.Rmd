@@ -82,7 +82,15 @@ Usuwanie pliku lub katalogu
 # kasowanie katalogu
 os.rmdir(path)
 
+
+# katowanie katalogu z wszystkimi podkatalogami
+import shutil
+shutil.rmtree(path)
+
 ```
+
+
+
 
 
 
@@ -92,6 +100,9 @@ Przenoszenie pliku lub katalogu
 # przenoszenie pliku/katalogu (https://www.techbeamers.com/python-copy-file/)
 import shutil
 shutil.copy(file, descination)
+
+# kopiowanie z proba zachowania metadanych pliku
+shutil.copy2(file, descination)
 
 ```
 
@@ -131,7 +142,7 @@ pip install --upgrade pillow
 
 # instalacja pakietu 'pillow', ale o konkretnym numerze wersji
 pip install pillow==5.2.0
-pip install pillow>=5.1.0,<5.3.0 # mozemy tez uzywac znakow nieroznowci przy podawaniu wersji
+pip install pillow>=5.1.0,<5.3.0 # mozemy tez uzywac znakow nierownosci przy podawaniu wersji
 
 
 # wymuszenie reinstalacji pakietu 'pillow'
@@ -141,18 +152,18 @@ pip install --upgrade --force-reinstall pillow
 # wymuszenie reinstalacji pakietu 'pillow' ale bez wymuszania reinstalacja pakietow ktore sa zalezne
 pip install --upgrade --no-deps --force-reinstall <packagename>
 
-# instalacja pakietow ktore sa naliscie w pliku teksowym 
+# instalacja pakietow ktore sa na liscie w pliku teksowym 'requirements.txt'
 pip install -r requirements.txt
 
 
-# wyszukanie okreslownych pakietow w srodowisku w ktorym pracujemy
+# wyszukanie informacji o okreslonym pakiecie w srodowisku w ktorym pracujemy
 pip search pandas
 
 # odinstalowanie pakietu 'pandas'
 pip uninstall pandas
 
 
-# uruchomienie skryptu pythonowego 'main_program' w konsoli (wiecej o uruchamianu kod w innych czesciach manuala)
+# uruchomienie skryptu pythonowego 'main_program' w konsoli (wiecej o uruchamianu kod w konsoli w innych czesciach manuala)
 python main_program.py
 
 
@@ -161,7 +172,8 @@ python -c "import sys; print('rob')"
 
 
 # zrzucenie do pliku 'requirements.txt' zainstalowanych pakietow
-pip freeze > requirements.txt
+pip freeze requirements.txt
+pip freeze > requirements.txt # nie wiem co daje znak '>' ale taka jest oficjalna skladnia.
 
 ```
 
@@ -202,6 +214,13 @@ else:
 os.system(r"\\spplfapcen02\userdata\UN99LT\Desktop\smietnik\klienci.xlsx") # remember about letter "r"  at the beginning
 
 
+# lista zaladowanych modulow
+import sys
+sys.modules.keys()
+print('\n'.join(sys.modules.keys())) # ladniejszy sposob wyswieltenie wynikow
+list(filter(lambda x: x.find('pandas')>-1 ,t1)) # lista modulow dot. pakietu 'pandas'
+
+
 ```
 
 
@@ -219,7 +238,9 @@ for i in a:
     b.append(i*2)
     
 end = time.time() # zakonczenie pomiaru czasu
-print(end - start) # czasy wykonania jako roznica uzyskanych czasow
+print(end - start) # czasy wykonania jako roznica uzyskanych czasow (w sekundach)
+print((end - start)/60) #  (w minutach)
+print((end - start)/3600) #  (w godzinach)
 
 ```
 
@@ -291,6 +312,24 @@ except getopt.GetoptError:
 
 
 ## Rozne
+
+
+
+### CMD
+
+Uruchamianie polecen z poziomu Pythona w konsoli CMD
+```{pythn}
+# wykonanie polecenia w cmd
+import os 
+os.system('pip freeze')
+
+
+# usuchomienie pliku exe
+import subprocess
+subprocess.call(['C:\\Program Files\\RStudio\\bin\\rstudio.exe'])
+
+```
+
 
 ### Podglad kodu funkcji
 ```{python}

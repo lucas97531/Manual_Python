@@ -1,3 +1,143 @@
+--- 
+title: "Introduction to Python"
+author: "Łukasz Muszyński"
+date: "`r Sys.Date()`"
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: ""
+---
+
+# INTRO
+
+Placeholder
+
+
+
+<!--chapter:end:index.Rmd-->
+
+
+# (PART) <lfg>PROGRAMMING</lfg> {-} 
+
+Placeholder
+
+
+## operatory logiczne
+## podstawowe komendy i funkcje
+### sprawdzenie typu obiektu
+### inne komendy i funkcje
+## control flow
+### if else
+### petla 'for'
+#### Podstawowy for
+#### For w listach
+#### For iterujace po kilku listach rownolegle
+### petla 'while'
+## Indicies
+## shallow and deep copies
+## generators
+## dynamic code
+## errors and warning
+### try
+### assertion
+
+<!--chapter:end:1_01_PROGRAMING_syntax_base.Rmd-->
+
+
+# FUNCTIONS AND ENVIROMENTS
+
+Placeholder
+
+
+## podstawowa składnia
+## przekazywanie argumentow przez wartosc a przekazywanie przez referencje
+## funkcje anonimowe 
+## programowanie funkcyjne
+## wektoryzacja funkcji
+## rekurencja
+## zakres istnienia zmiennych (scoping rules)
+## dekoratory
+## Przydatne 
+
+<!--chapter:end:1_02_PROGRAMING_functions_and_environments.Rmd-->
+
+
+# DATA TYPES
+
+Placeholder
+
+
+## liczby
+### tworzenie
+### Ciagi
+### rozne funkcje
+## tekst
+### tworzenie statyczne
+### Tworzenie dynamiczne - nowa skladnia z funkcja 'format'
+### Formatowanie wygladu-skladnia
+#### tekst
+#### liczby
+### Tworzenie dynamiczne - stara skladnia
+### multiline string
+### odwolywanie sie do podstringow
+### szukanie pozycji podstringow
+### modyfikacja 
+### inne przydatne triki
+### rozne podstawowe operacje i funkcje zwiazane ze stringami
+## wyrazenie regularne
+## daty
+### tworzenie dat
+### atrybuty daty
+### inkrementacja daty
+### roznice dat
+### zmiana wartosci
+### zaokraglanie dat
+### generowanie ciagu dat
+
+<!--chapter:end:1_03_PROGRAMING_data_types.Rmd-->
+
+
+# DATA STRUCTURES - basic
+
+Placeholder
+
+
+## listy
+### atrybuty listy
+### tworzenie listy
+### dodawanie wartosci
+### aktualizacja wartosci
+### splaszczanie (flattening)
+### usuwanie 
+### filtrowanie
+### wyszukiwanie indeksu
+### sortowanie
+### operowanie funkcjami na elementach
+### ciekawe operacje i triki na listach
+### losowe elementy
+## slowniki
+### tworzenie
+### odwolywanie sie do elementow
+### updating and adding
+### removing
+### filtering
+### filtrowanie kluczy po liscie
+### filtrowanie vartosci po liscie
+## tuples
+### atrybuty
+### tworzenie
+### odwolywanie sie do elementow
+## set (zbiory)
+### tworzenie
+### atrubyty
+### aktualizacja/dodawanie/usuwanie/filtrowanie wartosci
+### funkcje na elementach
+### operacje na zbiorach
+
+<!--chapter:end:1_04_PROGRAMING_data_structures-basic.Rmd-->
+
 # DATA STRUCTURES-Pandas
 
 
@@ -2032,4 +2172,255 @@ wynik = df.groupby('a').agg({'b':{'join':lambda x : '_'.join(x)}})
 wynik
 ```
 
+
+
+<!--chapter:end:1_05_PROGRAMING_data_structures-Pandas.Rmd-->
+
+
+# DATA STRUCTURES - Numpy, Scipy
+
+Placeholder
+
+
+## Numpy
+### Tworzenie
+### atrybuty
+### odwolywanie sie przez indeksy
+### filtrowanie
+### aktualizacja wartosci
+### usuwanie
+### zmiana kszatłtu i transpozycja
+### bindowanie 
+### operacje na kilku macierzach zwracajece jedna macierz
+### sortowanie
+### funkcje na macierzach
+### braki danych i wartosci nieskonczone
+### rozne funkcje i triki
+## Scipy
+
+<!--chapter:end:1_06_PROGRAMING_data_structures-Numpy_Scipy.Rmd-->
+
+# DATA STRUCTURES - other
+
+<!--chapter:end:1_07_PROGRAMING_data_structures-other.Rmd-->
+
+
+# DATA STRUCTURES - objective programing
+
+Placeholder
+
+
+## Tworzenie klasy i obiektow
+## Atrybuty
+## Metody
+## Prywatne atrybuty i metody
+## Metody statyczne
+## mechanizm dziedziczenia
+### tworzenie podklas
+### przeciazanie metod
+### funkcja 'super'
+
+<!--chapter:end:1_08_PROGRAMING_data_structures-objective_programing.Rmd-->
+
+
+# WORK ORGANISATION
+
+Placeholder
+
+
+## importowanie pakietow/modulow
+## Wlasne moduly i pakiety
+### Wlasny modul
+### Wlasny pakiet - wersja uproszczona
+### Wlasny pakiet wg. standardu pip
+## Tworzenie wirtualnych srodowisk
+
+<!--chapter:end:1_09_PROGRAMNG_work_organisation.Rmd-->
+
+
+# DATA IMPORT AND EXPORT
+
+Placeholder
+
+
+## pickles
+## csv / txt
+### Import 
+### Eksport
+## excel
+### Import 
+### Eksport
+## schowek
+## dates parser
+
+<!--chapter:end:1_10_PROGRAMING_data_import_export.Rmd-->
+
+
+# TOOLS AND TRICKS
+
+Placeholder
+
+
+## praca z katalogami i plikami
+## Podstawowe polecenia w konsoli
+## python
+## pomiar czasu wykonania kodu
+## main i parametryzacja z konsoli
+### Prosty przyklad
+### Uzycie parsowania
+## Rozne
+### CMD
+### Podglad kodu funkcji
+### Realtive paths
+
+<!--chapter:end:1_11_PROGRAMING_tools_and_tricks.Rmd-->
+
+
+# (PART) <lfg>VISUALISATION</lfg> {-} 
+
+Placeholder
+
+
+## matplotlib
+## seaborn
+## plotly
+## bokeh
+## plotnine
+
+<!--chapter:end:2_01_VISUALISATION_big_packages.Rmd-->
+
+# other packages
+
+<!--chapter:end:2_02_VISUALISTAION_other_packages.Rmd-->
+
+# graphs
+
+<!--chapter:end:2_03_VISUALISATION_graph.Rmd-->
+
+# maps
+
+<!--chapter:end:2_04_VISUALISATION_maps.Rmd-->
+
+# other issues
+
+<!--chapter:end:2_05_VISUALISATION_othes_issues.Rmd-->
+
+
+# (PART) <lfg>PROGRAMMING</lfg> {-} 
+
+Placeholder
+
+
+## Relational databases
+### SQL Server
+### Postgres
+### Oracle
+### MySql
+## Norelational databases
+### Neo4j
+### Redis
+### MongoDB
+## R
+
+<!--chapter:end:3_01_ADDS_ON_cooperation_with_other_tools.Rmd-->
+
+# www
+
+
+## Linter
+
+
+## AirFlow
+
+
+## Luigi
+
+
+## Selenium
+
+
+## Flask
+
+
+## Django
+
+<!--chapter:end:3_02_ADDS_ON_www.Rmd-->
+
+# (PART) <lfg>APPENDICIES</lfg> {-} 
+
+
+
+# good habits
+
+<!--chapter:end:4_01_APPENDICIES_good_habits.Rmd-->
+
+
+# IDE
+
+Placeholder
+
+
+## Jupiter Notebook
+### Installation
+### Connecting with Venv
+### Magic commends
+### Global settings
+### Converting to different formats
+### widgets 
+## Jupiter Lab
+### Installation
+## PyCharm
+### Konfiguracja Git i GitHub
+### Dodanie Git do istniejącego projektu
+### Zmiana skrotow
+### Podpinanie do vevn
+### Ustawienia globalne a ustawienia projektu
+### Uzyteczne skroty
+### Srodowiska w linuxie:
+### debuggowanie
+## Rstudio
+
+<!--chapter:end:4_02_APPENDICIES_IDE.Rmd-->
+
+# Installation
+
+
+## Anaconda
+
+Anaconda domyślnie się zazywczaj instaluje na C:\Users\NazwaUsera\Anaconda\
+
+Po zainstalowaniu należy sprawdzić czy w Widowsie do zmiennych środowiskowych 'paths' są dodane 3 ścieżki w ramach katalogu Anacondy:
+
+* C:\Users\NazwaUsera\Anaconda\
+* C:\Users\NazwaUsera\Anaconda\Scripts
+* C:\Users\NazwaUsera\Anaconda\bin   # bez tego nie bedzie działał poprawnie 'pip'
+
+<!--chapter:end:4_03_APPENDICIES_Installation.Rmd-->
+
+--- 
+title: "Introduction to R"
+author: "Łukasz Muszyński"
+date: "`r Sys.Date()`"
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: ""
+---
+--- 
+title: "Introduction to R"
+author: "Łukasz Muszyński"
+date: "`r Sys.Date()`"
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: ""
+---
+
+# INTRO
+
+<!--chapter:end:bookdown-Manual_Python.Rmd-->
 
