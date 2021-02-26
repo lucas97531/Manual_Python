@@ -175,8 +175,14 @@ Ctrl+q - szybkie informacje na temat funkcji
 
 ### debuggowanie
 Zanim zaczniemy debuggowac nalezy:
-1. Run->Edit Configurations-> + -> Python. Teraz w oknie po prawej dodajemy sciezke do naszego pliku. Bez tego debugger-a nie bedzie sie dalo aktywowac.
+1. Run->Edit Configurations-> + (plus po prawej na dole) -> Python. Teraz w tym samym oknie po lewej stronie znakiem plus dodaje konfiguracje pliku do debuggowania (+ -> Python). Dodaje przede wszystkim sciezke do debuggowanego pliku. Bez tego debugger-a nie bedzie sie dalo aktywowac.
 https://www.youtube.com/watch?v=sRGpvbhOhQs
+
+Dodawania sciezki do debuggowanego pliku:
+![](figures/pycharm_konfiguracja_debuggera_1.png)
+
+
+
 
 ```{python}
 

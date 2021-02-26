@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 DATA STRUCTURES - objective programing | Introduction to R</title>
-  <meta name="description" content="Chapter 9 DATA STRUCTURES - objective programing | Introduction to R" />
+  <title>Chapter 9 DATA STRUCTURES - objective programing | Introduction to Python</title>
+  <meta name="description" content="Chapter 9 DATA STRUCTURES - objective programing | Introduction to Python" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 DATA STRUCTURES - objective programing | Introduction to R" />
+  <meta property="og:title" content="Chapter 9 DATA STRUCTURES - objective programing | Introduction to Python" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 DATA STRUCTURES - objective programing | Introduction to R" />
+  <meta name="twitter:title" content="Chapter 9 DATA STRUCTURES - objective programing | Introduction to Python" />
   
   
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Łukasz Muszyński" />
 
 
-<meta name="date" content="2020-11-28" />
+<meta name="date" content="2021-02-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,6 @@
   
 <link rel="prev" href="data-structures-other.html"/>
 <link rel="next" href="work-organisation.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,22 +50,24 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -86,7 +87,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -137,16 +138,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> INTRO</a></li>
 <li class="part"><span><b>I <lfg>PROGRAMMING</lfg></b></span></li>
-<li class="chapter" data-level="2" data-path="syntax.html"><a href="syntax.html"><i class="fa fa-check"></i><b>2</b> Syntax</a>
-<ul>
+<li class="chapter" data-level="2" data-path="syntax.html"><a href="syntax.html"><i class="fa fa-check"></i><b>2</b> Syntax</a><ul>
 <li class="chapter" data-level="2.1" data-path="syntax.html"><a href="syntax.html#operatory-logiczne"><i class="fa fa-check"></i><b>2.1</b> operatory logiczne</a></li>
-<li class="chapter" data-level="2.2" data-path="syntax.html"><a href="syntax.html#podstawowe-komendy-i-funkcje"><i class="fa fa-check"></i><b>2.2</b> podstawowe komendy i funkcje</a>
-<ul>
+<li class="chapter" data-level="2.2" data-path="syntax.html"><a href="syntax.html#podstawowe-komendy-i-funkcje"><i class="fa fa-check"></i><b>2.2</b> podstawowe komendy i funkcje</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="syntax.html"><a href="syntax.html#sprawdzenie-typu-obiektu"><i class="fa fa-check"></i><b>2.2.1</b> sprawdzenie typu obiektu</a></li>
 <li class="chapter" data-level="2.2.2" data-path="syntax.html"><a href="syntax.html#inne-komendy-i-funkcje"><i class="fa fa-check"></i><b>2.2.2</b> inne komendy i funkcje</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="syntax.html"><a href="syntax.html#control-flow"><i class="fa fa-check"></i><b>2.3</b> control flow</a>
-<ul>
+<li class="chapter" data-level="2.3" data-path="syntax.html"><a href="syntax.html#control-flow"><i class="fa fa-check"></i><b>2.3</b> control flow</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="syntax.html"><a href="syntax.html#if-else"><i class="fa fa-check"></i><b>2.3.1</b> if else</a></li>
 <li class="chapter" data-level="2.3.2" data-path="syntax.html"><a href="syntax.html#petla-for"><i class="fa fa-check"></i><b>2.3.2</b> petla ‘for’</a></li>
 <li class="chapter" data-level="2.3.3" data-path="syntax.html"><a href="syntax.html#petla-while"><i class="fa fa-check"></i><b>2.3.3</b> petla ‘while’</a></li>
@@ -155,14 +153,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5" data-path="syntax.html"><a href="syntax.html#shallow-and-deep-copies"><i class="fa fa-check"></i><b>2.5</b> shallow and deep copies</a></li>
 <li class="chapter" data-level="2.6" data-path="syntax.html"><a href="syntax.html#generators"><i class="fa fa-check"></i><b>2.6</b> generators</a></li>
 <li class="chapter" data-level="2.7" data-path="syntax.html"><a href="syntax.html#dynamic-code"><i class="fa fa-check"></i><b>2.7</b> dynamic code</a></li>
-<li class="chapter" data-level="2.8" data-path="syntax.html"><a href="syntax.html#errors-and-warning"><i class="fa fa-check"></i><b>2.8</b> errors and warning</a>
-<ul>
+<li class="chapter" data-level="2.8" data-path="syntax.html"><a href="syntax.html#errors-and-warning"><i class="fa fa-check"></i><b>2.8</b> errors and warning</a><ul>
 <li class="chapter" data-level="2.8.1" data-path="syntax.html"><a href="syntax.html#try"><i class="fa fa-check"></i><b>2.8.1</b> try</a></li>
 <li class="chapter" data-level="2.8.2" data-path="syntax.html"><a href="syntax.html#assertion"><i class="fa fa-check"></i><b>2.8.2</b> assertion</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html"><i class="fa fa-check"></i><b>3</b> FUNCTIONS AND ENVIROMENTS</a>
-<ul>
+<li class="chapter" data-level="3" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html"><i class="fa fa-check"></i><b>3</b> FUNCTIONS AND ENVIROMENTS</a><ul>
 <li class="chapter" data-level="3.1" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#podstawowa-składnia"><i class="fa fa-check"></i><b>3.1</b> podstawowa składnia</a></li>
 <li class="chapter" data-level="3.2" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#przekazywanie-argumentow-przez-wartosc-a-przekazywanie-przez-referencje"><i class="fa fa-check"></i><b>3.2</b> przekazywanie argumentow przez wartosc a przekazywanie przez referencje</a></li>
 <li class="chapter" data-level="3.3" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#funkcje-anonimowe"><i class="fa fa-check"></i><b>3.3</b> funkcje anonimowe</a></li>
@@ -173,16 +169,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.8" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#dekoratory"><i class="fa fa-check"></i><b>3.8</b> dekoratory</a></li>
 <li class="chapter" data-level="3.9" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#przydatne"><i class="fa fa-check"></i><b>3.9</b> Przydatne</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>4</b> DATA TYPES</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="data-types.html"><a href="data-types.html#liczby"><i class="fa fa-check"></i><b>4.1</b> liczby</a>
-<ul>
+<li class="chapter" data-level="4" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>4</b> DATA TYPES</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-types.html"><a href="data-types.html#liczby"><i class="fa fa-check"></i><b>4.1</b> liczby</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="data-types.html"><a href="data-types.html#tworzenie"><i class="fa fa-check"></i><b>4.1.1</b> tworzenie</a></li>
 <li class="chapter" data-level="4.1.2" data-path="data-types.html"><a href="data-types.html#ciagi"><i class="fa fa-check"></i><b>4.1.2</b> Ciagi</a></li>
 <li class="chapter" data-level="4.1.3" data-path="data-types.html"><a href="data-types.html#rozne-funkcje"><i class="fa fa-check"></i><b>4.1.3</b> rozne funkcje</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="data-types.html"><a href="data-types.html#tekst"><i class="fa fa-check"></i><b>4.2</b> tekst</a>
-<ul>
+<li class="chapter" data-level="4.2" data-path="data-types.html"><a href="data-types.html#tekst"><i class="fa fa-check"></i><b>4.2</b> tekst</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="data-types.html"><a href="data-types.html#tworzenie-statyczne"><i class="fa fa-check"></i><b>4.2.1</b> tworzenie statyczne</a></li>
 <li class="chapter" data-level="4.2.2" data-path="data-types.html"><a href="data-types.html#tworzenie-dynamiczne---nowa-skladnia-z-funkcja-format"><i class="fa fa-check"></i><b>4.2.2</b> Tworzenie dynamiczne - nowa skladnia z funkcja ‘format’</a></li>
 <li class="chapter" data-level="4.2.3" data-path="data-types.html"><a href="data-types.html#formatowanie-wygladu-skladnia"><i class="fa fa-check"></i><b>4.2.3</b> Formatowanie wygladu-skladnia</a></li>
@@ -195,8 +188,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.10" data-path="data-types.html"><a href="data-types.html#rozne-podstawowe-operacje-i-funkcje-zwiazane-ze-stringami"><i class="fa fa-check"></i><b>4.2.10</b> rozne podstawowe operacje i funkcje zwiazane ze stringami</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="data-types.html"><a href="data-types.html#wyrazenie-regularne"><i class="fa fa-check"></i><b>4.3</b> wyrazenie regularne</a></li>
-<li class="chapter" data-level="4.4" data-path="data-types.html"><a href="data-types.html#daty"><i class="fa fa-check"></i><b>4.4</b> daty</a>
-<ul>
+<li class="chapter" data-level="4.4" data-path="data-types.html"><a href="data-types.html#daty"><i class="fa fa-check"></i><b>4.4</b> daty</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="data-types.html"><a href="data-types.html#tworzenie-dat"><i class="fa fa-check"></i><b>4.4.1</b> tworzenie dat</a></li>
 <li class="chapter" data-level="4.4.2" data-path="data-types.html"><a href="data-types.html#atrybuty-daty"><i class="fa fa-check"></i><b>4.4.2</b> atrybuty daty</a></li>
 <li class="chapter" data-level="4.4.3" data-path="data-types.html"><a href="data-types.html#inkrementacja-daty"><i class="fa fa-check"></i><b>4.4.3</b> inkrementacja daty</a></li>
@@ -206,10 +198,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.7" data-path="data-types.html"><a href="data-types.html#generowanie-ciagu-dat"><i class="fa fa-check"></i><b>4.4.7</b> generowanie ciagu dat</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="data-structures-basic.html"><a href="data-structures-basic.html"><i class="fa fa-check"></i><b>5</b> DATA STRUCTURES - basic</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#listy"><i class="fa fa-check"></i><b>5.1</b> listy</a>
-<ul>
+<li class="chapter" data-level="5" data-path="data-structures-basic.html"><a href="data-structures-basic.html"><i class="fa fa-check"></i><b>5</b> DATA STRUCTURES - basic</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#listy"><i class="fa fa-check"></i><b>5.1</b> listy</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#atrybuty-listy"><i class="fa fa-check"></i><b>5.1.1</b> atrybuty listy</a></li>
 <li class="chapter" data-level="5.1.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-listy"><i class="fa fa-check"></i><b>5.1.2</b> tworzenie listy</a></li>
 <li class="chapter" data-level="5.1.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#dodawanie-wartosci"><i class="fa fa-check"></i><b>5.1.3</b> dodawanie wartosci</a></li>
@@ -223,8 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1.11" data-path="data-structures-basic.html"><a href="data-structures-basic.html#ciekawe-operacje-i-triki-na-listach"><i class="fa fa-check"></i><b>5.1.11</b> ciekawe operacje i triki na listach</a></li>
 <li class="chapter" data-level="5.1.12" data-path="data-structures-basic.html"><a href="data-structures-basic.html#losowe-elementy"><i class="fa fa-check"></i><b>5.1.12</b> losowe elementy</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#slowniki"><i class="fa fa-check"></i><b>5.2</b> slowniki</a>
-<ul>
+<li class="chapter" data-level="5.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#slowniki"><i class="fa fa-check"></i><b>5.2</b> slowniki</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-1"><i class="fa fa-check"></i><b>5.2.1</b> tworzenie</a></li>
 <li class="chapter" data-level="5.2.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#odwolywanie-sie-do-elementow"><i class="fa fa-check"></i><b>5.2.2</b> odwolywanie sie do elementow</a></li>
 <li class="chapter" data-level="5.2.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#updating-and-adding"><i class="fa fa-check"></i><b>5.2.3</b> updating and adding</a></li>
@@ -233,14 +222,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.6" data-path="data-structures-basic.html"><a href="data-structures-basic.html#filtrowanie-kluczy-po-liscie"><i class="fa fa-check"></i><b>5.2.6</b> filtrowanie kluczy po liscie</a></li>
 <li class="chapter" data-level="5.2.7" data-path="data-structures-basic.html"><a href="data-structures-basic.html#filtrowanie-vartosci-po-liscie"><i class="fa fa-check"></i><b>5.2.7</b> filtrowanie vartosci po liscie</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tuples"><i class="fa fa-check"></i><b>5.3</b> tuples</a>
-<ul>
+<li class="chapter" data-level="5.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tuples"><i class="fa fa-check"></i><b>5.3</b> tuples</a><ul>
 <li class="chapter" data-level="5.3.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#atrybuty"><i class="fa fa-check"></i><b>5.3.1</b> atrybuty</a></li>
 <li class="chapter" data-level="5.3.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-2"><i class="fa fa-check"></i><b>5.3.2</b> tworzenie</a></li>
 <li class="chapter" data-level="5.3.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#odwolywanie-sie-do-elementow-1"><i class="fa fa-check"></i><b>5.3.3</b> odwolywanie sie do elementow</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#set-zbiory"><i class="fa fa-check"></i><b>5.4</b> set (zbiory)</a>
-<ul>
+<li class="chapter" data-level="5.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#set-zbiory"><i class="fa fa-check"></i><b>5.4</b> set (zbiory)</a><ul>
 <li class="chapter" data-level="5.4.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-3"><i class="fa fa-check"></i><b>5.4.1</b> tworzenie</a></li>
 <li class="chapter" data-level="5.4.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#atrubyty"><i class="fa fa-check"></i><b>5.4.2</b> atrubyty</a></li>
 <li class="chapter" data-level="5.4.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#aktualizacjadodawanieusuwaniefiltrowanie-wartosci"><i class="fa fa-check"></i><b>5.4.3</b> aktualizacja/dodawanie/usuwanie/filtrowanie wartosci</a></li>
@@ -248,10 +235,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4.5" data-path="data-structures-basic.html"><a href="data-structures-basic.html#operacje-na-zbiorach"><i class="fa fa-check"></i><b>5.4.5</b> operacje na zbiorach</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html"><i class="fa fa-check"></i><b>6</b> DATA STRUCTURES-Pandas</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#series"><i class="fa fa-check"></i><b>6.1</b> Series</a>
-<ul>
+<li class="chapter" data-level="6" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html"><i class="fa fa-check"></i><b>6</b> DATA STRUCTURES-Pandas</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#series"><i class="fa fa-check"></i><b>6.1</b> Series</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#tworzenie-4"><i class="fa fa-check"></i><b>6.1.1</b> tworzenie</a></li>
 <li class="chapter" data-level="6.1.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#atrybuty-1"><i class="fa fa-check"></i><b>6.1.2</b> atrybuty</a></li>
 <li class="chapter" data-level="6.1.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#indeksy"><i class="fa fa-check"></i><b>6.1.3</b> indeksy</a></li>
@@ -260,14 +245,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1.6" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#rozne-funkcje-1"><i class="fa fa-check"></i><b>6.1.6</b> rozne funkcje</a></li>
 <li class="chapter" data-level="6.1.7" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-brakami-danych-i-wartosciami-nieskonczonymi"><i class="fa fa-check"></i><b>6.1.7</b> praca z brakami danych i wartosciami nieskonczonymi</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#categorical"><i class="fa fa-check"></i><b>6.2</b> Categorical</a>
-<ul>
+<li class="chapter" data-level="6.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#categorical"><i class="fa fa-check"></i><b>6.2</b> Categorical</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#tworzenie-5"><i class="fa fa-check"></i><b>6.2.1</b> Tworzenie</a></li>
 <li class="chapter" data-level="6.2.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#usuwaniedodawaniemodyfikacje-kategorii"><i class="fa fa-check"></i><b>6.2.2</b> usuwanie/dodawanie/modyfikacje kategorii</a></li>
 <li class="chapter" data-level="6.2.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dodawanie-nowych-elemntow"><i class="fa fa-check"></i><b>6.2.3</b> dodawanie nowych elemntow</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#data-frames"><i class="fa fa-check"></i><b>6.3</b> DATA FRAMES</a>
-<ul>
+<li class="chapter" data-level="6.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#data-frames"><i class="fa fa-check"></i><b>6.3</b> DATA FRAMES</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#najważniejsze-atrybuty-dataframe"><i class="fa fa-check"></i><b>6.3.1</b> Najważniejsze atrybuty DataFrame</a></li>
 <li class="chapter" data-level="6.3.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#tworzenie-ramki-danych"><i class="fa fa-check"></i><b>6.3.2</b> Tworzenie ramki danych</a></li>
 <li class="chapter" data-level="6.3.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#konwersja-ramki-danych-na-inne-typy"><i class="fa fa-check"></i><b>6.3.3</b> Konwersja ramki danych na inne typy</a></li>
@@ -296,10 +279,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3.26" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#rozne-problemy"><i class="fa fa-check"></i><b>6.3.26</b> Rozne problemy</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html"><i class="fa fa-check"></i><b>7</b> DATA STRUCTURES - Numpy, Scipy</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#numpy"><i class="fa fa-check"></i><b>7.1</b> Numpy</a>
-<ul>
+<li class="chapter" data-level="7" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html"><i class="fa fa-check"></i><b>7</b> DATA STRUCTURES - Numpy, Scipy</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#numpy"><i class="fa fa-check"></i><b>7.1</b> Numpy</a><ul>
 <li class="chapter" data-level="7.1.1" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#tworzenie-6"><i class="fa fa-check"></i><b>7.1.1</b> Tworzenie</a></li>
 <li class="chapter" data-level="7.1.2" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#atrybuty-2"><i class="fa fa-check"></i><b>7.1.2</b> atrybuty</a></li>
 <li class="chapter" data-level="7.1.3" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#odwolywanie-sie-przez-indeksy"><i class="fa fa-check"></i><b>7.1.3</b> odwolywanie sie przez indeksy</a></li>
@@ -307,77 +288,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1.5" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#aktualizacja-wartosci-2"><i class="fa fa-check"></i><b>7.1.5</b> aktualizacja wartosci</a></li>
 <li class="chapter" data-level="7.1.6" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#usuwanie-1"><i class="fa fa-check"></i><b>7.1.6</b> usuwanie</a></li>
 <li class="chapter" data-level="7.1.7" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#zmiana-kszatłtu-i-transpozycja"><i class="fa fa-check"></i><b>7.1.7</b> zmiana kszatłtu i transpozycja</a></li>
-<li class="chapter" data-level="7.1.8" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#bindowanie"><i class="fa fa-check"></i><b>7.1.8</b> bindowanie</a></li>
-<li class="chapter" data-level="7.1.9" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#operacje-na-kilku-macierzach-zwracajece-jedna-macierz"><i class="fa fa-check"></i><b>7.1.9</b> operacje na kilku macierzach zwracajece jedna macierz</a></li>
-<li class="chapter" data-level="7.1.10" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#sortowanie-3"><i class="fa fa-check"></i><b>7.1.10</b> sortowanie</a></li>
-<li class="chapter" data-level="7.1.11" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#funkcje-na-macierzach"><i class="fa fa-check"></i><b>7.1.11</b> funkcje na macierzach</a></li>
-<li class="chapter" data-level="7.1.12" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#braki-danych-i-wartosci-nieskonczone"><i class="fa fa-check"></i><b>7.1.12</b> braki danych i wartosci nieskonczone</a></li>
-<li class="chapter" data-level="7.1.13" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#rozne-funkcje-i-triki"><i class="fa fa-check"></i><b>7.1.13</b> rozne funkcje i triki</a></li>
+<li class="chapter" data-level="7.1.8" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#bindowanie-array"><i class="fa fa-check"></i><b>7.1.8</b> bindowanie array</a></li>
+<li class="chapter" data-level="7.1.9" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#bindowanie-array-z-listy"><i class="fa fa-check"></i><b>7.1.9</b> bindowanie array z listy</a></li>
+<li class="chapter" data-level="7.1.10" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#operacje-na-kilku-macierzach-zwracajece-jedna-macierz"><i class="fa fa-check"></i><b>7.1.10</b> operacje na kilku macierzach zwracajece jedna macierz</a></li>
+<li class="chapter" data-level="7.1.11" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#sortowanie-3"><i class="fa fa-check"></i><b>7.1.11</b> sortowanie</a></li>
+<li class="chapter" data-level="7.1.12" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#funkcje-na-macierzach"><i class="fa fa-check"></i><b>7.1.12</b> funkcje na macierzach</a></li>
+<li class="chapter" data-level="7.1.13" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#braki-danych-i-wartosci-nieskonczone"><i class="fa fa-check"></i><b>7.1.13</b> braki danych i wartosci nieskonczone</a></li>
+<li class="chapter" data-level="7.1.14" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#rozne-funkcje-i-triki"><i class="fa fa-check"></i><b>7.1.14</b> rozne funkcje i triki</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#scipy"><i class="fa fa-check"></i><b>7.2</b> Scipy</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="data-structures-other.html"><a href="data-structures-other.html"><i class="fa fa-check"></i><b>8</b> DATA STRUCTURES - other</a></li>
-<li class="chapter" data-level="9" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html"><i class="fa fa-check"></i><b>9</b> DATA STRUCTURES - objective programing</a>
-<ul>
+<li class="chapter" data-level="9" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html"><i class="fa fa-check"></i><b>9</b> DATA STRUCTURES - objective programing</a><ul>
 <li class="chapter" data-level="9.1" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#tworzenie-klasy-i-obiektow"><i class="fa fa-check"></i><b>9.1</b> Tworzenie klasy i obiektow</a></li>
 <li class="chapter" data-level="9.2" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#atrybuty-3"><i class="fa fa-check"></i><b>9.2</b> Atrybuty</a></li>
 <li class="chapter" data-level="9.3" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#metody"><i class="fa fa-check"></i><b>9.3</b> Metody</a></li>
 <li class="chapter" data-level="9.4" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#prywatne-atrybuty-i-metody"><i class="fa fa-check"></i><b>9.4</b> Prywatne atrybuty i metody</a></li>
 <li class="chapter" data-level="9.5" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#metody-statyczne"><i class="fa fa-check"></i><b>9.5</b> Metody statyczne</a></li>
-<li class="chapter" data-level="9.6" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#mechanizm-dziedziczenia"><i class="fa fa-check"></i><b>9.6</b> mechanizm dziedziczenia</a>
-<ul>
+<li class="chapter" data-level="9.6" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#mechanizm-dziedziczenia"><i class="fa fa-check"></i><b>9.6</b> mechanizm dziedziczenia</a><ul>
 <li class="chapter" data-level="9.6.1" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#tworzenie-podklas"><i class="fa fa-check"></i><b>9.6.1</b> tworzenie podklas</a></li>
 <li class="chapter" data-level="9.6.2" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#przeciazanie-metod"><i class="fa fa-check"></i><b>9.6.2</b> przeciazanie metod</a></li>
 <li class="chapter" data-level="9.6.3" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#funkcja-super"><i class="fa fa-check"></i><b>9.6.3</b> funkcja ‘super’</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="work-organisation.html"><a href="work-organisation.html"><i class="fa fa-check"></i><b>10</b> WORK ORGANISATION</a>
-<ul>
+<li class="chapter" data-level="10" data-path="work-organisation.html"><a href="work-organisation.html"><i class="fa fa-check"></i><b>10</b> WORK ORGANISATION</a><ul>
 <li class="chapter" data-level="10.1" data-path="work-organisation.html"><a href="work-organisation.html#importowanie-pakietowmodulow"><i class="fa fa-check"></i><b>10.1</b> importowanie pakietow/modulow</a></li>
-<li class="chapter" data-level="10.2" data-path="work-organisation.html"><a href="work-organisation.html#wlasne-moduly-i-pakiety"><i class="fa fa-check"></i><b>10.2</b> Wlasne moduly i pakiety</a>
-<ul>
+<li class="chapter" data-level="10.2" data-path="work-organisation.html"><a href="work-organisation.html#wlasne-moduly-i-pakiety"><i class="fa fa-check"></i><b>10.2</b> Wlasne moduly i pakiety</a><ul>
 <li class="chapter" data-level="10.2.1" data-path="work-organisation.html"><a href="work-organisation.html#wlasny-modul"><i class="fa fa-check"></i><b>10.2.1</b> Wlasny modul</a></li>
 <li class="chapter" data-level="10.2.2" data-path="work-organisation.html"><a href="work-organisation.html#wlasny-pakiet---wersja-uproszczona"><i class="fa fa-check"></i><b>10.2.2</b> Wlasny pakiet - wersja uproszczona</a></li>
 <li class="chapter" data-level="10.2.3" data-path="work-organisation.html"><a href="work-organisation.html#wlasny-pakiet-wg.-standardu-pip"><i class="fa fa-check"></i><b>10.2.3</b> Wlasny pakiet wg. standardu pip</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="work-organisation.html"><a href="work-organisation.html#tworzenie-wirtualnych-srodowisk"><i class="fa fa-check"></i><b>10.3</b> Tworzenie wirtualnych srodowisk</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="data-import-and-export.html"><a href="data-import-and-export.html"><i class="fa fa-check"></i><b>11</b> DATA IMPORT AND EXPORT</a>
-<ul>
+<li class="chapter" data-level="11" data-path="data-import-and-export.html"><a href="data-import-and-export.html"><i class="fa fa-check"></i><b>11</b> DATA IMPORT AND EXPORT</a><ul>
 <li class="chapter" data-level="11.1" data-path="data-import-and-export.html"><a href="data-import-and-export.html#pickles"><i class="fa fa-check"></i><b>11.1</b> pickles</a></li>
-<li class="chapter" data-level="11.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#csv-txt"><i class="fa fa-check"></i><b>11.2</b> csv / txt</a>
-<ul>
+<li class="chapter" data-level="11.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#csv-txt"><i class="fa fa-check"></i><b>11.2</b> csv / txt</a><ul>
 <li class="chapter" data-level="11.2.1" data-path="data-import-and-export.html"><a href="data-import-and-export.html#import"><i class="fa fa-check"></i><b>11.2.1</b> Import</a></li>
 <li class="chapter" data-level="11.2.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#eksport"><i class="fa fa-check"></i><b>11.2.2</b> Eksport</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="data-import-and-export.html"><a href="data-import-and-export.html#excel"><i class="fa fa-check"></i><b>11.3</b> excel</a>
-<ul>
+<li class="chapter" data-level="11.3" data-path="data-import-and-export.html"><a href="data-import-and-export.html#excel"><i class="fa fa-check"></i><b>11.3</b> excel</a><ul>
 <li class="chapter" data-level="11.3.1" data-path="data-import-and-export.html"><a href="data-import-and-export.html#import-1"><i class="fa fa-check"></i><b>11.3.1</b> Import</a></li>
 <li class="chapter" data-level="11.3.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#eksport-1"><i class="fa fa-check"></i><b>11.3.2</b> Eksport</a></li>
 </ul></li>
 <li class="chapter" data-level="11.4" data-path="data-import-and-export.html"><a href="data-import-and-export.html#schowek"><i class="fa fa-check"></i><b>11.4</b> schowek</a></li>
 <li class="chapter" data-level="11.5" data-path="data-import-and-export.html"><a href="data-import-and-export.html#dates-parser"><i class="fa fa-check"></i><b>11.5</b> dates parser</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html"><i class="fa fa-check"></i><b>12</b> TOOLS AND TRICKS</a>
-<ul>
+<li class="chapter" data-level="12" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html"><i class="fa fa-check"></i><b>12</b> TOOLS AND TRICKS</a><ul>
 <li class="chapter" data-level="12.1" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#praca-z-katalogami-i-plikami"><i class="fa fa-check"></i><b>12.1</b> praca z katalogami i plikami</a></li>
 <li class="chapter" data-level="12.2" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#podstawowe-polecenia-w-konsoli"><i class="fa fa-check"></i><b>12.2</b> Podstawowe polecenia w konsoli</a></li>
 <li class="chapter" data-level="12.3" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#python"><i class="fa fa-check"></i><b>12.3</b> python</a></li>
 <li class="chapter" data-level="12.4" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#pomiar-czasu-wykonania-kodu"><i class="fa fa-check"></i><b>12.4</b> pomiar czasu wykonania kodu</a></li>
-<li class="chapter" data-level="12.5" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#main-i-parametryzacja-z-konsoli"><i class="fa fa-check"></i><b>12.5</b> main i parametryzacja z konsoli</a>
-<ul>
+<li class="chapter" data-level="12.5" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#main-i-parametryzacja-z-konsoli"><i class="fa fa-check"></i><b>12.5</b> main i parametryzacja z konsoli</a><ul>
 <li class="chapter" data-level="12.5.1" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#prosty-przyklad"><i class="fa fa-check"></i><b>12.5.1</b> Prosty przyklad</a></li>
 <li class="chapter" data-level="12.5.2" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#uzycie-parsowania"><i class="fa fa-check"></i><b>12.5.2</b> Uzycie parsowania</a></li>
 </ul></li>
-<li class="chapter" data-level="12.6" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#rozne"><i class="fa fa-check"></i><b>12.6</b> Rozne</a>
-<ul>
-<li class="chapter" data-level="12.6.1" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#podglad-kodu-funkcji"><i class="fa fa-check"></i><b>12.6.1</b> Podglad kodu funkcji</a></li>
-<li class="chapter" data-level="12.6.2" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#realtive-paths"><i class="fa fa-check"></i><b>12.6.2</b> Realtive paths</a></li>
+<li class="chapter" data-level="12.6" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#rozne"><i class="fa fa-check"></i><b>12.6</b> Rozne</a><ul>
+<li class="chapter" data-level="12.6.1" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#cmd"><i class="fa fa-check"></i><b>12.6.1</b> CMD</a></li>
+<li class="chapter" data-level="12.6.2" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#podglad-kodu-funkcji"><i class="fa fa-check"></i><b>12.6.2</b> Podglad kodu funkcji</a></li>
+<li class="chapter" data-level="12.6.3" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#realtive-paths"><i class="fa fa-check"></i><b>12.6.3</b> Realtive paths</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II <lfg>VISUALISATION</lfg></b></span></li>
-<li class="chapter" data-level="13" data-path="big-packages.html"><a href="big-packages.html"><i class="fa fa-check"></i><b>13</b> big packages</a>
-<ul>
+<li class="chapter" data-level="13" data-path="big-packages.html"><a href="big-packages.html"><i class="fa fa-check"></i><b>13</b> big packages</a><ul>
 <li class="chapter" data-level="13.1" data-path="big-packages.html"><a href="big-packages.html#matplotlib"><i class="fa fa-check"></i><b>13.1</b> matplotlib</a></li>
 <li class="chapter" data-level="13.2" data-path="big-packages.html"><a href="big-packages.html#seaborn"><i class="fa fa-check"></i><b>13.2</b> seaborn</a></li>
 <li class="chapter" data-level="13.3" data-path="big-packages.html"><a href="big-packages.html#plotly"><i class="fa fa-check"></i><b>13.3</b> plotly</a></li>
@@ -389,25 +361,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="16" data-path="maps.html"><a href="maps.html"><i class="fa fa-check"></i><b>16</b> maps</a></li>
 <li class="chapter" data-level="17" data-path="other-issues.html"><a href="other-issues.html"><i class="fa fa-check"></i><b>17</b> other issues</a></li>
 <li class="part"><span><b>III <lfg>PROGRAMMING</lfg></b></span></li>
-<li class="chapter" data-level="18" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html"><i class="fa fa-check"></i><b>18</b> Cooperation with other tools</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#relational-databases"><i class="fa fa-check"></i><b>18.1</b> Relational databases</a>
-<ul>
+<li class="chapter" data-level="18" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html"><i class="fa fa-check"></i><b>18</b> Cooperation with other tools</a><ul>
+<li class="chapter" data-level="18.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#relational-databases"><i class="fa fa-check"></i><b>18.1</b> Relational databases</a><ul>
 <li class="chapter" data-level="18.1.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#sql-server"><i class="fa fa-check"></i><b>18.1.1</b> SQL Server</a></li>
 <li class="chapter" data-level="18.1.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#postgres"><i class="fa fa-check"></i><b>18.1.2</b> Postgres</a></li>
 <li class="chapter" data-level="18.1.3" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#oracle"><i class="fa fa-check"></i><b>18.1.3</b> Oracle</a></li>
 <li class="chapter" data-level="18.1.4" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#mysql"><i class="fa fa-check"></i><b>18.1.4</b> MySql</a></li>
 </ul></li>
-<li class="chapter" data-level="18.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#norelational-databases"><i class="fa fa-check"></i><b>18.2</b> Norelational databases</a>
-<ul>
+<li class="chapter" data-level="18.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#norelational-databases"><i class="fa fa-check"></i><b>18.2</b> Norelational databases</a><ul>
 <li class="chapter" data-level="18.2.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#neo4j"><i class="fa fa-check"></i><b>18.2.1</b> Neo4j</a></li>
 <li class="chapter" data-level="18.2.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#redis"><i class="fa fa-check"></i><b>18.2.2</b> Redis</a></li>
 <li class="chapter" data-level="18.2.3" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#mongodb"><i class="fa fa-check"></i><b>18.2.3</b> MongoDB</a></li>
 </ul></li>
 <li class="chapter" data-level="18.3" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#r"><i class="fa fa-check"></i><b>18.3</b> R</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="www.html"><a href="www.html"><i class="fa fa-check"></i><b>19</b> www</a>
-<ul>
+<li class="chapter" data-level="19" data-path="www.html"><a href="www.html"><i class="fa fa-check"></i><b>19</b> www</a><ul>
 <li class="chapter" data-level="19.1" data-path="www.html"><a href="www.html#linter"><i class="fa fa-check"></i><b>19.1</b> Linter</a></li>
 <li class="chapter" data-level="19.2" data-path="www.html"><a href="www.html#airflow"><i class="fa fa-check"></i><b>19.2</b> AirFlow</a></li>
 <li class="chapter" data-level="19.3" data-path="www.html"><a href="www.html#luigi"><i class="fa fa-check"></i><b>19.3</b> Luigi</a></li>
@@ -417,10 +385,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="part"><span><b>IV <lfg>APPENDICIES</lfg></b></span></li>
 <li class="chapter" data-level="20" data-path="good-habits.html"><a href="good-habits.html"><i class="fa fa-check"></i><b>20</b> good habits</a></li>
-<li class="chapter" data-level="21" data-path="ide.html"><a href="ide.html"><i class="fa fa-check"></i><b>21</b> IDE</a>
-<ul>
-<li class="chapter" data-level="21.1" data-path="ide.html"><a href="ide.html#jupiter-notebook"><i class="fa fa-check"></i><b>21.1</b> Jupiter Notebook</a>
-<ul>
+<li class="chapter" data-level="21" data-path="ide.html"><a href="ide.html"><i class="fa fa-check"></i><b>21</b> IDE</a><ul>
+<li class="chapter" data-level="21.1" data-path="ide.html"><a href="ide.html#jupiter-notebook"><i class="fa fa-check"></i><b>21.1</b> Jupiter Notebook</a><ul>
 <li class="chapter" data-level="21.1.1" data-path="ide.html"><a href="ide.html#installation"><i class="fa fa-check"></i><b>21.1.1</b> Installation</a></li>
 <li class="chapter" data-level="21.1.2" data-path="ide.html"><a href="ide.html#connecting-with-venv"><i class="fa fa-check"></i><b>21.1.2</b> Connecting with Venv</a></li>
 <li class="chapter" data-level="21.1.3" data-path="ide.html"><a href="ide.html#magic-commends"><i class="fa fa-check"></i><b>21.1.3</b> Magic commends</a></li>
@@ -428,12 +394,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="21.1.5" data-path="ide.html"><a href="ide.html#converting-to-different-formats"><i class="fa fa-check"></i><b>21.1.5</b> Converting to different formats</a></li>
 <li class="chapter" data-level="21.1.6" data-path="ide.html"><a href="ide.html#widgets"><i class="fa fa-check"></i><b>21.1.6</b> widgets</a></li>
 </ul></li>
-<li class="chapter" data-level="21.2" data-path="ide.html"><a href="ide.html#jupiter-lab"><i class="fa fa-check"></i><b>21.2</b> Jupiter Lab</a>
-<ul>
+<li class="chapter" data-level="21.2" data-path="ide.html"><a href="ide.html#jupiter-lab"><i class="fa fa-check"></i><b>21.2</b> Jupiter Lab</a><ul>
 <li class="chapter" data-level="21.2.1" data-path="ide.html"><a href="ide.html#installation-1"><i class="fa fa-check"></i><b>21.2.1</b> Installation</a></li>
 </ul></li>
-<li class="chapter" data-level="21.3" data-path="ide.html"><a href="ide.html#pycharm"><i class="fa fa-check"></i><b>21.3</b> PyCharm</a>
-<ul>
+<li class="chapter" data-level="21.3" data-path="ide.html"><a href="ide.html#pycharm"><i class="fa fa-check"></i><b>21.3</b> PyCharm</a><ul>
 <li class="chapter" data-level="21.3.1" data-path="ide.html"><a href="ide.html#konfiguracja-git-i-github"><i class="fa fa-check"></i><b>21.3.1</b> Konfiguracja Git i GitHub</a></li>
 <li class="chapter" data-level="21.3.2" data-path="ide.html"><a href="ide.html#dodanie-git-do-istniejącego-projektu"><i class="fa fa-check"></i><b>21.3.2</b> Dodanie Git do istniejącego projektu</a></li>
 <li class="chapter" data-level="21.3.3" data-path="ide.html"><a href="ide.html#zmiana-skrotow"><i class="fa fa-check"></i><b>21.3.3</b> Zmiana skrotow</a></li>
@@ -445,8 +409,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="21.4" data-path="ide.html"><a href="ide.html#rstudio"><i class="fa fa-check"></i><b>21.4</b> Rstudio</a></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="installation-2.html"><a href="installation-2.html"><i class="fa fa-check"></i><b>22</b> Installation</a>
-<ul>
+<li class="chapter" data-level="22" data-path="installation-2.html"><a href="installation-2.html"><i class="fa fa-check"></i><b>22</b> Installation</a><ul>
 <li class="chapter" data-level="22.1" data-path="installation-2.html"><a href="installation-2.html#anaconda"><i class="fa fa-check"></i><b>22.1</b> Anaconda</a></li>
 </ul></li>
 <li class="chapter" data-level="23" data-path="intro-1.html"><a href="intro-1.html"><i class="fa fa-check"></i><b>23</b> INTRO</a></li>
@@ -462,7 +425,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Python</a>
           </h1>
         </div>
 
@@ -470,20 +433,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-structures---objective-programing" class="section level1" number="9">
+<div id="data-structures---objective-programing" class="section level1">
 <h1><span class="header-section-number">Chapter 9</span> DATA STRUCTURES - objective programing</h1>
 <p>Programownie obiektowe technicznie jest proste. Sztuką jest dobrze wymyślić i zaprojektować obiekty tak żeby rzeczy rzeczywiście ułatwiały zarządzanie kodem programu.</p>
-<div id="tworzenie-klasy-i-obiektow" class="section level2" number="9.1">
+<div id="tworzenie-klasy-i-obiektow" class="section level2">
 <h2><span class="header-section-number">9.1</span> Tworzenie klasy i obiektow</h2>
 <p>Utworzenie najprostszego obiektu</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb171-1"><a href="data-structures-objective-programing.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="co">#najpier tworze klase ktora jest szablonej do tworznia konkretnych obiektow tej klasy</span></span>
-<span id="cb171-2"><a href="data-structures-objective-programing.html#cb171-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> pies:</span>
-<span id="cb171-3"><a href="data-structures-objective-programing.html#cb171-3" aria-hidden="true" tabindex="-1"></a>  imie <span class="op">=</span> <span class="st">&#39;Burek&#39;</span></span>
-<span id="cb171-4"><a href="data-structures-objective-programing.html#cb171-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb171-5"><a href="data-structures-objective-programing.html#cb171-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb171-6"><a href="data-structures-objective-programing.html#cb171-6" aria-hidden="true" tabindex="-1"></a><span class="co"># tworze dwa obiekty (instancje klasy) &#39;pies&#39;</span></span>
-<span id="cb171-7"><a href="data-structures-objective-programing.html#cb171-7" aria-hidden="true" tabindex="-1"></a>pies_1 <span class="op">=</span> pies()</span>
-<span id="cb171-8"><a href="data-structures-objective-programing.html#cb171-8" aria-hidden="true" tabindex="-1"></a>pies_2 <span class="op">=</span> pies()</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb173-1"><a href="data-structures-objective-programing.html#cb173-1"></a><span class="co">#najpier tworze klase ktora jest szablonej do tworznia konkretnych obiektow tej klasy</span></span>
+<span id="cb173-2"><a href="data-structures-objective-programing.html#cb173-2"></a><span class="kw">class</span> pies:</span>
+<span id="cb173-3"><a href="data-structures-objective-programing.html#cb173-3"></a>  imie <span class="op">=</span> <span class="st">&#39;Burek&#39;</span></span>
+<span id="cb173-4"><a href="data-structures-objective-programing.html#cb173-4"></a></span>
+<span id="cb173-5"><a href="data-structures-objective-programing.html#cb173-5"></a></span>
+<span id="cb173-6"><a href="data-structures-objective-programing.html#cb173-6"></a><span class="co"># tworze dwa obiekty (instancje klasy) &#39;pies&#39;</span></span>
+<span id="cb173-7"><a href="data-structures-objective-programing.html#cb173-7"></a>pies_1 <span class="op">=</span> pies()</span>
+<span id="cb173-8"><a href="data-structures-objective-programing.html#cb173-8"></a>pies_2 <span class="op">=</span> pies()</span></code></pre></div>
 <p>Atrubuty (zmienna zwiazane z klasami i obiektami) dzieli na
 - zwiazane z klasa. Beda je mialy wszystkie obiekty danej klasy
 - zwiazana z obiektami. Moga sie roznic pomiedzy obiektami</p>
@@ -491,229 +454,229 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 - zwiazane z klasa. Operacje wykonywane przez te metody beda mialy wplyw na wszystkie instancje klasy
 - zwiazana z obiektami. Operacje wykonywane przez te metody beda mialy wplyw tylko na instancja na ktorych jest wykonywana funkcja</p>
 </div>
-<div id="atrybuty-3" class="section level2" number="9.2">
+<div id="atrybuty-3" class="section level2">
 <h2><span class="header-section-number">9.2</span> Atrybuty</h2>
-<div class="sourceCode" id="cb172"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb172-1"><a href="data-structures-objective-programing.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="co">#(1) znowu tworzymy klase </span></span>
-<span id="cb172-2"><a href="data-structures-objective-programing.html#cb172-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> pies:</span>
-<span id="cb172-3"><a href="data-structures-objective-programing.html#cb172-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># atrybut &#39;rodzaj&#39; bedzie dotyczyl wszystkich instancji tej klasy. Jest to atrybut dla CALEJ KLASY</span></span>
-<span id="cb172-4"><a href="data-structures-objective-programing.html#cb172-4" aria-hidden="true" tabindex="-1"></a>  rodzaj <span class="op">=</span> <span class="st">&#39;ssak&#39;</span></span>
-<span id="cb172-5"><a href="data-structures-objective-programing.html#cb172-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb172-6"><a href="data-structures-objective-programing.html#cb172-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># zeby stworzyc atrybuty ktorych wartosci moga sie roznic pomiedzy instancjami tworze funkcje inicjalizujaca (konstruktor), ktora bedzie automatycznie wywolywana przy tworzeniu obiektu</span></span>
-<span id="cb172-7"><a href="data-structures-objective-programing.html#cb172-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, wiek, imie): <span class="co"># funkcja dotyczy instancji klasy i musi miec jako pierwszy argument &#39;self&#39;, ktory umozliwia jej operowanie na elementach tej instancji</span></span>
-<span id="cb172-8"><a href="data-structures-objective-programing.html#cb172-8" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.wiek_psa <span class="op">=</span> wiek</span>
-<span id="cb172-9"><a href="data-structures-objective-programing.html#cb172-9" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.imie_psa <span class="op">=</span> imie</span>
-<span id="cb172-10"><a href="data-structures-objective-programing.html#cb172-10" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb172-11"><a href="data-structures-objective-programing.html#cb172-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb172-12"><a href="data-structures-objective-programing.html#cb172-12" aria-hidden="true" tabindex="-1"></a><span class="co">#(2) wywolanie funkcji __init__ nastepuje automatycznie przy tworzeniu obiektu:</span></span>
-<span id="cb172-13"><a href="data-structures-objective-programing.html#cb172-13" aria-hidden="true" tabindex="-1"></a>pies_1 <span class="op">=</span> pies(wiek_psa <span class="op">=</span> <span class="dv">10</span>, imie_psa <span class="op">=</span> <span class="st">&#39;burek&#39;</span>) <span class="co"># teraz przy tworzeniu obiektu nadamy od razu cesze &#39;wiek_psa&#39; i &#39;imie_psa&#39; wartosc ktora nas interesje. Zauwazmy ze funkcja __init__ nie jest tutaj wywolywana przez nas z nazwy. Jest ona wywolywana automatycznie przy tworzeniu obiektu i domyslnie pobiera argumenty podane w nawiasach okraglych po nazwie funkcji tworzacej klase.</span></span>
-<span id="cb172-14"><a href="data-structures-objective-programing.html#cb172-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb172-15"><a href="data-structures-objective-programing.html#cb172-15" aria-hidden="true" tabindex="-1"></a>pies_2 <span class="op">=</span> pies(wiek_psa <span class="op">=</span> <span class="dv">7</span>, imie_psa <span class="op">=</span> <span class="st">&#39;mirek&#39;</span>)</span>
-<span id="cb172-16"><a href="data-structures-objective-programing.html#cb172-16" aria-hidden="true" tabindex="-1"></a>pies_3 <span class="op">=</span> pies(wiek_psa <span class="op">=</span> <span class="dv">11</span>, imie_psa <span class="op">=</span> <span class="st">&#39;puszek&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb174-1"><a href="data-structures-objective-programing.html#cb174-1"></a><span class="co">#(1) znowu tworzymy klase </span></span>
+<span id="cb174-2"><a href="data-structures-objective-programing.html#cb174-2"></a><span class="kw">class</span> pies:</span>
+<span id="cb174-3"><a href="data-structures-objective-programing.html#cb174-3"></a>  <span class="co"># atrybut &#39;rodzaj&#39; bedzie dotyczyl wszystkich instancji tej klasy. Jest to atrybut dla CALEJ KLASY</span></span>
+<span id="cb174-4"><a href="data-structures-objective-programing.html#cb174-4"></a>  rodzaj <span class="op">=</span> <span class="st">&#39;ssak&#39;</span></span>
+<span id="cb174-5"><a href="data-structures-objective-programing.html#cb174-5"></a>  </span>
+<span id="cb174-6"><a href="data-structures-objective-programing.html#cb174-6"></a>  <span class="co"># zeby stworzyc atrybuty ktorych wartosci moga sie roznic pomiedzy instancjami tworze funkcje inicjalizujaca (konstruktor), ktora bedzie automatycznie wywolywana przy tworzeniu obiektu</span></span>
+<span id="cb174-7"><a href="data-structures-objective-programing.html#cb174-7"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, wiek, imie): <span class="co"># funkcja dotyczy instancji klasy i musi miec jako pierwszy argument &#39;self&#39;, ktory umozliwia jej operowanie na elementach tej instancji</span></span>
+<span id="cb174-8"><a href="data-structures-objective-programing.html#cb174-8"></a>    <span class="va">self</span>.wiek_psa <span class="op">=</span> wiek</span>
+<span id="cb174-9"><a href="data-structures-objective-programing.html#cb174-9"></a>    <span class="va">self</span>.imie_psa <span class="op">=</span> imie</span>
+<span id="cb174-10"><a href="data-structures-objective-programing.html#cb174-10"></a>    </span>
+<span id="cb174-11"><a href="data-structures-objective-programing.html#cb174-11"></a></span>
+<span id="cb174-12"><a href="data-structures-objective-programing.html#cb174-12"></a><span class="co">#(2) wywolanie funkcji __init__ nastepuje automatycznie przy tworzeniu obiektu:</span></span>
+<span id="cb174-13"><a href="data-structures-objective-programing.html#cb174-13"></a>pies_1 <span class="op">=</span> pies(wiek_psa <span class="op">=</span> <span class="dv">10</span>, imie_psa <span class="op">=</span> <span class="st">&#39;burek&#39;</span>) <span class="co"># teraz przy tworzeniu obiektu nadamy od razu cesze &#39;wiek_psa&#39; i &#39;imie_psa&#39; wartosc ktora nas interesje. Zauwazmy ze funkcja __init__ nie jest tutaj wywolywana przez nas z nazwy. Jest ona wywolywana automatycznie przy tworzeniu obiektu i domyslnie pobiera argumenty podane w nawiasach okraglych po nazwie funkcji tworzacej klase.</span></span>
+<span id="cb174-14"><a href="data-structures-objective-programing.html#cb174-14"></a></span>
+<span id="cb174-15"><a href="data-structures-objective-programing.html#cb174-15"></a>pies_2 <span class="op">=</span> pies(wiek_psa <span class="op">=</span> <span class="dv">7</span>, imie_psa <span class="op">=</span> <span class="st">&#39;mirek&#39;</span>)</span>
+<span id="cb174-16"><a href="data-structures-objective-programing.html#cb174-16"></a>pies_3 <span class="op">=</span> pies(wiek_psa <span class="op">=</span> <span class="dv">11</span>, imie_psa <span class="op">=</span> <span class="st">&#39;puszek&#39;</span>)</span></code></pre></div>
 </div>
-<div id="metody" class="section level2" number="9.3">
+<div id="metody" class="section level2">
 <h2><span class="header-section-number">9.3</span> Metody</h2>
-<div class="sourceCode" id="cb173"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb173-1"><a href="data-structures-objective-programing.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> pies:</span>
-<span id="cb173-2"><a href="data-structures-objective-programing.html#cb173-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb173-3"><a href="data-structures-objective-programing.html#cb173-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># atrybuty calej klasy</span></span>
-<span id="cb173-4"><a href="data-structures-objective-programing.html#cb173-4" aria-hidden="true" tabindex="-1"></a>  rodzaj <span class="op">=</span> <span class="st">&#39;ssak&#39;</span></span>
-<span id="cb173-5"><a href="data-structures-objective-programing.html#cb173-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb173-6"><a href="data-structures-objective-programing.html#cb173-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb173-7"><a href="data-structures-objective-programing.html#cb173-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># funkcja dla instancji bedaca funkcja inicjalizujaca</span></span>
-<span id="cb173-8"><a href="data-structures-objective-programing.html#cb173-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, wiek, imie): <span class="co"># przypominam ze funkcje instancji maja &#39;self&#39; jako pierwszy argument</span></span>
-<span id="cb173-9"><a href="data-structures-objective-programing.html#cb173-9" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.wiek_psa <span class="op">=</span> wiek</span>
-<span id="cb173-10"><a href="data-structures-objective-programing.html#cb173-10" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.imie_psa <span class="op">=</span> imie</span>
-<span id="cb173-11"><a href="data-structures-objective-programing.html#cb173-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb173-12"><a href="data-structures-objective-programing.html#cb173-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># funkcja dla instancji ( tym razem to nie jest funkcja inicjalizujaca)</span></span>
-<span id="cb173-13"><a href="data-structures-objective-programing.html#cb173-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> wiek_ludzki(<span class="va">self</span>):</span>
-<span id="cb173-14"><a href="data-structures-objective-programing.html#cb173-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>(<span class="va">self</span>.wiek_psa <span class="op">*</span> <span class="dv">7</span>)</span>
-<span id="cb173-15"><a href="data-structures-objective-programing.html#cb173-15" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb173-16"><a href="data-structures-objective-programing.html#cb173-16" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb173-17"><a href="data-structures-objective-programing.html#cb173-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># funkcja dla klasy</span></span>
-<span id="cb173-18"><a href="data-structures-objective-programing.html#cb173-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">@classmethod</span>  <span class="co"># musze uzyc specjalnego dekoratora zeby poinformowac ze to funkcja dla calej klasy (o dekoratorze jest przyklad w pliku &quot;1_02_PROGRAMING_functions_and_environments&quot;)</span></span>
-<span id="cb173-19"><a href="data-structures-objective-programing.html#cb173-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> zmiana_wielkosci_litery(cls, czy_na_male): <span class="co"># funkcje klasy maja &#39;cls&#39; jako pierwszy argument zeby funkcja mogla sie odnosic do klasy</span></span>
-<span id="cb173-20"><a href="data-structures-objective-programing.html#cb173-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> czy_na_male:</span>
-<span id="cb173-21"><a href="data-structures-objective-programing.html#cb173-21" aria-hidden="true" tabindex="-1"></a>      cls.radzaj <span class="op">=</span> cls.rodzaj.lower <span class="co"># zamiana na male litery nazwy w atrybucie klasy</span></span>
-<span id="cb173-22"><a href="data-structures-objective-programing.html#cb173-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb173-23"><a href="data-structures-objective-programing.html#cb173-23" aria-hidden="true" tabindex="-1"></a>      cls.rodzaj <span class="op">=</span> cls.rodzaj.upper <span class="co"># zamiana na male litery nazwy w atrybucie klasy</span></span>
-<span id="cb173-24"><a href="data-structures-objective-programing.html#cb173-24" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb173-25"><a href="data-structures-objective-programing.html#cb173-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb173-26"><a href="data-structures-objective-programing.html#cb173-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb173-27"><a href="data-structures-objective-programing.html#cb173-27" aria-hidden="true" tabindex="-1"></a>pies_1 <span class="op">=</span> pies(wiek <span class="op">=</span> <span class="dv">5</span>, imie <span class="op">=</span> <span class="st">&#39;burek&#39;</span>)</span>
-<span id="cb173-28"><a href="data-structures-objective-programing.html#cb173-28" aria-hidden="true" tabindex="-1"></a>pies_2 <span class="op">=</span> pies(wiek <span class="op">=</span> <span class="dv">15</span>, imie <span class="op">=</span> <span class="st">&#39;zbirek&#39;</span>)</span>
-<span id="cb173-29"><a href="data-structures-objective-programing.html#cb173-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb173-30"><a href="data-structures-objective-programing.html#cb173-30" aria-hidden="true" tabindex="-1"></a><span class="co"># wywolanie atrybutu klasy</span></span>
-<span id="cb173-31"><a href="data-structures-objective-programing.html#cb173-31" aria-hidden="true" tabindex="-1"></a>pies_1.rodzaj</span>
-<span id="cb173-32"><a href="data-structures-objective-programing.html#cb173-32" aria-hidden="true" tabindex="-1"></a>pies_2.rodzaj</span>
-<span id="cb173-33"><a href="data-structures-objective-programing.html#cb173-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb173-34"><a href="data-structures-objective-programing.html#cb173-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb173-35"><a href="data-structures-objective-programing.html#cb173-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb173-36"><a href="data-structures-objective-programing.html#cb173-36" aria-hidden="true" tabindex="-1"></a><span class="co"># wywolanie atrybutow instancji</span></span>
-<span id="cb173-37"><a href="data-structures-objective-programing.html#cb173-37" aria-hidden="true" tabindex="-1"></a>pies_1.wiek_psa</span>
-<span id="cb173-38"><a href="data-structures-objective-programing.html#cb173-38" aria-hidden="true" tabindex="-1"></a>pies_1.imie_psa</span>
-<span id="cb173-39"><a href="data-structures-objective-programing.html#cb173-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb173-40"><a href="data-structures-objective-programing.html#cb173-40" aria-hidden="true" tabindex="-1"></a>pies_2.wiek_psa</span>
-<span id="cb173-41"><a href="data-structures-objective-programing.html#cb173-41" aria-hidden="true" tabindex="-1"></a>pies_2.imie_psa</span>
-<span id="cb173-42"><a href="data-structures-objective-programing.html#cb173-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb173-43"><a href="data-structures-objective-programing.html#cb173-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb173-44"><a href="data-structures-objective-programing.html#cb173-44" aria-hidden="true" tabindex="-1"></a><span class="co"># wywolanie funkcji instancji</span></span>
-<span id="cb173-45"><a href="data-structures-objective-programing.html#cb173-45" aria-hidden="true" tabindex="-1"></a>pies_1.wiek_ludzki()</span>
-<span id="cb173-46"><a href="data-structures-objective-programing.html#cb173-46" aria-hidden="true" tabindex="-1"></a>pies_2.wiek_ludzki()</span>
-<span id="cb173-47"><a href="data-structures-objective-programing.html#cb173-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb173-48"><a href="data-structures-objective-programing.html#cb173-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb173-49"><a href="data-structures-objective-programing.html#cb173-49" aria-hidden="true" tabindex="-1"></a><span class="co"># wywolanie funkcji klasy</span></span>
-<span id="cb173-50"><a href="data-structures-objective-programing.html#cb173-50" aria-hidden="true" tabindex="-1"></a>pies_1.zmiana_wielkosci_litery(czy_na_male<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb173-51"><a href="data-structures-objective-programing.html#cb173-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb173-52"><a href="data-structures-objective-programing.html#cb173-52" aria-hidden="true" tabindex="-1"></a>pies_1.rodzaj()</span>
-<span id="cb173-53"><a href="data-structures-objective-programing.html#cb173-53" aria-hidden="true" tabindex="-1"></a>pies_2.rodzaj() <span class="co">#UWAGA!!!. Mimo ze wiekosc liter dla globalnego atrybutu zmienilismy tylko dla pies_1 to zmiana zaszla tak jak chcielismy, dla calej klasy czyli dla wszystkich instancji. Dlatego dla pies_2 tez jest pisany wielka litera</span></span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb175-1"><a href="data-structures-objective-programing.html#cb175-1"></a><span class="kw">class</span> pies:</span>
+<span id="cb175-2"><a href="data-structures-objective-programing.html#cb175-2"></a>  </span>
+<span id="cb175-3"><a href="data-structures-objective-programing.html#cb175-3"></a>  <span class="co"># atrybuty calej klasy</span></span>
+<span id="cb175-4"><a href="data-structures-objective-programing.html#cb175-4"></a>  rodzaj <span class="op">=</span> <span class="st">&#39;ssak&#39;</span></span>
+<span id="cb175-5"><a href="data-structures-objective-programing.html#cb175-5"></a>  </span>
+<span id="cb175-6"><a href="data-structures-objective-programing.html#cb175-6"></a>  </span>
+<span id="cb175-7"><a href="data-structures-objective-programing.html#cb175-7"></a>  <span class="co"># funkcja dla instancji bedaca funkcja inicjalizujaca</span></span>
+<span id="cb175-8"><a href="data-structures-objective-programing.html#cb175-8"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, wiek, imie): <span class="co"># przypominam ze funkcje instancji maja &#39;self&#39; jako pierwszy argument</span></span>
+<span id="cb175-9"><a href="data-structures-objective-programing.html#cb175-9"></a>    <span class="va">self</span>.wiek_psa <span class="op">=</span> wiek</span>
+<span id="cb175-10"><a href="data-structures-objective-programing.html#cb175-10"></a>    <span class="va">self</span>.imie_psa <span class="op">=</span> imie</span>
+<span id="cb175-11"><a href="data-structures-objective-programing.html#cb175-11"></a>  </span>
+<span id="cb175-12"><a href="data-structures-objective-programing.html#cb175-12"></a>  <span class="co"># funkcja dla instancji ( tym razem to nie jest funkcja inicjalizujaca)</span></span>
+<span id="cb175-13"><a href="data-structures-objective-programing.html#cb175-13"></a>  <span class="kw">def</span> wiek_ludzki(<span class="va">self</span>):</span>
+<span id="cb175-14"><a href="data-structures-objective-programing.html#cb175-14"></a>    <span class="cf">return</span>(<span class="va">self</span>.wiek_psa <span class="op">*</span> <span class="dv">7</span>)</span>
+<span id="cb175-15"><a href="data-structures-objective-programing.html#cb175-15"></a>    </span>
+<span id="cb175-16"><a href="data-structures-objective-programing.html#cb175-16"></a>  </span>
+<span id="cb175-17"><a href="data-structures-objective-programing.html#cb175-17"></a>  <span class="co"># funkcja dla klasy</span></span>
+<span id="cb175-18"><a href="data-structures-objective-programing.html#cb175-18"></a>  <span class="at">@classmethod</span>  <span class="co"># musze uzyc specjalnego dekoratora zeby poinformowac ze to funkcja dla calej klasy (o dekoratorze jest przyklad w pliku &quot;1_02_PROGRAMING_functions_and_environments&quot;)</span></span>
+<span id="cb175-19"><a href="data-structures-objective-programing.html#cb175-19"></a>  <span class="kw">def</span> zmiana_wielkosci_litery(cls, czy_na_male): <span class="co"># funkcje klasy maja &#39;cls&#39; jako pierwszy argument zeby funkcja mogla sie odnosic do klasy</span></span>
+<span id="cb175-20"><a href="data-structures-objective-programing.html#cb175-20"></a>    <span class="cf">if</span> czy_na_male:</span>
+<span id="cb175-21"><a href="data-structures-objective-programing.html#cb175-21"></a>      cls.radzaj <span class="op">=</span> cls.rodzaj.lower <span class="co"># zamiana na male litery nazwy w atrybucie klasy</span></span>
+<span id="cb175-22"><a href="data-structures-objective-programing.html#cb175-22"></a>    <span class="cf">else</span>:</span>
+<span id="cb175-23"><a href="data-structures-objective-programing.html#cb175-23"></a>      cls.rodzaj <span class="op">=</span> cls.rodzaj.upper <span class="co"># zamiana na male litery nazwy w atrybucie klasy</span></span>
+<span id="cb175-24"><a href="data-structures-objective-programing.html#cb175-24"></a>    </span>
+<span id="cb175-25"><a href="data-structures-objective-programing.html#cb175-25"></a></span>
+<span id="cb175-26"><a href="data-structures-objective-programing.html#cb175-26"></a></span>
+<span id="cb175-27"><a href="data-structures-objective-programing.html#cb175-27"></a>pies_1 <span class="op">=</span> pies(wiek <span class="op">=</span> <span class="dv">5</span>, imie <span class="op">=</span> <span class="st">&#39;burek&#39;</span>)</span>
+<span id="cb175-28"><a href="data-structures-objective-programing.html#cb175-28"></a>pies_2 <span class="op">=</span> pies(wiek <span class="op">=</span> <span class="dv">15</span>, imie <span class="op">=</span> <span class="st">&#39;zbirek&#39;</span>)</span>
+<span id="cb175-29"><a href="data-structures-objective-programing.html#cb175-29"></a></span>
+<span id="cb175-30"><a href="data-structures-objective-programing.html#cb175-30"></a><span class="co"># wywolanie atrybutu klasy</span></span>
+<span id="cb175-31"><a href="data-structures-objective-programing.html#cb175-31"></a>pies_1.rodzaj</span>
+<span id="cb175-32"><a href="data-structures-objective-programing.html#cb175-32"></a>pies_2.rodzaj</span>
+<span id="cb175-33"><a href="data-structures-objective-programing.html#cb175-33"></a></span>
+<span id="cb175-34"><a href="data-structures-objective-programing.html#cb175-34"></a></span>
+<span id="cb175-35"><a href="data-structures-objective-programing.html#cb175-35"></a></span>
+<span id="cb175-36"><a href="data-structures-objective-programing.html#cb175-36"></a><span class="co"># wywolanie atrybutow instancji</span></span>
+<span id="cb175-37"><a href="data-structures-objective-programing.html#cb175-37"></a>pies_1.wiek_psa</span>
+<span id="cb175-38"><a href="data-structures-objective-programing.html#cb175-38"></a>pies_1.imie_psa</span>
+<span id="cb175-39"><a href="data-structures-objective-programing.html#cb175-39"></a></span>
+<span id="cb175-40"><a href="data-structures-objective-programing.html#cb175-40"></a>pies_2.wiek_psa</span>
+<span id="cb175-41"><a href="data-structures-objective-programing.html#cb175-41"></a>pies_2.imie_psa</span>
+<span id="cb175-42"><a href="data-structures-objective-programing.html#cb175-42"></a></span>
+<span id="cb175-43"><a href="data-structures-objective-programing.html#cb175-43"></a></span>
+<span id="cb175-44"><a href="data-structures-objective-programing.html#cb175-44"></a><span class="co"># wywolanie funkcji instancji</span></span>
+<span id="cb175-45"><a href="data-structures-objective-programing.html#cb175-45"></a>pies_1.wiek_ludzki()</span>
+<span id="cb175-46"><a href="data-structures-objective-programing.html#cb175-46"></a>pies_2.wiek_ludzki()</span>
+<span id="cb175-47"><a href="data-structures-objective-programing.html#cb175-47"></a></span>
+<span id="cb175-48"><a href="data-structures-objective-programing.html#cb175-48"></a></span>
+<span id="cb175-49"><a href="data-structures-objective-programing.html#cb175-49"></a><span class="co"># wywolanie funkcji klasy</span></span>
+<span id="cb175-50"><a href="data-structures-objective-programing.html#cb175-50"></a>pies_1.zmiana_wielkosci_litery(czy_na_male<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb175-51"><a href="data-structures-objective-programing.html#cb175-51"></a></span>
+<span id="cb175-52"><a href="data-structures-objective-programing.html#cb175-52"></a>pies_1.rodzaj()</span>
+<span id="cb175-53"><a href="data-structures-objective-programing.html#cb175-53"></a>pies_2.rodzaj() <span class="co">#UWAGA!!!. Mimo ze wiekosc liter dla globalnego atrybutu zmienilismy tylko dla pies_1 to zmiana zaszla tak jak chcielismy, dla calej klasy czyli dla wszystkich instancji. Dlatego dla pies_2 tez jest pisany wielka litera</span></span></code></pre></div>
 </div>
-<div id="prywatne-atrybuty-i-metody" class="section level2" number="9.4">
+<div id="prywatne-atrybuty-i-metody" class="section level2">
 <h2><span class="header-section-number">9.4</span> Prywatne atrybuty i metody</h2>
 <p>W programowaniu obiektowym elementy prywatne (atrybuty, funkcje) robi sie dla wewnetrznego uzytku obiektu. Sa to np. jakies pomocnicze funkcje ktorych uzytkownik nie powinien widziec, a ktorych rola jest np. wspieranie funkcji ktore sa z kolei wywolywane przez uzytownika (czyli funkcji publicznych. Dla scislosci wspomne ze funkcje w obiektach klas nazywa sie metodami.</p>
 <p>W Pythonie nazwy elementow prywatnych zaczynaja sie od podwojnego podkreslenia ’__’.</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb174-1"><a href="data-structures-objective-programing.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> employee:</span>
-<span id="cb174-2"><a href="data-structures-objective-programing.html#cb174-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, sal):</span>
-<span id="cb174-3"><a href="data-structures-objective-programing.html#cb174-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.__name<span class="op">=</span>name  <span class="co"># prywatny atrybut</span></span>
-<span id="cb174-4"><a href="data-structures-objective-programing.html#cb174-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.__salary<span class="op">=</span>sal <span class="co"># prywatny atrybut</span></span>
-<span id="cb174-5"><a href="data-structures-objective-programing.html#cb174-5" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb174-6"><a href="data-structures-objective-programing.html#cb174-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> __pensja_netto(<span class="va">self</span>): <span class="co"># funkcja prywatna</span></span>
-<span id="cb174-7"><a href="data-structures-objective-programing.html#cb174-7" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="va">self</span>.__salary<span class="op">*</span><span class="fl">0.8</span>)</span>
-<span id="cb174-8"><a href="data-structures-objective-programing.html#cb174-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb174-9"><a href="data-structures-objective-programing.html#cb174-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb174-10"><a href="data-structures-objective-programing.html#cb174-10" aria-hidden="true" tabindex="-1"></a>emp <span class="op">=</span> employee(name <span class="op">=</span> <span class="st">&#39;lukasz&#39;</span>, sal <span class="op">=</span> <span class="dv">5000</span>)</span>
-<span id="cb174-11"><a href="data-structures-objective-programing.html#cb174-11" aria-hidden="true" tabindex="-1"></a>emp.__salary <span class="co"># atrybutu salary nie da sie wywolac bo jest prywatny i przez to niedostepny dla uzytkownika. Dostaniemy blad</span></span>
-<span id="cb174-12"><a href="data-structures-objective-programing.html#cb174-12" aria-hidden="true" tabindex="-1"></a>emp._employee__salary <span class="co"># ale mozna go wywalc posrednio taka nazwa: podkreslnik+nazwa_klasy_podkreslnik+nazwa_prywanego_atrybutu</span></span>
-<span id="cb174-13"><a href="data-structures-objective-programing.html#cb174-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb174-14"><a href="data-structures-objective-programing.html#cb174-14" aria-hidden="true" tabindex="-1"></a>emp.__pensja_netto()  <span class="co"># funkcji salary nie da sie wywolac bo jest prywatna i przez to niedostepna dla uzytkownika. Dostaniemy blad</span></span>
-<span id="cb174-15"><a href="data-structures-objective-programing.html#cb174-15" aria-hidden="true" tabindex="-1"></a>emp._employee__pensja_netto()<span class="co"># ale mozna ja wywalc posrednio taka nazwa: podkreslnik+nazwa_klasy_podkreslnik+nazwa_prywanej_funkcji</span></span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb176-1"><a href="data-structures-objective-programing.html#cb176-1"></a><span class="kw">class</span> employee:</span>
+<span id="cb176-2"><a href="data-structures-objective-programing.html#cb176-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, sal):</span>
+<span id="cb176-3"><a href="data-structures-objective-programing.html#cb176-3"></a>        <span class="va">self</span>.__name<span class="op">=</span>name  <span class="co"># prywatny atrybut</span></span>
+<span id="cb176-4"><a href="data-structures-objective-programing.html#cb176-4"></a>        <span class="va">self</span>.__salary<span class="op">=</span>sal <span class="co"># prywatny atrybut</span></span>
+<span id="cb176-5"><a href="data-structures-objective-programing.html#cb176-5"></a>        </span>
+<span id="cb176-6"><a href="data-structures-objective-programing.html#cb176-6"></a>    <span class="kw">def</span> __pensja_netto(<span class="va">self</span>): <span class="co"># funkcja prywatna</span></span>
+<span id="cb176-7"><a href="data-structures-objective-programing.html#cb176-7"></a>      <span class="bu">print</span>(<span class="va">self</span>.__salary<span class="op">*</span><span class="fl">0.8</span>)</span>
+<span id="cb176-8"><a href="data-structures-objective-programing.html#cb176-8"></a></span>
+<span id="cb176-9"><a href="data-structures-objective-programing.html#cb176-9"></a></span>
+<span id="cb176-10"><a href="data-structures-objective-programing.html#cb176-10"></a>emp <span class="op">=</span> employee(name <span class="op">=</span> <span class="st">&#39;lukasz&#39;</span>, sal <span class="op">=</span> <span class="dv">5000</span>)</span>
+<span id="cb176-11"><a href="data-structures-objective-programing.html#cb176-11"></a>emp.__salary <span class="co"># atrybutu salary nie da sie wywolac bo jest prywatny i przez to niedostepny dla uzytkownika. Dostaniemy blad</span></span>
+<span id="cb176-12"><a href="data-structures-objective-programing.html#cb176-12"></a>emp._employee__salary <span class="co"># ale mozna go wywalc posrednio taka nazwa: podkreslnik+nazwa_klasy_podkreslnik+nazwa_prywanego_atrybutu</span></span>
+<span id="cb176-13"><a href="data-structures-objective-programing.html#cb176-13"></a></span>
+<span id="cb176-14"><a href="data-structures-objective-programing.html#cb176-14"></a>emp.__pensja_netto()  <span class="co"># funkcji salary nie da sie wywolac bo jest prywatna i przez to niedostepna dla uzytkownika. Dostaniemy blad</span></span>
+<span id="cb176-15"><a href="data-structures-objective-programing.html#cb176-15"></a>emp._employee__pensja_netto()<span class="co"># ale mozna ja wywalc posrednio taka nazwa: podkreslnik+nazwa_klasy_podkreslnik+nazwa_prywanej_funkcji</span></span></code></pre></div>
 </div>
-<div id="metody-statyczne" class="section level2" number="9.5">
+<div id="metody-statyczne" class="section level2">
 <h2><span class="header-section-number">9.5</span> Metody statyczne</h2>
 <p>Sluza jak elementy wykonywane ‘na boku’ bez wplywania na atrybuty klasy i jej instancji</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb175-1"><a href="data-structures-objective-programing.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python program to demonstrate  </span></span>
-<span id="cb175-2"><a href="data-structures-objective-programing.html#cb175-2" aria-hidden="true" tabindex="-1"></a><span class="co"># use of class method and static method. </span></span>
-<span id="cb175-3"><a href="data-structures-objective-programing.html#cb175-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> date </span>
-<span id="cb175-4"><a href="data-structures-objective-programing.html#cb175-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb175-5"><a href="data-structures-objective-programing.html#cb175-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Person: </span>
-<span id="cb175-6"><a href="data-structures-objective-programing.html#cb175-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, age): </span>
-<span id="cb175-7"><a href="data-structures-objective-programing.html#cb175-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name </span>
-<span id="cb175-8"><a href="data-structures-objective-programing.html#cb175-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.age <span class="op">=</span> age </span>
-<span id="cb175-9"><a href="data-structures-objective-programing.html#cb175-9" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb175-10"><a href="data-structures-objective-programing.html#cb175-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># a class method to create a Person object by birth year. </span></span>
-<span id="cb175-11"><a href="data-structures-objective-programing.html#cb175-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">@classmethod</span></span>
-<span id="cb175-12"><a href="data-structures-objective-programing.html#cb175-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> fromBirthYear(cls, name, year): </span>
-<span id="cb175-13"><a href="data-structures-objective-programing.html#cb175-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> cls(name, date.today().year <span class="op">-</span> year) </span>
-<span id="cb175-14"><a href="data-structures-objective-programing.html#cb175-14" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb175-15"><a href="data-structures-objective-programing.html#cb175-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># a static method to check if a Person is adult or not. </span></span>
-<span id="cb175-16"><a href="data-structures-objective-programing.html#cb175-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">@staticmethod</span></span>
-<span id="cb175-17"><a href="data-structures-objective-programing.html#cb175-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> isAdult(age): </span>
-<span id="cb175-18"><a href="data-structures-objective-programing.html#cb175-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> age <span class="op">&gt;</span> <span class="dv">18</span></span>
-<span id="cb175-19"><a href="data-structures-objective-programing.html#cb175-19" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb175-20"><a href="data-structures-objective-programing.html#cb175-20" aria-hidden="true" tabindex="-1"></a>person1 <span class="op">=</span> Person(<span class="st">&#39;mayank&#39;</span>, <span class="dv">21</span>) </span>
-<span id="cb175-21"><a href="data-structures-objective-programing.html#cb175-21" aria-hidden="true" tabindex="-1"></a>person2 <span class="op">=</span> Person.fromBirthYear(<span class="st">&#39;mayank&#39;</span>, <span class="dv">1996</span>) </span>
-<span id="cb175-22"><a href="data-structures-objective-programing.html#cb175-22" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb175-23"><a href="data-structures-objective-programing.html#cb175-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(person1.age)</span>
-<span id="cb175-24"><a href="data-structures-objective-programing.html#cb175-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(person2.age)</span>
-<span id="cb175-25"><a href="data-structures-objective-programing.html#cb175-25" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb175-26"><a href="data-structures-objective-programing.html#cb175-26" aria-hidden="true" tabindex="-1"></a><span class="co"># print the result </span></span>
-<span id="cb175-27"><a href="data-structures-objective-programing.html#cb175-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> Person.isAdult(<span class="dv">22</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb177-1"><a href="data-structures-objective-programing.html#cb177-1"></a><span class="co"># Python program to demonstrate  </span></span>
+<span id="cb177-2"><a href="data-structures-objective-programing.html#cb177-2"></a><span class="co"># use of class method and static method. </span></span>
+<span id="cb177-3"><a href="data-structures-objective-programing.html#cb177-3"></a><span class="im">from</span> datetime <span class="im">import</span> date </span>
+<span id="cb177-4"><a href="data-structures-objective-programing.html#cb177-4"></a>  </span>
+<span id="cb177-5"><a href="data-structures-objective-programing.html#cb177-5"></a><span class="kw">class</span> Person: </span>
+<span id="cb177-6"><a href="data-structures-objective-programing.html#cb177-6"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, age): </span>
+<span id="cb177-7"><a href="data-structures-objective-programing.html#cb177-7"></a>        <span class="va">self</span>.name <span class="op">=</span> name </span>
+<span id="cb177-8"><a href="data-structures-objective-programing.html#cb177-8"></a>        <span class="va">self</span>.age <span class="op">=</span> age </span>
+<span id="cb177-9"><a href="data-structures-objective-programing.html#cb177-9"></a>      </span>
+<span id="cb177-10"><a href="data-structures-objective-programing.html#cb177-10"></a>    <span class="co"># a class method to create a Person object by birth year. </span></span>
+<span id="cb177-11"><a href="data-structures-objective-programing.html#cb177-11"></a>    <span class="at">@classmethod</span></span>
+<span id="cb177-12"><a href="data-structures-objective-programing.html#cb177-12"></a>    <span class="kw">def</span> fromBirthYear(cls, name, year): </span>
+<span id="cb177-13"><a href="data-structures-objective-programing.html#cb177-13"></a>        <span class="cf">return</span> cls(name, date.today().year <span class="op">-</span> year) </span>
+<span id="cb177-14"><a href="data-structures-objective-programing.html#cb177-14"></a>      </span>
+<span id="cb177-15"><a href="data-structures-objective-programing.html#cb177-15"></a>    <span class="co"># a static method to check if a Person is adult or not. </span></span>
+<span id="cb177-16"><a href="data-structures-objective-programing.html#cb177-16"></a>    <span class="at">@staticmethod</span></span>
+<span id="cb177-17"><a href="data-structures-objective-programing.html#cb177-17"></a>    <span class="kw">def</span> isAdult(age): </span>
+<span id="cb177-18"><a href="data-structures-objective-programing.html#cb177-18"></a>        <span class="cf">return</span> age <span class="op">&gt;</span> <span class="dv">18</span></span>
+<span id="cb177-19"><a href="data-structures-objective-programing.html#cb177-19"></a>  </span>
+<span id="cb177-20"><a href="data-structures-objective-programing.html#cb177-20"></a>person1 <span class="op">=</span> Person(<span class="st">&#39;mayank&#39;</span>, <span class="dv">21</span>) </span>
+<span id="cb177-21"><a href="data-structures-objective-programing.html#cb177-21"></a>person2 <span class="op">=</span> Person.fromBirthYear(<span class="st">&#39;mayank&#39;</span>, <span class="dv">1996</span>) </span>
+<span id="cb177-22"><a href="data-structures-objective-programing.html#cb177-22"></a>  </span>
+<span id="cb177-23"><a href="data-structures-objective-programing.html#cb177-23"></a><span class="bu">print</span>(person1.age)</span>
+<span id="cb177-24"><a href="data-structures-objective-programing.html#cb177-24"></a><span class="bu">print</span>(person2.age)</span>
+<span id="cb177-25"><a href="data-structures-objective-programing.html#cb177-25"></a>  </span>
+<span id="cb177-26"><a href="data-structures-objective-programing.html#cb177-26"></a><span class="co"># print the result </span></span>
+<span id="cb177-27"><a href="data-structures-objective-programing.html#cb177-27"></a><span class="bu">print</span> Person.isAdult(<span class="dv">22</span>) </span></code></pre></div>
 </div>
-<div id="mechanizm-dziedziczenia" class="section level2" number="9.6">
+<div id="mechanizm-dziedziczenia" class="section level2">
 <h2><span class="header-section-number">9.6</span> mechanizm dziedziczenia</h2>
-<div id="tworzenie-podklas" class="section level3" number="9.6.1">
+<div id="tworzenie-podklas" class="section level3">
 <h3><span class="header-section-number">9.6.1</span> tworzenie podklas</h3>
 <p>Klasy mozemy ukladac w hierachi. Jedna klasa moze miec wiele podklas. Jedna podklasa moze miec wiele nadklas.
-Podklasy dziedzicza cechy nadklasy, ale moga dodawac jakies swoje kolejne elementy. Np. Klasa ‘samochod’ oznacze posiadanie 4 kol i silnika. Podklasa ‘kabriolet’ ma wszystko to co ma klasa ‘samochod’ ale mozna jej dolozyc ceche ‘skladany_dach.’ Dla podklasy mozemy stworzyc nastepna podklase, np. ‘kabriolet_elektryczny,’ itd.</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb176-1"><a href="data-structures-objective-programing.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tworze klase &#39;robot&#39;</span></span>
-<span id="cb176-2"><a href="data-structures-objective-programing.html#cb176-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Robot:</span>
-<span id="cb176-3"><a href="data-structures-objective-programing.html#cb176-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name):</span>
-<span id="cb176-4"><a href="data-structures-objective-programing.html#cb176-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
-<span id="cb176-5"><a href="data-structures-objective-programing.html#cb176-5" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb176-6"><a href="data-structures-objective-programing.html#cb176-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> say_hi(<span class="va">self</span>):</span>
-<span id="cb176-7"><a href="data-structures-objective-programing.html#cb176-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;Hi, I am &quot;</span> <span class="op">+</span> <span class="va">self</span>.name)</span>
-<span id="cb176-8"><a href="data-structures-objective-programing.html#cb176-8" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb176-9"><a href="data-structures-objective-programing.html#cb176-9" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb176-10"><a href="data-structures-objective-programing.html#cb176-10" aria-hidden="true" tabindex="-1"></a><span class="co"># teraz tworze klase PhysicianRobot ktora jest podklasa klasy &#39;robot&#39;</span></span>
-<span id="cb176-11"><a href="data-structures-objective-programing.html#cb176-11" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> PhysicianRobot(Robot):</span>
-<span id="cb176-12"><a href="data-structures-objective-programing.html#cb176-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">pass</span> <span class="co"># slowo pass umozliwia utworzenie klasy bez podawania zadnych parametow.</span></span>
-<span id="cb176-13"><a href="data-structures-objective-programing.html#cb176-13" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb176-14"><a href="data-structures-objective-programing.html#cb176-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb176-15"><a href="data-structures-objective-programing.html#cb176-15" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> PhysicianRobot(<span class="st">&quot;James&quot;</span>) <span class="co">#tworze obiekt klasy &#39;Robot&#39;</span></span>
-<span id="cb176-16"><a href="data-structures-objective-programing.html#cb176-16" aria-hidden="true" tabindex="-1"></a>y.say_hi()  <span class="co"># mimo że w klasie &#39;PhysicianRobot&#39; nie zdefiniowalismy tej funkcji to zostala ona odziedziczona po klasie &#39;Robot&#39;.Dlatego dziala</span></span>
-<span id="cb176-17"><a href="data-structures-objective-programing.html#cb176-17" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb176-18"><a href="data-structures-objective-programing.html#cb176-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb176-19"><a href="data-structures-objective-programing.html#cb176-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb176-20"><a href="data-structures-objective-programing.html#cb176-20" aria-hidden="true" tabindex="-1"></a><span class="co"># teraz tworze klase OrganicRobot ktora jest kolejna (druga juz) podklasa klasy &#39;robot&#39;</span></span>
-<span id="cb176-21"><a href="data-structures-objective-programing.html#cb176-21" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> OrganicRobot(Robot):</span>
-<span id="cb176-22"><a href="data-structures-objective-programing.html#cb176-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># teraz dodamy sobie nowa funkcje ktorej nie ma klasa &#39;robot&#39;</span></span>
-<span id="cb176-23"><a href="data-structures-objective-programing.html#cb176-23" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> say_goodbye(<span class="va">self</span>):</span>
-<span id="cb176-24"><a href="data-structures-objective-programing.html#cb176-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&#39;goodbye&#39;</span>)</span>
-<span id="cb176-25"><a href="data-structures-objective-programing.html#cb176-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb176-26"><a href="data-structures-objective-programing.html#cb176-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb176-27"><a href="data-structures-objective-programing.html#cb176-27" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> OrganicRobot(<span class="st">&#39;Lucas&#39;</span>)</span>
-<span id="cb176-28"><a href="data-structures-objective-programing.html#cb176-28" aria-hidden="true" tabindex="-1"></a>x.say_goodbye()</span></code></pre></div>
+Podklasy dziedzicza cechy nadklasy, ale moga dodawac jakies swoje kolejne elementy. Np. Klasa ‘samochod’ oznacze posiadanie 4 kol i silnika. Podklasa ‘kabriolet’ ma wszystko to co ma klasa ‘samochod’ ale mozna jej dolozyc ceche ‘skladany_dach’. Dla podklasy mozemy stworzyc nastepna podklase, np. ‘kabriolet_elektryczny’, itd.</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb178-1"><a href="data-structures-objective-programing.html#cb178-1"></a><span class="co"># tworze klase &#39;robot&#39;</span></span>
+<span id="cb178-2"><a href="data-structures-objective-programing.html#cb178-2"></a><span class="kw">class</span> Robot:</span>
+<span id="cb178-3"><a href="data-structures-objective-programing.html#cb178-3"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name):</span>
+<span id="cb178-4"><a href="data-structures-objective-programing.html#cb178-4"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb178-5"><a href="data-structures-objective-programing.html#cb178-5"></a>        </span>
+<span id="cb178-6"><a href="data-structures-objective-programing.html#cb178-6"></a>    <span class="kw">def</span> say_hi(<span class="va">self</span>):</span>
+<span id="cb178-7"><a href="data-structures-objective-programing.html#cb178-7"></a>        <span class="bu">print</span>(<span class="st">&quot;Hi, I am &quot;</span> <span class="op">+</span> <span class="va">self</span>.name)</span>
+<span id="cb178-8"><a href="data-structures-objective-programing.html#cb178-8"></a>        </span>
+<span id="cb178-9"><a href="data-structures-objective-programing.html#cb178-9"></a>        </span>
+<span id="cb178-10"><a href="data-structures-objective-programing.html#cb178-10"></a><span class="co"># teraz tworze klase PhysicianRobot ktora jest podklasa klasy &#39;robot&#39;</span></span>
+<span id="cb178-11"><a href="data-structures-objective-programing.html#cb178-11"></a><span class="kw">class</span> PhysicianRobot(Robot):</span>
+<span id="cb178-12"><a href="data-structures-objective-programing.html#cb178-12"></a>  <span class="cf">pass</span> <span class="co"># slowo pass umozliwia utworzenie klasy bez podawania zadnych parametow.</span></span>
+<span id="cb178-13"><a href="data-structures-objective-programing.html#cb178-13"></a>  </span>
+<span id="cb178-14"><a href="data-structures-objective-programing.html#cb178-14"></a></span>
+<span id="cb178-15"><a href="data-structures-objective-programing.html#cb178-15"></a>y <span class="op">=</span> PhysicianRobot(<span class="st">&quot;James&quot;</span>) <span class="co">#tworze obiekt klasy &#39;Robot&#39;</span></span>
+<span id="cb178-16"><a href="data-structures-objective-programing.html#cb178-16"></a>y.say_hi()  <span class="co"># mimo że w klasie &#39;PhysicianRobot&#39; nie zdefiniowalismy tej funkcji to zostala ona odziedziczona po klasie &#39;Robot&#39;.Dlatego dziala</span></span>
+<span id="cb178-17"><a href="data-structures-objective-programing.html#cb178-17"></a>    </span>
+<span id="cb178-18"><a href="data-structures-objective-programing.html#cb178-18"></a></span>
+<span id="cb178-19"><a href="data-structures-objective-programing.html#cb178-19"></a></span>
+<span id="cb178-20"><a href="data-structures-objective-programing.html#cb178-20"></a><span class="co"># teraz tworze klase OrganicRobot ktora jest kolejna (druga juz) podklasa klasy &#39;robot&#39;</span></span>
+<span id="cb178-21"><a href="data-structures-objective-programing.html#cb178-21"></a><span class="kw">class</span> OrganicRobot(Robot):</span>
+<span id="cb178-22"><a href="data-structures-objective-programing.html#cb178-22"></a>  <span class="co"># teraz dodamy sobie nowa funkcje ktorej nie ma klasa &#39;robot&#39;</span></span>
+<span id="cb178-23"><a href="data-structures-objective-programing.html#cb178-23"></a>  <span class="kw">def</span> say_goodbye(<span class="va">self</span>):</span>
+<span id="cb178-24"><a href="data-structures-objective-programing.html#cb178-24"></a>    <span class="bu">print</span>(<span class="st">&#39;goodbye&#39;</span>)</span>
+<span id="cb178-25"><a href="data-structures-objective-programing.html#cb178-25"></a></span>
+<span id="cb178-26"><a href="data-structures-objective-programing.html#cb178-26"></a></span>
+<span id="cb178-27"><a href="data-structures-objective-programing.html#cb178-27"></a>x <span class="op">=</span> OrganicRobot(<span class="st">&#39;Lucas&#39;</span>)</span>
+<span id="cb178-28"><a href="data-structures-objective-programing.html#cb178-28"></a>x.say_goodbye()</span></code></pre></div>
 </div>
-<div id="przeciazanie-metod" class="section level3" number="9.6.2">
+<div id="przeciazanie-metod" class="section level3">
 <h3><span class="header-section-number">9.6.2</span> przeciazanie metod</h3>
 <p>Przeciazanie metod. Polega na tym ze co prawda podklasa dziedziczy nazwe funkcji po nadklasie, ale niekoniecznie cialo tej funkcji. Czyli w podklasie funkcja moze robic cos innego nic w glownej klasie.</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb177-1"><a href="data-structures-objective-programing.html#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tworze klase &#39;robot&#39;</span></span>
-<span id="cb177-2"><a href="data-structures-objective-programing.html#cb177-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Robot:</span>
-<span id="cb177-3"><a href="data-structures-objective-programing.html#cb177-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name):</span>
-<span id="cb177-4"><a href="data-structures-objective-programing.html#cb177-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
-<span id="cb177-5"><a href="data-structures-objective-programing.html#cb177-5" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb177-6"><a href="data-structures-objective-programing.html#cb177-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> say_hi(<span class="va">self</span>):</span>
-<span id="cb177-7"><a href="data-structures-objective-programing.html#cb177-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;Hi, I am &quot;</span> <span class="op">+</span> <span class="va">self</span>.name)</span>
-<span id="cb177-8"><a href="data-structures-objective-programing.html#cb177-8" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb177-9"><a href="data-structures-objective-programing.html#cb177-9" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb177-10"><a href="data-structures-objective-programing.html#cb177-10" aria-hidden="true" tabindex="-1"></a><span class="co"># traz tworze klase PhysicianRobot ktora jest podklasa klasy &#39;robot&#39;</span></span>
-<span id="cb177-11"><a href="data-structures-objective-programing.html#cb177-11" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> PhysicianRobot(Robot):</span>
-<span id="cb177-12"><a href="data-structures-objective-programing.html#cb177-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> say_hi(<span class="va">self</span>): <span class="co"># definiujemy tutaj jeszcze raz funkcje &#39;say_hi&#39;</span></span>
-<span id="cb177-13"><a href="data-structures-objective-programing.html#cb177-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;Everything will be okay! &quot;</span>) </span>
-<span id="cb177-14"><a href="data-structures-objective-programing.html#cb177-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="va">self</span>.name <span class="op">+</span> <span class="st">&quot; takes care of you!&quot;</span>)</span>
-<span id="cb177-15"><a href="data-structures-objective-programing.html#cb177-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb177-16"><a href="data-structures-objective-programing.html#cb177-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb177-17"><a href="data-structures-objective-programing.html#cb177-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb177-18"><a href="data-structures-objective-programing.html#cb177-18" aria-hidden="true" tabindex="-1"></a>robot <span class="op">=</span> Robot(<span class="st">&#39;blaszak&#39;</span>)</span>
-<span id="cb177-19"><a href="data-structures-objective-programing.html#cb177-19" aria-hidden="true" tabindex="-1"></a>physical_robot <span class="op">=</span> PhysicianRobot(<span class="st">&#39;robokop&#39;</span>)</span>
-<span id="cb177-20"><a href="data-structures-objective-programing.html#cb177-20" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb177-21"><a href="data-structures-objective-programing.html#cb177-21" aria-hidden="true" tabindex="-1"></a><span class="co"># ponizej funkcje zwroca inne rezultaty</span></span>
-<span id="cb177-22"><a href="data-structures-objective-programing.html#cb177-22" aria-hidden="true" tabindex="-1"></a>robot.say_hi()</span>
-<span id="cb177-23"><a href="data-structures-objective-programing.html#cb177-23" aria-hidden="true" tabindex="-1"></a>physical_robot.say_hi()</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb179-1"><a href="data-structures-objective-programing.html#cb179-1"></a><span class="co"># tworze klase &#39;robot&#39;</span></span>
+<span id="cb179-2"><a href="data-structures-objective-programing.html#cb179-2"></a><span class="kw">class</span> Robot:</span>
+<span id="cb179-3"><a href="data-structures-objective-programing.html#cb179-3"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name):</span>
+<span id="cb179-4"><a href="data-structures-objective-programing.html#cb179-4"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb179-5"><a href="data-structures-objective-programing.html#cb179-5"></a>        </span>
+<span id="cb179-6"><a href="data-structures-objective-programing.html#cb179-6"></a>    <span class="kw">def</span> say_hi(<span class="va">self</span>):</span>
+<span id="cb179-7"><a href="data-structures-objective-programing.html#cb179-7"></a>        <span class="bu">print</span>(<span class="st">&quot;Hi, I am &quot;</span> <span class="op">+</span> <span class="va">self</span>.name)</span>
+<span id="cb179-8"><a href="data-structures-objective-programing.html#cb179-8"></a>        </span>
+<span id="cb179-9"><a href="data-structures-objective-programing.html#cb179-9"></a>        </span>
+<span id="cb179-10"><a href="data-structures-objective-programing.html#cb179-10"></a><span class="co"># traz tworze klase PhysicianRobot ktora jest podklasa klasy &#39;robot&#39;</span></span>
+<span id="cb179-11"><a href="data-structures-objective-programing.html#cb179-11"></a><span class="kw">class</span> PhysicianRobot(Robot):</span>
+<span id="cb179-12"><a href="data-structures-objective-programing.html#cb179-12"></a>    <span class="kw">def</span> say_hi(<span class="va">self</span>): <span class="co"># definiujemy tutaj jeszcze raz funkcje &#39;say_hi&#39;</span></span>
+<span id="cb179-13"><a href="data-structures-objective-programing.html#cb179-13"></a>        <span class="bu">print</span>(<span class="st">&quot;Everything will be okay! &quot;</span>) </span>
+<span id="cb179-14"><a href="data-structures-objective-programing.html#cb179-14"></a>        <span class="bu">print</span>(<span class="va">self</span>.name <span class="op">+</span> <span class="st">&quot; takes care of you!&quot;</span>)</span>
+<span id="cb179-15"><a href="data-structures-objective-programing.html#cb179-15"></a></span>
+<span id="cb179-16"><a href="data-structures-objective-programing.html#cb179-16"></a></span>
+<span id="cb179-17"><a href="data-structures-objective-programing.html#cb179-17"></a></span>
+<span id="cb179-18"><a href="data-structures-objective-programing.html#cb179-18"></a>robot <span class="op">=</span> Robot(<span class="st">&#39;blaszak&#39;</span>)</span>
+<span id="cb179-19"><a href="data-structures-objective-programing.html#cb179-19"></a>physical_robot <span class="op">=</span> PhysicianRobot(<span class="st">&#39;robokop&#39;</span>)</span>
+<span id="cb179-20"><a href="data-structures-objective-programing.html#cb179-20"></a>        </span>
+<span id="cb179-21"><a href="data-structures-objective-programing.html#cb179-21"></a><span class="co"># ponizej funkcje zwroca inne rezultaty</span></span>
+<span id="cb179-22"><a href="data-structures-objective-programing.html#cb179-22"></a>robot.say_hi()</span>
+<span id="cb179-23"><a href="data-structures-objective-programing.html#cb179-23"></a>physical_robot.say_hi()</span></code></pre></div>
 </div>
-<div id="funkcja-super" class="section level3" number="9.6.3">
+<div id="funkcja-super" class="section level3">
 <h3><span class="header-section-number">9.6.3</span> funkcja ‘super’</h3>
 <p><a href="https://appdividend.com/2019/01/22/python-super-function-example-super-method-tutorial/">Python Super Function Example | Super() Method Tutorial</a></p>
 <p>Sluzy do odwolywania sie do metod nadklasy</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb178-1"><a href="data-structures-objective-programing.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Computer():</span>
-<span id="cb178-2"><a href="data-structures-objective-programing.html#cb178-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, computer, ram, ssd):</span>
-<span id="cb178-3"><a href="data-structures-objective-programing.html#cb178-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.computer <span class="op">=</span> computer</span>
-<span id="cb178-4"><a href="data-structures-objective-programing.html#cb178-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.ram <span class="op">=</span> ram</span>
-<span id="cb178-5"><a href="data-structures-objective-programing.html#cb178-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.ssd <span class="op">=</span> ssd</span>
-<span id="cb178-6"><a href="data-structures-objective-programing.html#cb178-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb178-7"><a href="data-structures-objective-programing.html#cb178-7" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Laptop(Computer):</span>
-<span id="cb178-8"><a href="data-structures-objective-programing.html#cb178-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, computer, ram, ssd, model):</span>
-<span id="cb178-9"><a href="data-structures-objective-programing.html#cb178-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(computer, ram, ssd) <span class="co"># wywolanie f:init z nadklasy ktora wykona utworzenia atrybutow ktore sa tez tworzone w podklasie</span></span>
-<span id="cb178-10"><a href="data-structures-objective-programing.html#cb178-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model <span class="op">=</span> model <span class="co"># nowa funkcja w podklasie doklada utworzenie jednego dodatkowego atrybutu wzgledem nadklasy. </span></span>
-<span id="cb178-11"><a href="data-structures-objective-programing.html#cb178-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb178-12"><a href="data-structures-objective-programing.html#cb178-12" aria-hidden="true" tabindex="-1"></a>lenovo <span class="op">=</span> Laptop(<span class="st">&#39;lenovo&#39;</span>, <span class="dv">2</span>, <span class="dv">512</span>, <span class="st">&#39;l420&#39;</span>)</span>
-<span id="cb178-13"><a href="data-structures-objective-programing.html#cb178-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;This computer is:&#39;</span>, lenovo.computer) <span class="co"># przypisanie atrybuty &#39;komputer&#39; nastapilo przez f:init z nadklasy</span></span>
-<span id="cb178-14"><a href="data-structures-objective-programing.html#cb178-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;This computer has ram of&#39;</span>, lenovo.ram)</span>
-<span id="cb178-15"><a href="data-structures-objective-programing.html#cb178-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;This computer has ssd of&#39;</span>, lenovo.ssd)</span>
-<span id="cb178-16"><a href="data-structures-objective-programing.html#cb178-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;This computer has this model:&#39;</span>, lenovo.model)</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb180-1"><a href="data-structures-objective-programing.html#cb180-1"></a><span class="kw">class</span> Computer():</span>
+<span id="cb180-2"><a href="data-structures-objective-programing.html#cb180-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, computer, ram, ssd):</span>
+<span id="cb180-3"><a href="data-structures-objective-programing.html#cb180-3"></a>        <span class="va">self</span>.computer <span class="op">=</span> computer</span>
+<span id="cb180-4"><a href="data-structures-objective-programing.html#cb180-4"></a>        <span class="va">self</span>.ram <span class="op">=</span> ram</span>
+<span id="cb180-5"><a href="data-structures-objective-programing.html#cb180-5"></a>        <span class="va">self</span>.ssd <span class="op">=</span> ssd</span>
+<span id="cb180-6"><a href="data-structures-objective-programing.html#cb180-6"></a></span>
+<span id="cb180-7"><a href="data-structures-objective-programing.html#cb180-7"></a><span class="kw">class</span> Laptop(Computer):</span>
+<span id="cb180-8"><a href="data-structures-objective-programing.html#cb180-8"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, computer, ram, ssd, model):</span>
+<span id="cb180-9"><a href="data-structures-objective-programing.html#cb180-9"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(computer, ram, ssd) <span class="co"># wywolanie f:init z nadklasy ktora wykona utworzenia atrybutow ktore sa tez tworzone w podklasie</span></span>
+<span id="cb180-10"><a href="data-structures-objective-programing.html#cb180-10"></a>        <span class="va">self</span>.model <span class="op">=</span> model <span class="co"># nowa funkcja w podklasie doklada utworzenie jednego dodatkowego atrybutu wzgledem nadklasy. </span></span>
+<span id="cb180-11"><a href="data-structures-objective-programing.html#cb180-11"></a></span>
+<span id="cb180-12"><a href="data-structures-objective-programing.html#cb180-12"></a>lenovo <span class="op">=</span> Laptop(<span class="st">&#39;lenovo&#39;</span>, <span class="dv">2</span>, <span class="dv">512</span>, <span class="st">&#39;l420&#39;</span>)</span>
+<span id="cb180-13"><a href="data-structures-objective-programing.html#cb180-13"></a><span class="bu">print</span>(<span class="st">&#39;This computer is:&#39;</span>, lenovo.computer) <span class="co"># przypisanie atrybuty &#39;komputer&#39; nastapilo przez f:init z nadklasy</span></span>
+<span id="cb180-14"><a href="data-structures-objective-programing.html#cb180-14"></a><span class="bu">print</span>(<span class="st">&#39;This computer has ram of&#39;</span>, lenovo.ram)</span>
+<span id="cb180-15"><a href="data-structures-objective-programing.html#cb180-15"></a><span class="bu">print</span>(<span class="st">&#39;This computer has ssd of&#39;</span>, lenovo.ssd)</span>
+<span id="cb180-16"><a href="data-structures-objective-programing.html#cb180-16"></a><span class="bu">print</span>(<span class="st">&#39;This computer has this model:&#39;</span>, lenovo.model)</span></code></pre></div>
 <p>Wywolywanie przez f:super aktualnej klasy (nie nadklasy)</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb179-1"><a href="data-structures-objective-programing.html#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Rectangle:</span>
-<span id="cb179-2"><a href="data-structures-objective-programing.html#cb179-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, length, width):</span>
-<span id="cb179-3"><a href="data-structures-objective-programing.html#cb179-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.length <span class="op">=</span> length</span>
-<span id="cb179-4"><a href="data-structures-objective-programing.html#cb179-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.width <span class="op">=</span> width</span>
-<span id="cb179-5"><a href="data-structures-objective-programing.html#cb179-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb179-6"><a href="data-structures-objective-programing.html#cb179-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> area(<span class="va">self</span>):</span>
-<span id="cb179-7"><a href="data-structures-objective-programing.html#cb179-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.length <span class="op">*</span> <span class="va">self</span>.width</span>
-<span id="cb179-8"><a href="data-structures-objective-programing.html#cb179-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb179-9"><a href="data-structures-objective-programing.html#cb179-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> perimeter(<span class="va">self</span>):</span>
-<span id="cb179-10"><a href="data-structures-objective-programing.html#cb179-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">2</span> <span class="op">*</span> <span class="va">self</span>.length <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> <span class="va">self</span>.width</span>
-<span id="cb179-11"><a href="data-structures-objective-programing.html#cb179-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb179-12"><a href="data-structures-objective-programing.html#cb179-12" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Square(Rectangle):</span>
-<span id="cb179-13"><a href="data-structures-objective-programing.html#cb179-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, length):</span>
-<span id="cb179-14"><a href="data-structures-objective-programing.html#cb179-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>(Square, <span class="va">self</span>).<span class="fu">__init__</span>(length, length)</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb181-1"><a href="data-structures-objective-programing.html#cb181-1"></a><span class="kw">class</span> Rectangle:</span>
+<span id="cb181-2"><a href="data-structures-objective-programing.html#cb181-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, length, width):</span>
+<span id="cb181-3"><a href="data-structures-objective-programing.html#cb181-3"></a>        <span class="va">self</span>.length <span class="op">=</span> length</span>
+<span id="cb181-4"><a href="data-structures-objective-programing.html#cb181-4"></a>        <span class="va">self</span>.width <span class="op">=</span> width</span>
+<span id="cb181-5"><a href="data-structures-objective-programing.html#cb181-5"></a></span>
+<span id="cb181-6"><a href="data-structures-objective-programing.html#cb181-6"></a>    <span class="kw">def</span> area(<span class="va">self</span>):</span>
+<span id="cb181-7"><a href="data-structures-objective-programing.html#cb181-7"></a>        <span class="cf">return</span> <span class="va">self</span>.length <span class="op">*</span> <span class="va">self</span>.width</span>
+<span id="cb181-8"><a href="data-structures-objective-programing.html#cb181-8"></a></span>
+<span id="cb181-9"><a href="data-structures-objective-programing.html#cb181-9"></a>    <span class="kw">def</span> perimeter(<span class="va">self</span>):</span>
+<span id="cb181-10"><a href="data-structures-objective-programing.html#cb181-10"></a>        <span class="cf">return</span> <span class="dv">2</span> <span class="op">*</span> <span class="va">self</span>.length <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> <span class="va">self</span>.width</span>
+<span id="cb181-11"><a href="data-structures-objective-programing.html#cb181-11"></a></span>
+<span id="cb181-12"><a href="data-structures-objective-programing.html#cb181-12"></a><span class="kw">class</span> Square(Rectangle):</span>
+<span id="cb181-13"><a href="data-structures-objective-programing.html#cb181-13"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, length):</span>
+<span id="cb181-14"><a href="data-structures-objective-programing.html#cb181-14"></a>        <span class="bu">super</span>(Square, <span class="va">self</span>).<span class="fu">__init__</span>(length, length)</span></code></pre></div>
 
 </div>
 </div>

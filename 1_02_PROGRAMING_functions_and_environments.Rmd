@@ -383,14 +383,14 @@ def outer():
     pi = "John"
 
     def inner():
-        nonlocal x
+        nonlocal pi
         pi = "hello"
 
     inner()
     return pi
 
 
-outer() # zwroci nam 'hello' bo modyfikacjia w f:inner wykonana na zmiennej nielokalnej i tym samym napisuje zmienna 'pi' w f:outer (enclosed scope)
+outer() # zwroci nam 'hello' bo modyfikacjia w f:inner wykonana na zmiennej nielokalnej i tym samym nadpisuje zmienna 'pi' w f:outer (enclosed scope)
 print(pi)  # zwracam 'pi' z globalnej przestrzni (global scope)
 
 ```

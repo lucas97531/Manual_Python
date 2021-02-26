@@ -156,7 +156,8 @@ filtrowanie-1
 aktualizacja-wartosci-2
 usuwanie-1
 zmiana-kszatłtu-i-transpozycja
-bindowanie
+bindowanie-array
+bindowanie-array-z-listy
 operacje-na-kilku-macierzach-zwracajece-jedna-macierz
 sortowanie-3
 funkcje-na-macierzach
@@ -200,6 +201,7 @@ main-i-parametryzacja-z-konsoli
 prosty-przyklad
 uzycie-parsowania
 rozne
+cmd
 podglad-kodu-funkcji
 realtive-paths
 big-packages
