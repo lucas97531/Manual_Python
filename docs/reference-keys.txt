@@ -197,7 +197,9 @@ dates-parser
 tools-and-tricks
 praca-z-katalogami-i-plikami
 podstawowe-polecenia-w-konsoli
+conda
 python
+python-1
 pomiar-czasu-wykonania-kodu
 main-i-parametryzacja-z-konsoli
 prosty-przyklad
@@ -227,13 +229,14 @@ neo4j
 redis
 mongodb
 r
-www
+pyspark
 linter
 airflow
 luigi
 selenium
 flask
 django
+jupyterbook
 good-habits
 ide
 jupiter-notebook
@@ -243,6 +246,7 @@ magic-commends
 global-settings
 converting-to-different-formats
 widgets
+debuggowanie
 jupiter-lab
 installation-1
 pycharm
@@ -253,7 +257,7 @@ podpinanie-do-vevn
 ustawienia-globalne-a-ustawienia-projektu
 uzyteczne-skroty
 srodowiska-w-linuxie
-debuggowanie
+debuggowanie-1
 rstudio
 installation-2
 anaconda
