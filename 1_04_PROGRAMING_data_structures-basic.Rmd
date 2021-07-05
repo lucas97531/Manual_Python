@@ -368,7 +368,7 @@ d[['a','b']] # niestety mozna sie  tylko po jednej nazwie odwolywac. Nie mozna p
 
 d['g'] # jezeli odwolamy sie do NIEistniejacego elementu dostaniemy blad
 
-d.get('g') # odwolywanie sie do elementu w bezpieczny sposob, tzn jezeli nie ma danej nazwy w slowniku to miamiast bledu dostaniemy wartos None.
+d.get('g', None) # odwolywanie sie do elementu w bezpieczny sposob, tzn jezeli nie ma danej nazwy w slowniku to miamiast bledu dostaniemy wartos None.
 
 d.setdefault('g', 'aaa') # w bezpieczny sposob mozna tez sie odwolac przez 'setdefault'. Wtedy jezeli nie ma nazwy o zadanej wartosci, mozemy zadac jaka alternatywna wartosc ma zostac zwrocona (w przykladzie bedzie to 'aaa').
 
@@ -429,12 +429,14 @@ del dict ;        # delete entire dictionary
 
 ### filtering
 
+
+Pierwszy sposób
 ```{python}
 
 #!/bin/python3
  
 names={1:"ismail",2:"ali",3:"ahmet",4:"elif",5:"ecrin"}
- 
+
 filtered_dict = dict(filter(lambda item: item[0]%2==0 , names.items()))
  
 print(filtered_dict)
@@ -443,6 +445,31 @@ for item in filtered_dict.items():
    print(item)
 
 ```
+
+
+Drugi sposób:
+```{python}
+
+dictOfNames = {
+   7 : 'sam',
+   8: 'john',
+   9: 'mathew',
+   10: 'riti',
+   11 : 'aadi',
+   12 : 'sachin'
+}
+
+
+newDict = dict()
+# Iterate over all the items in dictionary and filter items which has even keys
+for (key, value) in dictOfNames.items():
+   # Check if key is even then add pair to new dictionary
+   if key % 2 == 0:
+       newDict[key] = value
+
+```
+
+
 
 
 ### filtrowanie kluczy po liscie
@@ -460,7 +487,7 @@ dict(filtered_items)
 
 ```
 
-### filtrowanie vartosci po liscie
+### filtrowanie wartosci po liscie
 ```{python}
 
 allowed_values = [1, 2]
@@ -472,6 +499,17 @@ filtered_items = [(k,v) for (k,v) in d.items() if v in allowed_values]
 dict(filtered_items)
 
 ```
+
+### for jednolinijkowy
+```{python}
+
+a = [51,27,13,56]
+d={i:x for i,x in enumerate(a)}
+print(d)
+
+
+```
+
 
 
 ## tuples

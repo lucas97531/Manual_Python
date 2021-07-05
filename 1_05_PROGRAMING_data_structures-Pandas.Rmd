@@ -987,6 +987,7 @@ df_w
 
 
 
+
 # DODANIE KOLUMN W OPARCIU O WARUNKI LOGICZNE ZDEFINIONWA W OPARCIU O DOTYCHCZASOWE KOLUMNY
 
 
@@ -1028,12 +1029,14 @@ df_w.assign(temp_f=lambda x: x.zarobek * 10) # to co powyzej, ale inna skladnia
 
 df_w.assign(zarobek_proc_z_calosci = lambda x: x.zarobek / sum(df_w['zarobek'])) # zarobek danej osoby jako procent z sumy wszystkich zarobkow
 
-df_w.assign(zarobek_plus_bonus = df_w['zarobek'] + df_w['bonusy']) # suma bosu i zarobkow
+df_w.assign(zarobek_plus_bonus = df_w['zarobek'] + df_w['bonusy']) # suma bonusu i zarobkow
 
 df_w['tytul_imie'] = df_w[['tytul', 'imie']].apply(lambda x: '_'.join(x), axis=1) # sklejenie kolumny 'tytul' i 'imie'
 
-# sytuacja kiedy dla wybranych wierszy w oparciu o warunek trzeba przeliczyc nowe wartosci w oparciu o istniejace kolumny (przyklad z pracy wiec sie nie przeliczy)
+
+# sytuacja kiedy dla wybranych wierszy w oparciu o WARUNEK trzeba przeliczyc nowe wartosci w oparciu o istniejace kolumny (przyklad z pracy wiec sie nie przeliczy)
 dane_new.loc[dane_new.przejscie == 0, 'oplaty_nowe'] = dane_new.loc[dane_new.przejscie == 0, 'cb'] *  wartosc_skalarna
+
 
 # dodanie kolumny numerujacej wiersze (kolumna ma byc pierwsza kolumna)
 df_w.insert(0, 'ID', range(1, len(df_w) + 1) )
@@ -1049,7 +1052,7 @@ df_w
 
 
 
-# przyplad ze splitem tekstu: patrz 'Praca z tekstem'
+# przyklad ze splitem tekstu: patrz 'Praca z tekstem'
 
 ```
 
@@ -1435,6 +1438,7 @@ df.groupby("c").agg(
         min   = pd.NamedAgg(column='a', aggfunc=lambda x:min(x)),
         min_b = pd.NamedAgg(column='b', aggfunc='min')
         )
+
 # skladnia z mozliwosci dynamicznego ustalanie nowej nazwy (zastosowanie dictionary unpacking)
 df.groupby("a").agg(**{'new_col':('c', lambda x:min(x))})
 
@@ -1467,7 +1471,7 @@ for group_name_i, group_i in grouped:
   print(group)
   group_name_i_df = pd.DataFrame(pd.group_vars, column = group_var)
   # obliczenia
-  ....
+  # UWAGA: wyniki lepiej zbierać do listy i po zakonczeniu petli for zrobic jeden 'concat'. Robienie wieloktornie 'concat' w petli for bardzo spowalnia obliczenia
   results_i = pd.concat([group_name_i_df, results_i], axis = 1)
   results = pd.concat([results,results_i])
   
@@ -1610,6 +1614,30 @@ df[['a','b']].apply(lambda x: '_'.join(map(str,x)), axis = 1)
 
 
 ```
+
+
+
+
+**decode i encode**
+```{python}
+
+import pandas as pd
+d = {'Quarters' : ['quarter1','quarter2','quarter3','quarter4'],'Revenue':[23400344.567,54363744.678,56789117.456,4132454.987]}
+df=pd.DataFrame(d)
+df
+
+
+
+# Encode Quarters dataframe in Python
+
+df['Quarters_encoded'] = map(lambda x: x.encode('base64','strict'), df['Quarters'])
+df
+
+```
+
+
+
+
 
 
 ### Praca z datami

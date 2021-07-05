@@ -46,6 +46,7 @@ szukanie-pozycji-podstringow
 modyfikacja
 inne-przydatne-triki
 rozne-podstawowe-operacje-i-funkcje-zwiazane-ze-stringami
+encode-i-decode
 wyrazenie-regularne
 daty
 tworzenie-dat
@@ -76,7 +77,8 @@ updating-and-adding
 removing
 filtering
 filtrowanie-kluczy-po-liscie
-filtrowanie-vartosci-po-liscie
+filtrowanie-wartosci-po-liscie
+for-jednolinijkowy
 tuples
 atrybuty
 tworzenie-2

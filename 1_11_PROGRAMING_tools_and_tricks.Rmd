@@ -113,6 +113,58 @@ shutil.copy2(file, descination)
 
 ## Podstawowe polecenia w konsoli
 
+
+
+### Conda
+
+Uwagi o konfiguracji condy: <br> 
+W Menu Start powinien być bezpośredni dostęp do pliku `Configuration.Ink`.
+
+
+**Pakiety**
+```{python}
+
+# instalacja pakietu
+conda install nazwa_pakietu
+
+# odinstalowanie pakietu
+conda uninstall nazwa_pakietu
+
+```
+
+
+**Praca ze srodowiskiem wirtualnym**
+```{python}
+
+# uworzenie nowego srodowiska wirtualnego
+conda create --name nazwa_srodowiska
+
+# uworzenie nowego srodowiska wirtualnego zadaniem wersji pythona
+conda create --name nazwa_srodowiska python=3.8
+
+
+# lista srodowiska wirtualnych
+conda env list  
+
+# usuwanie wirtualnego srodowiska
+conda env remove nazwa srodowiska
+
+
+# aktywowanie srodowiska 
+conda activate nazwa_srodowiska
+
+# dezaktywacja srodowiska
+deactivate
+
+```
+
+
+
+
+
+
+### Python
+
 Przydatne funkcje wywolywane w konsoli (nie jest to kod Pythonowy!!!). Konsola to wiersz polecen w Windowsie. Uwaga, żeby nie było żadnych nieprzewidzianych konfliktow, to przed rozpoczeciem pracy z konsoli najlepiej wywolac srowowisko pythonowe w ktorym chcemy pracowac. 
 
 

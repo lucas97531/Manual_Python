@@ -250,10 +250,27 @@ conn.close()  # zakonczenie polaczenia z baza
 
 <!-- ``` -->
 
+
+
+
+
 ```{python}
 
 
 
 
 ```
+
+
+
+
+
+## pyspark
+
+
+
+```{r}
+
+```
+
 

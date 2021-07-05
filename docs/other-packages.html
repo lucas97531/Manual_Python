@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 14 other packages | Introduction to Python</title>
-  <meta name="description" content="Chapter 14 other packages | Introduction to Python" />
+  <title>Chapter 14 other packages | Introduction to R</title>
+  <meta name="description" content="Chapter 14 other packages | Introduction to R" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 14 other packages | Introduction to Python" />
+  <meta property="og:title" content="Chapter 14 other packages | Introduction to R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 14 other packages | Introduction to Python" />
+  <meta name="twitter:title" content="Chapter 14 other packages | Introduction to R" />
   
   
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Łukasz Muszyński" />
 
 
-<meta name="date" content="2021-02-26" />
+<meta name="date" content="2021-06-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="big-packages.html"/>
 <link rel="next" href="graphs.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,24 +51,23 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,7 +87,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -138,13 +138,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> INTRO</a></li>
 <li class="part"><span><b>I <lfg>PROGRAMMING</lfg></b></span></li>
-<li class="chapter" data-level="2" data-path="syntax.html"><a href="syntax.html"><i class="fa fa-check"></i><b>2</b> Syntax</a><ul>
+<li class="chapter" data-level="2" data-path="syntax.html"><a href="syntax.html"><i class="fa fa-check"></i><b>2</b> Syntax</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="syntax.html"><a href="syntax.html#operatory-logiczne"><i class="fa fa-check"></i><b>2.1</b> operatory logiczne</a></li>
-<li class="chapter" data-level="2.2" data-path="syntax.html"><a href="syntax.html#podstawowe-komendy-i-funkcje"><i class="fa fa-check"></i><b>2.2</b> podstawowe komendy i funkcje</a><ul>
+<li class="chapter" data-level="2.2" data-path="syntax.html"><a href="syntax.html#podstawowe-komendy-i-funkcje"><i class="fa fa-check"></i><b>2.2</b> podstawowe komendy i funkcje</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="syntax.html"><a href="syntax.html#sprawdzenie-typu-obiektu"><i class="fa fa-check"></i><b>2.2.1</b> sprawdzenie typu obiektu</a></li>
 <li class="chapter" data-level="2.2.2" data-path="syntax.html"><a href="syntax.html#inne-komendy-i-funkcje"><i class="fa fa-check"></i><b>2.2.2</b> inne komendy i funkcje</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="syntax.html"><a href="syntax.html#control-flow"><i class="fa fa-check"></i><b>2.3</b> control flow</a><ul>
+<li class="chapter" data-level="2.3" data-path="syntax.html"><a href="syntax.html#control-flow"><i class="fa fa-check"></i><b>2.3</b> control flow</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="syntax.html"><a href="syntax.html#if-else"><i class="fa fa-check"></i><b>2.3.1</b> if else</a></li>
 <li class="chapter" data-level="2.3.2" data-path="syntax.html"><a href="syntax.html#petla-for"><i class="fa fa-check"></i><b>2.3.2</b> petla ‘for’</a></li>
 <li class="chapter" data-level="2.3.3" data-path="syntax.html"><a href="syntax.html#petla-while"><i class="fa fa-check"></i><b>2.3.3</b> petla ‘while’</a></li>
@@ -153,12 +156,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5" data-path="syntax.html"><a href="syntax.html#shallow-and-deep-copies"><i class="fa fa-check"></i><b>2.5</b> shallow and deep copies</a></li>
 <li class="chapter" data-level="2.6" data-path="syntax.html"><a href="syntax.html#generators"><i class="fa fa-check"></i><b>2.6</b> generators</a></li>
 <li class="chapter" data-level="2.7" data-path="syntax.html"><a href="syntax.html#dynamic-code"><i class="fa fa-check"></i><b>2.7</b> dynamic code</a></li>
-<li class="chapter" data-level="2.8" data-path="syntax.html"><a href="syntax.html#errors-and-warning"><i class="fa fa-check"></i><b>2.8</b> errors and warning</a><ul>
+<li class="chapter" data-level="2.8" data-path="syntax.html"><a href="syntax.html#errors-and-warning"><i class="fa fa-check"></i><b>2.8</b> errors and warning</a>
+<ul>
 <li class="chapter" data-level="2.8.1" data-path="syntax.html"><a href="syntax.html#try"><i class="fa fa-check"></i><b>2.8.1</b> try</a></li>
 <li class="chapter" data-level="2.8.2" data-path="syntax.html"><a href="syntax.html#assertion"><i class="fa fa-check"></i><b>2.8.2</b> assertion</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html"><i class="fa fa-check"></i><b>3</b> FUNCTIONS AND ENVIROMENTS</a><ul>
+<li class="chapter" data-level="3" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html"><i class="fa fa-check"></i><b>3</b> FUNCTIONS AND ENVIROMENTS</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#podstawowa-składnia"><i class="fa fa-check"></i><b>3.1</b> podstawowa składnia</a></li>
 <li class="chapter" data-level="3.2" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#przekazywanie-argumentow-przez-wartosc-a-przekazywanie-przez-referencje"><i class="fa fa-check"></i><b>3.2</b> przekazywanie argumentow przez wartosc a przekazywanie przez referencje</a></li>
 <li class="chapter" data-level="3.3" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#funkcje-anonimowe"><i class="fa fa-check"></i><b>3.3</b> funkcje anonimowe</a></li>
@@ -169,13 +174,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.8" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#dekoratory"><i class="fa fa-check"></i><b>3.8</b> dekoratory</a></li>
 <li class="chapter" data-level="3.9" data-path="functions-and-enviroments.html"><a href="functions-and-enviroments.html#przydatne"><i class="fa fa-check"></i><b>3.9</b> Przydatne</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>4</b> DATA TYPES</a><ul>
-<li class="chapter" data-level="4.1" data-path="data-types.html"><a href="data-types.html#liczby"><i class="fa fa-check"></i><b>4.1</b> liczby</a><ul>
+<li class="chapter" data-level="4" data-path="data-types.html"><a href="data-types.html"><i class="fa fa-check"></i><b>4</b> DATA TYPES</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-types.html"><a href="data-types.html#liczby"><i class="fa fa-check"></i><b>4.1</b> liczby</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="data-types.html"><a href="data-types.html#tworzenie"><i class="fa fa-check"></i><b>4.1.1</b> tworzenie</a></li>
 <li class="chapter" data-level="4.1.2" data-path="data-types.html"><a href="data-types.html#ciagi"><i class="fa fa-check"></i><b>4.1.2</b> Ciagi</a></li>
 <li class="chapter" data-level="4.1.3" data-path="data-types.html"><a href="data-types.html#rozne-funkcje"><i class="fa fa-check"></i><b>4.1.3</b> rozne funkcje</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="data-types.html"><a href="data-types.html#tekst"><i class="fa fa-check"></i><b>4.2</b> tekst</a><ul>
+<li class="chapter" data-level="4.2" data-path="data-types.html"><a href="data-types.html#tekst"><i class="fa fa-check"></i><b>4.2</b> tekst</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="data-types.html"><a href="data-types.html#tworzenie-statyczne"><i class="fa fa-check"></i><b>4.2.1</b> tworzenie statyczne</a></li>
 <li class="chapter" data-level="4.2.2" data-path="data-types.html"><a href="data-types.html#tworzenie-dynamiczne---nowa-skladnia-z-funkcja-format"><i class="fa fa-check"></i><b>4.2.2</b> Tworzenie dynamiczne - nowa skladnia z funkcja ‘format’</a></li>
 <li class="chapter" data-level="4.2.3" data-path="data-types.html"><a href="data-types.html#formatowanie-wygladu-skladnia"><i class="fa fa-check"></i><b>4.2.3</b> Formatowanie wygladu-skladnia</a></li>
@@ -186,9 +194,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.8" data-path="data-types.html"><a href="data-types.html#modyfikacja"><i class="fa fa-check"></i><b>4.2.8</b> modyfikacja</a></li>
 <li class="chapter" data-level="4.2.9" data-path="data-types.html"><a href="data-types.html#inne-przydatne-triki"><i class="fa fa-check"></i><b>4.2.9</b> inne przydatne triki</a></li>
 <li class="chapter" data-level="4.2.10" data-path="data-types.html"><a href="data-types.html#rozne-podstawowe-operacje-i-funkcje-zwiazane-ze-stringami"><i class="fa fa-check"></i><b>4.2.10</b> rozne podstawowe operacje i funkcje zwiazane ze stringami</a></li>
+<li class="chapter" data-level="4.2.11" data-path="data-types.html"><a href="data-types.html#encode-i-decode"><i class="fa fa-check"></i><b>4.2.11</b> encode i decode</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="data-types.html"><a href="data-types.html#wyrazenie-regularne"><i class="fa fa-check"></i><b>4.3</b> wyrazenie regularne</a></li>
-<li class="chapter" data-level="4.4" data-path="data-types.html"><a href="data-types.html#daty"><i class="fa fa-check"></i><b>4.4</b> daty</a><ul>
+<li class="chapter" data-level="4.4" data-path="data-types.html"><a href="data-types.html#daty"><i class="fa fa-check"></i><b>4.4</b> daty</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="data-types.html"><a href="data-types.html#tworzenie-dat"><i class="fa fa-check"></i><b>4.4.1</b> tworzenie dat</a></li>
 <li class="chapter" data-level="4.4.2" data-path="data-types.html"><a href="data-types.html#atrybuty-daty"><i class="fa fa-check"></i><b>4.4.2</b> atrybuty daty</a></li>
 <li class="chapter" data-level="4.4.3" data-path="data-types.html"><a href="data-types.html#inkrementacja-daty"><i class="fa fa-check"></i><b>4.4.3</b> inkrementacja daty</a></li>
@@ -198,8 +208,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.7" data-path="data-types.html"><a href="data-types.html#generowanie-ciagu-dat"><i class="fa fa-check"></i><b>4.4.7</b> generowanie ciagu dat</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="data-structures-basic.html"><a href="data-structures-basic.html"><i class="fa fa-check"></i><b>5</b> DATA STRUCTURES - basic</a><ul>
-<li class="chapter" data-level="5.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#listy"><i class="fa fa-check"></i><b>5.1</b> listy</a><ul>
+<li class="chapter" data-level="5" data-path="data-structures-basic.html"><a href="data-structures-basic.html"><i class="fa fa-check"></i><b>5</b> DATA STRUCTURES - basic</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#listy"><i class="fa fa-check"></i><b>5.1</b> listy</a>
+<ul>
 <li class="chapter" data-level="5.1.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#atrybuty-listy"><i class="fa fa-check"></i><b>5.1.1</b> atrybuty listy</a></li>
 <li class="chapter" data-level="5.1.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-listy"><i class="fa fa-check"></i><b>5.1.2</b> tworzenie listy</a></li>
 <li class="chapter" data-level="5.1.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#dodawanie-wartosci"><i class="fa fa-check"></i><b>5.1.3</b> dodawanie wartosci</a></li>
@@ -213,21 +225,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1.11" data-path="data-structures-basic.html"><a href="data-structures-basic.html#ciekawe-operacje-i-triki-na-listach"><i class="fa fa-check"></i><b>5.1.11</b> ciekawe operacje i triki na listach</a></li>
 <li class="chapter" data-level="5.1.12" data-path="data-structures-basic.html"><a href="data-structures-basic.html#losowe-elementy"><i class="fa fa-check"></i><b>5.1.12</b> losowe elementy</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#slowniki"><i class="fa fa-check"></i><b>5.2</b> slowniki</a><ul>
+<li class="chapter" data-level="5.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#slowniki"><i class="fa fa-check"></i><b>5.2</b> slowniki</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-1"><i class="fa fa-check"></i><b>5.2.1</b> tworzenie</a></li>
 <li class="chapter" data-level="5.2.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#odwolywanie-sie-do-elementow"><i class="fa fa-check"></i><b>5.2.2</b> odwolywanie sie do elementow</a></li>
 <li class="chapter" data-level="5.2.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#updating-and-adding"><i class="fa fa-check"></i><b>5.2.3</b> updating and adding</a></li>
 <li class="chapter" data-level="5.2.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#removing"><i class="fa fa-check"></i><b>5.2.4</b> removing</a></li>
 <li class="chapter" data-level="5.2.5" data-path="data-structures-basic.html"><a href="data-structures-basic.html#filtering"><i class="fa fa-check"></i><b>5.2.5</b> filtering</a></li>
 <li class="chapter" data-level="5.2.6" data-path="data-structures-basic.html"><a href="data-structures-basic.html#filtrowanie-kluczy-po-liscie"><i class="fa fa-check"></i><b>5.2.6</b> filtrowanie kluczy po liscie</a></li>
-<li class="chapter" data-level="5.2.7" data-path="data-structures-basic.html"><a href="data-structures-basic.html#filtrowanie-vartosci-po-liscie"><i class="fa fa-check"></i><b>5.2.7</b> filtrowanie vartosci po liscie</a></li>
+<li class="chapter" data-level="5.2.7" data-path="data-structures-basic.html"><a href="data-structures-basic.html#filtrowanie-wartosci-po-liscie"><i class="fa fa-check"></i><b>5.2.7</b> filtrowanie wartosci po liscie</a></li>
+<li class="chapter" data-level="5.2.8" data-path="data-structures-basic.html"><a href="data-structures-basic.html#for-jednolinijkowy"><i class="fa fa-check"></i><b>5.2.8</b> for jednolinijkowy</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tuples"><i class="fa fa-check"></i><b>5.3</b> tuples</a><ul>
+<li class="chapter" data-level="5.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tuples"><i class="fa fa-check"></i><b>5.3</b> tuples</a>
+<ul>
 <li class="chapter" data-level="5.3.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#atrybuty"><i class="fa fa-check"></i><b>5.3.1</b> atrybuty</a></li>
 <li class="chapter" data-level="5.3.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-2"><i class="fa fa-check"></i><b>5.3.2</b> tworzenie</a></li>
 <li class="chapter" data-level="5.3.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#odwolywanie-sie-do-elementow-1"><i class="fa fa-check"></i><b>5.3.3</b> odwolywanie sie do elementow</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#set-zbiory"><i class="fa fa-check"></i><b>5.4</b> set (zbiory)</a><ul>
+<li class="chapter" data-level="5.4" data-path="data-structures-basic.html"><a href="data-structures-basic.html#set-zbiory"><i class="fa fa-check"></i><b>5.4</b> set (zbiory)</a>
+<ul>
 <li class="chapter" data-level="5.4.1" data-path="data-structures-basic.html"><a href="data-structures-basic.html#tworzenie-3"><i class="fa fa-check"></i><b>5.4.1</b> tworzenie</a></li>
 <li class="chapter" data-level="5.4.2" data-path="data-structures-basic.html"><a href="data-structures-basic.html#atrubyty"><i class="fa fa-check"></i><b>5.4.2</b> atrubyty</a></li>
 <li class="chapter" data-level="5.4.3" data-path="data-structures-basic.html"><a href="data-structures-basic.html#aktualizacjadodawanieusuwaniefiltrowanie-wartosci"><i class="fa fa-check"></i><b>5.4.3</b> aktualizacja/dodawanie/usuwanie/filtrowanie wartosci</a></li>
@@ -235,8 +251,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.4.5" data-path="data-structures-basic.html"><a href="data-structures-basic.html#operacje-na-zbiorach"><i class="fa fa-check"></i><b>5.4.5</b> operacje na zbiorach</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html"><i class="fa fa-check"></i><b>6</b> DATA STRUCTURES-Pandas</a><ul>
-<li class="chapter" data-level="6.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#series"><i class="fa fa-check"></i><b>6.1</b> Series</a><ul>
+<li class="chapter" data-level="6" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html"><i class="fa fa-check"></i><b>6</b> DATA STRUCTURES-Pandas</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#series"><i class="fa fa-check"></i><b>6.1</b> Series</a>
+<ul>
 <li class="chapter" data-level="6.1.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#tworzenie-4"><i class="fa fa-check"></i><b>6.1.1</b> tworzenie</a></li>
 <li class="chapter" data-level="6.1.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#atrybuty-1"><i class="fa fa-check"></i><b>6.1.2</b> atrybuty</a></li>
 <li class="chapter" data-level="6.1.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#indeksy"><i class="fa fa-check"></i><b>6.1.3</b> indeksy</a></li>
@@ -245,12 +263,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1.6" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#rozne-funkcje-1"><i class="fa fa-check"></i><b>6.1.6</b> rozne funkcje</a></li>
 <li class="chapter" data-level="6.1.7" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#praca-z-brakami-danych-i-wartosciami-nieskonczonymi"><i class="fa fa-check"></i><b>6.1.7</b> praca z brakami danych i wartosciami nieskonczonymi</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#categorical"><i class="fa fa-check"></i><b>6.2</b> Categorical</a><ul>
+<li class="chapter" data-level="6.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#categorical"><i class="fa fa-check"></i><b>6.2</b> Categorical</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#tworzenie-5"><i class="fa fa-check"></i><b>6.2.1</b> Tworzenie</a></li>
 <li class="chapter" data-level="6.2.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#usuwaniedodawaniemodyfikacje-kategorii"><i class="fa fa-check"></i><b>6.2.2</b> usuwanie/dodawanie/modyfikacje kategorii</a></li>
 <li class="chapter" data-level="6.2.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#dodawanie-nowych-elemntow"><i class="fa fa-check"></i><b>6.2.3</b> dodawanie nowych elemntow</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#data-frames"><i class="fa fa-check"></i><b>6.3</b> DATA FRAMES</a><ul>
+<li class="chapter" data-level="6.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#data-frames"><i class="fa fa-check"></i><b>6.3</b> DATA FRAMES</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#najważniejsze-atrybuty-dataframe"><i class="fa fa-check"></i><b>6.3.1</b> Najważniejsze atrybuty DataFrame</a></li>
 <li class="chapter" data-level="6.3.2" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#tworzenie-ramki-danych"><i class="fa fa-check"></i><b>6.3.2</b> Tworzenie ramki danych</a></li>
 <li class="chapter" data-level="6.3.3" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#konwersja-ramki-danych-na-inne-typy"><i class="fa fa-check"></i><b>6.3.3</b> Konwersja ramki danych na inne typy</a></li>
@@ -279,8 +299,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3.26" data-path="data-structures-pandas.html"><a href="data-structures-pandas.html#rozne-problemy"><i class="fa fa-check"></i><b>6.3.26</b> Rozne problemy</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html"><i class="fa fa-check"></i><b>7</b> DATA STRUCTURES - Numpy, Scipy</a><ul>
-<li class="chapter" data-level="7.1" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#numpy"><i class="fa fa-check"></i><b>7.1</b> Numpy</a><ul>
+<li class="chapter" data-level="7" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html"><i class="fa fa-check"></i><b>7</b> DATA STRUCTURES - Numpy, Scipy</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#numpy"><i class="fa fa-check"></i><b>7.1</b> Numpy</a>
+<ul>
 <li class="chapter" data-level="7.1.1" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#tworzenie-6"><i class="fa fa-check"></i><b>7.1.1</b> Tworzenie</a></li>
 <li class="chapter" data-level="7.1.2" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#atrybuty-2"><i class="fa fa-check"></i><b>7.1.2</b> atrybuty</a></li>
 <li class="chapter" data-level="7.1.3" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#odwolywanie-sie-przez-indeksy"><i class="fa fa-check"></i><b>7.1.3</b> odwolywanie sie przez indeksy</a></li>
@@ -299,57 +321,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2" data-path="data-structures-numpy-scipy.html"><a href="data-structures-numpy-scipy.html#scipy"><i class="fa fa-check"></i><b>7.2</b> Scipy</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="data-structures-other.html"><a href="data-structures-other.html"><i class="fa fa-check"></i><b>8</b> DATA STRUCTURES - other</a></li>
-<li class="chapter" data-level="9" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html"><i class="fa fa-check"></i><b>9</b> DATA STRUCTURES - objective programing</a><ul>
+<li class="chapter" data-level="9" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html"><i class="fa fa-check"></i><b>9</b> DATA STRUCTURES - objective programing</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#tworzenie-klasy-i-obiektow"><i class="fa fa-check"></i><b>9.1</b> Tworzenie klasy i obiektow</a></li>
 <li class="chapter" data-level="9.2" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#atrybuty-3"><i class="fa fa-check"></i><b>9.2</b> Atrybuty</a></li>
 <li class="chapter" data-level="9.3" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#metody"><i class="fa fa-check"></i><b>9.3</b> Metody</a></li>
 <li class="chapter" data-level="9.4" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#prywatne-atrybuty-i-metody"><i class="fa fa-check"></i><b>9.4</b> Prywatne atrybuty i metody</a></li>
 <li class="chapter" data-level="9.5" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#metody-statyczne"><i class="fa fa-check"></i><b>9.5</b> Metody statyczne</a></li>
-<li class="chapter" data-level="9.6" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#mechanizm-dziedziczenia"><i class="fa fa-check"></i><b>9.6</b> mechanizm dziedziczenia</a><ul>
+<li class="chapter" data-level="9.6" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#mechanizm-dziedziczenia"><i class="fa fa-check"></i><b>9.6</b> mechanizm dziedziczenia</a>
+<ul>
 <li class="chapter" data-level="9.6.1" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#tworzenie-podklas"><i class="fa fa-check"></i><b>9.6.1</b> tworzenie podklas</a></li>
 <li class="chapter" data-level="9.6.2" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#przeciazanie-metod"><i class="fa fa-check"></i><b>9.6.2</b> przeciazanie metod</a></li>
 <li class="chapter" data-level="9.6.3" data-path="data-structures-objective-programing.html"><a href="data-structures-objective-programing.html#funkcja-super"><i class="fa fa-check"></i><b>9.6.3</b> funkcja ‘super’</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="work-organisation.html"><a href="work-organisation.html"><i class="fa fa-check"></i><b>10</b> WORK ORGANISATION</a><ul>
+<li class="chapter" data-level="10" data-path="work-organisation.html"><a href="work-organisation.html"><i class="fa fa-check"></i><b>10</b> WORK ORGANISATION</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="work-organisation.html"><a href="work-organisation.html#importowanie-pakietowmodulow"><i class="fa fa-check"></i><b>10.1</b> importowanie pakietow/modulow</a></li>
-<li class="chapter" data-level="10.2" data-path="work-organisation.html"><a href="work-organisation.html#wlasne-moduly-i-pakiety"><i class="fa fa-check"></i><b>10.2</b> Wlasne moduly i pakiety</a><ul>
+<li class="chapter" data-level="10.2" data-path="work-organisation.html"><a href="work-organisation.html#wlasne-moduly-i-pakiety"><i class="fa fa-check"></i><b>10.2</b> Wlasne moduly i pakiety</a>
+<ul>
 <li class="chapter" data-level="10.2.1" data-path="work-organisation.html"><a href="work-organisation.html#wlasny-modul"><i class="fa fa-check"></i><b>10.2.1</b> Wlasny modul</a></li>
 <li class="chapter" data-level="10.2.2" data-path="work-organisation.html"><a href="work-organisation.html#wlasny-pakiet---wersja-uproszczona"><i class="fa fa-check"></i><b>10.2.2</b> Wlasny pakiet - wersja uproszczona</a></li>
 <li class="chapter" data-level="10.2.3" data-path="work-organisation.html"><a href="work-organisation.html#wlasny-pakiet-wg.-standardu-pip"><i class="fa fa-check"></i><b>10.2.3</b> Wlasny pakiet wg. standardu pip</a></li>
 </ul></li>
 <li class="chapter" data-level="10.3" data-path="work-organisation.html"><a href="work-organisation.html#tworzenie-wirtualnych-srodowisk"><i class="fa fa-check"></i><b>10.3</b> Tworzenie wirtualnych srodowisk</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="data-import-and-export.html"><a href="data-import-and-export.html"><i class="fa fa-check"></i><b>11</b> DATA IMPORT AND EXPORT</a><ul>
+<li class="chapter" data-level="11" data-path="data-import-and-export.html"><a href="data-import-and-export.html"><i class="fa fa-check"></i><b>11</b> DATA IMPORT AND EXPORT</a>
+<ul>
 <li class="chapter" data-level="11.1" data-path="data-import-and-export.html"><a href="data-import-and-export.html#pickles"><i class="fa fa-check"></i><b>11.1</b> pickles</a></li>
-<li class="chapter" data-level="11.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#csv-txt"><i class="fa fa-check"></i><b>11.2</b> csv / txt</a><ul>
+<li class="chapter" data-level="11.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#csv-txt"><i class="fa fa-check"></i><b>11.2</b> csv / txt</a>
+<ul>
 <li class="chapter" data-level="11.2.1" data-path="data-import-and-export.html"><a href="data-import-and-export.html#import"><i class="fa fa-check"></i><b>11.2.1</b> Import</a></li>
 <li class="chapter" data-level="11.2.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#eksport"><i class="fa fa-check"></i><b>11.2.2</b> Eksport</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="data-import-and-export.html"><a href="data-import-and-export.html#excel"><i class="fa fa-check"></i><b>11.3</b> excel</a><ul>
+<li class="chapter" data-level="11.3" data-path="data-import-and-export.html"><a href="data-import-and-export.html#excel"><i class="fa fa-check"></i><b>11.3</b> excel</a>
+<ul>
 <li class="chapter" data-level="11.3.1" data-path="data-import-and-export.html"><a href="data-import-and-export.html#import-1"><i class="fa fa-check"></i><b>11.3.1</b> Import</a></li>
 <li class="chapter" data-level="11.3.2" data-path="data-import-and-export.html"><a href="data-import-and-export.html#eksport-1"><i class="fa fa-check"></i><b>11.3.2</b> Eksport</a></li>
 </ul></li>
 <li class="chapter" data-level="11.4" data-path="data-import-and-export.html"><a href="data-import-and-export.html#schowek"><i class="fa fa-check"></i><b>11.4</b> schowek</a></li>
 <li class="chapter" data-level="11.5" data-path="data-import-and-export.html"><a href="data-import-and-export.html#dates-parser"><i class="fa fa-check"></i><b>11.5</b> dates parser</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html"><i class="fa fa-check"></i><b>12</b> TOOLS AND TRICKS</a><ul>
+<li class="chapter" data-level="12" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html"><i class="fa fa-check"></i><b>12</b> TOOLS AND TRICKS</a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#praca-z-katalogami-i-plikami"><i class="fa fa-check"></i><b>12.1</b> praca z katalogami i plikami</a></li>
 <li class="chapter" data-level="12.2" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#podstawowe-polecenia-w-konsoli"><i class="fa fa-check"></i><b>12.2</b> Podstawowe polecenia w konsoli</a></li>
 <li class="chapter" data-level="12.3" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#python"><i class="fa fa-check"></i><b>12.3</b> python</a></li>
 <li class="chapter" data-level="12.4" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#pomiar-czasu-wykonania-kodu"><i class="fa fa-check"></i><b>12.4</b> pomiar czasu wykonania kodu</a></li>
-<li class="chapter" data-level="12.5" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#main-i-parametryzacja-z-konsoli"><i class="fa fa-check"></i><b>12.5</b> main i parametryzacja z konsoli</a><ul>
+<li class="chapter" data-level="12.5" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#main-i-parametryzacja-z-konsoli"><i class="fa fa-check"></i><b>12.5</b> main i parametryzacja z konsoli</a>
+<ul>
 <li class="chapter" data-level="12.5.1" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#prosty-przyklad"><i class="fa fa-check"></i><b>12.5.1</b> Prosty przyklad</a></li>
 <li class="chapter" data-level="12.5.2" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#uzycie-parsowania"><i class="fa fa-check"></i><b>12.5.2</b> Uzycie parsowania</a></li>
 </ul></li>
-<li class="chapter" data-level="12.6" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#rozne"><i class="fa fa-check"></i><b>12.6</b> Rozne</a><ul>
+<li class="chapter" data-level="12.6" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#rozne"><i class="fa fa-check"></i><b>12.6</b> Rozne</a>
+<ul>
 <li class="chapter" data-level="12.6.1" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#cmd"><i class="fa fa-check"></i><b>12.6.1</b> CMD</a></li>
 <li class="chapter" data-level="12.6.2" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#podglad-kodu-funkcji"><i class="fa fa-check"></i><b>12.6.2</b> Podglad kodu funkcji</a></li>
 <li class="chapter" data-level="12.6.3" data-path="tools-and-tricks.html"><a href="tools-and-tricks.html#realtive-paths"><i class="fa fa-check"></i><b>12.6.3</b> Realtive paths</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II <lfg>VISUALISATION</lfg></b></span></li>
-<li class="chapter" data-level="13" data-path="big-packages.html"><a href="big-packages.html"><i class="fa fa-check"></i><b>13</b> big packages</a><ul>
+<li class="chapter" data-level="13" data-path="big-packages.html"><a href="big-packages.html"><i class="fa fa-check"></i><b>13</b> big packages</a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="big-packages.html"><a href="big-packages.html#matplotlib"><i class="fa fa-check"></i><b>13.1</b> matplotlib</a></li>
 <li class="chapter" data-level="13.2" data-path="big-packages.html"><a href="big-packages.html#seaborn"><i class="fa fa-check"></i><b>13.2</b> seaborn</a></li>
 <li class="chapter" data-level="13.3" data-path="big-packages.html"><a href="big-packages.html#plotly"><i class="fa fa-check"></i><b>13.3</b> plotly</a></li>
@@ -361,21 +394,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="16" data-path="maps.html"><a href="maps.html"><i class="fa fa-check"></i><b>16</b> maps</a></li>
 <li class="chapter" data-level="17" data-path="other-issues.html"><a href="other-issues.html"><i class="fa fa-check"></i><b>17</b> other issues</a></li>
 <li class="part"><span><b>III <lfg>PROGRAMMING</lfg></b></span></li>
-<li class="chapter" data-level="18" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html"><i class="fa fa-check"></i><b>18</b> Cooperation with other tools</a><ul>
-<li class="chapter" data-level="18.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#relational-databases"><i class="fa fa-check"></i><b>18.1</b> Relational databases</a><ul>
+<li class="chapter" data-level="18" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html"><i class="fa fa-check"></i><b>18</b> Cooperation with other tools</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#relational-databases"><i class="fa fa-check"></i><b>18.1</b> Relational databases</a>
+<ul>
 <li class="chapter" data-level="18.1.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#sql-server"><i class="fa fa-check"></i><b>18.1.1</b> SQL Server</a></li>
 <li class="chapter" data-level="18.1.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#postgres"><i class="fa fa-check"></i><b>18.1.2</b> Postgres</a></li>
 <li class="chapter" data-level="18.1.3" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#oracle"><i class="fa fa-check"></i><b>18.1.3</b> Oracle</a></li>
 <li class="chapter" data-level="18.1.4" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#mysql"><i class="fa fa-check"></i><b>18.1.4</b> MySql</a></li>
 </ul></li>
-<li class="chapter" data-level="18.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#norelational-databases"><i class="fa fa-check"></i><b>18.2</b> Norelational databases</a><ul>
+<li class="chapter" data-level="18.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#norelational-databases"><i class="fa fa-check"></i><b>18.2</b> Norelational databases</a>
+<ul>
 <li class="chapter" data-level="18.2.1" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#neo4j"><i class="fa fa-check"></i><b>18.2.1</b> Neo4j</a></li>
 <li class="chapter" data-level="18.2.2" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#redis"><i class="fa fa-check"></i><b>18.2.2</b> Redis</a></li>
 <li class="chapter" data-level="18.2.3" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#mongodb"><i class="fa fa-check"></i><b>18.2.3</b> MongoDB</a></li>
 </ul></li>
 <li class="chapter" data-level="18.3" data-path="cooperation-with-other-tools.html"><a href="cooperation-with-other-tools.html#r"><i class="fa fa-check"></i><b>18.3</b> R</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="www.html"><a href="www.html"><i class="fa fa-check"></i><b>19</b> www</a><ul>
+<li class="chapter" data-level="19" data-path="www.html"><a href="www.html"><i class="fa fa-check"></i><b>19</b> www</a>
+<ul>
 <li class="chapter" data-level="19.1" data-path="www.html"><a href="www.html#linter"><i class="fa fa-check"></i><b>19.1</b> Linter</a></li>
 <li class="chapter" data-level="19.2" data-path="www.html"><a href="www.html#airflow"><i class="fa fa-check"></i><b>19.2</b> AirFlow</a></li>
 <li class="chapter" data-level="19.3" data-path="www.html"><a href="www.html#luigi"><i class="fa fa-check"></i><b>19.3</b> Luigi</a></li>
@@ -385,8 +422,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="part"><span><b>IV <lfg>APPENDICIES</lfg></b></span></li>
 <li class="chapter" data-level="20" data-path="good-habits.html"><a href="good-habits.html"><i class="fa fa-check"></i><b>20</b> good habits</a></li>
-<li class="chapter" data-level="21" data-path="ide.html"><a href="ide.html"><i class="fa fa-check"></i><b>21</b> IDE</a><ul>
-<li class="chapter" data-level="21.1" data-path="ide.html"><a href="ide.html#jupiter-notebook"><i class="fa fa-check"></i><b>21.1</b> Jupiter Notebook</a><ul>
+<li class="chapter" data-level="21" data-path="ide.html"><a href="ide.html"><i class="fa fa-check"></i><b>21</b> IDE</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="ide.html"><a href="ide.html#jupiter-notebook"><i class="fa fa-check"></i><b>21.1</b> Jupiter Notebook</a>
+<ul>
 <li class="chapter" data-level="21.1.1" data-path="ide.html"><a href="ide.html#installation"><i class="fa fa-check"></i><b>21.1.1</b> Installation</a></li>
 <li class="chapter" data-level="21.1.2" data-path="ide.html"><a href="ide.html#connecting-with-venv"><i class="fa fa-check"></i><b>21.1.2</b> Connecting with Venv</a></li>
 <li class="chapter" data-level="21.1.3" data-path="ide.html"><a href="ide.html#magic-commends"><i class="fa fa-check"></i><b>21.1.3</b> Magic commends</a></li>
@@ -394,10 +433,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="21.1.5" data-path="ide.html"><a href="ide.html#converting-to-different-formats"><i class="fa fa-check"></i><b>21.1.5</b> Converting to different formats</a></li>
 <li class="chapter" data-level="21.1.6" data-path="ide.html"><a href="ide.html#widgets"><i class="fa fa-check"></i><b>21.1.6</b> widgets</a></li>
 </ul></li>
-<li class="chapter" data-level="21.2" data-path="ide.html"><a href="ide.html#jupiter-lab"><i class="fa fa-check"></i><b>21.2</b> Jupiter Lab</a><ul>
+<li class="chapter" data-level="21.2" data-path="ide.html"><a href="ide.html#jupiter-lab"><i class="fa fa-check"></i><b>21.2</b> Jupiter Lab</a>
+<ul>
 <li class="chapter" data-level="21.2.1" data-path="ide.html"><a href="ide.html#installation-1"><i class="fa fa-check"></i><b>21.2.1</b> Installation</a></li>
 </ul></li>
-<li class="chapter" data-level="21.3" data-path="ide.html"><a href="ide.html#pycharm"><i class="fa fa-check"></i><b>21.3</b> PyCharm</a><ul>
+<li class="chapter" data-level="21.3" data-path="ide.html"><a href="ide.html#pycharm"><i class="fa fa-check"></i><b>21.3</b> PyCharm</a>
+<ul>
 <li class="chapter" data-level="21.3.1" data-path="ide.html"><a href="ide.html#konfiguracja-git-i-github"><i class="fa fa-check"></i><b>21.3.1</b> Konfiguracja Git i GitHub</a></li>
 <li class="chapter" data-level="21.3.2" data-path="ide.html"><a href="ide.html#dodanie-git-do-istniejącego-projektu"><i class="fa fa-check"></i><b>21.3.2</b> Dodanie Git do istniejącego projektu</a></li>
 <li class="chapter" data-level="21.3.3" data-path="ide.html"><a href="ide.html#zmiana-skrotow"><i class="fa fa-check"></i><b>21.3.3</b> Zmiana skrotow</a></li>
@@ -409,7 +450,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="21.4" data-path="ide.html"><a href="ide.html#rstudio"><i class="fa fa-check"></i><b>21.4</b> Rstudio</a></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="installation-2.html"><a href="installation-2.html"><i class="fa fa-check"></i><b>22</b> Installation</a><ul>
+<li class="chapter" data-level="22" data-path="installation-2.html"><a href="installation-2.html"><i class="fa fa-check"></i><b>22</b> Installation</a>
+<ul>
 <li class="chapter" data-level="22.1" data-path="installation-2.html"><a href="installation-2.html#anaconda"><i class="fa fa-check"></i><b>22.1</b> Anaconda</a></li>
 </ul></li>
 <li class="chapter" data-level="23" data-path="intro-1.html"><a href="intro-1.html"><i class="fa fa-check"></i><b>23</b> INTRO</a></li>
@@ -425,7 +467,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Python</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to R</a>
           </h1>
         </div>
 
@@ -433,7 +475,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="other-packages" class="section level1">
+<div id="other-packages" class="section level1" number="14">
 <h1><span class="header-section-number">Chapter 14</span> other packages</h1>
 
 </div>

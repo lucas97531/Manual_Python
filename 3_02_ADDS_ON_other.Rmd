@@ -1,0 +1,106 @@
+## Linter
+
+## AirFlow
+
+## Luigi
+
+## Selenium
+
+## Flask
+
+## Django
+
+## Jupyterbook
+
+[strona projektu](https://jupyterbook.org/intro.html)
+
+Zestaw przetestowanych pakietow:
+
+-   numpy
+
+-   matplolib
+
+-   myst_parser==0.9.1
+
+-   jupyter_book==0.7.1
+
+-   sphinxcontrib-bibtex==1.0.0
+
+Struktura katalogow:
+
+```{r}
+
+glowny_katalog 
+|_> build # w tym pliku sa pliki html 
+|_> katalog na grafike do pliku md 
+|_> css 
+|_> jakis plik md 1 
+|_> jakis plik md 2 
+|_> _config.yml 
+|_> _toc.yaml
+
+
+```
+
+Przykładowa struktura \_config.yaml:
+
+```{r}
+
+
+# Book settings
+title: ML models
+autor: Lukasz Muszynski
+logo: figures/logo.png
+
+
+html:
+  favicon : ""
+  use_edit_page_button: false
+  use_repository_button: false
+  use_issies_button: false
+  extra_nabvar: ""
+  extra_footer: ""
+  google_analytics_id: ""
+  home_page_in_navbar: true
+  baseurl: ""
+
+toc:
+  maxdepth: 4
+
+latex:
+  latex_documents:
+    targetname: book.tex
+
+
+```
+
+Przykladowa struktura \_toc.yaml:
+
+```{r}
+
+
+- file: 1_model.md
+- file: 2_model.md
+  sections:
+    -file: 2_model_A_glimpse.md
+    sections:
+      - file: 2_model_A_pl.md
+      - file: 2_model_A_en.md
+    -file: 2_model_B_glimpse.md
+    sections:
+      - file: 2_model_B_pl.md
+      - file: 2_model_B_en.md
+- file: 3_summary.md
+    sections:
+      - file: 3_summary_pl.md
+      - file: 3_summary_en.md
+  
+
+```
+
+Utworzenie book-a:
+
+1.  Usuwam katalog `_build`
+2.  Uruchamiamy konsolę CMD i uruchamiamy w niej Pythona.
+3.  Ustawiamy się w katalogu nadrzędnym względem naszego katalog z dokumentacją. W tym miejscu wykonujemy komendę `jupyter-book build ./glowny_katalog`
+4.  Po tej operacji powinien utworzyć się znowu katalog \_build zawierający na nowo wygenerowane pliki HTML.

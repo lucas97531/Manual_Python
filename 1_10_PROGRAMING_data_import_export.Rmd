@@ -39,12 +39,23 @@ W pakiecie 'Pandas' jest funkcja ktora umozlwia ladowanie danych z plikow csv i 
 ```{python}
 
 import pandas as pd
+import datetime
 
-pd.read_csv('data.csv')
+# parser do daty
+dateparse = lambda x: datetime.datetime.strptime(x, '%Y-%m-%d')
 
-pd.read_csv('data.csv', sep = '\t', delimiter = ',', thousands = ' ') # ustalamy separator miedzy kolumnami jako tabulacja, separator ulamka w liczbie jako przecinek i separator tysieczny jako spacja
+data = pd.read_csv( 'data/diamonds.txt'
+                   , sep = ',' # separator. Jest jeszcze jako alias pod nazwą 'delimiter'
+                   , decimal = '.' # seprator dla ulamkow
+                   , parse_dates = ['date']  # kolumny datowe ktore beda parsowane
+                   , na_values = '' # braki danych
+                   # na_values=[214.008,'',"blah"]  # braki danych jako lista
+                   # na_values={'a':'bd', 'b':'nan'} # braki jako słownik gdzie specyfikujemy per kolumna
+                   , date_parser = dateparse  # parser do dat
+                   , thousands = ' ' # separator tysieczny
+                   , encoding = 'windows-1252' # useful encodings: latin1, latin2, utf8, windows-1252
+                   , converters = {'z':float})   # reczne wymuszanie typow kolumn
 
-pd.read_csv('data.csv', encoding='udf-8') # ustawienie kodowania
 
 # pelna lista parametrow na stronie:
 https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
@@ -135,7 +146,6 @@ df1.to_excel("output.xlsx", sheet_name = 'Arkusz_10')  # doctest: +SKIP
 ## schowek
 
 Mozemy np. zrobic Ctrl+C komorek w excelu i 'zlapac' tabele bezposrednio do zmiennej typu DataFrame
-
 ```{python}
 import pandas as pd
 

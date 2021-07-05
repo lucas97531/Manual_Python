@@ -121,6 +121,14 @@ jupyter nbconvert --to=html szcieka_pliku.jpynb --TemplateExporter.exclude input
 ```
 
 
+### debuggowanie
+Mozna je robic z pomoca pakietu pixiedust. 
+
+Instalujemy poprzez `pip install pixiedust`
+
+
+
+
 
 ## Jupiter Lab
 
@@ -135,6 +143,29 @@ pip install jupyterlab
 # wczesniej trzeba miec zainstalowany Nodejs
 
 ```
+
+
+Dodanie skrótu klawiaturowego do wykonywania tylko zaznaczonej/bieżącej linijki kodu (w przykładzie przycisk F9):
+Wchodzimy w : Settings -> Advance Settings Editor. Pojawi się nowa zakładka. Po prawej stronie sklejamy poniższy kod i zapisujemy (mała ikonka po prawej na górze)
+
+```{python}
+
+{
+    // List of Keyboard Shortcuts
+    "shortcuts": [
+        {
+            "command": "notebook:run-in-console",
+            "keys": [
+                "F9"
+            ],
+            "selector": ".jp-Notebook.jp-mod-editMode"
+        },
+    ]
+}
+
+
+```
+
 
 
 
@@ -164,7 +195,7 @@ Ustawienia projektu są podpunktem w ustawieniach globalnych: File->settings->Pr
 
 
 ### Uzyteczne skroty
-Ctrl+P - jakie argumenty ma funkcji (wywolujemy kiedy kursor jest w nawiasach)
+Ctrl+P - jakie argumenty ma funkcja (wywolujemy kiedy kursor jest w nawiasach)
 Ctrl+Shift+I - kod funkcji
 Ctrl+q - szybkie informacje na temat funkcji
 
@@ -180,7 +211,6 @@ https://www.youtube.com/watch?v=sRGpvbhOhQs
 
 Dodawania sciezki do debuggowanego pliku:
 ![](figures/pycharm_konfiguracja_debuggera_1.png)
-
 
 
 

@@ -479,13 +479,71 @@ print('abc'*10) # wydrukuj string 'abc' 10 razy
 
 
 # ciag liter
-[chr(x) for x in range(97, 123)]  #  caly alfabet malymi literami
-[chr(x).upper() for x in range(97, 123)] # caly alfabet wielkimi literami
+[chr(x) for x in range(97, 122)]  #  caly alfabet malymi literami
+[chr(x).upper() for x in range(97, 123)] # caly alfabet wielkimi literami (pierwszy sposob)
+[chr(x) for x in range(65, 90)] #caly alfabet wielkimi literami (drugi sposob)
+
+
+# gotowe listy z literami i znakami:
+from string import ascii_letters # lista z duzymi i malymi literami amerykanskimi
+from string import printable  # lista ze znakami drukowanymi 
+
 
 
 
 ```
 
+
+### encode i decode
+
+
+**Encoding**
+Before the character string is stored into the disk, it has to be encoded. The function in python to encode the string is encode as shown below. Here we are applying the ASCII encoding.
+
+Example
+```{python}
+print('Best Tutorials'.encode('ASCII'))
+```
+Output
+Running the above code gives us the following result −
+
+`b'Best Tutorials'`
+
+
+**Decoding**
+When the bytes are read form the disk, to make them human readable, they need to be decoded. In python, we can use the decode function to convert the encoded bytes into strings.
+
+Example
+```{python}
+print(b'Best Tutorials'.decode('ASCII'))
+```
+Running the above code gives us the following result −
+
+`Best Tutorials`
+
+
+Uwaga: encodoewanie/dekodowanie możemy też używać na kolumnach DataFrames. Więce w chapterze o DataFrames. 
+
+```{python}
+
+#create dataframe
+
+import pandas as pd
+d = {'Quarters' : ['quarter1','quarter2','quarter3','quarter4'],
+'Revenue':[23400344.567,54363744.678,56789117.456,4132454.987]}
+df=pd.DataFrame(d)
+print df
+
+
+
+
+# Encode Quarters dataframe in Python
+
+df['Quarters_encoded'] = map(lambda x: x.encode('base64','strict'), df['Quarters'])
+print df
+
+
+```
 
 
 
