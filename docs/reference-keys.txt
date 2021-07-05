@@ -198,8 +198,8 @@ tools-and-tricks
 praca-z-katalogami-i-plikami
 podstawowe-polecenia-w-konsoli
 conda
+pythonpip
 python
-python-1
 pomiar-czasu-wykonania-kodu
 main-i-parametryzacja-z-konsoli
 prosty-przyklad

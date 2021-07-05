@@ -147,7 +147,7 @@ conda create --name nazwa_srodowiska python=3.8
 conda env list  
 
 # usuwanie wirtualnego srodowiska
-conda env remove nazwa srodowiska
+conda env remove --name nazwa_srodowiska
 
 
 # aktywowanie srodowiska 

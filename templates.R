@@ -16,7 +16,7 @@ Przykladowy wpis:
 
 
 
-# Path for git
+# Path for git (przed pushem pamietac o komplikacji HTML !!!!!)
 cd F:\\1_Programs_and_programing\\LANG_PYTHON\\Manual_Python
 
 
