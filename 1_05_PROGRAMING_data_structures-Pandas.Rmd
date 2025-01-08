@@ -1469,7 +1469,7 @@ results = pd.DataFrame()
 for group_name_i, group_i in grouped:
   print(name)
   print(group)
-  group_name_i_df = pd.DataFrame(pd.group_vars, column = group_var)
+  group_name_i_df = pd.DataFrame(group_vars, column = group_var)
   # obliczenia
   # UWAGA: wyniki lepiej zbierać do listy i po zakonczeniu petli for zrobic jeden 'concat'. Robienie wieloktornie 'concat' w petli for bardzo spowalnia obliczenia
   results_i = pd.concat([group_name_i_df, results_i], axis = 1)

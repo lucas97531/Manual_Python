@@ -226,6 +226,34 @@ conn.close()  # zakonczenie polaczenia z baza
 
 ### MySql
 
+### sqlite
+
+```{python}
+
+import sqlite3
+
+# podlaczenie sie do bazy
+con = sqlite3.connect('[sciezka_do_pliku.db]]')
+
+# utworzenie kursora
+cursor = con.cursor()
+
+# pobranie informaji o tabelach w bazie
+cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+tables = cursor.fetchall()
+
+
+import pandas as pd
+table_data = []
+for table_name in tables:
+        # nazwa tabeli
+        table_name = table_name[0]
+        # pobieranie calych tabeli
+        table_data.append(pd.read_sql_query("SELECT * from %s" % table_name, con))
+
+
+```
+
 
 
 

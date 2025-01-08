@@ -325,6 +325,17 @@ np.random.choice([1,2,3,4], size=10, replace=True, p=[0.2,0.2,0.2,0.4]) # tutaj 
 
 ```
 
+### permutacja
+
+```{python}
+
+import random
+
+t1 = [1,2,3,4]
+random.shuffle(t1)
+t1
+
+```
 
 
 

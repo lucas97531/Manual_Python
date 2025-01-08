@@ -139,8 +139,11 @@ conda uninstall nazwa_pakietu
 # uworzenie nowego srodowiska wirtualnego
 conda create --name nazwa_srodowiska
 
-# uworzenie nowego srodowiska wirtualnego zadaniem wersji pythona
+# uworzenie nowego srodowiska wirtualnego z zadaniem wersji pythona
 conda create --name nazwa_srodowiska python=3.8
+
+# utworzenie nowego srodowiska wirtualnego z wykorzystaniem pliku yml
+conda env create -f [sciezka_i_nazwa_pliku.yml]
 
 
 # lista srodowiska wirtualnych

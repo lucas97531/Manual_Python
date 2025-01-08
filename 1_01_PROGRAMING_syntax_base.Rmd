@@ -1,5 +1,14 @@
 # (PART) <lfg>PROGRAMMING</lfg> {-} 
 
+
+To do:
+wyjasnienie _
+class injector
+okreslanie typu argumentow i tymu zwracanego przez funkcje
+
+
+
+
 # Syntax
 
 

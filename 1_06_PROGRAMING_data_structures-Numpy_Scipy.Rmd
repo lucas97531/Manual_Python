@@ -2,8 +2,7 @@
 
 ## Numpy
 
-Fajny cheat sheet do Nympy
-https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Numpy_Python_Cheat_Sheet.pdf
+Fajny cheat sheet do Nympy <https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Numpy_Python_Cheat_Sheet.pdf>
 
 ### Tworzenie
 
@@ -72,6 +71,14 @@ np.ones_like(a) # tworze macierz o takich samych rozmwiarach jak macierz 'a' ale
 np.empty(shape=[3,3], dtype='str') # utworzenie pustej tabeli typu 'str' (tekst)
 np.empty(shape=[3,3], dtype='int') # utworzenie tabeli typu 'int' - bedzie wypelniona losowymi wartosciami
 
+np.linspace(0,10,20) # 20 wartosci rozwno rozlozownych w przedziale 0-10.
+
+np.eye(5) # macierz diagonrlna (dwuwymiarowa) o wymiarach 5x5 
+
+np.random.rand(5,5) # macierz o wymiarach 5x5 z losowymi liczbami z rozkladu jednostajnego
+
+
+
 np.zeros(shape=[3,3]) # utworzenie pustej tabeli o wymiarach 3X3 wypelnionej zerami
 np.ones(shape=[3,3]) # utworzenie pustej tabeli o wymiarach 3X3 wypelnionej jedynkami
 
@@ -85,10 +92,8 @@ np.array([None for _ in range(df.shape[0])]) # vektor wypelniony 'None' o ilosci
 
 ```
 
-
-
 ### atrybuty
- 
+
 Macierze przechowuja dane jednorodne. W macierze (w przeciwienstwie np. do list) nie moze byc dwoch typow danych na raz (np. liczba i tekst)
 
 ```{python}
@@ -121,12 +126,12 @@ a.dtype # typ przechowywanych danych
 
 ```
 
-
 ### odwolywanie sie przez indeksy
 
 Dla macierzy jednowymiarowych sytuacja jest tak jak przy listach.
 
 Macierze dwuwymiarowe
+
 ```{python}
 
 # tworze macierz o wymiarach 4x3 (4 wiersze, 3 kolumny)
@@ -142,8 +147,8 @@ a[a.shape[0]-1, : ] # ostatni wiersz
 
 ```
 
-
 Macierze wielowymiarowe
+
 ```{python}
 
 # tworze macierz o wymiarach 2x2x2
@@ -182,7 +187,6 @@ a[:,2,:] # bok macierzy (prawy)
 
 ```
 
-
 ### filtrowanie
 
 ```{python}
@@ -195,12 +199,10 @@ a.diagonal() # elementy diagonalne
  
 ```
 
-
-
-
 ### aktualizacja wartosci
 
 Aktualizajca po indeksach
+
 ```{python}
 
 a = np.array([[1,2,3],[4,5,6]])
@@ -212,8 +214,8 @@ a = np.array([[1,2,3],[4,5,6]])
 
 ```
 
-
 Aktualizacja po warunkach
+
 ```{python}
 
 a = np.array([[1,2,3],[4,5,6]])
@@ -221,9 +223,7 @@ np.where(a > 3, a, 20) # przypisujemy wartosc 20 dla elementow '>3'
 
 ```
 
-
 ### usuwanie
-
 
 ```{python}
 
@@ -247,12 +247,10 @@ np.extract(a>3, a) # wyciagniecie elementow '>3'
 
 ```
 
-
-
-
 ### zmiana kszatłtu i transpozycja
 
 Transpozycja
+
 ```{python}
 
 #(1) transpozycja macierzy kwadratowej
@@ -267,8 +265,8 @@ np.transpose(a, axes=(1,0,2) ) # wymiary teraz maja byc w kolejnosci: wymiar pie
 
 ```
 
-
 Zmiana ksztaltu
+
 ```{python}
 
 # macierz o wymiarach 2x6 (2 wiersze , 6 kolumn)
@@ -289,7 +287,6 @@ a2.shape
 
 ```
 
-
 Dodanie wymiaru
 
 ```{python}
@@ -301,8 +298,6 @@ a = np.expand_dims(a = a, axis = 0) # dodaje pierwszy wymiar
 a = np.expand_dims(a = a, axis = 0) # dodaje drugi wymiar
 
 ```
-
-
 
 ### bindowanie array
 
@@ -345,9 +340,6 @@ np.append(a1, a3.transpose((1,2,0)), axis = 2) # doklejenie w tyl - teraz pasuje
 
 ```
 
-
-
-
 Przykład dopasowywania rozmarow macierzy i roznej wymiarowosci przy bindowaniu
 
 ```{python}
@@ -375,8 +367,6 @@ matrix_2=np.append(matrix_1, s_c, axis = 1)
 
 ```
 
-
-
 ### bindowanie array z listy
 
 ```{python}
@@ -390,8 +380,6 @@ np.concatenate(arrays_list, axis = 0)
 np.stack(arrays_list, axis = 0)
 
 ```
-
-
 
 ### operacje na kilku macierzach zwracajece jedna macierz
 
@@ -407,11 +395,7 @@ a1 * a2  # kolejne elementy kazdego wiersza a2 sa mnozone przez kolejne elementy
 
 ```
 
-
-
-
 ### sortowanie
-
 
 ```{python}
 
@@ -422,7 +406,6 @@ a1[np.argsort(a1[:, 0]),:] # po sortowanie po pierwszej kolumnnie
 a1[:,np.argsort(a1[0, :])] # po sortowanie po pierwszym wierszu
 
 ```
-
 
 ### funkcje na macierzach
 
@@ -449,8 +432,6 @@ np.apply_over_axes(func=lambda x, y: np.sum(x**2,y) , a=a2, axes=[0,1]) # sumowa
 
 ```
 
-
-
 ### braki danych i wartosci nieskonczone
 
 ```{python}
@@ -470,8 +451,11 @@ a
 
 ```
 
+### uzywanie partition
 
+Przydaje sie np. do wyszkukania k-najwiekszych wartosci. Albo pozycji k najwiekszych wartosci.
 
+[link](https://kanoki.org/2020/01/14/find-k-smallest-and-largest-values-and-its-indices-in-a-numpy-array/)
 
 ### rozne funkcje i triki
 
@@ -496,12 +480,4 @@ a.argmax(axis=0) # pozycja najwiekszego elementu dla kazdej kolumny
 
 ```
 
-
-
-
-
 ## Scipy
-
-
-
-
